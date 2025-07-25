@@ -3,61 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Odysse auf See</title>
+  <title>Odyssee auf See</title>
   <style>
-    body {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
       font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #fdfdfd;
     }
-    header, footer {
-      text-align: center;
-      padding: 10px;
-      background-color: #eee;
-      border-radius: 8px;
+
+    .background {
+      background-image: url('images/background.jpg'); /* Replace with your background image */
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      height: 100%;
+      position: relative;
     }
-    h1, h2 {
-      color: #333;
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      gap: 2vw;
     }
-    article {
-      margin-top: 30px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid #ccc;
+
+    .portrait-img {
+      width: auto;
+      height: 80vh; /* Maintains 9:16 ratio */
+      aspect-ratio: 9 / 16;
+      background-color: rgba(255, 255, 255, 0.2); /* Placeholder background */
+      border: 2px solid #fff;
+      border-radius: 12px;
+      object-fit: cover;
     }
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #0077cc;
-    }
-    nav a:hover {
-      text-decoration: underline;
+
+    @media (max-width: 768px) {
+      .image-container {
+        flex-direction: column;
+        gap: 3vh;
+      }
+      .portrait-img {
+        height: 40vh;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Odyssee auf See</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <article>
-      <h2>Welcome to My Blog!</h2>
-      <p><em>Posted on July 25, 2025</em></p>
-      <p>This is my first blog post. I'm excited to share my thoughts, stories, and adventures with the world. Stay tuned for more!</p>
-    </article>
-  </main>
-
-  <footer>
-    <p>© 2025 My Simple Blog</p>
-  </footer>
+  <div class="background">
+    <div class="image-container">
+      <img src="images/img1.jpg" alt="Placeholder 1" class="portrait-img" />
+      <img src="images/img2.jpg" alt="Placeholder 2" class="portrait-img" />
+      <img src="images/img3.jpg" alt="Placeholder 3" class="portrait-img" />
+    </div>
+  </div>
 
 </body>
 </html>
