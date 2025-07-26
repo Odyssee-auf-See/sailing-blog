@@ -208,6 +208,33 @@
       max-width: 700px;
       margin-bottom: 2rem;
     }
+
+
+    /* For smaller/mobile screens */
+    @media (max-width: 600px) {
+      .title {
+        font-size: 5.5vw;        /* bigger relative font for smaller width */
+        letter-spacing: 1.5vw; /* reduce letter spacing */
+      }
+
+      .menu a {
+        font-size: 0.6rem;
+      }
+
+      .content h2 {
+        font-size: 1.5rem;
+      }
+
+      .content p {
+        font-size: 0.9rem;
+      }
+
+      .title.sticky {
+        font-size: 2vw; /* smaller font for sticky title on mobile */
+        letter-spacing: 0.3vw; /* reduce letter spacing for sticky title */
+        padding: 0.4rem 0.8rem; /* adjust padding for smaller screens */
+      }
+    }
   </style>
 </head>
 <body>
