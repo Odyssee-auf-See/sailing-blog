@@ -37,7 +37,7 @@ function initLandingPage() {
   });
 }
 
-//=== Funciton to load Header-Burger Functions====//
+//=== Funciton to Header & load Header-Burger Functions====//
 function initHeader(){
   const burger = document.getElementById('burger');
   const menuDropdown = document.getElementById('menuDropdown');
@@ -56,26 +56,14 @@ const res = await fetch(url);
 const html = await res.text();
 document.getElementById(id).innerHTML = html;
 
-
-//loads initLandingPage Funciton if landing_page.html is laoded
-if (url === 'landing_page.html') {
-    // Wait a tick to ensure elements are in DOM
-    setTimeout(() => {
-    if (typeof initLandingPage === 'function') {
-        initLandingPage();
-    }
-    }, 0);
-}
-
-//loads initHeader Funciton if header.html is laoded
-if (url === 'header.html') {
-    // Wait a tick to ensure elements are in DOM
-    setTimeout(() => {
-    if (typeof initHeader === 'function') {
-        initHeader();
-    }
-    }, 0);
-}
+  //load functions for each page
+  if (url === 'landing_page.html' && typeof initLandingPage === 'function') {
+    initLandingPage();
+  }
+  if (url === 'header.html' && typeof initHeader === 'function') {
+    initHeader();
+  }
+  
 
 }
 
