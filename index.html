@@ -1,92 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Odyssee auf See</title>
-
-  <!-- Fonts & Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=sailing" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;800&display=swap" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet"/>
+  <!--Java Script for advanced functionalities-->
+  <script src="script.js"></script>
 
-  <!-- Your Custom CSS -->
-  <link rel="stylesheet" href="styles.css" />
+
+
+  
 </head>
 <body>
-  <!-- Dynamically loaded header -->
-  <div id="header-placeholder"></div>
-
-  <!-- Background Title Section -->
-  <div class="background">
-    <div class="title" id="mainTitle">ODYSSEE AUF SEE</div>
+  <div id="content">
+    <div id="landing" class="section"></div>
+    <div id="blog" class="section"></div>
   </div>
-
-  <!-- Main Content Section -->
-  <div class="content">
-    <h2>Unsere Reise beginnt</h2>
-    <p>
-      Willkommen auf unserer Seite! Wir sind Lea und Vito und nehmen euch mit auf unsere Odyssee auf See.
-      Nach Jahren der Träume und Planungen haben wir endlich unser Segelboot gekauft – und das Abenteuer beginnt.
-    </p>
-    <p>
-      Hier findet ihr Geschichten, Bilder und Eindrücke unserer Reise. Klickt euch durch unseren Blog, seht euch
-      unsere Lieblingsmomente in der Bildergalerie an, und wenn ihr selbst Seeluft schnuppern wollt, schaut bei "Join Us" vorbei.
-    </p>
-    <p>
-      Viel Spaß beim Mitsegeln! <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    </p>
-  </div>
-
-  <!-- Load Header and Initialize Sticky Logic -->
-  <script>
-    fetch('header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('header-placeholder').innerHTML = data;
-        initHeader(); // Initialize header after it's injected
-      });
-
-    function initHeader() {
-      const title = document.getElementById('mainTitle');
-      const stickyBar = document.getElementById('stickyBar');
-      const burger = document.getElementById('burger');
-      const menu = document.getElementById('menu');
-      const menuDropdown = document.getElementById('menuDropdown');
-
-      window.addEventListener('scroll', () => {
-        const offset = window.scrollY;
-        const triggertitle = window.innerHeight * 0.3;
-        const triggerbar = document.querySelector('.background').offsetHeight;
-
-        // Sticky title logic
-        if (offset > triggertitle) {
-          title.classList.add('sticky');
-        } else {
-          title.classList.remove('sticky');
-        }
-
-        // Sticky bar + menu toggle logic
-        if (offset > triggerbar) {
-          stickyBar.classList.add('active');
-          burger.style.display = 'flex';
-          menu.style.display = 'none';
-        } else {
-          stickyBar.classList.remove('active');
-          burger.style.display = 'none';
-          menu.style.display = 'flex';
-          menuDropdown.classList.remove('open');
-          burger.classList.remove('open');
-        }
-      });
-
-      // Burger click toggle
-      burger.addEventListener('click', () => {
-        burger.classList.toggle('open');
-        menuDropdown.classList.toggle('open');
-      });
-    }
-  </script>
 </body>
 </html>
+
+
+
+<script>
+//content-section loading
+loadHTML('landing', 'landing_page.html');
+loadHTML('blog', 'blog.html');
+</script>
