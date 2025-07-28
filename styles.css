@@ -1,4 +1,8 @@
 
+/*###########################################*/
+/*======== Allgemeine Einstellungen =========*/
+/*###########################################*/
+
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +16,37 @@ html, body {
   overflow-x: hidden;
   background-color: white;
 }
+
+
+/*======== Section ========*/
+.section {
+  background-color: rgb(255, 255, 255);
+  font-family: 'Source Code Pro', monospace;
+  margin: 5.5rem 2.5rem;
+  z-index: 1;
+}
+
+
+.section h2{
+  background-color: white;
+  font-size: 2rem;
+  line-height: 2;
+}
+
+.section p {
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 700px;
+      margin-bottom: 2rem;
+}
+
+
+
+/*###########################################*/
+/*============== Landing Page ===============*/
+/*###########################################*/
+
 
 /*======== Landing page Hintergrundbild ========*/
 .background {
@@ -96,5 +131,138 @@ html, body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+
+
+/*###########################################*/
+/*=============== Header Bar ================*/
+/*###########################################*/
+
+  .fixedMenueBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #00536e;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+  }
+  .socialsDiv,
+  .burgerMenueDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .socialsDiv {
+    color: white;
+    font-size: 20px;
+    width: 25%;
+    justify-content: flex-start;
+    padding-left: 3rem;
+  }
+
+  .burgerMenueDiv {
+    width: 25%;
+    justify-content: flex-end;
+    position: relative; /* for dropdown positioning */
+  }
+
+  .burger {
+    height: 100%;
+    background: #00536e;
+    border: none;
+    padding: 0 1.5rem 0 0;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content:flex-end;
+    height: 100%;
+    z-index: 11;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 48;
+    color: white;
+  }
+
+  .menu-dropdown {
+    font-family: 'Source Code Pro', monospace;
+    position: fixed;
+    right: 3rem; /* align from right edge near burger */
+    background: #00536e;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+    align-items: flex-start;
+    padding: 0.3rem 0.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(calc(100% + 10px));
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 11;
+    min-width: 180px;
+  }
+
+  .menu-dropdown.open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu-dropdown a {
+    color: white;
+    font-weight: 700;
+    white-space: nowrap;
+    text-decoration: none;
+    padding: 0 0.5rem;
+    font-size: 0.7rem;
+    border-bottom: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .menu-dropdown a:hover {
+    transform: scale(1.2);
+  }
+
+
+/*###########################################*/
+/*======== Sizes adjusted for Mobile ========*/
+/*###########################################*/
+@media (max-width: 600px) {
+  .title {
+    font-size: 5.5vw;        /* bigger relative font for smaller width */
+    letter-spacing: 1.5vw; /* reduce letter spacing */
+  }
+
+  .menu a {
+    font-size: 0.6rem;
+  }
+
+  .content h2 {
+    font-size: 1.5rem;
+  }
+
+  .content p {
+    font-size: 0.9rem;
+  }
+
+  .title.sticky {
+    font-size: 2vw; /* smaller font for sticky title on mobile */
+    letter-spacing: 0.3vw; /* reduce letter spacing for sticky title */
+    padding: 0.4rem 0.8rem; /* adjust padding for smaller screens */
   }
 }
