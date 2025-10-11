@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Blog 1",
+    "summary": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut",
+    "image": "blog/images/blog_1.jpg",
+    "link": "posts/sicily.html",
+    "date": "2025-08-20"
+  },
+  {
+    "title": "Blog 2",
+    "summary": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    "image": "blog/images/blog_2.jpg",
+    "link": "posts/sardinia.html",
+    "date": "2025-09-19"
+  },
+  {
+    "title": "Blog 3",
+    "summary": "",
+    "image": "blog/images/blog_3.heic",
+    "link": "posts/sicily.html",
+    "date": "2025-09-18"
+  },
+  {
+    "title": "Blog 4",
+    "summary": "",
+    "image": "blog/images/blog_4.jpg",
+    "link": "posts/sardinia.html",
+    "date": "2025-09-17"
+  },
+  {
+    "title": "Blog 5",
+    "summary": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labo",
+    "image": "blog/images/blog_5.jpg",
+    "link": "posts/sicily.html",
+    "date": "2025-09-20"
+  },
+  {
+    "title": "Blog 6",
+    "summary": "",
+    "image": "blog/images/blog_6.jpg",
+    "link": "posts/sardinia.html",
+    "date": "2025-07-15"
+  },
+  {
+    "title": "Blog 7",
+    "summary": "",
+    "image": "blog/images/blog_7.jpg",
+    "link": "posts/sicily.html",
+    "date": "2025-09-14"
+  }
+]

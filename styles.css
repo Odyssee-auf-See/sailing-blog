@@ -15,6 +15,7 @@ html, body {
   scroll-behavior: smooth;
   overflow-x: hidden;
   background-color: white;
+  font-size: clamp(12px, 2vw, 18px);
 }
 
 
@@ -22,7 +23,7 @@ html, body {
 .section {
   background-color: rgb(255, 255, 255);
   font-family: 'Source Code Pro', monospace;
-  margin: 5.5rem 2.5rem;
+  margin: 5.5rem 15%;
   z-index: 1;
 }
 
@@ -37,7 +38,7 @@ html, body {
       font-weight: 300;
       font-size: 1rem;
       line-height: 1.6;
-      max-width: 700px;
+      max-width: auto;
       margin-bottom: 2rem;
 }
 
@@ -53,7 +54,7 @@ html, body {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url('images/background1.jpg') center/cover no-repeat;
+  background: url('images/background.jpg') center/cover no-repeat;
   z-index: 5;
 }
 
@@ -265,5 +266,167 @@ html, body {
     font-size: 2vw; /* smaller font for sticky title on mobile */
     letter-spacing: 0.3vw; /* reduce letter spacing for sticky title */
     padding: 0.4rem 0.8rem; /* adjust padding for smaller screens */
+  }
+}
+
+
+
+/*###########################################*/
+/*=============== Blog Page  ================*/
+/*###########################################*/
+
+
+
+    .blog-container {
+      max-width: auto;
+      margin: 0 ;
+    }
+
+    /* Newest post section */
+    .blog-new {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* left = image, right = text */
+      background: white;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .blog-new img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 4;
+    }
+
+    .blog-new-content {
+      background-color: rgb(255, 255, 255);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .blog-new-content h2 {
+      margin: 0 0 10px;
+    }
+
+    .blog-new-content p {
+      margin: 0 0 20px;
+    }
+
+      /* Wavy Button */
+      .wave-button {
+        width: 4.1rem;
+        height: 1.5rem;
+        background: rgb(255, 255, 255);
+        border: 0.5mm solid rgb(0 82 110);
+        border-radius: 0mm;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: 0.3s;
+        
+      }
+
+      .wave-button .text {
+        font-size: 0.8rem;
+        color:rgb(0 82 110);
+        font-weight: bold;
+        z-index: 1;
+        position: relative;
+      }
+
+
+      .wave {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: url('/images/button_wave.png');
+        background-size: 200% 100%;
+        top: 100%;
+        left: 0;
+        animation: wave 0.8s linear infinite;
+        transition: 1s;
+      }
+
+      @keyframes wave {
+        from {
+          background-position-x: 0;
+        }
+        to {
+          background-position-x: 200%;
+        }
+      }
+      button:hover .wave {
+        top: 0%;
+      }
+
+
+/* Older posts grid */
+.blog-rest {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:5px;
+}
+
+.blog-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  aspect-ratio: 4 / 4;
+}
+
+.blog-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.4s ease;
+}
+
+.blog-card:hover img {
+  filter: grayscale(100%);
+}
+
+/* Overlay for title */
+.blog-card-content {
+  font-family: 'Source Code Pro', monospace;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.4); /* subtle dark overlay */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.blog-card:hover .blog-card-content {
+  opacity: 1;
+}
+
+.blog-card-content h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0;
+}
+
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .blog-rest {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .blog-new {
+    grid-template-columns: 1fr; /* stack image and text */
+  }
+  .blog-rest {
+    grid-template-columns: 1fr;
   }
 }

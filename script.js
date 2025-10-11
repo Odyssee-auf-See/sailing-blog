@@ -63,7 +63,47 @@ document.getElementById(id).innerHTML = html;
   if (url === 'header.html' && typeof initHeader === 'function') {
     initHeader();
   }
-  
+  if (url === 'blog.html' && typeof loadPosts() === 'function') {
+    loadPosts();
+  }
 
 }
+
+
+//=== Funciton to load Blog Elements and order them ====//
+async function loadPosts() {
+  const response = await fetch("blog/blog_metadata.json");
+  const posts = await response.json();
+
+  // Sort by date (newest first)
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  // Featured (first one)
+  const newest = posts[0];
+  document.querySelector(".blog-new").innerHTML = `
+    <img src="${newest.image}" alt="${newest.title}">
+    <div class="blog-new-content">
+      <h2>${newest.title}</h2>
+      <p>${newest.summary}</p>
+      <button class="wave-button" onclick="location.href='${newest.link}'">
+          <div class="text">Mehr</div>
+          <div class="wave"></div>
+      </button>
+    </div>
+  `;
+
+  // Older ones (next 6)
+  const blogRest = document.querySelector(".blog-rest");
+  blogRest.innerHTML = posts.slice(1, 7).map(post => `
+    <div class="blog-card">
+      <img src="${post.image}" alt="${post.title}">
+      <div class="blog-card-content">
+        <h3>${post.title}</h3>
+      </div>
+    </div>
+  `).join("");
+}
+
+
+
 
