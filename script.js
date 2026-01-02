@@ -1,51 +1,21 @@
 
-//=== Funciton to move the landing page title to the top of the screen ====//
-function initLandingPage() {
-  const title = document.getElementById('mainTitle');
-  if (!title) {
-    console.warn('mainTitle element not found!');
-    return;
-  }
-
-  //Title Background Image 
-  const backgroundImage = document.getElementById("titleBackgroundImage");
-
-  window.addEventListener('scroll', () => {
-    //offset --> scroll point of Y-Axis on Screen
-    const offset = window.scrollY;
-    //trigger point for when the title moves to the top of the screen (when 30% of the scren is scrolled past)
-    const triggertitle = window.innerHeight * 0.3;
-
-    if (offset > triggertitle) {
-      if (!title.classList.contains('sticky')) {
-        title.classList.add('sticky');
-      }
-    } else {
-      if (title.classList.contains('sticky')) {
-        title.classList.remove('sticky');
-      }
-    }
-  
-    // variable for the bottom edge of the Title Backgorund Image
-    const imageBottom = backgroundImage.getBoundingClientRect().bottom;
-    // Trigger 2: hide title when it's no longer above the background image
-    if (imageBottom <= 0) {
-      mainTitle.classList.remove("sticky"); 
-    } 
-  
-  
-  });
-}
-
 //=== Funciton to Header & load Header-Burger Functions====//
-function initHeader(){
-  const burger = document.getElementById('burger');
+function initMenuBar(){
+  const burgerBtn = document.getElementById('burger');
   const menuDropdown = document.getElementById('menuDropdown');
+  const menuOverlay = document.getElementById('menuOverlay');
 
-  burger.addEventListener('click', () => {
-    const isOpen = menuDropdown.classList.toggle('open');
-    burger.setAttribute('aria-expanded', isOpen);
-    menuDropdown.setAttribute('aria-hidden', !isOpen);
+  burgerBtn.addEventListener('click', () => {
+    burgerBtn.classList.toggle('active');
+    menuDropdown.classList.toggle('active');
+    menuOverlay.classList.toggle('active'); // Toggles the blur
+  });
+
+  // Close when clicking the overlay
+  menuOverlay.addEventListener('click', () => {
+    burgerBtn.classList.remove('active');
+    menuDropdown.classList.remove('active');
+    menuOverlay.classList.remove('active');
   });
 }
 
@@ -57,11 +27,11 @@ const html = await res.text();
 document.getElementById(id).innerHTML = html;
 
   //load functions for each page
-  if (url === 'landing_page.html' && typeof initLandingPage === 'function') {
+  if (url === 'landing_page/landing_page.html' && typeof initLandingPage() === 'function') {
     initLandingPage();
   }
-  if (url === 'header.html' && typeof initHeader === 'function') {
-    initHeader();
+  if (url === 'menu_bar/menu_bar.html' && typeof initMenuBar() === 'function') {
+    initMenuBar();
   }
   if (url === 'blog.html' && typeof loadPosts() === 'function') {
     loadPosts();
@@ -70,7 +40,7 @@ document.getElementById(id).innerHTML = html;
 }
 
 
-//=== Funciton to load Blog Elements and order them ====//
+//=== Function to load Blog Elements into the Grid ===//
 async function loadPosts() {
   const response = await fetch("blog/blog_metadata.json");
   const posts = await response.json();
@@ -78,31 +48,52 @@ async function loadPosts() {
   // Sort by date (newest first)
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  // Featured (first one)
-  const newest = posts[0];
-  document.querySelector(".blog-new").innerHTML = `
-    <img src="${newest.image}" alt="${newest.title}">
-    <div class="blog-new-content">
-      <h2>${newest.title}</h2>
-      <p>${newest.summary}</p>
-      <button class="wave-button" onclick="location.href='${newest.link}'">
-          <div class="text">Mehr</div>
-          <div class="wave"></div>
-      </button>
-    </div>
-  `;
+  const grid = document.querySelector(".blog-grid");
+  grid.innerHTML = ""; // clear previous content
 
-  // Older ones (next 6)
-  const blogRest = document.querySelector(".blog-rest");
-  blogRest.innerHTML = posts.slice(1, 7).map(post => `
-    <div class="blog-card">
-      <img src="${post.image}" alt="${post.title}">
-      <div class="blog-card-content">
-        <h3>${post.title}</h3>
-      </div>
-    </div>
-  `).join("");
+  let rowIndex = 0;
+
+  for (let i = 0; i < posts.length; ) {
+    rowIndex++;
+    const row = document.createElement("div");
+    row.classList.add("blog-row");
+
+    // Pattern logic (repeats every 4 rows)
+    const pattern = rowIndex % 4;
+
+    if (pattern === 1) {
+      // Row 1: 2/3 + 1/3
+      appendPost(row, posts[i++], "two-third");
+      if (posts[i]) appendPost(row, posts[i++], "one-third");
+    } else if (pattern === 2) {
+      // Row 2: 1/3 + 1/3 + 1/3
+      for (let j = 0; j < 3 && posts[i]; j++) appendPost(row, posts[i++], "one-third");
+    } else if (pattern === 3) {
+      // Row 3: 1/3 + 2/3
+      if (posts[i]) appendPost(row, posts[i++], "one-third");
+      if (posts[i]) appendPost(row, posts[i++], "two-third");
+    } else {
+      // Row 4: 1/3 + 1/3 + 1/3
+      for (let j = 0; j < 3 && posts[i]; j++) appendPost(row, posts[i++], "one-third");
+    }
+
+    grid.appendChild(row);
+  }
 }
+
+// Helper to create post elements
+function appendPost(row, post, sizeClass) {
+  const postDiv = document.createElement("div");
+  postDiv.classList.add("blog-post", sizeClass);
+  postDiv.innerHTML = `
+    <a href="${post.link}">
+      <img src="${post.image}" alt="${post.title}">
+      <div class="overlay">${post.title}</div>
+    </a>
+  `;
+  row.appendChild(postDiv);
+}
+
 
 
 

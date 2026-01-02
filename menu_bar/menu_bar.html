@@ -1,0 +1,51 @@
+
+
+<div class="MenueBar">
+  <div class="MenuBarLogo">
+    <span class="MenuBarLogoIcon"></span>
+  </div>
+  
+  <div class="MenuBarText">
+    ODYSSEE AUF SEE
+  </div>
+  
+  <div class="burgerMenueDiv">
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menuDropdown" type="button">
+      <div class="burger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+  </div>
+</div>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<nav class="menu-dropdown" id="menuDropdown">
+  <a href="#">HOME</a>
+  <a href="#">ÜBER UNS</a>
+  <a href="#">BLOG</a>
+  <a href="#">BILDER</a>
+  <a href="#">JOIN US</a>
+</nav>
+
+<script>
+const burgerBtn = document.getElementById('burger');
+const menuDropdown = document.getElementById('menuDropdown');
+const menuOverlay = document.getElementById('menuOverlay');
+
+burgerBtn.addEventListener('click', () => {
+  burgerBtn.classList.toggle('active');
+  menuDropdown.classList.toggle('active');
+  menuOverlay.classList.toggle('active'); // Toggles the blur
+});
+
+// Close when clicking the overlay
+menuOverlay.addEventListener('click', () => {
+  burgerBtn.classList.remove('active');
+  menuDropdown.classList.remove('active');
+  menuOverlay.classList.remove('active');
+});
+</script>
+
