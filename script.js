@@ -1,17 +1,33 @@
 
-//=== Funciton to Header & load Header-Burger Functions====//
+//=== Funciton to  MenuBar & load Header-Burger Functions====//
 function initMenuBar(){
   const burgerBtn = document.getElementById('burger');
   const menuDropdown = document.getElementById('menuDropdown');
   const menuOverlay = document.getElementById('menuOverlay');
+  const logoBtn = document.getElementById('logoScrollTop'); // New reference
 
+  // --- Scroll to Top Logic ---
+  if (logoBtn) {
+    logoBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // This makes the scroll "glide" instead of jump
+      });
+      
+      // Optional: Close the menu if it was open when clicking the logo
+      burgerBtn.classList.remove('active');
+      menuDropdown.classList.remove('active');
+      menuOverlay.classList.remove('active');
+    });
+  }
+
+  // --- Burger Logic  ---
   burgerBtn.addEventListener('click', () => {
     burgerBtn.classList.toggle('active');
     menuDropdown.classList.toggle('active');
-    menuOverlay.classList.toggle('active'); // Toggles the blur
+    menuOverlay.classList.toggle('active');
   });
 
-  // Close when clicking the overlay
   menuOverlay.addEventListener('click', () => {
     burgerBtn.classList.remove('active');
     menuDropdown.classList.remove('active');
@@ -22,21 +38,21 @@ function initMenuBar(){
 
 //=== laods HTML by file name and injects it into index ====//
 async function loadHTML(id, url) {
-const res = await fetch(url);
-const html = await res.text();
-document.getElementById(id).innerHTML = html;
+  try {
+    const res = await fetch(url);
+    const html = await res.text();
+    const container = document.getElementById(id);
+    container.innerHTML = html;
 
-  //load functions for each page
-  if (url === 'landing_page/landing_page.html' && typeof initLandingPage() === 'function') {
-    initLandingPage();
+    // Small delay to ensure the browser has painted the new HTML
+    setTimeout(() => {
+      if (url.includes('menu_bar.html')) initMenuBar?.();
+      if (url.includes('blog.html')) loadPosts?.();
+    }, 0);
+    
+  } catch (err) {
+    console.error("Failed to load page part:", url, err);
   }
-  if (url === 'menu_bar/menu_bar.html' && typeof initMenuBar() === 'function') {
-    initMenuBar();
-  }
-  if (url === 'blog.html' && typeof loadPosts() === 'function') {
-    loadPosts();
-  }
-
 }
 
 

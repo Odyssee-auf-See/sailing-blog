@@ -1,9 +1,13 @@
 
 
-<div class="MenueBar">
+<div class="MenuBar">
+
   <div class="MenuBarLogo">
-    <span class="MenuBarLogoIcon"></span>
+    <a href="javascript:void(0)" id="logoScrollTop" class="LogoLink">
+      <span class="MenuBarLogoIcon"></span>
+    </a>
   </div>
+
   
   <div class="MenuBarText">
     ODYSSEE AUF SEE
@@ -30,22 +34,5 @@
   <a href="#">JOIN US</a>
 </nav>
 
-<script>
-const burgerBtn = document.getElementById('burger');
-const menuDropdown = document.getElementById('menuDropdown');
-const menuOverlay = document.getElementById('menuOverlay');
 
-burgerBtn.addEventListener('click', () => {
-  burgerBtn.classList.toggle('active');
-  menuDropdown.classList.toggle('active');
-  menuOverlay.classList.toggle('active'); // Toggles the blur
-});
-
-// Close when clicking the overlay
-menuOverlay.addEventListener('click', () => {
-  burgerBtn.classList.remove('active');
-  menuDropdown.classList.remove('active');
-  menuOverlay.classList.remove('active');
-});
-</script>
 
