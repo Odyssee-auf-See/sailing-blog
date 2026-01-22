@@ -1,51 +1,121 @@
 [
   {
-    "title": "Baden in Kroatien",
-    "summary": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut",
+    "title": "The Future of Web Design",
+    "date": "2024-05-15",
+    "tag": "Reisen",
     "image": "blog/images/blog_1.jpg",
-    "link": "posts/sicily.html",
-    "date": "2025-08-20"
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024...Exploration of how AI and spatial computing are changing the way. Exploration of how AI and spatial computing are changing the way. →"
   },
   {
-    "title": "Zmorge Müesli",
-    "summary": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-10",
+    "tag": "Boot",
     "image": "blog/images/blog_2.jpg",
-    "link": "posts/sardinia.html",
-    "date": "2025-09-19"
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
   },
   {
-    "title": "Erneuerung Rig",
-    "summary": "",
-    "image": "blog/images/blog_3.heic",
-    "link": "posts/sicily.html",
-    "date": "2025-09-18"
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-11",
+    "tag": "Nachhaltigkeit",
+    "image": "blog/images/blog_3.jpg",
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
   },
   {
-    "title": "Im tiefen Blau",
-    "summary": "",
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-12",
+    "tag": "Reisen",
     "image": "blog/images/blog_4.jpg",
-    "link": "posts/sardinia.html",
-    "date": "2025-09-17"
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
   },
   {
-    "title": "Blog 5",
-    "summary": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labo",
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-13",
+    "tag": "Gedankenchaos",
     "image": "blog/images/blog_5.jpg",
-    "link": "posts/sicily.html",
-    "date": "2025-09-20"
-  },
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
+  }, 
   {
-    "title": "Lea im Mast",
-    "summary": "",
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-14",
+    "tag": "Boot",
     "image": "blog/images/blog_6.jpg",
-    "link": "posts/sardinia.html",
-    "date": "2025-07-15"
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
+  }, 
+  {
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-15",
+    "tag": "Reisen",
+    "image": "blog/images/blog_7.jpg",
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
+  }, 
+  {
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-16",
+    "tag": "Reisen",
+    "image": "blog/images/blog_8.jpg",
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
   },
   {
-    "title": "Refit Odyssee",
-    "summary": "",
-    "image": "blog/images/blog_7.jpg",
-    "link": "posts/sicily.html",
-    "date": "2025-09-14"
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-17",
+    "tag": "Nachhaltigkeit",
+    "image": "blog/images/blog_9.heic",
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
+  },
+  {
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-18",
+    "tag": "Boot",
+    "image": "blog/images/blog_10.jpg",
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
+  },
+  {
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-20",
+    "tag": "Boot",
+    "image": "blog/images/blog_11.jpg",
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
+  },
+  {
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-21",
+    "tag": "Boot",
+    "image": "blog/images/blog_12.jpg",
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
+  },
+  {
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-22",
+    "tag": "Boot",
+    "image": "blog/images/blog_13.jpg",
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
+  },
+  {
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-23",
+    "tag": "Boot",
+    "image": "blog/images/blog_14.jpg",
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
+  },
+  {
+    "title": "JavaScript Performance Tips",
+    "date": "2024-04-24",
+    "tag": "Boot",
+    "image": "blog/images/blog_15.jpg",
+    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024..."
+
   }
 ]

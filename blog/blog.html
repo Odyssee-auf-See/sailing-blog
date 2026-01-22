@@ -1,0 +1,26 @@
+<main class="blog-container">
+  <h1 class="blog-header">Logbuch</h1>
+
+  <div class="filter-box">
+    <button class="filter-btn active" onclick="filterBlog('Alle')">Alle</button>
+    <button class="filter-btn" onclick="filterBlog('Reisen')">Reisen</button>
+    <button class="filter-btn" onclick="filterBlog('Boot')">Boot</button>
+    <button class="filter-btn" onclick="filterBlog('Nachhaltigkeit')">Nachhaltigkeit</button>
+    <button class="filter-btn" onclick="filterBlog('Gedankenchaos')">Gedankenchaos</button>
+  </div>
+
+<div class="blog-layout-wrapper">
+    <div id="featured-section"></div>
+    
+    <div id="masonry-section" class="masonry-columns-container">
+        <div class="masonry-col" id="col-1"></div>
+        <div class="masonry-col" id="col-2"></div>
+        <div class="masonry-col" id="col-3"></div>
+    </div>
+</div>
+  <div class="load-more-container">
+    <button id="loadMoreBtn" class="load-more-btn" onclick="showAllPosts()">Ältere Beiträge laden</button>
+  </div>
+</main>
+
+

@@ -8,6 +8,7 @@
   padding: 0;
   box-sizing: border-box;
   line-height: 25px;
+  font-size: clamp(0.75rem, 0.6rem + 0.3vw, 1.25rem);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -22,13 +23,11 @@
 }
 
 html, body {
-  font-family: 'Source Code Pro', monospace, sans-serif;
+  font-family: 'Roboto', monospace, sans-serif;
   scroll-behavior: smooth;
   background-color: white;
   font-size: clamp(12px, 2vw, 18px);
 }
-
-
 
 
 /*###########################################*/
@@ -122,6 +121,11 @@ html, body {
   letter-spacing: 2px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
+}
+
+/* Logo Bottom Text */
+.text-path {
+  font-size: 6px; /* Adjust based on your text length */
 }
 
 /* Citation Text Left */
@@ -469,137 +473,395 @@ Middle Div
 
 
 /*###########################################*/
-/*=============== Blog Page  ================*/
+/*============= Unsere Werte  ===============*/
 /*###########################################*/
 
 
-.ueberUns {
-  background-color: #ffffff;
-  height: 100000px;
+/* Main Section Title */
+    .werte-title {
+        width: 100%;
+        text-align: center;
+        padding: 65px 0 45px;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: bold;
+    }
+
+    /* =========================================
+       2. GRID LAYOUT
+       ========================================= */
+    .werte-box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
+        grid-template-rows: auto auto; 
+        column-gap: 0; /* No gap so text and SVG touch */
+        row-gap: 40px; 
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Create horizontal breathing room between the two middle SVG columns */
+    .svg-wert1, .svg-wert3 { margin-right: 20px; }
+    .svg-wert2, .svg-wert4 { margin-left: 20px; }
+
+    /* Responsive: Switch to 2 columns on tablets/phones */
+    @media (max-width: 768px) {
+        .werte-box {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* =========================================
+       3. TEXT STYLING & ALIGNMENT
+       ========================================= */
+    /* Container for the text blocks */
+    [class^="text-wert"] {
+        height: clamp(5.5rem, 10vw, 10rem); 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0; /* Initial state for animation */
+        transition: all 0.8s ease-out;
+    }
+
+    /* Headings inside text blocks */
+    .werte-box [class^="text-wert"] h2 {
+        font-size: 1.2em;
+        line-height: 1.2;
+        margin-bottom: 5px;
+    }
+
+    /* Paragraphs inside text blocks */
+    .werte-box [class^="text-wert"] p {
+        line-height: 1.4;
+    }
+
+    /* Alignment for Left-side text (Wert 1 & 3) */
+    .text-wert1, .text-wert3 {
+        text-align: right;
+        padding-right: 20px;
+    }
+
+    /* Alignment for Right-side text (Wert 2 & 4) */
+    .text-wert2, .text-wert4 {
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    /* =========================================
+       4. SVG & BUBBLE LAYERS
+       ========================================= */
+    /* Shared settings for the Symbol (Foreground) */
+    /* 1. Reset the main container (The Div) */
+    [class^="svg-wert"] {
+        position: relative;
+        z-index: 1; 
+        height: clamp(5.5rem, 10vw, 10rem);
+        width: 100%;
+        /* Remove background-image from here! We will move it to ::after */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 2. The Bubble (Bottom Layer) */
+    [class^="svg-wert"]::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 2; /* Low number */
+        
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+    }
+
+    /* 3. The Symbol (Top Layer) */
+    [class^="svg-wert"]::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 3; /* Higher number makes it sit on top */
+        
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    /* --- Individual Asset Assignments --- */
+    .svg-wert1::after { background-image: url('unsere_werte/boat_symbol.svg'); }
+    .svg-wert1::before { 
+        background-color: #B9E0ED; 
+        -webkit-mask-image: url('unsere_werte/boat_bubble.svg'); 
+        mask-image: url('unsere_werte/boat_bubble.svg');
+    }
+
+    .svg-wert2::after { background-image: url('unsere_werte/whale_symbol.svg'); }
+    .svg-wert2::before { 
+        background-color: #B7CEEC; 
+        -webkit-mask-image: url('unsere_werte/whale_bubble.svg'); 
+        mask-image: url('unsere_werte/whale_bubble.svg');
+    }
+
+    .svg-wert3::after { background-image: url('unsere_werte/vogel_symbol.svg'); }
+    .svg-wert3::before { 
+        background-color: #B9BFED; 
+        -webkit-mask-image: url('unsere_werte/vogel_bubble.svg'); 
+        mask-image: url('unsere_werte/vogel_bubble.svg');
+    }
+
+    .svg-wert4::after { background-image: url('unsere_werte/konsum_symbol.svg'); }
+    .svg-wert4::before { 
+        background-color: #B9EDEA; 
+        -webkit-mask-image: url('unsere_werte/konsum_bubble.svg'); 
+        mask-image: url('unsere_werte/konsum_bubble.svg');
+    }
+
+    /* =========================================
+       5. ANIMATIONS (Swoosh Effect)
+       ========================================= */
+    @keyframes swooshLeft {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes swooshRight {
+        from { opacity: 0; transform: translateX(-50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    .animate-left { animation: swooshLeft 1s forwards ease-out; }
+    .animate-right { animation: swooshRight 1s forwards ease-out; }
+
+
+
+/*###########################################*/
+/*=============== Blog Page  ================*/
+/*###########################################*/
+
+.blog-container {
+  max-width: 1400px;
+  margin: 5rem auto;
+  padding: 2rem;
+  font-family: 'Roboto', sans-serif;
 }
 
+.blog-header { 
+  text-align: center; 
+  font-size: clamp(2rem, 5vw, 4rem); 
+  margin-bottom: 2rem; 
+  font-family: "Roboto mono", monospace;
+}
 
+.filter-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Increased gap slightly for the slashes */
+  margin-bottom: 2rem;
+}
 
-.blog-grid {
+.filter-btn {
+  background: none;
+  border: none;
+  font-family: 'Roboto Mono', monospace; 
+  font-size: 1.5rem;
+  font-weight: 300;
+  cursor: pointer;
+  color: #000000;
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+}
+
+/* The Slash Divider */
+.filter-btn:not(:last-child)::after {
+  content: '/';
+  margin-left: 20px;
+  color: #ddd;
+  font-weight: normal;
+  pointer-events: none;
+}
+
+/* The Active State (Stay Highlighted) */
+.filter-btn.active {
+  color: #008169;
+  font-weight: 700;
+}
+
+.filter-btn:hover {
+  color: #008169;
+  font-weight: 700;
+}
+
+/* Main Layout Split */
+.blog-layout-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Left Column: Featured (Newest) */
+#featured-section {
+  flex: 0 0 350px; /* Fixed width for the newest post column */
+}
+
+.featured-box {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  position: sticky;
+  top: 20px;
+}
+
+/* Make the featured box feel like a single interactive unit */
+.featured-box-link {
+  text-decoration: none; /* Remove underline from text */
+  color: inherit;
+  display: block; /* Makes the link fill the container width */
+}
+
+.newest-post-label {
+  font-family: "Reenie Beanie", cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  font-style: normal;
+  padding: 5px 0 15px 0;
+  text-align: center;
+}
+
+.featured-box img { width: 100%; height: auto; margin-bottom: 20px; }
+.featured-box .post-description { font-size: 0.95rem; line-height: 1.6; color: #555; margin: 15px 0; }
+  
+.masonry-columns-container {
+  display: flex; /* Side by side columns */
+  gap: 30px;
+  flex: 1;
+  align-items: flex-start;
+}
+
+.masonry-col {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 20px;
+  gap: 30px; /* Vertical distance between posts */
+  flex: 1; /* Equal width columns */
 }
 
-.blog-row {
-  display: grid;
-  gap: 10px;
+/* Each card in masonry */
+.blog-card {
+  break-inside: avoid; /* Prevents card from splitting between columns */
+  margin-bottom: 30px; /* Fixed vertical distance */
+  display: flex;
+  flex-direction: column;
 }
 
-/* Define row patterns */
-.blog-row:nth-of-type(4n+1) { grid-template-columns: 2fr 1fr; }   /* Row 1: 2/3 + 1/3 */
-.blog-row:nth-of-type(4n+2) { grid-template-columns: 1fr 1fr 1fr; } /* Row 2: 1/3 + 1/3 + 1/3 */
-.blog-row:nth-of-type(4n+3) { grid-template-columns: 1fr 2fr; }   /* Row 3: 1/3 + 2/3 */
-.blog-row:nth-of-type(4n+4) { grid-template-columns: 1fr 1fr 1fr; } /* Row 4: 1/3 + 1/3 + 1/3 */
+.blog-card img { width: 100%; height: auto; object-fit: cover; margin-bottom: 12px; }
 
-.blog-post {
+/* Shared Styles */
+.post-tag { font-weight: bold; color: #008169; text-transform: uppercase; margin-right: 10px; font-size: 0.75rem; }
+.post-date { font-size: 0.75rem; color: #999; }
+.post-title { font-size: 1.2rem; margin-top: 5px; color: #222; }
+
+
+/* Image Container for Hover Effect */
+.post-image-container {
   position: relative;
-  border-radius: 12px;
-
-  background: #dbf3fa;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* Aspect ratios */
-.blog-post.one-third { aspect-ratio: 0.85 / 1; }
-.blog-post.two-third { aspect-ratio: 1.705 / 1; }
-
-/* Image styling */
-.blog-post img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Overlay text */
-.blog-post .overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.45);
-  color: white;
-  padding: 10px;
-  font-size: 1.1rem;
-  text-align: center;
-  transition: background 0.3s;
-}
-
-.blog-post:hover .overlay {
-  background: rgba(0,0,0,0.7);
-}
-
-
-/* Wavy Button */
-.wave-button {
-  width: 4.1rem;
-  height: 1.5rem;
-  background: rgb(255, 255, 255);
-  border: 0.5mm solid rgb(0 82 110);
-  border-radius: 0mm;
+  overflow: hidden;
+  margin-bottom: 15px;
   cursor: pointer;
-  position: relative;
-
-  transition: 0.3s;
-  
 }
 
-.wave-button .text {
-  font-size: 0.8rem;
-  color:rgb(0 82 110);
-  font-weight: bold;
-  z-index: 1;
-  position: relative;
+/* The Image itself */
+.post-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.5s ease, transform 0.5s ease;
+  margin-bottom: 0 !important; /* Reset previous margin */
 }
 
-
-.wave {
+/* The Overlay Text */
+.image-overlay {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: url('images/button_wave.png');
-  background-size: 200% 100%;
-  top: 100%;
-  left: 0;
-  animation: wave 0.8s linear infinite;
-  transition: 1s;
+  background: rgba(1, 43, 99, 0.2); /* Subtle blue tint */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-@keyframes wave {
-  from {
-    background-position-x: 0;
-  }
-  to {
-    background-position-x: 200%;
-  }
-}
-button:hover .wave {
-  top: 0%;
+.image-overlay span {
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  padding: 8px 16px;
+  text-transform: uppercase;
 }
 
-
-
-
-
-/* Responsive tweaks */
-@media (max-width: 900px) {
-  .blog-rest {
-    grid-template-columns: 1fr 1fr;
-  }
+/* Hover States */
+.post-image-container:hover img {
+  filter: grayscale(100%) brightness(70%);
+  transform: scale(1.05); /* Slight zoom for extra life */
 }
 
-@media (max-width: 600px) {
-  .blog-new {
-    grid-template-columns: 1fr; /* stack image and text */
-  }
-  .blog-rest {
-    grid-template-columns: 1fr;
-  }
+.post-image-container:hover .image-overlay {
+  opacity: 1;
 }
+
+/* Specific Hover effect for the entire Featured Box */
+.featured-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-box:hover {
+  transform: translateY(-5px); /* Lifts the whole box up slightly */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); /* Deepens the shadow on hover */
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.load-more-btn {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  color:  #008169;
+  background: transparent;
+  border: 1px solid #008169;
+  padding: 12px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.load-more-btn:hover {
+  background: #008169;
+  color: white;
+}
+
+/* Hide the button when all posts are loaded */
+.hidden {
+  display: none;
+}
+
+  @media (max-width: 1100px) {
+    .blog-layout-wrapper { flex-direction: column; }
+    #masonry-section { column-count: 2; width: 100%; }
+    #featured-section { width: 100%; flex: none; }
+  }
