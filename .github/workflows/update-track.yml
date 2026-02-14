@@ -23,7 +23,7 @@ jobs:
 
 
       - name: Install dependencies
-            run: npm install ws
+        run: npm install ws
 
       - name: Update track from AISStream
         env:
