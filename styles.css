@@ -8,7 +8,6 @@
   padding: 0;
   box-sizing: border-box;
   line-height: 25px;
-  font-size: clamp(0.75rem, 0.6rem + 0.3vw, 1.25rem);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -308,6 +307,102 @@ html, body {
   background-color: #008169;
   color: white;
   padding-left: 3.5rem; /* Subtle "nudge" effect on hover */
+}
+
+
+/*###########################################*/
+/*================== Footer =================*/
+/*###########################################*/
+
+.footer-container {
+    display: flex;
+    width: 100%;
+    min-height: 300px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ============================================================
+    LEFT SECTION (BLACK BACKGROUND)
+    ============================================================ */
+.footer-left {
+    flex: 1.5; 
+    background-color: #000;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around; 
+    align-items: center;
+    color: white;
+}
+
+.footer-logo-main {
+    width: 200px;
+    height: 100%; 
+    background-color: #ffffff; 
+    -webkit-mask-image: url('footer/Logo.svg');
+    mask-image: url('footer/Logo.svg');
+    
+    /* Ensure the mask fits correctly */
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    
+    transition: background-color 0.3s ease;
+}
+
+.footer-logo-main:hover {
+    background-color: white; 
+}
+
+.social-icons {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 3.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-nav-links a {
+    text-decoration: none;
+    color: white; 
+    font-weight: 400;
+    font-size: 1.2rem;
+    transition: opacity 0.3s;
+}
+
+.footer-nav-links a:hover {
+    opacity: 0.7;
+}
+
+.footer-copyright {
+    color: #888; 
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+/* ============================================================
+    RIGHT SECTION (WHITE + BLACK SVG)
+    ============================================================ */
+.footer-right {
+    flex: 1; 
+    background-color: #fff;
+    /* Using mask-image to make the SVG behave like a black shape on white */
+    background-image: url('footer/Welle_Footer.svg'); 
+    background-size: 120%; /* Adjust size of your wave */
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
@@ -865,3 +960,376 @@ Middle Div
     #masonry-section { column-count: 2; width: 100%; }
     #featured-section { width: 100%; flex: none; }
   }
+
+
+
+/*###########################################*/
+/*============== Blog Post ==================*/
+/*###########################################*/
+
+/* ============================================================
+   0. GLOBAL & LAYOUT
+   ============================================================ */
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+.article-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    left: -10%;
+    top: 60px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: #888;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.back-button:hover {
+    color: #008169;
+    transform: translateX(-5px);
+}
+
+@media (max-width: 1200px) {
+    .back-button {
+        position: static;
+        display: inline-flex;
+        margin-bottom: 20px;
+    }
+}
+
+/* ============================================================
+   1. CAROUSEL WRAPPER (TOP)
+   ============================================================ */
+.carousel-wrapper {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.image-stage {
+    height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-stage img {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+.image-description {
+    margin-top: 15px;
+    font-family: 'Roboto', sans-serif;
+    color: #555;
+}
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.arrow:hover {
+    color: #008169;
+}
+
+.dot-container {
+    display: flex;
+    gap: 15px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #008169;
+}
+
+/* ============================================================
+   2. ARTICLE HEADER INFO
+   ============================================================ */
+.article-header-info {
+    margin-top: 40px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+}
+
+.meta-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.article-tag {
+    color: #008169;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.article-date {
+    color: #888;
+}
+
+.article-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.article-intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* ============================================================
+   3. CONTENT BLOCK & HYBRID GALLERY (MIDDLE)
+   ============================================================ */
+.content-block {
+    margin-bottom: 40px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.block-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.block-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+}
+
+.hybrid-gallery {
+    position: relative;
+    margin: 25px 0;
+}
+
+.image-scroll-row {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.image-scroll-row::-webkit-scrollbar {
+    display: none;
+}
+
+.image-scroll-row img {
+    height: 350px;
+    width: auto;
+    scroll-snap-align: start;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.hybrid-gallery:hover .scroll-arrow {
+    opacity: 1;
+}
+
+.scroll-arrow:hover {
+    background: #008169;
+    color: white;
+}
+
+.scroll-arrow.left {
+    left: -22px;
+}
+
+.scroll-arrow.right {
+    right: -22px;
+}
+
+@media (pointer: coarse) {
+    .scroll-arrow {
+        display: none;
+    }
+}
+
+/* ============================================================
+   4. HYBRID LIGHTBOX (OVERLAY)
+   ============================================================ */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 85%;
+}
+
+.lightbox img {
+    max-height: 80vh;
+    max-width: 100%;
+    animation: zoomIn 0.3s ease;
+}
+
+.lightbox-nav {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 20px;
+    transition: color 0.3s;
+}
+
+.lightbox-nav:hover {
+    color: #008169;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ============================================================
+   5. RELATED POSTS BOX (BOTTOM)
+   ============================================================ */
+.related-posts-box {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid #eee;
+}
+
+.related-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.post-card {
+    flex: 0 0 280px;
+    background: #fff;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    scroll-snap-align: start;
+    margin-bottom: 10px;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+}
+
+.post-card img {
+    width: 100%;
+    height: 300;
+    object-fit: cover;
+}
+
+.post-card-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.post-card-tag {
+    font-size: 0.75rem;
+    color: #008169;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.post-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.post-card-date {
+    font-size: 0.8rem;
+    color: #999;
+}

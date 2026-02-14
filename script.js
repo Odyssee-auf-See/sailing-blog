@@ -1,5 +1,10 @@
 
-//=== Funciton to  MenuBar & load Header-Burger Functions====//
+
+
+//#########################################################//
+//= Funciton to  MenuBar & load Header-Burger Functions= ==//
+//#########################################################//
+
 function initMenuBar(){
   const burgerBtn = document.getElementById('burger');
   const menuDropdown = document.getElementById('menuDropdown');
@@ -34,9 +39,10 @@ function initMenuBar(){
     menuOverlay.classList.remove('active');
   });
 }
+//######################################################//
+//= laods HTML by file name and injects it into index ==//
+//######################################################//
 
-
-//=== laods HTML by file name and injects it into index ====//
 async function loadHTML(id, url) {
   try {
     const res = await fetch(url);
@@ -57,9 +63,10 @@ async function loadHTML(id, url) {
 }
 
 
+//################################//
+//= Unsere Werte Text Animation ==//
+//################################//
 
-
-//=== Unsere Werte Text Animation ===//
 function initUnsereWerte() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -93,8 +100,9 @@ function initUnsereWerte() {
         observer.observe(target);
     }
 }
-
+//############################//
 //=== Funktionen für Blog ===//
+//############################//
 
 let allPosts = [];
 let showingAll = false; // Track state
@@ -225,6 +233,158 @@ function formatDate(dateString) {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(dateString).toLocaleDateString('de-DE', options);
 }
+
+
+//############################//
+//= Funktionen für Blo Page ==//
+//############################//
+
+/* ============================================================
+    1. HERO CAROUSEL LOGIC (TOP)
+    ============================================================ */
+let heroImages = []; 
+let heroIndex = 0;
+
+function initHeroCarousel() {
+    // 1. Get images from the HTML data source
+    const dataSource = document.querySelectorAll('#hero-data-source img');
+    
+    // 2. Map them into our array
+    heroImages = Array.from(dataSource).map(img => ({
+        url: img.src,
+        desc: img.alt
+    }));
+
+    // 3. Setup Dots
+    const dots = document.getElementById('dot-container');
+    if(dots && heroImages.length > 0) {
+        dots.innerHTML = heroImages.map((_, i) => 
+            `<span class="dot ${i === 0 ? 'active' : ''}" onclick="jumpToHero(${i})"></span>`
+        ).join('');
+    }
+
+    // 4. Show the first image
+    if(heroImages.length > 0) updateHeroUI();
+}
+
+function jumpToHero(index) {
+    heroIndex = index;
+    updateHeroUI();
+}
+
+function changeHeroImage(dir) {
+    heroIndex = (heroIndex + dir + heroImages.length) % heroImages.length;
+    updateHeroUI();
+}
+
+function updateHeroUI() {
+    document.getElementById('carousel-img').src = heroImages[heroIndex].url;
+    document.getElementById('image-description').innerText = heroImages[heroIndex].desc;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === heroIndex));
+}
+
+/* ============================================================
+    3 & 4. HYBRID GALLERY & LIGHTBOX (MIDDLE)
+    ============================================================ */
+let galleryImages = [];
+let lbIndex = 0;
+
+function initHybridGallery() {
+    // Select ALL images inside any div with the class 'image-scroll-row'
+    // This covers scrollRow1, scrollRow2, and relatedPostsRow automatically!
+    const allGalleryImages = document.querySelectorAll('.image-scroll-row img');
+    
+    galleryImages = Array.from(allGalleryImages).map((img, i) => {
+        // Assign the click event to open the lightbox at this specific index
+        img.onclick = () => openHybridLightbox(i);
+        
+        return { 
+            src: img.src, 
+            alt: img.alt 
+        };
+    });
+}
+
+function scrollGrid(id, dir) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollBy({ left: dir * 300, behavior: 'smooth' });
+    }
+}
+
+function openHybridLightbox(i) {
+    lbIndex = i;
+    updateLightboxUI();
+    document.getElementById('hybridLightbox').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function updateLightboxUI() {
+    document.getElementById('lightbox-img').src = galleryImages[lbIndex].src;
+    document.getElementById('hybridLightboxCaption').innerText = galleryImages[lbIndex].alt;
+}
+
+function changeLightboxImage(dir, e) {
+    if(e) e.stopPropagation();
+    lbIndex = (lbIndex + dir + galleryImages.length) % galleryImages.length;
+    updateLightboxUI();
+}
+
+function handleLightboxClick(e) {
+    if(e.target.id === 'hybridLightbox') closeHybridLightbox();
+}
+
+function closeHybridLightbox() {
+    document.getElementById('hybridLightbox').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+/* ============================================================
+    5. RELATED POSTS LOGIC (BOTTOM)
+    ============================================================ */
+async function loadRelatedPosts() {
+    try {
+        const res = await fetch('../blog_metadata.json');
+        const posts = await res.json();
+        const container = document.getElementById('relatedPostsRow');
+        container.innerHTML = posts.map(p => `
+            <a href="${p.url || '#'}" class="post-card">
+                <img src="../../${p.image}" alt="${p.title}">
+                <div class="post-card-info">
+                    <span class="post-card-tag">${p.tag}</span>
+                    <h4 class="post-card-title">${p.title}</h4>
+                    <span class="post-card-date">${new Date(p.date).toLocaleDateString('de-DE')}</span>
+                </div>
+            </a>`).join('');
+    } catch (err) { console.error(err); }
+}
+
+/* ============================================================
+    INITIALIZATION
+    ============================================================ */
+async function loadPage() {
+    // 1. Load Reusable Components
+    if (typeof loadHTML === 'function') {
+        // Load Menu
+        await loadHTML('MenuBar', '../../menu_bar/menu_bar.html');
+        // Load Footer
+        await loadHTML('Footer', '../../footer/footer.html');
+    }
+
+    // 2. Initialize Page Content
+    initHeroCarousel();
+    initHybridGallery();
+    loadRelatedPosts();
+}
+
+window.onload = loadPage;
+document.addEventListener('keydown', e => {
+    if(e.key === "Escape") closeHybridLightbox();
+    if(document.getElementById('hybridLightbox').style.display === 'flex') {
+        if(e.key === "ArrowRight") changeLightboxImage(1);
+        if(e.key === "ArrowLeft") changeLightboxImage(-1);
+    }
+});
 
 
 

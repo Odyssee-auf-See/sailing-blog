@@ -1,0 +1,128 @@
+<!-- 
+ CHECKLISTE:
+
+
+
+
+
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Blog Post</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    
+    <link href="../../styles.css" rel="stylesheet"/>
+    <script src="../../script.js"></script>
+
+</head>
+
+
+
+<body>
+    <div id="MenuBar" class="MenuBar"></div>
+
+    <article class="article-container">
+        <a href="../../blog.html" class="back-button">
+            <i class="fa fa-arrow-left"></i> zurück
+        </a>
+
+        <div class="carousel-wrapper">
+            <div class="image-stage">
+                <img id="carousel-img" src="" alt="Hero">
+            </div>
+            <div id="image-description" class="image-description"></div>
+            
+            <div id="hero-data-source" style="display: none;">
+                <img src="assets/post-1/photo1.jpg" alt="Aussicht vom Bug">
+                <img src="assets/post-1/photo2.jpg" alt="Morgennebel im Wald">
+                <img src="assets/post-1/photo3.jpg" alt="Unser Ankerplatz">
+            </div>
+
+            <div class="carousel-controls">
+                <button class="arrow" onclick="changeHeroImage(-1)"><i class="fa fa-arrow-left"></i></button>
+                <div id="dot-container" class="dot-container"></div>
+                <button class="arrow" onclick="changeHeroImage(1)"><i class="fa fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <div class="article-header-info">
+            <div class="meta-row">
+                <span class="article-tag">BOOT</span>
+                <span class="article-date">24. April 2024</span>
+            </div>
+            <h1 class="article-title">Dein Artikel Titel hier</h1>
+            <p class="article-intro">Einleitungstext über die volle Breite des Containers.</p>
+        </div>
+
+        <section class="content-block">
+            <h2 class="block-title">Absatz Titel</h2>
+            <p class="block-text">
+                Paragraph Text <br><br>
+                Es gibt diesen einen Moment, kurz bevor die Sonne hinter dem Horizont verschwindet, in dem die Welt völlig stillzustehen scheint. Das sanfte Schaukeln des Bootes im Rhythmus der Wellen und das ferne Kreischen der Möwen sind die einzigen Geräusche, die die Stille durchbrechen. In solchen Augenblicken wird einem klar, warum wir uns immer wieder auf den Weg machen, um das Unbekannte zu erkunden. Es geht nicht nur um die Reiseziele selbst, sondern um das Gefühl von Freiheit, das man nur fernab des Alltags findet. <br><br>
+                Jeder Hafen, den wir anlaufen, erzählt seine eigene Geschichte. Von den rostigen Ankerketten alter Fischerboote bis hin zu den glänzenden Decks moderner Yachten – die Vielfalt der maritimen Welt ist grenzenlos. Dabei sind es oft die kleinen Details, die einen bleibenden Eindruck hinterlassen: der Geruch von Salz und Teer in der Luft, das Spiel des Lichts auf der Wasseroberfläche oder die herzliche Gastfreundschaft der Menschen, die wir unterwegs treffen.<br><br>
+                Nachhaltigkeit spielt dabei eine immer größere Rolle. Wie können wir diese wunderschönen Orte bereisen, ohne sie zu zerstören? Es ist ein Balanceakt zwischen Entdeckergeist und Verantwortung. Wir lernen, bewusster mit unseren Ressourcen umzugehen, den Müll zu minimieren und die lokale Natur mit dem Respekt zu behandeln, den sie verdient. Denn am Ende des Tages sind wir nur Gäste auf diesem Planeten. Die Erinnerungen, die wir sammeln, sind kostbar, doch die Spuren, die wir hinterlassen, sollten so gering wie möglich sein.
+            </p>
+
+            <div class="hybrid-gallery">
+                <div class="image-scroll-row" id="scrollRow1">
+                    <img src="assets/post-1/photo1.jpg" alt="Eindruck 1">
+                    <img src="assets/post-1/photo2.jpg" alt="Eindruck 2">
+                    <img src="assets/post-1/photo3.jpg" alt="Eindruck 3">
+                </div>
+                <button class="scroll-arrow left" onclick="scrollGrid('scrollRow1', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="scroll-arrow right" onclick="scrollGrid('scrollRow1', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+
+        <section class="content-block">
+            <h2 class="block-title">Absatz Titel</h2>
+            <p class="block-text">Dein Haupttext hier...</p>
+
+            <div class="hybrid-gallery">
+                <div class="image-scroll-row" id="scrollRow2">
+                    <img src="assets/post-1/photo1.jpg" alt="Eindruck 1">
+                    <img src="assets/post-1/photo2.jpg" alt="Eindruck 2">
+                    <img src="assets/post-1/photo3.jpg" alt="Eindruck 3">
+                </div>
+                <button class="scroll-arrow left" onclick="scrollGrid('scrollRow2', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="scroll-arrow right" onclick="scrollGrid('scrollRow2', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+
+        <div class="related-posts-box">
+            <h3 class="related-title">Lust auf mehr? Diese Blogbeiträge könnten dich interessieren</h3>
+            <div class="hybrid-gallery">
+                <div class="image-scroll-row" id="relatedPostsRow"></div>
+                <button class="scroll-arrow left" onclick="scrollGrid('relatedPostsRow', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="scroll-arrow right" onclick="scrollGrid('relatedPostsRow', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </article>
+
+
+    <div id="hybridLightbox" class="lightbox" onclick="handleLightboxClick(event)">
+        <span class="close-lightbox" onclick="closeHybridLightbox()">&times;</span>
+        <button class="lightbox-nav" onclick="changeLightboxImage(-1, event)"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Vollbild">
+            <div id="hybridLightboxCaption" style="color:white; margin-top:10px;"></div>
+        </div>
+        <button class="lightbox-nav" onclick="changeLightboxImage(1, event)"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <div id="Footer" class="Footer"></div> 
+</body>
+</html>
