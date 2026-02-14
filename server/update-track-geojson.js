@@ -5,7 +5,7 @@ const WebSocket = require('ws');
 
 // Configuration
 const API_KEY = process.env.AIS_API_KEY;
-const MMSI = process.env.AIS_MMSI;
+const MMSI = parseInt(process.env.AIS_MMSI);
 const TRACK_FILE = path.join(__dirname, '../data/track.geojson');
 
 const MIN_DISTANCE_METERS = 100; 
@@ -24,7 +24,7 @@ async function fetchVesselPosition() {
     const timer = setTimeout(() => {
       socket.terminate();
       reject(new Error('Timeout: No AIS position received for this MMSI. The boat might be offline.'));
-    }, 30000);
+    }, 300000);
 
     socket.on('open', () => {
       console.log('🌐 Connected to AISStream. Sending subscription...');
