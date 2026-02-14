@@ -1,0 +1,16 @@
+{
+  "name": "ais-proxy",
+  "version": "1.0.0",
+  "description": "AIS WebSocket Proxy - relays aisstream.io data to frontend",
+  "main": "ais-proxy.js",
+  "scripts": {
+    "start": "node ais-proxy.js",
+    "update-track": "node update-track.js"
+  },
+  "keywords": ["ais", "websocket", "proxy"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.14.2"
+  }
+}

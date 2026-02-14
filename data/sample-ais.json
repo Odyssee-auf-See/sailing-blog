@@ -1,0 +1,17 @@
+{
+  "Message": {
+    "UserID": 232044022,
+    "MMSI": 232044022,
+    "Timestamp": "2026-02-08T12:00:00Z",
+    "Latitude": 43.5,
+    "Longitude": 16.5,
+    "SOG": 8.5,
+    "COG": 215,
+    "Heading": 214,
+    "NavStatus": "Under way using engine",
+    "Status": 0,
+    "Type": 30,
+    "CallSign": "ODYSSEE",
+    "ShipName": "Odyssee auf See"
+  }
+}

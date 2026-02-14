@@ -1,0 +1,1446 @@
+
+/*###########################################*/
+/*======== Allgemeine Einstellungen =========*/
+/*###########################################*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 25px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+html, body {
+  font-family: 'Roboto', monospace, sans-serif;
+  scroll-behavior: smooth;
+  background-color: white;
+  font-size: clamp(12px, 2vw, 18px);
+}
+
+
+/*###########################################*/
+/*============== Landing Page ===============*/
+/*###########################################*/
+
+/*background div for the whole landing page*/
+.background {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+
+/*div for the left color box*/
+.background-left-color {
+  background-color: #008169;
+  width: 45%;
+}
+
+/*div for the title image*/
+.background-right-image {
+  width: 55%;
+  line-height: 0; /* Prevents tiny gaps at the bottom of images */
+}
+
+/*title image*/
+.background-right-image img {
+  width: 100%;    
+  height: auto;   /* Maintains aspect ratio and dictates the div height */
+  display: block; 
+}
+
+
+/* Div for the transparent circle */
+.logo-box {
+  position: absolute;
+  left: 45%;      /* Aligns to the 45% split line */
+  top: 50%;       /* Centers vertically */
+  transform: translate(-50%, -50%); /* Offsets by its own size to center perfectly */
+  
+  /* Circle Dimensions */
+  width: 28vw;   /* Must be equal to height */
+  height: 28vw;  /* Must be equal to width */
+  border-radius: 50%; /* This creates the circle shape */
+  
+  /* Styling */
+  background-color: #d9d9d974;
+  z-index: 10;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+
+  /* Centering Content Inside the Circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Odyssee SVG Logo */
+.logo-icon {
+  width: 80%;
+  height: 80%;
+  background-color: #012B63; 
+  /* The Mask (The stencil) */
+  -webkit-mask-image: url('../assets/svgs/logos/landing_page_logo.svg');
+  mask-image: url('../assets/svgs/logos/landing_page_logo.svg');
+  /* Positioning and scaling */
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  /* Since it's a span, we need to make it a block or flex element */
+  display: block;
+}
+
+/* Div for Logo Bottom Text */
+.curved-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Allows clicks to pass through to the icon */
+}
+
+/* Logo Bottom Text */
+.curved-text text {
+  fill: #012B63; 
+; /* Matches your theme color */
+  font-size: 6px; /* Adjust based on your text length */
+  letter-spacing: 2px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+/* Logo Bottom Text */
+.text-path {
+  font-size: 6px; /* Adjust based on your text length */
+}
+
+/* Citation Text Left */
+.left-text {
+  position: absolute;
+  left: 6%;
+  right: 72%;      
+  top: 20%;
+  color: white;
+  font-family: "Reenie Beanie", cursive;  
+  font-size: 2.5vw;  
+  text-align: center;
+  line-height: clamp(20px, 3vw, 100px);
+}
+
+/*###########################################*/
+/*=============== Menu Bar ================*/
+/*###########################################*/
+
+
+/* Apply the sticky behavior to the ID container you have in your index.html */
+#menu-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Menu Bar Div */
+.menu-bar {
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 5px rgba(0,0,0,0.1);
+  height: clamp(3.5rem, 7vh, 9rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  position: relative;
+}
+
+/* Give the left and right sides equal width so the center is TRUE center */
+.menu-bar__logo,
+.burger-menu {
+  flex: 1; /* Both grow equally to fill space */
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Align Logo to the start (left) */
+.menu-bar__logo {
+  justify-content: flex-start;
+}
+
+/* Align Burger to the end (right) */
+.burger-menu {
+  justify-content: flex-end;
+  position: relative; /* Needed for the dropdown positioning later */
+}
+
+/* Odyssee Logo */
+.menu-bar__logo-icon {
+  height: 80%;
+  width: clamp(3rem, 6vw, 6rem);
+  background-color: #000000;
+  -webkit-mask-image: url('../assets/svgs/logos/menu_bar_logo.svg');
+  mask-image: url('../assets/svgs/logos/menu_bar_logo.svg');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  display: block;
+  margin-left: 1.5rem;
+}
+
+/* Clickable Logo */
+.logo-link {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu-bar__logo-icon:hover {
+  background-color: #008169; /* Slight fade when hovering */
+  transition:  0.3s ease;
+}
+
+/* Titel Text*/
+.menu-bar__text {
+  flex: 2; /* Takes up the middle space */
+  text-align: center;
+  color: #000000;
+  letter-spacing: 2px;
+  font-size: clamp(1rem, 1.5vw, 1.5rem); /* Fluid font size so it scales with the bar */
+  white-space: nowrap; /* Prevents title from breaking into two lines */
+  font-family: "Roboto";
+}
+
+/* Burger Button */
+.burger {
+  background-color: transparent;
+  border: none;
+  z-index: 1001; /* Must be higher than the menu-dropdown */
+  position: relative;
+}
+
+
+/* Burger Container */
+.burger-icon {
+  width: 1.5rem;
+  height: 1.2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 1.5rem;
+  cursor: pointer;
+}
+
+/* The Three Lines */
+.burger-icon span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: #000000; /* Your theme color */
+  transition: all 0.2s ease-in-out;
+}
+
+/* ANIMATION TO "X" */
+
+/* 1. Top line rotates 45 degrees and moves down */
+.burger.active .burger-icon span:nth-child(1) {
+  transform: translateY(clamp(5px, 1.3vw, 13px)) rotate(45deg);
+}
+
+/* 2. Middle line disappears */
+.burger.active .burger-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+/* 3. Bottom line rotates -45 degrees and moves up */
+.burger.active .burger-icon span:nth-child(3) {
+  transform: translateY(clamp(-5px, -1.3vw, -13px)) rotate(-45deg);
+}
+
+/* Side Bar Menu Div*/
+.menu-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: clamp(13rem, 15.5vw, 20rem);;
+  background-color: #d5d5d5;
+  transform: translateX(100%);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* When active, sweep back to the original position */
+.menu-dropdown.active {
+  transform: translateX(0);
+}
+
+/* Menu Elements */
+.menu-dropdown a {
+  font-family: "Roboto";
+  text-decoration: none;
+  color: #000000;
+  padding: 1rem 3rem;
+  font-size: 0.8rem;
+  border-bottom: 2px solid #f0f0f0;
+  transition: all 0.2s;
+}
+
+.menu-dropdown a:hover {
+  background-color: #008169;
+  color: white;
+  padding-left: 3.5rem; /* Subtle "nudge" effect on hover */
+}
+
+
+/*###########################################*/
+/*================ Map Section ==============*/
+/*###########################################*/
+
+.map-section {
+  width: 100%;
+  padding: 60px 20px 40px;
+  background-color: #f9f9f9;
+}
+
+.map-title {
+  text-align: center;
+  padding: 0 0 40px 0;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  font-weight: 700;
+  color: #012B63;
+  letter-spacing: 1px;
+}
+
+.map-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 0 40px 0;
+}
+
+.map-info-box {
+  background: white;
+  border-radius: 8px;
+  padding: 20px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-info-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.map-info-symbol {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+
+.map-info-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.map-info-value {
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  color: #012B63;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.map-container {
+  width: 100%;
+  height: 60vh;
+  max-height: 720px;
+  background: #e8e8e8;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .map-section {
+    padding: 40px 15px 30px;
+  }
+
+  .map-title {
+    padding: 0 0 30px 0;
+  }
+
+  .map-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 0 30px 0;
+  }
+
+  .map-info-box {
+    padding: 16px 12px;
+  }
+
+  .map-container {
+    height: 50vh;
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .map-info-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .map-container {
+    height: 40vh;
+    max-height: 400px;
+  }
+}
+
+/*###########################################*/
+/*================== Footer =================*/
+/*###########################################*/
+
+.footer-container {
+    display: flex;
+    width: 100%;
+    min-height: 300px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ============================================================
+    LEFT SECTION (BLACK BACKGROUND)
+    ============================================================ */
+.footer-left {
+    flex: 1.5; 
+    background-color: #000;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-around; 
+    align-items: center;
+    color: white;
+}
+
+.footer-logo-main {
+    width: 200px;
+    height: 100%; 
+    background-color: #ffffff; 
+    -webkit-mask-image: url('../assets/svgs/logos/footer_logo.svg');
+    mask-image: url('../assets/svgs/logos/footer_logo.svg');
+    
+    /* Ensure the mask fits correctly */
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    
+    transition: background-color 0.3s ease;
+}
+
+.footer-logo-main:hover {
+    background-color: white; 
+}
+
+.social-icons {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 3.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-nav-links a {
+    text-decoration: none;
+    color: white; 
+    font-weight: 400;
+    font-size: 1.2rem;
+    transition: opacity 0.3s;
+}
+
+.footer-nav-links a:hover {
+    opacity: 0.7;
+}
+
+.footer-copyright {
+    color: #888; 
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+/* ============================================================
+    RIGHT SECTION (WHITE + BLACK SVG)
+    ============================================================ */
+.footer-right {
+    flex: 1; 
+    background-color: #fff;
+    /* Using mask-image to make the SVG behave like a black shape on white */
+    background-image: url('../assets/svgs/decorations/welle_footer.svg'); 
+    background-size: 120%; /* Adjust size of your wave */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+
+/*###########################################*/
+/*=============== Ueber Uns  ================*/
+/*###########################################*/
+
+
+/* 
+#################
+Main DIV 
+#################
+*/
+.ueber-uns-background {
+  width: 100%;
+  display: flex;
+  /* This ensures both halves are always the same height */
+  align-items: stretch; 
+}
+
+
+/* 
+########################
+Side Divs (Left & Right)
+########################
+*/
+
+/* Base for both side containers */
+.ueber-uns-side {
+  flex: 1; /* Takes up equal remaining space */
+  height: 30vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10; /* BRING SIDES TO FRONT */
+}
+
+.ueber-uns-left { background-color: #012B63; }
+.ueber-uns-right { background-color: #008169; }
+
+/* Wrapper to keep Signature and text together */
+.text-wrapper-left, .text-wrapper-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  z-index: 2;
+}
+
+.text-wrapper-left {
+  transform: translateX(8%);
+}
+
+.text-wrapper-right {
+  transform: translateX(-8%);
+}
+
+/* Text Boxes */
+.ueber-uns-text-left, .ueber-uns-text-right {
+  font-size: clamp(0.75rem, 0.6rem + 0.3vw, 1.25rem);
+  width: 90%;
+  z-index: 10;
+  text-align: justify; 
+  hyphens: auto;    /* Breaks long words if needed */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; 
+}
+
+.ueber-uns-text-left {
+  color:#9cb8de
+}
+
+.ueber-uns-text-right{
+  color:#c5e7e1
+}
+
+
+/* Base style for the handwritten titles */
+.ueber-uns-lea, .ueber-uns-vito {
+  display: block;
+  z-index: 10;
+  margin-bottom: clamp(0.5rem, -13rem + 15vw, 5rem);     /* Space between title and text */
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.ueber-uns-lea {
+  background-color: #ffffff;        
+  width:  clamp(0.8rem, -4rem + 15vw, 25rem);
+  aspect-ratio: 2.5 / 1; 
+  -webkit-mask-image: url('../assets/svgs/decorations/lea.svg');
+  mask-image: url('../assets/svgs/decorations/lea.svg');
+}
+
+.ueber-uns-vito {
+  background-color: #ffffff;        
+  width:  clamp(0.8rem, -4rem + 15vw, 25rem);
+  aspect-ratio: 3 / 1; 
+  -webkit-mask-image: url('../assets/svgs/decorations/vito.svg');
+  mask-image: url('../assets/svgs/decorations/vito.svg');
+}
+
+
+
+/* 
+#################
+Middle Div
+#################
+*/
+
+.ueber-uns-middle {
+  height: 30vw;
+  position: relative;
+  flex: 0 0 30vw; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5; /* Ensures the bubbles sit on top of the left/right sections */
+}
+
+.middle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  z-index: 1;
+}
+
+.bubble-left, .bubble-right {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  aspect-ratio: 1.25 / 1; 
+  z-index: 1;
+
+  /* 'contain' ensures the full width is shown within the 100% height */
+  -webkit-mask-size: contain; 
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+}
+
+.bubble-left {
+  left: 0;
+  transform: translateX(-65%); 
+  background-color: #012B63;
+  -webkit-mask-image: url('../assets/svgs/decorations/ueber_uns_blase_links.svg');
+  mask-image: url('../assets/svgs/decorations/ueber_uns_blase_links.svg');
+  -webkit-mask-position: left center;
+}
+
+.bubble-right {
+  right: 0;
+  transform: translateX(70%); 
+  background-color: #008169;
+  -webkit-mask-image: url('../assets/svgs/decorations/ueber_uns_blase_rechts.svg');
+  mask-image: url('../assets/svgs/decorations/ueber_uns_blase_rechts.svg');
+  -webkit-mask-position: right center;
+}
+
+
+/*###########################################*/
+/*============= Unsere Werte  ===============*/
+/*###########################################*/
+
+
+/* Main Section Title */
+    .werte-title {
+        width: 100%;
+        text-align: center;
+        padding: 65px 0 45px;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        font-weight: bold;
+    }
+
+    /* =========================================
+       2. GRID LAYOUT
+       ========================================= */
+    .werte-box {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); 
+        grid-template-rows: auto auto; 
+        column-gap: 0; /* No gap so text and SVG touch */
+        row-gap: 40px; 
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Create horizontal breathing room between the two middle SVG columns */
+    .svg-wert1, .svg-wert3 { margin-right: 20px; }
+    .svg-wert2, .svg-wert4 { margin-left: 20px; }
+
+    /* Responsive: Switch to 2 columns on tablets/phones */
+    @media (max-width: 768px) {
+        .werte-box {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    /* =========================================
+       3. TEXT STYLING & ALIGNMENT
+       ========================================= */
+    /* Container for the text blocks */
+    [class^="text-wert"] {
+        height: clamp(5.5rem, 10vw, 10rem); 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0; /* Initial state for animation */
+        transition: all 0.8s ease-out;
+    }
+
+    /* Headings inside text blocks */
+    .werte-box [class^="text-wert"] h2 {
+        font-size: 1.2em;
+        line-height: 1.2;
+        margin-bottom: 5px;
+    }
+
+    /* Paragraphs inside text blocks */
+    .werte-box [class^="text-wert"] p {
+        line-height: 1.4;
+    }
+
+    /* Alignment for Left-side text (Wert 1 & 3) */
+    .text-wert1, .text-wert3 {
+        text-align: right;
+        padding-right: 20px;
+    }
+
+    /* Alignment for Right-side text (Wert 2 & 4) */
+    .text-wert2, .text-wert4 {
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    /* =========================================
+       4. SVG & BUBBLE LAYERS
+       ========================================= */
+    /* Shared settings for the Symbol (Foreground) */
+    /* 1. Reset the main container (The Div) */
+    [class^="svg-wert"] {
+        position: relative;
+        z-index: 1; 
+        height: clamp(5.5rem, 10vw, 10rem);
+        width: 100%;
+        /* Remove background-image from here! We will move it to ::after */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 2. The Bubble (Bottom Layer) */
+    [class^="svg-wert"]::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 2; /* Low number */
+        
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+    }
+
+    /* 3. The Symbol (Top Layer) */
+    [class^="svg-wert"]::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 3; /* Higher number makes it sit on top */
+        
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    /* --- Individual Asset Assignments --- */
+    .svg-wert1::after { background-image: url('../assets/svgs/values/boat_symbol.svg'); }
+    .svg-wert1::before { 
+        background-color: #B9E0ED; 
+        -webkit-mask-image: url('../assets/svgs/values/boat_bubble.svg'); 
+        mask-image: url('../assets/svgs/values/boat_bubble.svg');
+    }
+
+    .svg-wert2::after { background-image: url('../assets/svgs/values/whale_symbol.svg'); }
+    .svg-wert2::before { 
+        background-color: #B7CEEC; 
+        -webkit-mask-image: url('../assets/svgs/values/whale_bubble.svg'); 
+        mask-image: url('../assets/svgs/values/whale_bubble.svg');
+    }
+
+    .svg-wert3::after { background-image: url('../assets/svgs/values/vogel_symbol.svg'); }
+    .svg-wert3::before { 
+        background-color: #B9BFED; 
+        -webkit-mask-image: url('../assets/svgs/values/vogel_bubble.svg'); 
+        mask-image: url('../assets/svgs/values/vogel_bubble.svg');
+    }
+
+    .svg-wert4::after { background-image: url('../assets/svgs/values/konsum_symbol.svg'); }
+    .svg-wert4::before { 
+        background-color: #B9EDEA; 
+        -webkit-mask-image: url('../assets/svgs/values/konsum_bubble.svg'); 
+        mask-image: url('../assets/svgs/values/konsum_bubble.svg');
+    }
+
+    /* =========================================
+       5. ANIMATIONS (Swoosh Effect)
+       ========================================= */
+    @keyframes swooshLeft {
+        from { opacity: 0; transform: translateX(50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes swooshRight {
+        from { opacity: 0; transform: translateX(-50px); }
+        to { opacity: 1; transform: translateX(0); }
+    }
+
+    .animate-left { animation: swooshLeft 1s forwards ease-out; }
+    .animate-right { animation: swooshRight 1s forwards ease-out; }
+
+
+
+/*###########################################*/
+/*=============== Blog Page  ================*/
+/*###########################################*/
+
+.blog-container {
+  max-width: 1400px;
+  margin: 5rem auto;
+  padding: 2rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.blog-header { 
+  text-align: center; 
+  font-size: clamp(2rem, 5vw, 4rem); 
+  margin-bottom: 2rem; 
+  font-family: "Roboto mono", monospace;
+}
+
+.filter-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Increased gap slightly for the slashes */
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  font-family: 'Roboto Mono', monospace; 
+  font-size: 1.5rem;
+  font-weight: 300;
+  cursor: pointer;
+  color: #000000;
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+}
+
+/* The Slash Divider */
+.filter-btn:not(:last-child)::after {
+  content: '/';
+  margin-left: 20px;
+  color: #ddd;
+  font-weight: normal;
+  pointer-events: none;
+}
+
+/* The Active State (Stay Highlighted) */
+.filter-btn.active {
+  color: #008169;
+  font-weight: 700;
+}
+
+.filter-btn:hover {
+  color: #008169;
+  font-weight: 700;
+}
+
+/* Main Layout Split */
+.blog-layout-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Left Column: Featured (Newest) */
+#featured-section {
+  flex: 0 0 350px; /* Fixed width for the newest post column */
+}
+
+.featured-box {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: white;
+  border: 1px solid #eee;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  position: sticky;
+  top: 20px;
+}
+
+/* Make the featured box feel like a single interactive unit */
+.featured-box-link {
+  text-decoration: none; /* Remove underline from text */
+  color: inherit;
+  display: block; /* Makes the link fill the container width */
+}
+
+.newest-post-label {
+  font-family: "Reenie Beanie", cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  font-style: normal;
+  padding: 5px 0 15px 0;
+  text-align: center;
+}
+
+.featured-box img { width: 100%; height: auto; margin-bottom: 20px; }
+.featured-box .post-description { font-size: 0.95rem; line-height: 1.6; color: #555; margin: 15px 0; }
+  
+.masonry-columns-container {
+  display: flex; /* Side by side columns */
+  gap: 30px;
+  flex: 1;
+  align-items: flex-start;
+}
+
+.masonry-col {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Vertical distance between posts */
+  flex: 1; /* Equal width columns */
+}
+
+/* Each card in masonry */
+.blog-card {
+  break-inside: avoid; /* Prevents card from splitting between columns */
+  margin-bottom: 30px; /* Fixed vertical distance */
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card img { width: 100%; height: auto; object-fit: cover; margin-bottom: 12px; }
+
+/* Shared Styles */
+.post-tag { font-weight: bold; color: #008169; text-transform: uppercase; margin-right: 10px; font-size: 0.75rem; }
+.post-date { font-size: 0.75rem; color: #999; }
+.post-title { font-size: 1.2rem; margin-top: 5px; color: #222; }
+
+
+/* Image Container for Hover Effect */
+.post-image-container {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+/* The Image itself */
+.post-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.5s ease, transform 0.5s ease;
+  margin-bottom: 0 !important; /* Reset previous margin */
+}
+
+/* The Overlay Text */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(1, 43, 99, 0.2); /* Subtle blue tint */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.image-overlay span {
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  padding: 8px 16px;
+  text-transform: uppercase;
+}
+
+/* Hover States */
+.post-image-container:hover img {
+  filter: grayscale(100%) brightness(70%);
+  transform: scale(1.05); /* Slight zoom for extra life */
+}
+
+.post-image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+/* Specific Hover effect for the entire Featured Box */
+.featured-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-box:hover {
+  transform: translateY(-5px); /* Lifts the whole box up slightly */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); /* Deepens the shadow on hover */
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.load-more-btn {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  color:  #008169;
+  background: transparent;
+  border: 1px solid #008169;
+  padding: 12px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.load-more-btn:hover {
+  background: #008169;
+  color: white;
+}
+
+/* Hide the button when all posts are loaded */
+.hidden {
+  display: none;
+}
+
+  @media (max-width: 1100px) {
+    .blog-layout-wrapper { flex-direction: column; }
+    #masonry-section { column-count: 2; width: 100%; }
+    #featured-section { width: 100%; flex: none; }
+  }
+
+
+
+/*###########################################*/
+/*============== Blog Post ==================*/
+/*###########################################*/
+
+/* ============================================================
+   0. GLOBAL & LAYOUT
+   ============================================================ */
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+.article-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    left: -10%;
+    top: 60px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    color: #888;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.back-button:hover {
+    color: #008169;
+    transform: translateX(-5px);
+}
+
+@media (max-width: 1200px) {
+    .back-button {
+        position: static;
+        display: inline-flex;
+        margin-bottom: 20px;
+    }
+}
+
+/* ============================================================
+   1. CAROUSEL WRAPPER (TOP)
+   ============================================================ */
+.carousel-wrapper {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.image-stage {
+    height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-stage img {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+.image-description {
+    margin-top: 15px;
+    font-family: 'Roboto', sans-serif;
+    color: #555;
+}
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.arrow:hover {
+    color: #008169;
+}
+
+.dot-container {
+    display: flex;
+    gap: 15px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #008169;
+}
+
+/* ============================================================
+   2. ARTICLE HEADER INFO
+   ============================================================ */
+.article-header-info {
+    margin-top: 40px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+}
+
+.meta-row {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.article-tag {
+    color: #008169;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.article-date {
+    color: #888;
+}
+
+.article-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 0 0 20px 0;
+    line-height: 1.2;
+}
+
+.article-intro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* ============================================================
+   3. CONTENT BLOCK & HYBRID GALLERY (MIDDLE)
+   ============================================================ */
+.content-block {
+    margin-bottom: 40px;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.block-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.block-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+}
+
+.hybrid-gallery {
+    position: relative;
+    margin: 25px 0;
+}
+
+.image-scroll-row {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.image-scroll-row::-webkit-scrollbar {
+    display: none;
+}
+
+.image-scroll-row img {
+    height: 350px;
+    width: auto;
+    scroll-snap-align: start;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+}
+
+.scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.hybrid-gallery:hover .scroll-arrow {
+    opacity: 1;
+}
+
+.scroll-arrow:hover {
+    background: #008169;
+    color: white;
+}
+
+.scroll-arrow.left {
+    left: -22px;
+}
+
+.scroll-arrow.right {
+    right: -22px;
+}
+
+@media (pointer: coarse) {
+    .scroll-arrow {
+        display: none;
+    }
+}
+
+/* ============================================================
+   4. HYBRID LIGHTBOX (OVERLAY)
+   ============================================================ */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 99999;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 85%;
+}
+
+.lightbox img {
+    max-height: 80vh;
+    max-width: 100%;
+    animation: zoomIn 0.3s ease;
+}
+
+.lightbox-nav {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    padding: 20px;
+    transition: color 0.3s;
+}
+
+.lightbox-nav:hover {
+    color: #008169;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ============================================================
+   5. RELATED POSTS BOX (BOTTOM)
+   ============================================================ */
+.related-posts-box {
+    margin-top: 80px;
+    padding-top: 40px;
+    border-top: 1px solid #eee;
+}
+
+.related-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.post-card {
+    flex: 0 0 280px;
+    background: #fff;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    scroll-snap-align: start;
+    margin-bottom: 10px;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+}
+
+.post-card img {
+    width: 100%;
+    height: 300;
+    object-fit: cover;
+}
+
+.post-card-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.post-card-tag {
+    font-size: 0.75rem;
+    color: #008169;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.post-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.post-card-date {
+    font-size: 0.8rem;
+    color: #999;
+}

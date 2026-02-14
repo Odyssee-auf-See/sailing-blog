@@ -13,34 +13,38 @@
   <!--Font-absome Library-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <!--CSS File-->
-  <link href="styles.css" rel="stylesheet"/>
+  <link href="css/styles.css" rel="stylesheet"/>
   <!--Java Script for advanced functionalities-->
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 
 </head>
 
 
 <body>
-  <div id="landing" class="titlePage"></div>
-  <div id="menuBar" class="menuBar"></div>
+  <div id="landing" class="title-page"></div>
+  <div id="menu-bar" class="menu-bar"></div>
   
   <div id="content">
-    <div id="ueberUns" class="section"></div>
-    <div id="unsere_werte" class="section"></div>
+    <div id="ueber-uns" class="section"></div>
+    <div id="unsere-werte" class="section"></div>
     <div id="blog" class="section"></div>
+    <div id="map" class="section"></div>
     <div id="footer" class="section"></div>
   </div>
 </body>
 </html>
 
+<script src="js/map.js"></script>
+
 <script>
 //content-section loading
 
-loadHTML('landing', 'landing_page/landing_page.html');
-loadHTML('menuBar', 'menu_bar/menu_bar.html');
-loadHTML('ueberUns', 'ueber_uns/ueber_uns.html');
-loadHTML('unsere_werte', 'unsere_werte/unsere_werte.html');
-loadHTML('blog', 'blog/blog.html');
-loadHTML('footer', 'footer/footer.html');
+loadHTML('landing', 'components/landing/landing_page.html');
+loadHTML('menu-bar', 'components/header/menu_bar.html');
+loadHTML('ueber-uns', 'components/about/ueber_uns.html');
+loadHTML('unsere-werte', 'components/values/unsere_werte.html');
+loadHTML('blog', 'pages/blog/blog.html');
+loadHTML('map', 'components/map/map.html');
+loadHTML('footer', 'components/footer/Footer.html');
 
 </script>
