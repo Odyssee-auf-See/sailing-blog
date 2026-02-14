@@ -24,7 +24,7 @@ async function fetchVesselPosition() {
     const timer = setTimeout(() => {
       socket.terminate();
       reject(new Error('Timeout: No AIS position received for this MMSI. The boat might be offline.'));
-    }, 30000);
+    }, 3000);
 
     socket.on('open', () => {
       console.log('🌐 Connected to AISStream. Sending subscription...');
