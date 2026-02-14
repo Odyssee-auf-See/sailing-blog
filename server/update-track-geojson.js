@@ -31,42 +31,41 @@ if (!API_KEY || !MMSI) {
  * Fetch vessel info from AISStream.io
  * Returns vessel AIS message data
  */
+const WebSocket = require('ws');
+
 async function fetchVesselPosition() {
   return new Promise((resolve, reject) => {
-    const options = {
-      hostname: 'api.aisstream.io',
-      path: `/v0/vessels?apikey=${API_KEY}&mmsi=${MMSI}`,
-      method: 'GET',
-      headers: {
-        'User-Agent': 'Node.js AIS Track Updater',
-        'Accept': 'application/json',
-      },
-    };
+    const socket = new WebSocket("wss://stream.aisstream.io/v0/stream");
 
-    const req = https.request(options, (res) => {
-      let data = '';
-
-      res.on('data', (chunk) => {
-        data += chunk;
-      });
-
-      res.on('end', () => {
-        try {
-          const parsed = JSON.parse(data);
-          if (res.statusCode === 200) {
-            resolve(parsed);
-          } else {
-            reject(new Error(`AISStream API error: ${res.statusCode} - ${parsed.message || data}`));
-          }
-        } catch (e) {
-          reject(new Error(`Failed to parse response: ${e.message}`));
-        }
-      });
+    socket.on('open', () => {
+      const subscriptionMessage = {
+        APIKey: API_KEY,
+        FiltersShipMMSI: [MMSI], // Filter for your specific boat
+        FilterMessageTypes: ["PositionReport"]
+      };
+      socket.send(JSON.stringify(subscriptionMessage));
     });
 
-    req.on('error', reject);
-    setTimeout(() => reject(new Error('Request timeout')), 10000);
-    req.end();
+    socket.on('message', (data) => {
+      const message = JSON.parse(data);
+      if (message.MessageType === "PositionReport") {
+        const report = message.Message.PositionReport;
+        socket.close(); // We got what we need, close connection
+        resolve({
+          Latitude: report.Latitude,
+          Longitude: report.Longitude,
+          SOG: report.Sog,
+          COG: report.Cog,
+          ShipName: "My Vessel"
+        });
+      }
+    });
+
+    socket.on('error', (err) => reject(err));
+    setTimeout(() => {
+      socket.close();
+      reject(new Error('Timeout: No AIS message received for this MMSI'));
+    }, 15000); // Wait 15 seconds for a signal
   });
 }
 
