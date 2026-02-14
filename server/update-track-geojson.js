@@ -30,6 +30,7 @@ async function fetchVesselPosition() {
       console.log('🌐 Connected to AISStream. Sending subscription...');
       const subscription = {
         APIKey: API_KEY,
+        BoundingBoxes: [[[-90, -180], [90, 180]]],
         FiltersShipMMSI: [MMSI],
         FilterMessageTypes: ["PositionReport"]
       };
