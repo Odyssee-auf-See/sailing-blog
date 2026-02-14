@@ -1,0 +1,41 @@
+name: Update AIS Track
+
+on:
+  schedule:
+    # Run every 30 minutes
+    - cron: '*/30 * * * *'
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  update-track:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Update track from AISStream
+        env:
+          AIS_API_KEY: ${{ secrets.AIS_API_KEY }}
+          AIS_MMSI: ${{ secrets.AIS_MMSI }}
+        run: |
+          node new_blog/server/update-track-geojson.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add new_blog/data/track.geojson
+          if git diff --cached --quiet; then
+            echo "No changes to track.geojson"
+          else
+            git commit -m "Update track data from AISStream [skip ci]"
+            git push
+          fi
