@@ -6,7 +6,7 @@ const WebSocket = require('ws');
 // Configuration
 const API_KEY = process.env.AIS_API_KEY;
 const MMSI = process.env.AIS_MMSI;
-console.log(MMSI);
+console.log(['"'+MMSI+'"']);
 console.log(typeof MMSI);
 const TRACK_FILE = path.join(__dirname, '../data/track.geojson');
 
