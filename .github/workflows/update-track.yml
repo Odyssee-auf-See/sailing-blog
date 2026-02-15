@@ -32,7 +32,7 @@ jobs:
       - name: Update track from AISStream
         env:
           AIS_API_KEY: ${{ secrets.AIS_API_KEY }}
-          AIS_MMSI: ${{ secrets.AIS_MMSI }}
+          AIS_MMSI: ${{ vars.AIS_MMSI }}
         run: |
           node server/update-track-geojson.js
 
