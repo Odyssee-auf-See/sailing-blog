@@ -45,6 +45,51 @@
         "sog": 0.2,
         "cog": 21
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.72404,
+          45.567005
+        ]
+      },
+      "properties": {
+        "timestamp": "2026-02-15T11:22:11.190Z",
+        "sog": 2.3,
+        "cog": 347.7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.723673333333332,
+          45.561836666666665
+        ]
+      },
+      "properties": {
+        "timestamp": "2026-02-15T11:30:40.172Z",
+        "sog": 9.2,
+        "cog": 202
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.73056,
+          45.55056833333333
+        ]
+      },
+      "properties": {
+        "timestamp": "2026-02-15T11:44:56.555Z",
+        "sog": 0,
+        "cog": 238
+      }
     }
   ]
 }
