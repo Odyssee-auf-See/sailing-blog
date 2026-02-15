@@ -45,6 +45,21 @@
         "sog": 0.2,
         "cog": 21
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.72404,
+          45.567005
+        ]
+      },
+      "properties": {
+        "timestamp": "2026-02-15T11:22:11.190Z",
+        "sog": 2.3,
+        "cog": 347.7
+      }
     }
   ]
 }
