@@ -10,7 +10,6 @@ const MMSI = MMSI_RAW == null ? '' : String(MMSI_RAW).replace(/^"+|"+$/g, '');
 const TRACK_FILE = path.join(__dirname, '../data/track.geojson');
 
 const MIN_DISTANCE_METERS = 100; 
-const MIN_TIME_SECONDS = 30;
 
 if (!API_KEY || !MMSI) {
   console.error('Error: AIS_API_KEY and AIS_MMSI must be set');
@@ -21,11 +20,11 @@ async function fetchVesselPosition() {
   return new Promise((resolve, reject) => {
     const socket = new WebSocket("wss://stream.aisstream.io/v0/stream");
 
-    // Timeout after 30 seconds if no signal is found
+    // Timeout after 1min if no signal is found
     const timer = setTimeout(() => {
       socket.terminate();
       reject(new Error('Timeout: No AIS position received for this MMSI. The boat might be offline.'));
-    }, 300000);
+    }, 60000);
 
     socket.on('open', () => {
       console.log('🌐 Connected to AISStream. Sending subscription...');
@@ -106,8 +105,8 @@ function addPositionToTrack(track, lat, lon, sog, cog, timestamp) {
     const timeDelta = (new Date(timestamp) - new Date(last.properties.timestamp)) / 1000;
     const distance = haversineDistance(lastLat, lastLon, lat, lon);
 
-    if (timeDelta < MIN_TIME_SECONDS && distance < MIN_DISTANCE_METERS) {
-      console.log('[UPDATER] Sampled point too close in time/distance; skipping append.');
+    if (distance < MIN_DISTANCE_METERS) {
+      console.log('[UPDATER] Sampled point too close in distance; skipping append.');
       return false;
     }
   }
