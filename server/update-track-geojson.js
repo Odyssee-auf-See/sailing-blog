@@ -5,7 +5,9 @@ const WebSocket = require('ws');
 
 // Configuration
 const API_KEY = process.env.AIS_API_KEY;
-const MMSI = toString(process.env.AIS_MMSI);
+const MMSI = process.env.AIS_MMSI;
+console.log(MMSI);
+console.log(typeof MMSI);
 const TRACK_FILE = path.join(__dirname, '../data/track.geojson');
 
 const MIN_DISTANCE_METERS = 100; 
