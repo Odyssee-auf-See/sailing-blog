@@ -2,8 +2,8 @@ name: Update AIS Track
 
 on:
   schedule:
-    # Run every 30 minutes
-    - cron: '*/30 * * * *'
+    # Run every 60 minutes
+    - cron: '0 * * * *'
   # Allow manual trigger
   workflow_dispatch:
 
