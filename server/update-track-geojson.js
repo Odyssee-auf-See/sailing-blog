@@ -64,7 +64,6 @@ async function fetchVesselPosition() {
 
 // --- Keep your existing haversineDistance, loadTrackFile, saveTrackFile, and addPositionToTrack functions below ---
 // (Make sure to paste them back in here)
-<<<<<<< HEAD
 
 function haversineDistance(lat1, lon1, lat2, lon2) {
   const R = 6371000; // metres
@@ -122,9 +121,6 @@ function addPositionToTrack(track, lat, lon, sog, cog, timestamp) {
   return true;
 }
 
-=======
-
->>>>>>> f6ff944705dec0a2848cd1ce288572774e41a0c0
 async function main() {
   console.log(`\n🚤 AIS Track Updater - MMSI: ${MMSI}`);
   try {
@@ -152,8 +148,4 @@ async function main() {
 }
 
 // (Remember to include your helper functions from the original script here!)
-<<<<<<< HEAD
 main();
-=======
-main();
->>>>>>> f6ff944705dec0a2848cd1ce288572774e41a0c0
