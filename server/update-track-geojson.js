@@ -31,7 +31,7 @@ async function fetchVesselPosition() {
       const subscription = {
         APIKey: API_KEY,
         BoundingBoxes: [[[-90, -180], [90, 180]]],
-        FiltersShipMMSI: ["538005869", "255806508", "563221900", "563097900"],
+        FiltersShipMMSI: [MMSI],
         FilterMessageTypes: ["PositionReport"]
       };
       socket.send(JSON.stringify(subscription));
