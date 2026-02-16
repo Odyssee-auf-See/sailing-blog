@@ -318,58 +318,6 @@ html, body {
   background-color: #f9f9f9;
 }
 
-.map-title {
-  text-align: center;
-  padding: 0 0 40px 0;
-  font-size: clamp(1.5rem, 4vw, 2.2rem);
-  font-weight: 700;
-  color: #012B63;
-  letter-spacing: 1px;
-}
-
-.map-info-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 0 40px 0;
-}
-
-.map-info-box {
-  background: white;
-  border-radius: 8px;
-  padding: 20px 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.map-info-box:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.map-info-symbol {
-  font-size: 2.5rem;
-  margin-bottom: 12px;
-}
-
-.map-info-label {
-  font-size: 0.9rem;
-  color: #666;
-  font-weight: 500;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.map-info-value {
-  font-size: clamp(0.9rem, 2vw, 1.2rem);
-  color: #012B63;
-  font-weight: 600;
-  line-height: 1.4;
-}
 
 .map-container {
   width: 100%;
@@ -382,6 +330,35 @@ html, body {
   margin: 0 auto;
   max-width: 1200px;
 }
+
+/* Container must be relative for the hint to position correctly */
+#map-element {
+    position: relative;
+}
+
+/* Styling for the dynamic hint overlay */
+.scroll-hint-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(126, 126, 126, 0.67); /* Nautical Blue */
+    color: rgba(222, 222, 222, 0.766);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    z-index: 10000; /* Ensure it sits above all Leaflet panes */
+    pointer-events: none; /* Let clicks pass through to map */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.scroll-hint-overlay.visible {
+    opacity: 1;
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

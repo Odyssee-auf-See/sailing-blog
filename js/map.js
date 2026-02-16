@@ -47,8 +47,42 @@ async function initMap(containerId) {
     return;
   }
 
-  mapState.map = L.map(el).setView(MAP_CONFIG.center, MAP_CONFIG.zoom);
+  // --- 1. INITIALIZE MAP ---
+  mapState.map = L.map(el, {
+    scrollWheelZoom: false,
+  }).setView(MAP_CONFIG.center, MAP_CONFIG.zoom);
 
+// --- 2. DYNAMIC HINT OVERLAY ---
+  const hint = document.createElement('div');
+  hint.className = 'scroll-hint-overlay';
+  hint.innerText = 'Use [Ctrl] + Scroll to Zoom';
+  el.appendChild(hint);
+
+  // Toggle zoom capability based on Ctrl key
+  const handleScrollZoom = (e) => {
+    if (e.ctrlKey || e.metaKey) {
+      mapState.map.scrollWheelZoom.enable();
+      hint.classList.remove('visible'); 
+    } else {
+      mapState.map.scrollWheelZoom.disable();
+    }
+  };
+
+  // Listen for the wheel event on the map container
+  el.addEventListener('wheel', (e) => {
+    if (!e.ctrlKey && !e.metaKey) {
+      hint.classList.add('visible');
+      clearTimeout(el.hintTimer);
+      el.hintTimer = setTimeout(() => {
+        hint.classList.remove('visible');
+      }, 2000);
+    }
+  }, { passive: true });
+
+  window.addEventListener('keydown', handleScrollZoom);
+  window.addEventListener('keyup', handleScrollZoom);
+
+  // --- 3. TILES AND LAYERS ---
   L.tileLayer(ESRI_TILE_URL, {
     attribution: 'Tiles &copy; Esri',
     maxZoom: 18,
@@ -57,13 +91,16 @@ async function initMap(containerId) {
   mapState.trackLayer = L.layerGroup().addTo(mapState.map);
   mapState.markersLayer = L.layerGroup().addTo(mapState.map);
 
-  // Load static GeoJSON track file
   await loadTrackFile(MAP_CONFIG.trackFile);
 
-  // If we have a last point, show it
   if (mapState.currentFix) {
-    updateInfoBoxes(mapState.currentFix.lat, mapState.currentFix.lon, mapState.currentFix.sog || 0);
-    // center map on last known position
+    updateInfoBoxes(
+        mapState.currentFix.lat, 
+        mapState.currentFix.lon, 
+        mapState.currentFix.sog, 
+        mapState.currentFix.cog, 
+        mapState.currentFix.timestamp
+    );
     mapState.map.setView([mapState.currentFix.lat, mapState.currentFix.lon], MAP_CONFIG.zoom);
     mapState.mapCentered = true;
   }
@@ -138,14 +175,19 @@ function updateMarker(lat, lon, sog, cog) {
     .addTo(mapState.markersLayer);
 }
 
-function updateInfoBoxes(lat, lon, sog) {
+function updateInfoBoxes(lat, lon, sog, cog, timestamp) {
   const latDM = decimalToDMS(Math.abs(lat), lat >= 0 ? 'N' : 'S');
   const lonDM = decimalToDMS(Math.abs(lon), lon >= 0 ? 'E' : 'W');
-  updateInfoBox('ais-latitude', latDM);
-  updateInfoBox('ais-longitude', lonDM);
-  updateInfoBox('ais-wind', '--');
-  updateInfoBox('ais-distance', mapState.trackGeoJSON?.features?.length || 0);
-  updateInfoBox('ais-localtime', new Date().toLocaleTimeString('en-GB'));
+  
+  // Use the IDs from your new map.html dashboard
+  updateInfoBox('ais-pos', `${latDM} ${lonDM}`);
+  updateInfoBox('ais-sog', sog.toFixed(1));
+  updateInfoBox('ais-cog', Math.round(cog) || '---');
+  
+  if (timestamp) {
+    const time = new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    updateInfoBox('ais-time', time);
+  }
 }
 
 function decimalToDMS(decimal, direction) {
