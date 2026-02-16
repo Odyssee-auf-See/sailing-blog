@@ -34,7 +34,7 @@ jobs:
           AISSTREAM_API_KEY: ${{ secrets.AISSTREAM_API_KEY }}
           AIS_MMSI: ${{ vars.AIS_MMSI }}
           MARINESIA_API_KEY: ${{ vars.MARINESIA_API_KEY }}
-          MARINESIA_USE_DUMMY: "true"
+          MARINESIA_USE_DUMMY: "false"
         run: |
           node server/update-track-geojson.js
 
