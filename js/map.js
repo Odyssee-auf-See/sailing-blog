@@ -153,6 +153,91 @@ async function loadTrackFile(url) {
   }
 }
 
+function getAtonTypeLabel(typeValue) {
+  const type = Number(typeValue);
+  const labels = {
+    0: 'Not specified',
+    1: 'Reference point',
+    2: 'RACON',
+    3: 'Fixed structure',
+    4: 'Spare',
+    5: 'Light',
+    6: 'Light with sectors',
+    7: 'Leading light (front)',
+    8: 'Leading light (rear)',
+    9: 'Beacon, cardinal N',
+    10: 'Beacon, cardinal E',
+    11: 'Beacon, cardinal S',
+    12: 'Beacon, cardinal W',
+    13: 'Beacon, port',
+    14: 'Beacon, starboard',
+    15: 'Beacon, preferred channel port',
+    16: 'Beacon, preferred channel starboard',
+    17: 'Beacon, isolated danger',
+    18: 'Beacon, safe water',
+    19: 'Beacon, special',
+    20: 'Buoy, cardinal N',
+    21: 'Buoy, cardinal E',
+    22: 'Buoy, cardinal S',
+    23: 'Buoy, cardinal W',
+    24: 'Buoy, port',
+    25: 'Buoy, starboard',
+    26: 'Buoy, preferred channel port',
+    27: 'Buoy, preferred channel starboard',
+    28: 'Buoy, isolated danger',
+    29: 'Buoy, safe water',
+    30: 'Buoy, special',
+    31: 'Light vessel/lanby/rig',
+  };
+  return labels[type] || 'Unknown';
+}
+
+function getAtonCategory(typeValue) {
+  const type = Number(typeValue);
+  if ([5, 6, 7, 8].includes(type)) return 'light';
+  if (type >= 9 && type <= 19) return 'beacon';
+  if (type >= 20 && type <= 30) return 'buoy';
+  if ([1, 2, 3, 4, 31].includes(type)) return 'structure';
+  return 'unknown';
+}
+
+function getAtonStyle(typeValue) {
+  const category = getAtonCategory(typeValue);
+  const styleByCategory = {
+    light: { color: '#ffd54f', label: 'L' },
+    beacon: { color: '#ff7043', label: 'B' },
+    buoy: { color: '#26a69a', label: 'U' },
+    structure: { color: '#8d6e63', label: 'S' },
+    unknown: { color: '#9e9e9e', label: '?' },
+  };
+  return styleByCategory[category] || styleByCategory.unknown;
+}
+
+function formatAtonPopup(props, lat, lon) {
+  const name = props?.name || 'AtoN';
+  const nameExt = props?.nameExtension ? ` ${props.nameExtension}` : '';
+  const typeLabel = getAtonTypeLabel(props?.type ?? props?.aton);
+  const timestamp = props?.timestamp ? new Date(props.timestamp).toLocaleString() : '---';
+  const dim = props?.dimension
+    ? `A:${props.dimension.A ?? '-'} B:${props.dimension.B ?? '-'} C:${props.dimension.C ?? '-'} D:${props.dimension.D ?? '-'}`
+    : '---';
+
+  return [
+    `<div style="text-align:center;"><strong>${name}${nameExt}</strong></div>`,
+    `Type: ${typeLabel}`,
+    `Lat: ${lat.toFixed(5)}°`,
+    `Lon: ${lon.toFixed(5)}°`,
+    `MMSI: ${props?.mmsi ?? '---'}`,
+    `Virtual: ${props?.virtual ?? '---'}`,
+    `Off position: ${props?.offPosition ?? '---'}`,
+    `Accuracy: ${props?.positionAccuracy ?? '---'}`,
+    `RAIM: ${props?.raim ?? '---'}`,
+    `Fix type: ${props?.fixType ?? '---'}`,
+    `Dimensions: ${dim}`,
+    `Time: ${timestamp}`,
+  ].join('<br>');
+}
+
 async function loadAtonFile(url) {
   try {
     const resp = await fetch(url);
@@ -166,16 +251,13 @@ async function loadAtonFile(url) {
     geo.features.forEach((feature) => {
       if (!feature?.geometry || feature.geometry.type !== 'Point') return;
       const [lon, lat] = feature.geometry.coordinates;
-      const name = feature.properties?.name || 'AtoN';
+      const props = feature.properties || {};
+      const style = getAtonStyle(props.type ?? props.aton);
+      const iconHtml = `<div style="width:22px;height:22px;border-radius:50%;background:${style.color};color:#1b1b1b;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,0.35);border:1px solid rgba(0,0,0,0.35);">${style.label}</div>`;
+      const icon = L.divIcon({ html: iconHtml, className: 'aton-marker', iconSize: [22, 22], iconAnchor: [11, 11] });
 
-      L.circleMarker([lat, lon], {
-        radius: 5,
-        color: '#ffb300',
-        fillColor: '#ffb300',
-        fillOpacity: 0.85,
-        weight: 1,
-      })
-        .bindPopup(`<div style="text-align:center;"><strong>${name}</strong><br>Lat: ${lat.toFixed(5)}°<br>Lon: ${lon.toFixed(5)}°</div>`)
+      L.marker([lat, lon], { icon })
+        .bindPopup(formatAtonPopup(props, lat, lon))
         .addTo(mapState.atonLayer);
     });
   } catch (err) {

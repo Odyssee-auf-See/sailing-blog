@@ -37,7 +37,7 @@ async function fetchVesselPositionFromMarinesia() {
   }
 
   const url = `https://api.marinesia.com/api/v1/vessel/${encodeURIComponent(MMSI)}/location/latest?key=${encodeURIComponent(MARINESIA_API_KEY)}`;
-  console.log(url);
+  console.log(`[MARINESIA] Requesting latest location for MMSI ${MMSI}`);
   const resp = await fetch(url, {
     headers: {
       Accept: 'application/json',
@@ -186,8 +186,18 @@ async function fetchAidsToNavigationReports(centerLat, centerLon) {
         properties: {
           timestamp: report.Timestamp ?? new Date().toISOString(),
           name: report.Name ?? report.NameOfAtoN ?? 'AtoN',
-          mmsi: report.MMSI ?? report.MMSINumber ?? null,
-          type: report.AtoNType ?? report.Type ?? null,
+          nameExtension: report.NameExtension ?? null,
+          mmsi: report.MMSI ?? report.MMSINumber ?? report.UserID ?? null,
+          type: report.AtoNType ?? report.Type ?? report.AtoN ?? null,
+          aton: report.AtoN ?? null,
+          virtual: report.VirtualAtoN ?? null,
+          offPosition: report.OffPosition ?? null,
+          positionAccuracy: report.PositionAccuracy ?? null,
+          raim: report.Raim ?? null,
+          fixType: report.Fixtype ?? null,
+          assignedMode: report.AssignedMode ?? null,
+          valid: report.Valid ?? null,
+          dimension: report.Dimension ?? null,
         },
       });
     });
