@@ -14,8 +14,8 @@ const TRACK_FILE = path.join(__dirname, '../data/track.geojson');
 const ATON_FILE = path.join(__dirname, '../data/aton.geojson');
 
 const MIN_DISTANCE_METERS = 100;
-const ATON_TIMEOUT_MS = 15000;
-const ATON_BOUNDING_BOX_DEGREES = 0.5;
+const ATON_TIMEOUT_MS = 30000;
+const ATON_BOUNDING_BOX_DEGREES = 1;
 
 if (!MMSI) {
   console.error('Error: AIS_MMSI must be set');
