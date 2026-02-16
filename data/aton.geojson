@@ -1,4 +1,191 @@
 {
   "type": "FeatureCollection",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.959636666666665,
+          58.91102166666667
+        ]
+      },
+      "properties": {
+        "timestamp": 16,
+        "name": "NYNASHAMN SODRA",
+        "nameExtension": "",
+        "mmsi": 992652303,
+        "type": 30,
+        "aton": 0,
+        "virtual": false,
+        "offPosition": true,
+        "positionAccuracy": true,
+        "raim": true,
+        "fixType": 1,
+        "assignedMode": false,
+        "valid": true,
+        "dimension": {
+          "A": 4,
+          "B": 4,
+          "C": 4,
+          "D": 4
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.11456666666667,
+          59.34963333333334
+        ]
+      },
+      "properties": {
+        "timestamp": 60,
+        "name": "VARTAN 001          ",
+        "nameExtension": "",
+        "mmsi": 992651034,
+        "type": 30,
+        "aton": 0,
+        "virtual": true,
+        "offPosition": false,
+        "positionAccuracy": true,
+        "raim": false,
+        "fixType": 0,
+        "assignedMode": false,
+        "valid": true,
+        "dimension": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 0
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.116483333333335,
+          59.349583333333335
+        ]
+      },
+      "properties": {
+        "timestamp": 60,
+        "name": "VARTAN 002          ",
+        "nameExtension": "",
+        "mmsi": 992651035,
+        "type": 30,
+        "aton": 0,
+        "virtual": true,
+        "offPosition": false,
+        "positionAccuracy": true,
+        "raim": false,
+        "fixType": 0,
+        "assignedMode": false,
+        "valid": true,
+        "dimension": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 0
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.117233333333335,
+          59.34928333333333
+        ]
+      },
+      "properties": {
+        "timestamp": 60,
+        "name": "VARTAN 005          ",
+        "nameExtension": "",
+        "mmsi": 992651036,
+        "type": 30,
+        "aton": 0,
+        "virtual": true,
+        "offPosition": false,
+        "positionAccuracy": true,
+        "raim": false,
+        "fixType": 0,
+        "assignedMode": false,
+        "valid": true,
+        "dimension": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 0
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.118033333333337,
+          59.346250000000005
+        ]
+      },
+      "properties": {
+        "timestamp": 60,
+        "name": "VARTAN 004          ",
+        "nameExtension": "",
+        "mmsi": 992651037,
+        "type": 30,
+        "aton": 0,
+        "virtual": true,
+        "offPosition": false,
+        "positionAccuracy": true,
+        "raim": false,
+        "fixType": 0,
+        "assignedMode": false,
+        "valid": true,
+        "dimension": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 0
+        }
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.110168333333334,
+          59.35403833333333
+        ]
+      },
+      "properties": {
+        "timestamp": 60,
+        "name": "VARTAN 006",
+        "nameExtension": "",
+        "mmsi": 992651049,
+        "type": 30,
+        "aton": 0,
+        "virtual": true,
+        "offPosition": false,
+        "positionAccuracy": true,
+        "raim": false,
+        "fixType": 0,
+        "assignedMode": false,
+        "valid": true,
+        "dimension": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 0
+        }
+      }
+    }
+  ]
 }
