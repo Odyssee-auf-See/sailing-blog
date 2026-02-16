@@ -198,6 +198,7 @@ async function fetchAidsToNavigationReports(centerLat, centerLon) {
       };
       socket.send(JSON.stringify(subscription));
     });
+    console.log([centerLat - delta, centerLon - delta], [centerLat + delta, centerLon + delta]);
 
     socket.on('message', (data) => {
       let msg;
