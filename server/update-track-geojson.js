@@ -9,6 +9,7 @@ const MMSI_RAW = process.env.AIS_MMSI;
 const MMSI = MMSI_RAW == null ? '' : String(MMSI_RAW).replace(/^"+|"+$/g, '');
 const MARINESIA_API_KEY_RAW = process.env.MARINESIA_API_KEY;
 const MARINESIA_API_KEY = MARINESIA_API_KEY_RAW == null ? '' : String(MARINESIA_API_KEY_RAW).trim().replace(/^"+|"+$/g, '');
+const MARINESIA_USE_DUMMY = String(process.env.MARINESIA_USE_DUMMY || '').toLowerCase() === 'true';
 const TRACK_FILE = path.join(__dirname, '../data/track.geojson');
 const ATON_FILE = path.join(__dirname, '../data/aton.geojson');
 
@@ -31,25 +32,55 @@ function toNumber(value) {
   return Number.isFinite(num) ? num : null;
 }
 
+const MARINESIA_DUMMY_RESPONSE = {
+  error: false,
+  message: 'Successfully fetched data',
+  data: {
+    mmsi: 265510570,
+    com_state: 67761,
+    status: 4,
+    pos_acc: true,
+    raim: false,
+    lat: 59.288612,
+    lng: 18.915412,
+    cog: 167.1,
+    sog: 0,
+    rot: 0,
+    spare: 0,
+    hdt: 194,
+    repeat: 0,
+    smi: 0,
+    valid: true,
+    ts: '2025-07-20T00:00:13.731652',
+  },
+};
+
 async function fetchVesselPositionFromMarinesia() {
-  if (!MARINESIA_API_KEY) {
+  if (!MARINESIA_API_KEY && !MARINESIA_USE_DUMMY) {
     throw new Error('Marinesia API key is missing');
   }
 
-  const url = `https://api.marinesia.com/api/v1/vessel/${encodeURIComponent(MMSI)}/location/latest?key=${encodeURIComponent(MARINESIA_API_KEY)}`;
-  console.log(`[MARINESIA] Requesting latest location for MMSI ${MMSI}`);
-  const resp = await fetch(url, {
-    headers: {
-      Accept: 'application/json',
-      'User-Agent': 'sailing-blog-updater/1.0',
-    },
-  });
-  console.log(`[MARINESIA] Response status: ${resp.status} ${resp.statusText}`);
-  if (!resp.ok) {
-    throw new Error(`Marinesia request failed: ${resp.status} ${resp.statusText}`);
-  }
+  let data;
 
-  const data = await resp.json();
+  if (MARINESIA_USE_DUMMY) {
+    console.log('[MARINESIA] Using dummy response (MARINESIA_USE_DUMMY=true)');
+    data = MARINESIA_DUMMY_RESPONSE;
+  } else {
+    const url = `https://api.marinesia.com/api/v1/vessel/${encodeURIComponent(MMSI)}/location/latest?key=${encodeURIComponent(MARINESIA_API_KEY)}`;
+    console.log(`[MARINESIA] Requesting latest location for MMSI ${MMSI}`);
+    const resp = await fetch(url, {
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': 'sailing-blog-updater/1.0',
+      },
+    });
+    console.log(`[MARINESIA] Response status: ${resp.status} ${resp.statusText}`);
+    if (!resp.ok) {
+      throw new Error(`Marinesia request failed: ${resp.status} ${resp.statusText}`);
+    }
+
+    data = await resp.json();
+  }
   const payload = data?.data ?? data;
   const lat = toNumber(payload?.latitude ?? payload?.lat ?? payload?.location?.lat ?? payload?.location?.latitude);
   const lon = toNumber(payload?.longitude ?? payload?.lon ?? payload?.lng ?? payload?.location?.lon ?? payload?.location?.longitude);
