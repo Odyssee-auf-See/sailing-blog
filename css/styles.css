@@ -359,6 +359,30 @@ html, body {
     opacity: 1;
 }
 
+/* AtoN toggle control (Leaflet) */
+.aton-toggle-control {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 6px;
+  padding: 6px 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  font-family: 'Roboto', sans-serif;
+  font-size: 13px;
+  color: #1b1b1b;
+  margin-top: 48px; /* place under zoom controls */
+}
+
+.aton-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.aton-toggle input {
+  margin: 0;
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

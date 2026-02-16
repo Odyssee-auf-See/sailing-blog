@@ -24,6 +24,7 @@ let mapState = {
   markersLayer: null,
   trackLayer: null,
   atonLayer: null,
+  atonVisible: true,
   currentMarker: null,
   currentFix: null,
   trackGeoJSON: null,
@@ -93,6 +94,7 @@ async function initMap(containerId) {
   mapState.trackLayer = L.layerGroup().addTo(mapState.map);
   mapState.markersLayer = L.layerGroup().addTo(mapState.map);
   mapState.atonLayer = L.layerGroup().addTo(mapState.map);
+  addAtonToggleControl();
 
   await loadTrackFile(MAP_CONFIG.trackFile);
   await loadAtonFile(MAP_CONFIG.atonFile);
@@ -107,6 +109,43 @@ async function initMap(containerId) {
     );
     mapState.map.setView([mapState.currentFix.lat, mapState.currentFix.lon], MAP_CONFIG.zoom);
     mapState.mapCentered = true;
+  }
+}
+
+function addAtonToggleControl() {
+  const control = L.control({ position: 'topleft' });
+
+  control.onAdd = () => {
+    const container = L.DomUtil.create('div', 'aton-toggle-control');
+    container.innerHTML = `
+      <label class="aton-toggle">
+        <input type="checkbox" checked />
+        <span>Kartenmarker</span>
+      </label>
+    `;
+
+    L.DomEvent.disableClickPropagation(container);
+    L.DomEvent.disableScrollPropagation(container);
+
+    const checkbox = container.querySelector('input');
+    checkbox.addEventListener('change', (event) => {
+      setAtonVisibility(event.target.checked);
+    });
+
+    return container;
+  };
+
+  control.addTo(mapState.map);
+}
+
+function setAtonVisibility(visible) {
+  mapState.atonVisible = visible;
+  if (visible) {
+    if (!mapState.map.hasLayer(mapState.atonLayer)) {
+      mapState.atonLayer.addTo(mapState.map);
+    }
+  } else if (mapState.map.hasLayer(mapState.atonLayer)) {
+    mapState.map.removeLayer(mapState.atonLayer);
   }
 }
 
