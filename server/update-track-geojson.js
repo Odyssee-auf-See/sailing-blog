@@ -174,6 +174,32 @@ function saveAtonFile(geojson) {
   }
 }
 
+function buildAtonKey(feature) {
+  const props = feature?.properties || {};
+  const coords = feature?.geometry?.coordinates || [];
+  const lon = typeof coords[0] === 'number' ? coords[0].toFixed(6) : '0';
+  const lat = typeof coords[1] === 'number' ? coords[1].toFixed(6) : '0';
+  const mmsi = props.mmsi ?? '0';
+  const name = props.name ?? '';
+  const type = props.type ?? props.aton ?? '0';
+  return `${mmsi}|${name}|${type}|${lat}|${lon}`;
+}
+
+function mergeAtonFeatures(existing, incoming) {
+  const merged = Array.isArray(existing) ? [...existing] : [];
+  const seen = new Set(merged.map(buildAtonKey));
+
+  incoming.forEach((feature) => {
+    const key = buildAtonKey(feature);
+    if (!seen.has(key)) {
+      seen.add(key);
+      merged.push(feature);
+    }
+  });
+
+  return merged;
+}
+
 async function fetchAidsToNavigationReports(centerLat, centerLon) {
   if (!AISSTREAM_API_KEY) {
     console.warn('[UPDATER] AISSTREAM_API_KEY not set; skipping AtoN fetch.');
@@ -338,7 +364,7 @@ async function main() {
     if (atonFeatures.length > 0) {
       console.log(`[UPDATER] Writing ${atonFeatures.length} AtoN points...`);
       const atonGeo = loadAtonFile();
-      atonGeo.features = atonFeatures;
+      atonGeo.features = mergeAtonFeatures(atonGeo.features, atonFeatures);
       saveAtonFile(atonGeo);
     } else {
       console.log('[UPDATER] No AtoN data received.');
