@@ -7,7 +7,8 @@ const WebSocket = require('ws');
 const AISSTREAM_API_KEY = process.env.AISSTREAM_API_KEY;
 const MMSI_RAW = process.env.AIS_MMSI;
 const MMSI = MMSI_RAW == null ? '' : String(MMSI_RAW).replace(/^"+|"+$/g, '');
-const MARINESIA_API_KEY = process.env.MARINESIA_API_KEY;
+const MARINESIA_API_KEY_RAW = process.env.MARINESIA_API_KEY;
+const MARINESIA_API_KEY = MARINESIA_API_KEY_RAW == null ? '' : String(MARINESIA_API_KEY_RAW).trim().replace(/^"+|"+$/g, '');
 const TRACK_FILE = path.join(__dirname, '../data/track.geojson');
 const ATON_FILE = path.join(__dirname, '../data/aton.geojson');
 
@@ -31,9 +32,17 @@ function toNumber(value) {
 }
 
 async function fetchVesselPositionFromMarinesia() {
+  if (!MARINESIA_API_KEY) {
+    throw new Error('Marinesia API key is missing');
+  }
+
   const url = `https://api.marinesia.com/api/v1/vessel/${encodeURIComponent(MMSI)}/location/latest?key=${encodeURIComponent(MARINESIA_API_KEY)}`;
-  console.log(url);
-  const resp = await fetch(url, { headers: { Accept: 'application/json' } });
+  const resp = await fetch(url, {
+    headers: {
+      Accept: 'application/json',
+      'User-Agent': 'sailing-blog-updater/1.0',
+    },
+  });
   if (!resp.ok) {
     throw new Error(`Marinesia request failed: ${resp.status} ${resp.statusText}`);
   }
