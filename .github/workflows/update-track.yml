@@ -29,10 +29,11 @@ jobs:
       - name: Install dependencies
         run: npm install ws
 
-      - name: Update track from AISStream
+      - name: Update track data
         env:
-          AIS_API_KEY: ${{ secrets.AIS_API_KEY }}
+          AISSTREAM_API_KEY: ${{ secrets.AISSTREAM_API_KEY }}
           AIS_MMSI: ${{ vars.AIS_MMSI }}
+          MARINESIA_API_KEY: ${{ secrets.MARINESIA_API_KEY }}
         run: |
           node server/update-track-geojson.js
 

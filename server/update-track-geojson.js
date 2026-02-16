@@ -4,19 +4,58 @@ const path = require('path');
 const WebSocket = require('ws');
 
 // Configuration
-const API_KEY = process.env.AIS_API_KEY;
+const AISSTREAM_API_KEY = process.env.AISSTREAM_API_KEY;
 const MMSI_RAW = process.env.AIS_MMSI;
 const MMSI = MMSI_RAW == null ? '' : String(MMSI_RAW).replace(/^"+|"+$/g, '');
+const MARINESIA_API_KEY = process.env.MARINESIA_API_KEY;
 const TRACK_FILE = path.join(__dirname, '../data/track.geojson');
+const ATON_FILE = path.join(__dirname, '../data/aton.geojson');
 
-const MIN_DISTANCE_METERS = 100; 
+const MIN_DISTANCE_METERS = 100;
+const ATON_TIMEOUT_MS = 15000;
+const ATON_BOUNDING_BOX_DEGREES = 0.5;
 
-if (!API_KEY || !MMSI) {
-  console.error('Error: AIS_API_KEY and AIS_MMSI must be set');
+if (!MMSI) {
+  console.error('Error: AIS_MMSI must be set');
   process.exit(1);
 }
 
-async function fetchVesselPosition() {
+if (!AISSTREAM_API_KEY && !MARINESIA_API_KEY) {
+  console.error('Error: AISSTREAM_API_KEY or MARINESIA_API_KEY must be set');
+  process.exit(1);
+}
+
+function toNumber(value) {
+  const num = Number(value);
+  return Number.isFinite(num) ? num : null;
+}
+
+async function fetchVesselPositionFromMarinesia() {
+  const url = `https://api.marinesia.com/api/v1/vessel/${encodeURIComponent(MMSI)}/location/latest?key=${encodeURIComponent(MARINESIA_API_KEY)}`;
+  const resp = await fetch(url, { headers: { Accept: 'application/json' } });
+  if (!resp.ok) {
+    throw new Error(`Marinesia request failed: ${resp.status} ${resp.statusText}`);
+  }
+
+  const data = await resp.json();
+  const lat = toNumber(data?.latitude ?? data?.lat ?? data?.location?.lat ?? data?.location?.latitude);
+  const lon = toNumber(data?.longitude ?? data?.lon ?? data?.location?.lon ?? data?.location?.longitude);
+
+  if (lat == null || lon == null) {
+    throw new Error('Marinesia response missing latitude/longitude');
+  }
+
+  return {
+    Latitude: lat,
+    Longitude: lon,
+    SOG: toNumber(data?.sog ?? data?.speed ?? data?.speedOverGround ?? data?.location?.sog) || 0,
+    COG: toNumber(data?.cog ?? data?.course ?? data?.courseOverGround ?? data?.location?.cog) || 0,
+    ShipName: data?.vesselName ?? data?.name ?? data?.vessel?.name ?? 'Vessel',
+    Timestamp: data?.timestamp ?? data?.time ?? data?.location?.timestamp ?? new Date().toISOString(),
+  };
+}
+
+async function fetchVesselPositionFromAISStream() {
   return new Promise((resolve, reject) => {
     const socket = new WebSocket("wss://stream.aisstream.io/v0/stream");
 
@@ -29,7 +68,7 @@ async function fetchVesselPosition() {
     socket.on('open', () => {
       console.log('🌐 Connected to AISStream. Sending subscription...');
       const subscription = {
-        APIKey: API_KEY,
+        APIKey: AISSTREAM_API_KEY,
         BoundingBoxes: [[[-90, -180], [90, 180]]],
         FiltersShipMMSI: [MMSI],
         FilterMessageTypes: ["PositionReport"]
@@ -38,7 +77,14 @@ async function fetchVesselPosition() {
     });
 
     socket.on('message', (data) => {
-      const msg = JSON.parse(data);
+      let msg;
+      try {
+        msg = JSON.parse(data);
+      } catch (err) {
+        console.error('[UPDATER] Failed to parse AISStream message:', err.message);
+        console.error('[UPDATER] Raw message:', data.toString());
+        return;
+      }
       if (msg.MessageType === "PositionReport") {
         clearTimeout(timer);
         const report = msg.Message.PositionReport;
@@ -58,6 +104,86 @@ async function fetchVesselPosition() {
     socket.on('error', (err) => {
       clearTimeout(timer);
       reject(err);
+    });
+  });
+}
+
+function loadAtonFile() {
+  try {
+    if (!fs.existsSync(ATON_FILE)) return { type: 'FeatureCollection', features: [] };
+    const raw = fs.readFileSync(ATON_FILE, 'utf8');
+    return JSON.parse(raw);
+  } catch (err) {
+    console.error('[UPDATER] Failed to read AtoN file:', err.message);
+    return { type: 'FeatureCollection', features: [] };
+  }
+}
+
+function saveAtonFile(geojson) {
+  try {
+    fs.writeFileSync(ATON_FILE, JSON.stringify(geojson, null, 2), 'utf8');
+    console.log(`[UPDATER] AtoN data written to ${ATON_FILE} (${geojson.features.length} points)`);
+  } catch (err) {
+    console.error('[UPDATER] Failed to write AtoN file:', err.message);
+  }
+}
+
+async function fetchAidsToNavigationReports(centerLat, centerLon) {
+  if (!AISSTREAM_API_KEY) {
+    console.warn('[UPDATER] AISSTREAM_API_KEY not set; skipping AtoN fetch.');
+    return [];
+  }
+
+  return new Promise((resolve) => {
+    const socket = new WebSocket('wss://stream.aisstream.io/v0/stream');
+    const features = [];
+
+    const timer = setTimeout(() => {
+      socket.terminate();
+      resolve(features);
+    }, ATON_TIMEOUT_MS);
+
+    socket.on('open', () => {
+      const delta = ATON_BOUNDING_BOX_DEGREES;
+      const subscription = {
+        APIKey: AISSTREAM_API_KEY,
+        BoundingBoxes: [[[centerLat - delta, centerLon - delta], [centerLat + delta, centerLon + delta]]],
+        FilterMessageTypes: ['AidsToNavigationReport'],
+      };
+      socket.send(JSON.stringify(subscription));
+    });
+
+    socket.on('message', (data) => {
+      let msg;
+      try {
+        msg = JSON.parse(data);
+      } catch (err) {
+        return;
+      }
+
+      if (msg.MessageType !== 'AidsToNavigationReport') return;
+
+      const report = msg.Message?.AidsToNavigationReport || msg.Message || {};
+      const lat = toNumber(report.Latitude ?? report.latitude ?? report.lat);
+      const lon = toNumber(report.Longitude ?? report.longitude ?? report.lon);
+
+      if (lat == null || lon == null) return;
+
+      features.push({
+        type: 'Feature',
+        geometry: { type: 'Point', coordinates: [lon, lat] },
+        properties: {
+          timestamp: report.Timestamp ?? new Date().toISOString(),
+          name: report.Name ?? report.NameOfAtoN ?? 'AtoN',
+          mmsi: report.MMSI ?? report.MMSINumber ?? null,
+          type: report.AtoNType ?? report.Type ?? null,
+        },
+      });
+    });
+
+    socket.on('error', () => {
+      clearTimeout(timer);
+      resolve(features);
     });
   });
 }
@@ -124,12 +250,14 @@ function addPositionToTrack(track, lat, lon, sog, cog, timestamp) {
 async function main() {
   console.log(`\n🚤 AIS Track Updater - MMSI: ${MMSI}`);
   try {
-    const vessel = await fetchVesselPosition();
+    const vessel = MARINESIA_API_KEY
+      ? await fetchVesselPositionFromMarinesia()
+      : await fetchVesselPositionFromAISStream();
     const lat = vessel.Latitude;
     const lon = vessel.Longitude;
     const sog = vessel.SOG;
     const cog = vessel.COG;
-    const timestamp = new Date().toISOString();
+    const timestamp = vessel.Timestamp || new Date().toISOString();
 
     console.log(`✅ Received: ${vessel.ShipName} at ${lat}, ${lon}`);
 
@@ -139,6 +267,15 @@ async function main() {
     if (added) {
       saveTrackFile(track);
       console.log('✅ Track updated.');
+    }
+
+    const atonFeatures = await fetchAidsToNavigationReports(lat, lon);
+    if (atonFeatures.length > 0) {
+      const atonGeo = loadAtonFile();
+      atonGeo.features = atonFeatures;
+      saveAtonFile(atonGeo);
+    } else {
+      console.log('[UPDATER] No AtoN data received.');
     }
   } catch (error) {
     console.error(`\n❌ ${error.message}\n`);

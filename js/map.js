@@ -12,6 +12,7 @@ const MAP_CONFIG = {
   center: [60.1699, 24.9384],
   zoom: 8,
   trackFile: './data/track.geojson',
+  atonFile: './data/aton.geojson',
 };
 
 const LEAFLET_CSS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
@@ -22,6 +23,7 @@ let mapState = {
   map: null,
   markersLayer: null,
   trackLayer: null,
+  atonLayer: null,
   currentMarker: null,
   currentFix: null,
   trackGeoJSON: null,
@@ -90,8 +92,10 @@ async function initMap(containerId) {
 
   mapState.trackLayer = L.layerGroup().addTo(mapState.map);
   mapState.markersLayer = L.layerGroup().addTo(mapState.map);
+  mapState.atonLayer = L.layerGroup().addTo(mapState.map);
 
   await loadTrackFile(MAP_CONFIG.trackFile);
+  await loadAtonFile(MAP_CONFIG.atonFile);
 
   if (mapState.currentFix) {
     updateInfoBoxes(
@@ -146,6 +150,36 @@ async function loadTrackFile(url) {
     }
   } catch (err) {
     console.error('[MAP] Error loading track file:', err.message);
+  }
+}
+
+async function loadAtonFile(url) {
+  try {
+    const resp = await fetch(url);
+    if (!resp.ok) return;
+
+    const geo = await resp.json();
+    if (!geo || geo.type !== 'FeatureCollection' || !Array.isArray(geo.features)) return;
+
+    mapState.atonLayer.clearLayers();
+
+    geo.features.forEach((feature) => {
+      if (!feature?.geometry || feature.geometry.type !== 'Point') return;
+      const [lon, lat] = feature.geometry.coordinates;
+      const name = feature.properties?.name || 'AtoN';
+
+      L.circleMarker([lat, lon], {
+        radius: 5,
+        color: '#ffb300',
+        fillColor: '#ffb300',
+        fillOpacity: 0.85,
+        weight: 1,
+      })
+        .bindPopup(`<div style="text-align:center;"><strong>${name}</strong><br>Lat: ${lat.toFixed(5)}°<br>Lon: ${lon.toFixed(5)}°</div>`)
+        .addTo(mapState.atonLayer);
+    });
+  } catch (err) {
+    console.error('[MAP] Error loading aton file:', err.message);
   }
 }
 
