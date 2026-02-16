@@ -368,7 +368,6 @@ html, body {
   font-family: 'Roboto', sans-serif;
   font-size: 13px;
   color: #1b1b1b;
-  margin-top: 48px; /* place under zoom controls */
 }
 
 .aton-toggle {
@@ -381,6 +380,8 @@ html, body {
 
 .aton-toggle input {
   margin: 0;
+  width: 16px;
+  height: 16px;
 }
 
 

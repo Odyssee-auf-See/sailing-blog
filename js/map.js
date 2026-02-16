@@ -27,6 +27,7 @@ let mapState = {
   atonVisible: true,
   currentMarker: null,
   currentFix: null,
+  atonGeoJSON: null,
   trackGeoJSON: null,
   mapCentered: false,
 };
@@ -96,6 +97,15 @@ async function initMap(containerId) {
   mapState.atonLayer = L.layerGroup().addTo(mapState.map);
   addAtonToggleControl();
 
+  mapState.map.on('zoomend', () => {
+    if (mapState.currentFix) {
+      updateMarker(mapState.currentFix.lat, mapState.currentFix.lon, mapState.currentFix.sog, mapState.currentFix.cog);
+    }
+    if (mapState.atonVisible && mapState.atonGeoJSON) {
+      renderAtonMarkers(mapState.atonGeoJSON);
+    }
+  });
+
   await loadTrackFile(MAP_CONFIG.trackFile);
   await loadAtonFile(MAP_CONFIG.atonFile);
 
@@ -113,7 +123,7 @@ async function initMap(containerId) {
 }
 
 function addAtonToggleControl() {
-  const control = L.control({ position: 'topleft' });
+  const control = L.control({ position: 'bottomleft' });
 
   control.onAdd = () => {
     const container = L.DomUtil.create('div', 'aton-toggle-control');
@@ -252,6 +262,14 @@ function getAtonStyle(typeValue) {
   return styleByCategory[category] || styleByCategory.unknown;
 }
 
+function getSymbolSize(baseSize) {
+  if (!mapState.map) return baseSize;
+  const zoom = mapState.map.getZoom();
+  const scale = Math.pow(1.2, zoom - MAP_CONFIG.zoom);
+  const scaled = Math.round(baseSize * scale);
+  return Math.min(Math.max(scaled, baseSize * 0.7), baseSize * 2.2);
+}
+
 function formatAtonPopup(props, lat, lon) {
   const name = props?.name || 'AtoN';
   const nameExt = props?.nameExtension ? ` ${props.nameExtension}` : '';
@@ -285,23 +303,34 @@ async function loadAtonFile(url) {
     const geo = await resp.json();
     if (!geo || geo.type !== 'FeatureCollection' || !Array.isArray(geo.features)) return;
 
-    mapState.atonLayer.clearLayers();
-
-    geo.features.forEach((feature) => {
-      if (!feature?.geometry || feature.geometry.type !== 'Point') return;
-      const [lon, lat] = feature.geometry.coordinates;
-      const props = feature.properties || {};
-      const style = getAtonStyle(props.type ?? props.aton);
-      const iconHtml = `<div style="width:22px;height:22px;border-radius:50%;background:${style.color};color:#1b1b1b;font-weight:700;font-size:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,0.35);border:1px solid rgba(0,0,0,0.35);">${style.label}</div>`;
-      const icon = L.divIcon({ html: iconHtml, className: 'aton-marker', iconSize: [22, 22], iconAnchor: [11, 11] });
-
-      L.marker([lat, lon], { icon })
-        .bindPopup(formatAtonPopup(props, lat, lon))
-        .addTo(mapState.atonLayer);
-    });
+    mapState.atonGeoJSON = geo;
+    renderAtonMarkers(geo);
   } catch (err) {
     console.error('[MAP] Error loading aton file:', err.message);
   }
+}
+
+function renderAtonMarkers(geo) {
+  if (!mapState.atonLayer) return;
+
+  mapState.atonLayer.clearLayers();
+
+  const iconSize = getSymbolSize(22);
+  const fontSize = Math.max(10, Math.round(iconSize * 0.55));
+  const iconAnchor = Math.round(iconSize / 2);
+
+  geo.features.forEach((feature) => {
+    if (!feature?.geometry || feature.geometry.type !== 'Point') return;
+    const [lon, lat] = feature.geometry.coordinates;
+    const props = feature.properties || {};
+    const style = getAtonStyle(props.type ?? props.aton);
+    const iconHtml = `<div style="width:${iconSize}px;height:${iconSize}px;border-radius:50%;background:${style.color};color:#1b1b1b;font-weight:700;font-size:${fontSize}px;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,0.35);border:1px solid rgba(0,0,0,0.35);">${style.label}</div>`;
+    const icon = L.divIcon({ html: iconHtml, className: 'aton-marker', iconSize: [iconSize, iconSize], iconAnchor: [iconAnchor, iconAnchor] });
+
+    L.marker([lat, lon], { icon })
+      .bindPopup(formatAtonPopup(props, lat, lon))
+      .addTo(mapState.atonLayer);
+  });
 }
 
 function redrawTrackPolyline() {
@@ -321,9 +350,12 @@ function updateMarker(lat, lon, sog, cog) {
     mapState.markersLayer.removeLayer(mapState.currentMarker);
   }
 
-  const iconHtml = `<div style="width:30px;height:30px;background:#ff6b6b;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 2px 8px rgba(0,0,0,0.3);transform:rotate(${cog}deg);">⛵</div>`;
+  const iconSize = getSymbolSize(30);
+  const fontSize = Math.max(14, Math.round(iconSize * 0.55));
+  const iconAnchor = Math.round(iconSize / 2);
+  const iconHtml = `<div style="width:${iconSize}px;height:${iconSize}px;background:#ffffff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:${fontSize}px;box-shadow:0 2px 8px rgba(0,0,0,0.35);border:1px solid rgba(0,0,0,0.35);transform:rotate(${cog}deg);">⛵</div>`;
 
-  const icon = L.divIcon({ html: iconHtml, className: 'boat-marker', iconSize: [30, 30], iconAnchor: [15, 15] });
+  const icon = L.divIcon({ html: iconHtml, className: 'boat-marker', iconSize: [iconSize, iconSize], iconAnchor: [iconAnchor, iconAnchor] });
 
   mapState.currentMarker = L.marker([lat, lon], { icon })
     .bindPopup(`<div style="text-align:center;"><strong>Our Boat</strong><br>Lat: ${lat.toFixed(5)}°<br>Lon: ${lon.toFixed(5)}°<br>Speed: ${sog} kt</div>`)
