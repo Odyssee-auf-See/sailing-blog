@@ -37,6 +37,7 @@ async function fetchVesselPositionFromMarinesia() {
   }
 
   const url = `https://api.marinesia.com/api/v1/vessel/${encodeURIComponent(MMSI)}/location/latest?key=${encodeURIComponent(MARINESIA_API_KEY)}`;
+  console.log(url);
   const resp = await fetch(url, {
     headers: {
       Accept: 'application/json',
