@@ -44,13 +44,17 @@ async function fetchVesselPositionFromMarinesia() {
       'User-Agent': 'sailing-blog-updater/1.0',
     },
   });
+  console.log(`[MARINESIA] Response status: ${resp.status} ${resp.statusText}`);
   if (!resp.ok) {
     throw new Error(`Marinesia request failed: ${resp.status} ${resp.statusText}`);
   }
 
   const data = await resp.json();
-  const lat = toNumber(data?.latitude ?? data?.lat ?? data?.location?.lat ?? data?.location?.latitude);
-  const lon = toNumber(data?.longitude ?? data?.lon ?? data?.location?.lon ?? data?.location?.longitude);
+  const payload = data?.data ?? data;
+  const lat = toNumber(payload?.latitude ?? payload?.lat ?? payload?.location?.lat ?? payload?.location?.latitude);
+  const lon = toNumber(payload?.longitude ?? payload?.lon ?? payload?.lng ?? payload?.location?.lon ?? payload?.location?.longitude);
+
+  console.log(`[MARINESIA] Parsed position: lat=${lat}, lon=${lon}`);
 
   if (lat == null || lon == null) {
     throw new Error('Marinesia response missing latitude/longitude');
@@ -59,10 +63,10 @@ async function fetchVesselPositionFromMarinesia() {
   return {
     Latitude: lat,
     Longitude: lon,
-    SOG: toNumber(data?.sog ?? data?.speed ?? data?.speedOverGround ?? data?.location?.sog) || 0,
-    COG: toNumber(data?.cog ?? data?.course ?? data?.courseOverGround ?? data?.location?.cog) || 0,
-    ShipName: data?.vesselName ?? data?.name ?? data?.vessel?.name ?? 'Vessel',
-    Timestamp: data?.timestamp ?? data?.time ?? data?.location?.timestamp ?? new Date().toISOString(),
+    SOG: toNumber(payload?.sog ?? payload?.speed ?? payload?.speedOverGround ?? payload?.location?.sog) || 0,
+    COG: toNumber(payload?.cog ?? payload?.course ?? payload?.courseOverGround ?? payload?.location?.cog) || 0,
+    ShipName: payload?.vesselName ?? payload?.name ?? payload?.vessel?.name ?? 'Vessel',
+    Timestamp: payload?.timestamp ?? payload?.time ?? payload?.ts ?? payload?.location?.timestamp ?? new Date().toISOString(),
   };
 }
 
@@ -271,6 +275,7 @@ function addPositionToTrack(track, lat, lon, sog, cog, timestamp) {
 async function main() {
   console.log(`\n🚤 AIS Track Updater - MMSI: ${MMSI}`);
   try {
+    console.log('[UPDATER] Fetching vessel position...');
     const vessel = MARINESIA_API_KEY
       ? await fetchVesselPositionFromMarinesia()
       : await fetchVesselPositionFromAISStream();
@@ -282,16 +287,23 @@ async function main() {
 
     console.log(`✅ Received: ${vessel.ShipName} at ${lat}, ${lon}`);
 
+    console.log('[UPDATER] Loading track file...');
     const track = loadTrackFile();
+    console.log('[UPDATER] Adding position to track...');
     const added = addPositionToTrack(track, lat, lon, sog, cog, timestamp);
 
     if (added) {
+      console.log('[UPDATER] Saving track file...');
       saveTrackFile(track);
       console.log('✅ Track updated.');
+    } else {
+      console.log('[UPDATER] Track not updated (distance threshold).');
     }
 
+    console.log('[UPDATER] Fetching AtoN data from AISStream...');
     const atonFeatures = await fetchAidsToNavigationReports(lat, lon);
     if (atonFeatures.length > 0) {
+      console.log(`[UPDATER] Writing ${atonFeatures.length} AtoN points...`);
       const atonGeo = loadAtonFile();
       atonGeo.features = atonFeatures;
       saveAtonFile(atonGeo);
