@@ -191,6 +191,7 @@ async function fetchAidsToNavigationReports(centerLat, centerLon) {
 
     socket.on('open', () => {
       const delta = ATON_BOUNDING_BOX_DEGREES;
+      console.log([centerLat - delta, centerLon - delta], [centerLat + delta, centerLon + delta]);
       const subscription = {
         APIKey: AISSTREAM_API_KEY,
         BoundingBoxes: [[[centerLat - delta, centerLon - delta], [centerLat + delta, centerLon + delta]]],
@@ -198,7 +199,7 @@ async function fetchAidsToNavigationReports(centerLat, centerLon) {
       };
       socket.send(JSON.stringify(subscription));
     });
-    console.log([centerLat - delta, centerLon - delta], [centerLat + delta, centerLon + delta]);
+    
 
     socket.on('message', (data) => {
       let msg;
