@@ -532,7 +532,7 @@ html, body {
 .about-values__hero {
   display: flex;
   width: 100%;
-  min-height: clamp(360px, 45vw, 620px);
+  min-height: clamp(420px, 55vw, 780px);
 }
 
 .about-values__media {
@@ -567,10 +567,10 @@ html, body {
 }
 
 .about-values__text {
-  flex: 2;
+  flex: 2.6;
   background-color: #001d47;
   color: #f4f7ff;
-  padding: clamp(2rem, 4vw, 4.5rem);
+  padding: clamp(2rem, 4vw, 4.5rem) clamp(1.25rem, 3vw, 3rem) clamp(2rem, 4vw, 4.5rem) clamp(2rem, 4vw, 4.5rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -584,7 +584,7 @@ html, body {
 }
 
 .about-values__body {
-  max-width: 70ch;
+  max-width: 90ch;
   line-height: 1.7;
   font-size: clamp(0.95rem, 0.8rem + 0.4vw, 1.2rem);
 }
