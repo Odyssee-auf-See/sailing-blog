@@ -300,6 +300,21 @@
         "sog": 12.8,
         "cog": 228.199997
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -11.530855,
+          31.882692
+        ]
+      },
+      "properties": {
+        "timestamp": "2026-02-17T17:20:52.965806",
+        "sog": 12.3,
+        "cog": 228.600006
+      }
     }
   ]
 }
