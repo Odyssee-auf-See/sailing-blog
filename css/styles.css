@@ -43,7 +43,7 @@ html, body {
 
 /*div for the left color box*/
 .background-left-color {
-  background-color: #008169;
+  background-color: #001d47;
   width: 45%;
 }
 
@@ -74,7 +74,7 @@ html, body {
   border-radius: 50%; /* This creates the circle shape */
   
   /* Styling */
-  background-color: #d9d9d974;
+  background-color: #ffffffce;
   z-index: 10;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 
@@ -89,7 +89,7 @@ html, body {
 .logo-icon {
   width: 80%;
   height: 80%;
-  background-color: #012B63; 
+  background-color: #000000; 
   /* The Mask (The stencil) */
   -webkit-mask-image: url('../assets/svgs/logos/landing_page_logo.svg');
   mask-image: url('../assets/svgs/logos/landing_page_logo.svg');
@@ -114,7 +114,7 @@ html, body {
 
 /* Logo Bottom Text */
 .curved-text text {
-  fill: #012B63; 
+  fill: #000000; 
 ; /* Matches your theme color */
   font-size: 6px; /* Adjust based on your text length */
   letter-spacing: 2px;
@@ -532,11 +532,11 @@ html, body {
 .about-values__hero {
   display: flex;
   width: 100%;
-  min-height: clamp(420px, 55vw, 780px);
+  height: 550px;
 }
 
 .about-values__media {
-  flex: 1;
+  flex: 1.8;
   position: relative;
   overflow: hidden;
 }
@@ -570,23 +570,46 @@ html, body {
   flex: 2.6;
   background-color: #001d47;
   color: #f4f7ff;
-  padding: clamp(2rem, 4vw, 4.5rem) clamp(1.25rem, 3vw, 3rem) clamp(2rem, 4vw, 4.5rem) clamp(2rem, 4vw, 4.5rem);
+  padding: clamp(2rem, 4vw, 4.5rem) clamp(1.25rem, 3vw, 3rem) clamp(2rem, 4vw, 4.5rem) clamp(2.5rem, 5vw, 5.5rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.about-values__text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -15%;
+  height: 100%;
+  aspect-ratio: 118.21927 / 101.36589;
+  background-color: #001d47;
+  -webkit-mask-image: url('../assets/svgs/decorations/ueber_uns_blase_rechts.svg');
+  mask-image: url('../assets/svgs/decorations/ueber_uns_blase_rechts.svg');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: right center;
+  mask-position: right center;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .about-values__title {
   font-size: clamp(1.6rem, 3vw, 2.6rem);
   letter-spacing: 1px;
   text-transform: uppercase;
+  z-index: inherit;
 }
 
 .about-values__body {
-  max-width: 90ch;
   line-height: 1.7;
   font-size: clamp(0.95rem, 0.8rem + 0.4vw, 1.2rem);
+  z-index: inherit;
 }
 
 .about-values__profiles {
@@ -627,9 +650,9 @@ html, body {
     flex-direction: column;
   }
 
-  .about-values__bubble {
-    right: -8%;
-    width: 80%;
+  .about-values__text::after {
+    right: -6%;
+    height: 110%;
   }
 
   .about-values__profiles {
