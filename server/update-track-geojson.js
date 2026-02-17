@@ -331,6 +331,7 @@ function addPositionToTrack(track, lat, lon, sog, cog, timestamp) {
   return true;
 }
 
+
 async function main() {
   console.log(`\n🚤 AIS Track Updater - MMSI: ${MMSI}`);
   try {
