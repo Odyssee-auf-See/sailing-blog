@@ -524,159 +524,117 @@ html, body {
 /*=============== Ueber Uns  ================*/
 /*###########################################*/
 
-
-/* 
-#################
-Main DIV 
-#################
-*/
-.ueber-uns-background {
+.about-values {
   width: 100%;
-  display: flex;
-  /* This ensures both halves are always the same height */
-  align-items: stretch; 
+  background-color: #ffffff;
 }
 
-
-/* 
-########################
-Side Divs (Left & Right)
-########################
-*/
-
-/* Base for both side containers */
-.ueber-uns-side {
-  flex: 1; /* Takes up equal remaining space */
-  height: 30vw;
+.about-values__hero {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  min-height: clamp(360px, 45vw, 620px);
+}
+
+.about-values__media {
+  flex: 1;
   position: relative;
-  z-index: 10; /* BRING SIDES TO FRONT */
+  overflow: hidden;
 }
 
-.ueber-uns-left { background-color: #012B63; }
-.ueber-uns-right { background-color: #008169; }
-
-/* Wrapper to keep Signature and text together */
-.text-wrapper-left, .text-wrapper-right {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.about-values__image {
   width: 100%;
-  z-index: 2;
-}
-
-.text-wrapper-left {
-  transform: translateX(8%);
-}
-
-.text-wrapper-right {
-  transform: translateX(-8%);
-}
-
-/* Text Boxes */
-.ueber-uns-text-left, .ueber-uns-text-right {
-  font-size: clamp(0.75rem, 0.6rem + 0.3vw, 1.25rem);
-  width: 90%;
-  z-index: 10;
-  text-align: justify; 
-  hyphens: auto;    /* Breaks long words if needed */
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300; 
-}
-
-.ueber-uns-text-left {
-  color:#9cb8de
-}
-
-.ueber-uns-text-right{
-  color:#c5e7e1
-}
-
-
-/* Base style for the handwritten titles */
-.ueber-uns-lea, .ueber-uns-vito {
+  height: 100%;
+  object-fit: cover;
   display: block;
-  z-index: 10;
-  margin-bottom: clamp(0.5rem, -13rem + 15vw, 5rem);     /* Space between title and text */
+}
+
+.about-values__bubble {
+  position: absolute;
+  top: 0;
+  right: -18%;
+  width: 70%;
+  height: 100%;
+  background-color: #001d47;
+  -webkit-mask-image: url('../assets/svgs/decorations/ueber_uns_blase_rechts.svg');
+  mask-image: url('../assets/svgs/decorations/ueber_uns_blase_rechts.svg');
   -webkit-mask-size: contain;
   mask-size: contain;
   -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-}
-
-.ueber-uns-lea {
-  background-color: #ffffff;        
-  width:  clamp(0.8rem, -4rem + 15vw, 25rem);
-  aspect-ratio: 2.5 / 1; 
-  -webkit-mask-image: url('../assets/svgs/decorations/lea.svg');
-  mask-image: url('../assets/svgs/decorations/lea.svg');
-}
-
-.ueber-uns-vito {
-  background-color: #ffffff;        
-  width:  clamp(0.8rem, -4rem + 15vw, 25rem);
-  aspect-ratio: 3 / 1; 
-  -webkit-mask-image: url('../assets/svgs/decorations/vito.svg');
-  mask-image: url('../assets/svgs/decorations/vito.svg');
-}
-
-
-
-/* 
-#################
-Middle Div
-#################
-*/
-
-.ueber-uns-middle {
-  height: 30vw;
-  position: relative;
-  flex: 0 0 30vw; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 5; /* Ensures the bubbles sit on top of the left/right sections */
-}
-
-.middle-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-  z-index: 1;
-}
-
-.bubble-left, .bubble-right {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  aspect-ratio: 1.25 / 1; 
-  z-index: 1;
-
-  /* 'contain' ensures the full width is shown within the 100% height */
-  -webkit-mask-size: contain; 
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-}
-
-.bubble-left {
-  left: 0;
-  transform: translateX(-65%); 
-  background-color: #012B63;
-  -webkit-mask-image: url('../assets/svgs/decorations/ueber_uns_blase_links.svg');
-  mask-image: url('../assets/svgs/decorations/ueber_uns_blase_links.svg');
-  -webkit-mask-position: left center;
-}
-
-.bubble-right {
-  right: 0;
-  transform: translateX(70%); 
-  background-color: #008169;
-  -webkit-mask-image: url('../assets/svgs/decorations/ueber_uns_blase_rechts.svg');
-  mask-image: url('../assets/svgs/decorations/ueber_uns_blase_rechts.svg');
+  mask-repeat: no-repeat;
   -webkit-mask-position: right center;
+  mask-position: right center;
+  pointer-events: none;
+}
+
+.about-values__text {
+  flex: 2;
+  background-color: #001d47;
+  color: #f4f7ff;
+  padding: clamp(2rem, 4vw, 4.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.about-values__title {
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.about-values__body {
+  max-width: 70ch;
+  line-height: 1.7;
+  font-size: clamp(0.95rem, 0.8rem + 0.4vw, 1.2rem);
+}
+
+.about-values__profiles {
+  background-color: #ffffff;
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 5vw, 4rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.profile-card {
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  padding: clamp(1.25rem, 2vw, 2rem);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.profile-card__name {
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+
+.profile-card__role {
+  color: #001d47;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.profile-card__text {
+  line-height: 1.7;
+  color: #333333;
+}
+
+@media (max-width: 900px) {
+  .about-values__hero {
+    flex-direction: column;
+  }
+
+  .about-values__bubble {
+    right: -8%;
+    width: 80%;
+  }
+
+  .about-values__profiles {
+    grid-template-columns: 1fr;
+  }
 }
 
 
