@@ -450,6 +450,21 @@
         "sog": 12.3,
         "cog": 223.900009
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -14.34387,
+          29.832983
+        ]
+      },
+      "properties": {
+        "timestamp": "2026-02-18T08:26:53.246142",
+        "sog": 12.1,
+        "cog": 230.699997
+      }
     }
   ]
 }
