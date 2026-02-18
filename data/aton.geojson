@@ -186,6 +186,37 @@
           "D": 0
         }
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.239481666666666,
+          28.482031666666668
+        ]
+      },
+      "properties": {
+        "timestamp": 0,
+        "name": "TENERIFE PORT CONTRO",
+        "nameExtension": "L",
+        "mmsi": 992242155,
+        "type": 1,
+        "aton": 224,
+        "virtual": true,
+        "offPosition": false,
+        "positionAccuracy": true,
+        "raim": true,
+        "fixType": 7,
+        "assignedMode": true,
+        "valid": true,
+        "dimension": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 0
+        }
+      }
     }
   ]
 }
