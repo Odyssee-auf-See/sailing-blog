@@ -480,6 +480,21 @@
         "sog": 13.400001,
         "cog": 228.300003
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -14.704115,
+          29.563906
+        ]
+      },
+      "properties": {
+        "timestamp": "2026-02-18T10:19:50.676135",
+        "sog": 13,
+        "cog": 229.300003
+      }
     }
   ]
 }
