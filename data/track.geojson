@@ -615,6 +615,21 @@
         "sog": 0.7,
         "cog": 81.3
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.273953,
+          28.269188
+        ]
+      },
+      "properties": {
+        "timestamp": "2026-02-18T22:18:02",
+        "sog": 12.3,
+        "cog": 200.6
+      }
     }
   ]
 }
