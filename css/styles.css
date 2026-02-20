@@ -653,7 +653,7 @@ html, body {
   height: clamp(72px, 12vw, 110px);
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 9px rgba(101, 101, 101, 0.12);
 }
 
 .profile-card__signature {
