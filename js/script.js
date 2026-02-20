@@ -42,7 +42,8 @@ async function loadHTML(id, url) {
     // Small delay to ensure the browser has painted the new HTML
     setTimeout(() => {
       if (url.includes('menu_bar.html')) initMenuBar?.();
-      if (url.includes('unsere_werte.html')) initUnsereWerte?.();
+      if (url.includes('ueber_uns.html')) initValuesToggle?.();
+      if (url.includes('ueber_uns.html')) initUnsereWerte?.();
       if (url.includes('blog.html')) initBlog?.();
       if (url.includes('map.html')) initMap?.(id, { autoscale: true });
     }, 0);
@@ -89,6 +90,61 @@ function initMenuBar(){
     burgerBtn.classList.remove('active');
     menuDropdown.classList.remove('active');
     menuOverlay.classList.remove('active');
+  });
+}
+
+
+//########################################//
+//= Values Section Collapse/Expand ======//
+//########################################//
+
+function initValuesToggle() {
+  const toggleBtn = document.getElementById('valuesToggleBtn');
+  const valuesSection = document.getElementById('valuesSection');
+
+  if (!toggleBtn || !valuesSection) return; // Exit if elements don't exist
+
+  // Set initial state
+  let isExpanded = false;
+
+  toggleBtn.addEventListener('click', () => {
+    isExpanded = !isExpanded;
+    toggleBtn.setAttribute('aria-expanded', isExpanded);
+
+    if (isExpanded) {
+      // Expand
+      const scrollHeight = valuesSection.scrollHeight;
+      valuesSection.style.maxHeight = scrollHeight + 'px';
+      valuesSection.classList.add('expanded');
+      
+      // Trigger animations for values when expanded
+      setTimeout(() => {
+        const wert1 = valuesSection.querySelector('.text-wert1');
+        const wert2 = valuesSection.querySelector('.text-wert2');
+        const wert3 = valuesSection.querySelector('.text-wert3');
+        const wert4 = valuesSection.querySelector('.text-wert4');
+        
+        if (wert1) wert1.classList.add('animate-left');
+        if (wert3) wert3.classList.add('animate-left');
+        if (wert2) wert2.classList.add('animate-right');
+        if (wert4) wert4.classList.add('animate-right');
+      }, 50);
+    } else {
+      // Collapse
+      valuesSection.style.maxHeight = '0px';
+      valuesSection.classList.remove('expanded');
+      
+      // Remove animation classes when collapsing
+      const wert1 = valuesSection.querySelector('.text-wert1');
+      const wert2 = valuesSection.querySelector('.text-wert2');
+      const wert3 = valuesSection.querySelector('.text-wert3');
+      const wert4 = valuesSection.querySelector('.text-wert4');
+      
+      if (wert1) wert1.classList.remove('animate-left');
+      if (wert3) wert3.classList.remove('animate-left');
+      if (wert2) wert2.classList.remove('animate-right');
+      if (wert4) wert4.classList.remove('animate-right');
+    }
   });
 }
 
