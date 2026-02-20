@@ -691,7 +691,6 @@ html, body {
 .values-toggle-container {
   display: flex;
   justify-content: center;
-  padding: clamp(1.5rem, 3vw, 2.5rem) 0;
   background-color: #ffffff;
 }
 
@@ -713,8 +712,9 @@ html, body {
 }
 
 .values-toggle-arrow {
-  transition: transform 0.6s ease-out;
+  transition: transform 0.3s ease-in-out;
   display: block;
+  font-size: 2em;
 }
 
 .values-toggle-btn[aria-expanded="true"] .values-toggle-arrow {
@@ -725,7 +725,7 @@ html, body {
 .values-section-collapsible {
   background-color: #ffffff;
   overflow: hidden;
-  transition: max-height 0.6s ease-out, padding 0.6s ease-out;
+  transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
 .values-section-collapsible.expanded {
