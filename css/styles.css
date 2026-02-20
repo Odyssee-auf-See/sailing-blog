@@ -723,13 +723,14 @@ html, body {
 
 /* Collapsible Values Section Container */
 .values-section-collapsible {
+  max-height: 0; 
   background-color: #ffffff;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
 
 .values-section-collapsible.expanded {
-  padding: clamp(1rem, 3vw, 2rem) 0;
+  padding-bottom: 40px; /* Add padding when expanded */
 }
 
 
@@ -742,8 +743,8 @@ html, body {
     .werte-title {
         width: 100%;
         text-align: center;
-        padding: 65px 0 45px;
-        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        padding: 40px 0 20px;
+        font-size: clamp(1.1rem, 2.5vw, 1.6rem);
         font-weight: bold;
     }
 
