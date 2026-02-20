@@ -720,6 +720,21 @@
         "sog": 12.3,
         "cog": 263
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -25.499533,
+          26.797853
+        ]
+      },
+      "properties": {
+        "timestamp": "2026-02-20T14:24:26",
+        "sog": 12.3,
+        "cog": 260
+      }
     }
   ]
 }
