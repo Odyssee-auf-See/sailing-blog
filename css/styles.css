@@ -305,7 +305,7 @@ html, body {
   padding: 1rem 3rem;
   font-size: 0.8rem;
   border-bottom: 2px solid #f0f0f0;
-  transition: all 0.1s;
+  transition: all 0.2s;
 }
 
 .menu-dropdown a:hover {
