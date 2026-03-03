@@ -708,16 +708,18 @@ html, body {
   }
 
   .about-values__hero::after {
-    display: none;
-  }
+      display: none; /* Completely hides the element and its background */
+    }
 
   .about-values__media {
     flex: none;
-    min-height: clamp(260px, 42vh, 420px);
+    width: 100%;
+    min-height: clamp(180px, 30vh, 300px);
   }
 
   .about-values__text {
     flex: none;
+    width: 100%;
   }
 
   .about-values__text::after {
@@ -813,10 +815,41 @@ html, body {
     .svg-wert1, .svg-wert3 { margin-right: 20px; }
     .svg-wert2, .svg-wert4 { margin-left: 20px; }
 
+    /* Desktop grid positioning to maintain original layout with new HTML order */
+    .svg-wert1 { grid-column: 2; grid-row: 1; }
+    .text-wert1 { grid-column: 1; grid-row: 1; }
+    .svg-wert2 { grid-column: 3; grid-row: 1; }
+    .text-wert2 { grid-column: 4; grid-row: 1; }
+    .svg-wert3 { grid-column: 2; grid-row: 2; }
+    .text-wert3 { grid-column: 1; grid-row: 2; }
+    .svg-wert4 { grid-column: 3; grid-row: 2; }
+    .text-wert4 { grid-column: 4; grid-row: 2; }
+
     /* Responsive: Switch to 2 columns on tablets/phones */
     @media (max-width: 768px) {
         .werte-box {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: 1fr;
+            row-gap: 30px;
+        }
+
+        /* Reset grid positioning for mobile stack */
+        .svg-wert1, .text-wert1, .svg-wert2, .text-wert2,
+        .svg-wert3, .text-wert3, .svg-wert4, .text-wert4 {
+            grid-column: auto;
+            grid-row: auto;
+        }
+
+        /* Stack SVG and text vertically on mobile */
+        .text-wert1, .text-wert2, .text-wert3, .text-wert4 {
+            text-align: center;
+            padding: 0 15px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .svg-wert1, .svg-wert2, .svg-wert3, .svg-wert4 {
+            margin: 0 auto 20px auto;
+            max-width: 150px;
         }
     }
 
