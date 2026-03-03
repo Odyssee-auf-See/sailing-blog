@@ -62,34 +62,160 @@ function initMenuBar(){
   const burgerBtn = document.getElementById('burger');
   const menuDropdown = document.getElementById('menu-dropdown');
   const menuOverlay = document.getElementById('menu-overlay');
-  const logoBtn = document.getElementById('logo-scroll-top'); // New reference
+  const logoBtn = document.getElementById('logo-scroll-top');
+  const menuLinks = menuDropdown.querySelectorAll('a');
+
+  // Helper function to close menu
+  function closeMenu() {
+    burgerBtn.classList.remove('active');
+    menuDropdown.classList.remove('active');
+    menuOverlay.classList.remove('active');
+    burgerBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  // Helper function to open menu
+  function openMenu() {
+    burgerBtn.classList.add('active');
+    menuDropdown.classList.add('active');
+    menuOverlay.classList.add('active');
+    burgerBtn.setAttribute('aria-expanded', 'true');
+  }
+
+  // Helper function to toggle menu
+  function toggleMenu() {
+    const isOpen = menuDropdown.classList.contains('active');
+    if (isOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
 
   // --- Scroll to Top Logic ---
   if (logoBtn) {
     logoBtn.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
-        behavior: 'smooth' // This makes the scroll "glide" instead of jump
+        behavior: 'smooth'
       });
-      
-      // Optional: Close the menu if it was open when clicking the logo
-      burgerBtn.classList.remove('active');
-      menuDropdown.classList.remove('active');
-      menuOverlay.classList.remove('active');
+      closeMenu();
     });
   }
 
   // --- Burger Logic  ---
   burgerBtn.addEventListener('click', () => {
-    burgerBtn.classList.toggle('active');
-    menuDropdown.classList.toggle('active');
-    menuOverlay.classList.toggle('active');
+    toggleMenu();
   });
 
+  // --- Close menu when clicking overlay ---
   menuOverlay.addEventListener('click', () => {
-    burgerBtn.classList.remove('active');
-    menuDropdown.classList.remove('active');
-    menuOverlay.classList.remove('active');
+    closeMenu();
+  });
+
+  // --- Keyboard support: Close menu with Escape key ---
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuDropdown.classList.contains('active')) {
+      closeMenu();
+    }
+  });
+
+  // --- Make menu links functional ---
+  menuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      
+      // Get the link text to determine target section
+      const linkText = link.textContent.trim();
+      let targetId = '';
+      
+      // Map menu items to section IDs
+      switch(linkText) {
+        case 'HOME':
+          targetId = 'landing';
+          break;
+        case 'ÜBER UNS':
+          targetId = 'ueber-uns';
+          break;
+        case 'BLOG':
+          targetId = 'blog';
+          break;
+        case 'KARTE':
+        case 'JOIN US':
+          // These sections don't exist yet, scroll to map for now
+          targetId = 'map';
+          break;
+      }
+      
+      // Scroll to target section
+      if (targetId) {
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          // Calculate offset to account for sticky menu bar
+          const menuBarHeight = document.getElementById('menu-bar')?.offsetHeight || 0;
+          const targetPosition = targetElement.offsetTop - menuBarHeight;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+          
+          // Update active state
+          menuLinks.forEach(l => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      }
+      
+      // Close menu after clicking
+      closeMenu();
+    });
+  });
+
+  // --- Update active menu item on scroll ---
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    // Debounce scroll event for performance
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      const sections = ['landing', 'ueber-uns', 'blog', 'map'];
+      const menuBarHeight = document.getElementById('menu-bar')?.offsetHeight || 0;
+      const scrollPosition = window.scrollY + menuBarHeight + 50; // 50px offset for better UX
+      
+      // Find current section
+      let currentSection = '';
+      sections.forEach(sectionId => {
+        const section = document.getElementById(sectionId);
+        if (section && section.offsetTop <= scrollPosition) {
+          currentSection = sectionId;
+        }
+      });
+      
+      // Update active state in menu
+      menuLinks.forEach(link => {
+        const linkText = link.textContent.trim();
+        let shouldBeActive = false;
+        
+        switch(currentSection) {
+          case 'landing':
+            shouldBeActive = linkText === 'HOME';
+            break;
+          case 'ueber-uns':
+            shouldBeActive = linkText === 'ÜBER UNS';
+            break;
+          case 'blog':
+            shouldBeActive = linkText === 'BLOG';
+            break;
+          case 'map':
+            shouldBeActive = linkText === 'KARTE' || linkText === 'JOIN US';
+            break;
+        }
+        
+        if (shouldBeActive) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }, 100); // Debounce delay
   });
 }
 

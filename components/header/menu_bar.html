@@ -1,7 +1,7 @@
 <div class="menu-bar">
 
   <div class="menu-bar__logo">
-    <a href="javascript:void(0)" id="logo-scroll-top" class="logo-link">
+    <a href="javascript:void(0)" id="logo-scroll-top" class="logo-link" aria-label="Zur Startseite scrollen">
       <span class="menu-bar__logo-icon"></span>
     </a>
   </div>
@@ -22,12 +22,12 @@
   </div>
 </div>
 
-<div class="menu-overlay" id="menu-overlay"></div>
+<div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
 
-<nav class="menu-dropdown" id="menu-dropdown">
-  <a href="#">HOME</a>
-  <a href="#">ÜBER UNS</a>
-  <a href="#">BLOG</a>
-  <a href="#">BILDER</a>
-  <a href="#">JOIN US</a>
+<nav class="menu-dropdown" id="menu-dropdown" role="navigation" aria-label="Hauptnavigation">
+  <a href="#landing">HOME</a>
+  <a href="#ueber-uns">ÜBER UNS</a>
+  <a href="#blog">BLOG</a>
+  <a href="#karte">KARTE</a>
+  <a href="#join-us">JOIN US</a>
 </nav>
