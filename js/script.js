@@ -233,14 +233,27 @@ function initValuesToggle() {
   // Set initial state
   let isExpanded = false;
 
+  const syncExpandedHeight = () => {
+    if (!isExpanded) return;
+    valuesSection.style.maxHeight = valuesSection.scrollHeight + 'px';
+  };
+
+  window.addEventListener('resize', syncExpandedHeight);
+
+  if (typeof ResizeObserver !== 'undefined') {
+    const valuesResizeObserver = new ResizeObserver(() => {
+      syncExpandedHeight();
+    });
+    valuesResizeObserver.observe(valuesSection);
+  }
+
   toggleBtn.addEventListener('click', () => {
     isExpanded = !isExpanded;
     toggleBtn.setAttribute('aria-expanded', isExpanded);
 
     if (isExpanded) {
       // Expand
-      const scrollHeight = valuesSection.scrollHeight;
-      valuesSection.style.maxHeight = scrollHeight + 'px';
+      syncExpandedHeight();
       valuesSection.classList.add('expanded');
       
       // Trigger animations for values when expanded
