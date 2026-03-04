@@ -145,6 +145,79 @@ html, body {
   z-index: 5;
 }
 
+/* Landing Page Responsive Styles */
+@media (max-width: 1024px) {
+  .landing-hero {
+    min-height: 40vh;
+  }
+  
+  .landing-hero__image img {
+    min-height: 40vh;
+    object-fit: cover;
+    object-position: right;
+  }
+  
+  .landing-hero__logo-wrap {
+    left: 80%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 25vw;
+    width: 25vw;
+  }
+  
+  .landing-hero__quote {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-hero {
+    min-height: 50vh;
+  }
+  
+  .landing-hero__image img {
+    min-height: 50vh;
+    object-fit: cover;
+    object-position: right;
+  }
+  
+  .landing-hero__logo-wrap {
+    left: 80%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 25vw;
+    width: 25vw;
+  }
+  
+  .landing-hero__quote {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-hero {
+    min-height: 60vh;
+  }
+  
+  .landing-hero__image img {
+    min-height: 60vh;
+    object-fit: cover;
+    object-position: right;
+  }
+  
+  .landing-hero__logo-wrap {
+    left: 80%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 20vw;
+    width: 20vw;
+  }
+  
+  .landing-hero__quote {
+    display: none;
+  }
+}
+
 /*###########################################*/
 /*=============== Menu Bar ================*/
 /*###########################################*/
