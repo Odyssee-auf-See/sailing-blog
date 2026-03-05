@@ -581,8 +581,8 @@ body {
 }
 
 .footer-logo-main {
-    width: clamp(100px, 15vw, 200px);
-    height: clamp(100px, 15vw, 200px); 
+    width: clamp(80px, 15vw, 200px);
+    height: clamp(80px, 15vw, 200px); 
     background-color: #ffffff; 
     -webkit-mask-image: url('../assets/svgs/logos/footer_logo.svg');
     mask-image: url('../assets/svgs/logos/footer_logo.svg');
@@ -631,7 +631,7 @@ body {
     text-decoration: none;
     color: white; 
     font-weight: 400;
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: clamp(0.75rem, 2vw, 1.2rem);
     transition: opacity 0.3s;
     white-space: nowrap;
 }
@@ -642,7 +642,7 @@ body {
 
 .footer-copyright {
     color: #888; 
-    font-size: 1rem;
+    font-size: clamp(0.7rem, 1.5vw, 1rem);
     margin-top: 5px;
 }
 
