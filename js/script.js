@@ -227,6 +227,7 @@ function initMenuBar(){
 function initValuesToggle() {
   const toggleBtn = document.getElementById('valuesToggleBtn');
   const valuesSection = document.getElementById('valuesSection');
+  const valuesCardHeader = document.querySelector('.values-card__header');
 
   if (!toggleBtn || !valuesSection) return; // Exit if elements don't exist
 
@@ -247,7 +248,7 @@ function initValuesToggle() {
     valuesResizeObserver.observe(valuesSection);
   }
 
-  toggleBtn.addEventListener('click', () => {
+  const toggleValues = () => {
     isExpanded = !isExpanded;
     toggleBtn.setAttribute('aria-expanded', isExpanded);
 
@@ -284,7 +285,12 @@ function initValuesToggle() {
       if (wert2) wert2.classList.remove('animate-right');
       if (wert4) wert4.classList.remove('animate-right');
     }
-  });
+  };
+
+  // Only attach click listener to the header (covers everything including arrow)
+  if (valuesCardHeader) {
+    valuesCardHeader.addEventListener('click', toggleValues);
+  }
 }
 
 

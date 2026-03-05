@@ -646,9 +646,17 @@ html, body {
 /*=============== Ueber Uns  ================*/
 /*###########################################*/
 
+/* Content wrapper background for ueber-uns and blog sections */
+#content {
+  background-image: url('../assets/svgs/decorations/welle_background.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: top;
+}
+
 .about-values {
   width: 100%;
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
 .about-values__hero {
@@ -725,8 +733,8 @@ html, body {
 }
 
 .about-values__profiles {
-  background-color: #ffffff;
-  padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 5vw, 4rem);
+  background-color: transparent;
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 3vw, 3rem);
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
@@ -819,40 +827,41 @@ html, body {
 .values-toggle-container {
   display: flex;
   justify-content: center;
-  background-color: #ffffff;
+  background-color: transparent;
 }
 
+/* Arrow icon styles */
 .values-toggle-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  color: #001d47;
-}
-
-.values-toggle-btn:hover {
-  color: #008169;
-  transform: scale(1.1);
-}
-
-.values-toggle-arrow {
-  transition: transform 0.3s ease-in-out;
-  display: block;
   font-size: 2em;
+  cursor: pointer;
+  color: #001d47;
+  transition: transform 0.3s ease;
 }
 
-.values-toggle-btn[aria-expanded="true"] .values-toggle-arrow {
+/* Rotate arrow when expanded */
+.values-toggle-btn[aria-expanded="true"] {
   transform: rotate(180deg);
+}
+
+/* Pulse animation for collapsed state */
+@keyframes pulse-arrow {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+/* Apply pulse animation on hover only when not expanded */
+.values-card__header:hover .values-toggle-btn:not([aria-expanded="true"]) {
+  animation: pulse-arrow 1.2s ease-in-out infinite;
 }
 
 /* Collapsible Values Section Container */
 .values-section-collapsible {
   max-height: 0; 
-  background-color: #ffffff;
+  background-color: transparent;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
 }
@@ -866,12 +875,29 @@ html, body {
 /*============= Unsere Werte  ===============*/
 /*###########################################*/
 
+/* Values Card Wrapper */
+.values-card {
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 3vw, 3rem);
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+/* Values Card Header (Title + Toggle Button) */
+.values-card__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+}
 
 /* Main Section Title */
     .werte-title {
-        width: 100%;
         text-align: center;
-        padding: 40px 0 20px;
+        padding: 0;
         font-size: clamp(1.1rem, 2.5vw, 1.6rem);
         font-weight: bold;
     }
@@ -885,9 +911,9 @@ html, body {
         grid-template-rows: auto auto; 
         column-gap: 0; /* No gap so text and SVG touch */
         row-gap: 40px; 
-        padding: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
+        padding: 0;
+        max-width: 100%;
+        margin: 0;
     }
 
     /* Create horizontal breathing room between the two middle SVG columns */
@@ -906,6 +932,12 @@ html, body {
 
     /* Responsive: Switch to 2 columns on tablets/phones */
     @media (max-width: 768px) {
+        .values-card__header {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0.5rem;
+        }
+
         .werte-box {
             grid-template-columns: 1fr;
             row-gap: 30px;
