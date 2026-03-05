@@ -1,0 +1,14 @@
+# robots.txt for Odyssee auf See
+# https://odysseeaufsee.com
+
+User-agent: *
+Allow: /
+
+# Disallow backup folder
+Disallow: /sailing-blog_bak/
+
+# Disallow server-side scripts
+Disallow: /server/
+
+# Sitemap location
+Sitemap: https://odysseeaufsee.com/sitemap.xml
