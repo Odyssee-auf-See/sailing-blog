@@ -26,7 +26,13 @@ html, body {
   scroll-behavior: smooth;
   background-color: white;
   font-size: clamp(12px, 2vw, 18px);
-  overflow-x: hidden; /* Prevent horizontal scrolling from off-canvas menu */
+  /* overflow-x removed - was breaking position: sticky */
+}
+
+/* Prevent horizontal overflow without breaking sticky positioning */
+body {
+  max-width: 100vw;
+  position: relative;
 }
 
 
@@ -243,6 +249,7 @@ html, body {
   justify-content: space-between;
   z-index: 1000;
   position: relative;
+  overflow-x: hidden; /* Contain off-canvas menu without breaking sticky on parent */
 }
 
 /* Give the left and right sides equal width so the center is TRUE center */
@@ -689,6 +696,7 @@ html, body {
   left: 35%;
   transform: translateX(-50%);
   height: 100%;
+  width: 48%; /* Fallback for browsers without aspect-ratio support */
   aspect-ratio: 0.48;
   width: auto;
   background-image: url('../assets/svgs/decorations/welle_ueber_uns.svg');

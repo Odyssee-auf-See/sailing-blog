@@ -240,6 +240,60 @@ The "Wind Strength" box currently shows "--". To integrate real wind data:
 6. 📍 Monitor browser console (F12) for connection status
 7. 💾 Periodically export your track with `exportTrackAsGeoJSON()`
 
+## Browser Compatibility & Dependency Notes
+
+### External Dependencies
+The map component relies on external network resources:
+
+**Leaflet Library (unpkg.com CDN)**:
+- Loaded dynamically in `js/map.js` (lines 18-19)
+- **Risk**: CDN outage or blocking (CSP, ad blockers, corporate firewalls)
+- **Mitigation**: Consider self-hosting Leaflet.js and Leaflet.css for production
+  - Download from: https://leafletjs.com/download.html
+  - Place in: `assets/libs/leaflet/` folder
+  - Update paths in `js/map.js`
+
+**Esri World Imagery Tiles**:
+- High-resolution satellite imagery from Esri ArcGIS servers
+- **Risk**: Network issues, rate limiting, or service changes can blank the map
+- **Mitigation options**:
+  - **Alternative tile provider**: Switch to OpenStreetMap, Mapbox, or other providers
+  - **Fallback layer**: Add a secondary tile layer that loads if primary fails
+  - **Self-hosted tiles**: For offline/air-gapped deployments (requires MapServer/GeoServer)
+
+**Example fallback tile configuration**:
+```javascript
+// In js/map.js, add after the Esri layer:
+const osmBackup = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors',
+  maxZoom: 19
+});
+
+// Add error handler to Esri layer:
+esriLayer.on('tileerror', function() {
+  console.warn('[MAP] Esri tiles failed, switching to OSM backup');
+  map.removeLayer(esriLayer);
+  map.addLayer(osmBackup);
+});
+```
+
+### Browser Requirements
+- **Minimum versions**: Chrome 91+, Edge 91+, Firefox 90+, Safari 14.1+
+- **Required features**: fetch API, WebSocket, localStorage, IntersectionObserver
+- **Server requirement**: Must be served via HTTP(S), not `file://` (fetch restrictions)
+
+### Content Security Policy (CSP)
+If deploying with strict CSP headers, ensure these directives:
+
+```
+connect-src 'self' wss://stream.aisstream.io https://tiles.arcgis.com https://server.arcgisonline.com https://unpkg.com;
+img-src 'self' https://server.arcgisonline.com data:;
+style-src 'self' 'unsafe-inline' https://unpkg.com;
+script-src 'self' 'unsafe-inline';
+```
+
+**Note**: `unsafe-inline` is needed for inline scripts in index.html; consider refactoring to nonce-based CSP for production hardening.
+
 ---
 
 **Questions?** Refer to:

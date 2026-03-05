@@ -143,6 +143,66 @@ All CSS and JavaScript paths have been updated to reflect the new structure:
 ✅ Industry-standard approach
 ✅ All original files preserved in the `sailing-blog` folder
 
+## Browser Compatibility
+
+### Supported Browsers (Minimum Versions)
+This project is compatible with modern browsers:
+
+- **Chrome**: 91+ (July 2021)
+- **Edge**: 91+ (July 2021)
+- **Firefox**: 90+ (July 2021)
+- **Safari**: 14.1+ (April 2021)
+
+These versions ensure support for modern JavaScript features (optional chaining, nullish coalescing) and CSS properties (aspect-ratio, smooth scrolling, IntersectionObserver, etc.).
+
+### Required: HTTP(S) Server
+⚠️ **Critical**: This project **cannot** be opened directly via `file://` protocol.
+
+**Why**: The application uses `fetch()` API to load:
+- HTML components (header, footer, blog posts, etc.)
+- JSON data files (blog metadata)
+- GeoJSON map data (track, navigation markers)
+
+**Solution**: Always serve via HTTP(S):
+
+#### Development (Local Testing)
+Use any simple HTTP server from the `sailing-blog/` folder:
+
+```powershell
+# Python 3
+python -m http.server 8000
+
+# Node.js (if http-server is installed)
+npx http-server -p 8000
+
+# PHP
+php -S localhost:8000
+```
+
+Then open: `http://localhost:8000`
+
+#### Production
+Deploy to any web hosting service that serves static files:
+- GitHub Pages
+- Netlify
+- Vercel
+- Traditional web hosting (Apache/Nginx)
+
+### Known Limitations
+
+**Older Safari (< 14.1)**:
+- Smooth scrolling may fallback to instant scroll (UX degradation, no breakage)
+- Native lazy loading (`loading="lazy"`) may be ignored (performance impact only)
+
+**All Browsers**:
+- Map requires network access to Leaflet CDN (`unpkg.com`) and Esri tile servers
+- Map will fail if CSP blocks external resources or if ad/privacy filters block tile domains
+- Consider self-hosting Leaflet assets for production if offline-first behavior is required
+
+**Content Security Policy (CSP)**:
+- If deploying with strict CSP headers, note that inline scripts and `onclick` handlers require `unsafe-inline` or nonce/hash directives
+- For hardened CSP, migrate inline handlers to external event listeners
+
 ## Notes
 - The original project remains untouched in `sailing-blog/` folder
 - All paths have been updated to work with the new structure
