@@ -41,9 +41,9 @@
             </div>
 
             <div class="carousel-controls">
-                <button class="arrow" onclick="changeHeroImage(-1)"><i class="fa fa-arrow-left"></i></button>
+                <button class="arrow" onclick="changeHeroImage(-1)" aria-label="Previous slide"><i class="fa fa-arrow-left"></i></button>
                 <div id="dot-container" class="dot-container"></div>
-                <button class="arrow" onclick="changeHeroImage(1)"><i class="fa fa-arrow-right"></i></button>
+                <button class="arrow" onclick="changeHeroImage(1)" aria-label="Next slide"><i class="fa fa-arrow-right"></i></button>
             </div>
         </div>
 
@@ -71,8 +71,8 @@
                     <img src="posts/post-1/assets/images/photo2.jpg" alt="Eindruck 2">
                     <img src="posts/post-1/assets/images/photo3.jpg" alt="Eindruck 3">
                 </div>
-                <button class="scroll-arrow left" onclick="scrollGrid('scrollRow1', -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="scroll-arrow right" onclick="scrollGrid('scrollRow1', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                <button class="scroll-arrow left" onclick="scrollGrid('scrollRow1', -1)" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="scroll-arrow right" onclick="scrollGrid('scrollRow1', 1)" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </section>
 
@@ -86,8 +86,8 @@
                     <img src="posts/post-1/assets/images/photo2.jpg" alt="Eindruck 2">
                     <img src="posts/post-1/assets/images/photo3.jpg" alt="Eindruck 3">
                 </div>
-                <button class="scroll-arrow left" onclick="scrollGrid('scrollRow2', -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="scroll-arrow right" onclick="scrollGrid('scrollRow2', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                <button class="scroll-arrow left" onclick="scrollGrid('scrollRow2', -1)" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="scroll-arrow right" onclick="scrollGrid('scrollRow2', 1)" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </section>
 
@@ -95,20 +95,20 @@
             <h3 class="related-title">Lust auf mehr? Diese Blogbeiträge könnten dich interessieren</h3>
             <div class="hybrid-gallery">
                 <div class="image-scroll-row" id="relatedPostsRow"></div>
-                <button class="scroll-arrow left" onclick="scrollGrid('relatedPostsRow', -1)"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="scroll-arrow right" onclick="scrollGrid('relatedPostsRow', 1)"><i class="fa-solid fa-chevron-right"></i></button>
+                <button class="scroll-arrow left" onclick="scrollGrid('relatedPostsRow', -1)" aria-label="Previous article"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="scroll-arrow right" onclick="scrollGrid('relatedPostsRow', 1)" aria-label="Next article"><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </div>
     </article>
 
     <div id="hybridLightbox" class="lightbox" onclick="handleLightboxClick(event)">
-        <span class="close-lightbox" onclick="closeHybridLightbox()">&times;</span>
-        <button class="lightbox-nav" onclick="changeLightboxImage(-1, event)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="close-lightbox" onclick="closeHybridLightbox()" aria-label="Close image viewer">&times;</button>
+        <button class="lightbox-nav" onclick="changeLightboxImage(-1, event)" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
         <div class="lightbox-content">
-            <img id="lightbox-img" src="" alt="Vollbild">
+            <img id="lightbox-img" src="" alt="Fullscreen image viewer">
             <div id="hybridLightboxCaption" style="color:white; margin-top:10px;"></div>
         </div>
-        <button class="lightbox-nav" onclick="changeLightboxImage(1, event)"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="lightbox-nav" onclick="changeLightboxImage(1, event)" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
     <div id="footer" class="footer"></div>

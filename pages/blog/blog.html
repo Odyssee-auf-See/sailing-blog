@@ -1,12 +1,12 @@
 <main class="blog-container">
   <h1 class="blog-header">Logbuch</h1>
 
-  <div class="filter-box">
-    <button class="filter-btn active" onclick="filterBlog('Alle')">Alle</button>
-    <button class="filter-btn" onclick="filterBlog('Reisen')">Reisen</button>
-    <button class="filter-btn" onclick="filterBlog('Boot')">Boot</button>
-    <button class="filter-btn" onclick="filterBlog('Nachhaltigkeit')">Nachhaltigkeit</button>
-    <button class="filter-btn" onclick="filterBlog('Gedankenchaos')">Gedankenchaos</button>
+  <div class="filter-box" role="group" aria-label="Filter posts by category">
+    <button class="filter-btn active" onclick="filterBlog('Alle')" aria-label="Show all blog posts">Alle</button>
+    <button class="filter-btn" onclick="filterBlog('Reisen')" aria-label="Filter posts by Reisen category">Reisen</button>
+    <button class="filter-btn" onclick="filterBlog('Boot')" aria-label="Filter posts by Boot category">Boot</button>
+    <button class="filter-btn" onclick="filterBlog('Nachhaltigkeit')" aria-label="Filter posts by Nachhaltigkeit category">Nachhaltigkeit</button>
+    <button class="filter-btn" onclick="filterBlog('Gedankenchaos')" aria-label="Filter posts by Gedankenchaos category">Gedankenchaos</button>
   </div>
 
 <div class="blog-layout-wrapper">

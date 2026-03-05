@@ -350,6 +350,16 @@ async function initBlog() {
     
     // Show/Hide "Load More" button based on total count
     updateLoadMoreButton(allPosts.length > 10);
+    
+    // Re-render grid when viewport size changes (responsive columns)
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const postsToDisplay = showingAll ? allPosts : allPosts.slice(0, 10);
+        renderGrid(postsToDisplay);
+      }, 250); // Debounce to avoid excessive re-renders
+    });
   } catch (err) {
     console.error("Error loading blog data:", err);
   }
@@ -373,26 +383,32 @@ function updateLoadMoreButton(isVisible) {
 function renderGrid(posts) {
   const featuredSection = document.getElementById('featured-section');
   
-  // Target the three separate columns
-  const col1 = document.getElementById('col-1');
-  const col2 = document.getElementById('col-2');
-  const col3 = document.getElementById('col-3');
+  // Determine number of columns based on screen size
+  const screenWidth = window.innerWidth;
+  const numColumns = screenWidth < 1024 ? 2 : 3;
   
-  // Clear everything
+  // Get column elements
+  const columns = [];
+  for (let i = 1; i <= 3; i++) {
+    const col = document.getElementById(`col-${i}`);
+    if (col) columns.push(col);
+  }
+  
+  // Clear all columns
   featuredSection.innerHTML = '';
-  if(col1) { col1.innerHTML = ''; col2.innerHTML = ''; col3.innerHTML = ''; }
+  columns.forEach(col => col.innerHTML = '');
 
   if (posts.length === 0) return;
 
   const [newest, ...others] = posts;
 
-  // 1. Render Featured Box (Same as before)
+  // 1. Render Featured Box
   featuredSection.innerHTML = `
     <a href="${newest.url || '#'}" class="featured-box-link">
       <article class="featured-box">
         <div class="newest-post-label">Neuster Blogbeitrag</div>
         <div class="post-image-container">
-          <img src="${newest.image}" alt="${newest.title}">
+          <img src="${newest.image}" alt="${newest.title}" loading="lazy" width="350" height="280">
           <div class="image-overlay"><span>Weiterlesen</span></div>
         </div>
         <div class="post-meta">
@@ -404,13 +420,13 @@ function renderGrid(posts) {
       </article>
     </a>`;
 
-  // 2. Distribute others into columns 1, 2, and 3
+  // 2. Distribute others into columns (2 or 3 based on screen size)
   others.forEach((post, index) => {
     const cardHTML = `
       <a href="${post.url || '#'}" style="text-decoration:none; color:inherit;">
         <article class="blog-card">
           <div class="post-image-container">
-            <img src="${post.image}" alt="${post.title}">
+            <img src="${post.image}" alt="${post.title}" loading="lazy" width="300" height="240">
             <div class="image-overlay"><span>Weiterlesen</span></div>
           </div>
           <div class="post-meta">
@@ -422,10 +438,11 @@ function renderGrid(posts) {
       </a>
     `;
 
-    // The Magic: This cycles 0, 1, 2, 0, 1, 2...
-    if (index % 3 === 0) col1.innerHTML += cardHTML;
-    else if (index % 3 === 1) col2.innerHTML += cardHTML;
-    else col3.innerHTML += cardHTML;
+    // Distribute to active columns (2 or 3)
+    const columnIndex = index % numColumns;
+    if (columns[columnIndex]) {
+      columns[columnIndex].innerHTML += cardHTML;
+    }
   });
 }
 
@@ -585,7 +602,7 @@ async function loadRelatedPosts() {
         const container = document.getElementById('relatedPostsRow');
         container.innerHTML = posts.map(p => `
             <a href="${p.url || '#'}" class="post-card">
-                <img src="../../${p.image}" alt="${p.title}">
+                <img src="../../${p.image}" alt="${p.title}" loading="lazy" width="280" height="300">
                 <div class="post-card-info">
                     <span class="post-card-tag">${p.tag}</span>
                     <h4 class="post-card-title">${p.title}</h4>
