@@ -44,6 +44,7 @@ async function loadHTML(id, url) {
       if (url.includes('menu_bar.html')) initMenuBar?.();
       if (url.includes('ueber_uns.html')) initValuesToggle?.();
       if (url.includes('ueber_uns.html')) initUnsereWerte?.();
+      if (url.includes('ueber_uns.html')) initAboutHeroTextFit?.();
       if (url.includes('blog.html')) initBlog?.();
       if (url.includes('map.html')) initMap?.(id, { autoscale: true });
     }, 0);
@@ -330,6 +331,101 @@ function initUnsereWerte() {
     if (target) {
         observer.observe(target);
     }
+}
+
+function initAboutHeroTextFit() {
+  const heroes = document.querySelectorAll('.about-values__hero');
+  if (!heroes.length) return;
+
+  const MIN_FONT_SIZE = 10;
+  const EPSILON = 1;
+
+  const fitOneHero = (hero) => {
+    const media = hero.querySelector('.about-values__media');
+    const text = hero.querySelector('.about-values__text');
+    const body = hero.querySelector('.about-values__body');
+    if (!media || !text || !body) return;
+
+    hero.classList.remove('about-values__hero--fallback-grow');
+    text.style.height = '';
+    body.style.fontSize = '';
+    body.style.lineHeight = '';
+
+    const mediaHeight = media.getBoundingClientRect().height;
+    if (mediaHeight <= 0) return;
+
+    text.style.height = `${Math.round(mediaHeight)}px`;
+
+    const computedBodyFontSize = parseFloat(window.getComputedStyle(body).fontSize) || 16;
+    const maxFontSize = Math.max(MIN_FONT_SIZE, Math.round(computedBodyFontSize));
+
+    const fitsAt = (fontSizePx) => {
+      body.style.fontSize = `${fontSizePx}px`;
+      body.style.lineHeight = '1.5';
+      return body.scrollHeight <= body.clientHeight + EPSILON;
+    };
+
+    if (fitsAt(maxFontSize)) return;
+
+    let low = MIN_FONT_SIZE;
+    let high = maxFontSize;
+    let bestFit = -1;
+
+    while (low <= high) {
+      const mid = Math.floor((low + high) / 2);
+      if (fitsAt(mid)) {
+        bestFit = mid;
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+
+    if (bestFit >= MIN_FONT_SIZE) {
+      fitsAt(bestFit);
+    } else {
+      fitsAt(MIN_FONT_SIZE);
+    }
+
+    const stillOverflowing = body.scrollHeight > body.clientHeight + EPSILON;
+    if (stillOverflowing) {
+      hero.classList.add('about-values__hero--fallback-grow');
+      text.style.height = 'auto';
+      body.style.fontSize = `${MIN_FONT_SIZE}px`;
+      body.style.lineHeight = '1.5';
+    }
+  };
+
+  const fitAllHeroes = () => {
+    heroes.forEach((hero) => fitOneHero(hero));
+  };
+
+  let resizeDebounce;
+  const onResize = () => {
+    clearTimeout(resizeDebounce);
+    resizeDebounce = setTimeout(fitAllHeroes, 120);
+  };
+
+  fitAllHeroes();
+  requestAnimationFrame(fitAllHeroes);
+
+  if (!window.__aboutHeroTextFitBound) {
+    window.addEventListener('resize', onResize);
+    window.addEventListener('orientationchange', fitAllHeroes);
+    window.__aboutHeroTextFitBound = true;
+  }
+
+  if (typeof ResizeObserver !== 'undefined') {
+    const observer = new ResizeObserver(() => {
+      fitAllHeroes();
+    });
+
+    heroes.forEach((hero) => {
+      const media = hero.querySelector('.about-values__media');
+      if (media) observer.observe(media);
+      observer.observe(hero);
+    });
+  }
 }
 //############################//
 //=== Funktionen für Blog ===//

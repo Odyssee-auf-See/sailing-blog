@@ -26,7 +26,7 @@ html, body {
   scroll-behavior: smooth;
   background-color: white;
   font-size: clamp(12px, 2vw, 18px);
-  /* overflow-x removed - was breaking position: sticky */
+  overflow-x: clip;
 }
 
 /* Prevent horizontal overflow without breaking sticky positioning */
@@ -669,7 +669,6 @@ body {
 .about-values__hero {
   display: flex;
   width: 100%;
-  min-height: clamp(420px, 62vh, 760px);
   height: auto;
   position: relative;
   overflow: visible;
@@ -698,14 +697,12 @@ body {
   width: 35%;
   min-width: 0;
   position: relative;
-  overflow: hidden;
+  line-height: 0;
 }
 
 .about-values__image {
   width: 100%;
-  height: 100%;
-  min-height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
 }
 
@@ -713,14 +710,19 @@ body {
 .about-values__text {
   width: 65%;
   min-width: 0;
-  background-color: #969191;
+  background-color: #001d47;
   color: #f4f7ff;
-  padding: clamp(1.5rem, 2vh, 3.5rem) clamp(1.25rem, 3vw, 3rem) clamp(1.5rem, 2vh, 3.5rem) clamp(6.5rem, 5.5vw, 7.5rem);
+  padding: clamp(1.5rem, 2vw, 3.5rem) clamp(4rem, 5vw, 6rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: clamp(0.8rem, 1.5vw, 3.5rem);
+  gap: 0;
   position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
   z-index: 2;
 }
 
@@ -728,16 +730,29 @@ body {
   content: none;
 }
 
-.about-values__title {
-  font-size: clamp(1.6rem, 3vw, 2.6rem);
-  letter-spacing: 1px;
-  z-index: inherit;
-}
-
 .about-values__body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0;
   line-height: 1.7;
   font-size: clamp(0.95rem, 0.8rem + 0.4vw, 1.2rem);
   z-index: inherit;
+}
+
+.about-values__hero.about-values__hero--fallback-grow .about-values__text {
+  position: relative;
+  top: auto;
+  right: auto;
+  height: auto !important;
+  overflow: visible;
+}
+
+.about-values__hero.about-values__hero--fallback-grow .about-values__body {
+  overflow: visible;
 }
 
 .about-values__profiles {
@@ -798,7 +813,6 @@ body {
 @media (max-width: 900px) {
   .about-values__hero {
     flex-direction: column;
-    min-height: 0;
     height: auto;
   }
 
@@ -809,12 +823,16 @@ body {
   .about-values__media {
     flex: none;
     width: 100%;
-    min-height: clamp(180px, 30vh, 300px);
   }
 
   .about-values__text {
     flex: none;
     width: 100%;
+    position: relative;
+    top: auto;
+    right: auto;
+    height: auto;
+    overflow: hidden;
   }
 
   .about-values__text::after {
