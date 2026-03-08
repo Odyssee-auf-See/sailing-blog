@@ -82,11 +82,11 @@ body {
 }
 
 
-/* Logo container in right panel */
+/* Logo container now on left side over image */
 .landing-hero__logo-wrap {
   position: absolute;
-  left: 80%;
-  top: 14%;
+  left: 30%;
+  top: 22%;
   transform: translateX(-50%);
   width: 20vw;
   height: 20vw;
@@ -94,7 +94,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  z-index: 10;
+  z-index: 5;
 }
 
 /* Odyssee SVG Logo */
@@ -138,18 +138,19 @@ body {
   font-size: 6px; /* Adjust based on your text length */
 }
 
-/* Citation Text over image */
+/* Citation Text now in right panel */
 .landing-hero__quote {
   position: absolute;
-  left: 15%;
-  right: 55%;
-  top: 22%;
+  left: 80%;
+  top: 25%;
+  transform: translateX(-50%);
+  width: 30vw;
   color: white;
   font-family: "Reenie Beanie", cursive;  
   font-size: 2.5vw;  
   text-align: center;
   line-height: clamp(15px, 3vw, 100px);
-  z-index: 5;
+  z-index: 10;
 }
 
 /* Landing Page Responsive Styles */
@@ -164,64 +165,50 @@ body {
     object-position: right;
   }
   
-  .landing-hero__logo-wrap {
+  
+  .landing-hero__quote {
     left: 80%;
     top: 50%;
     transform: translate(-50%, -50%);
-    height: 25vw;
     width: 25vw;
   }
-  
-  .landing-hero__quote {
-    display: none;
-  }
 }
+
+
 
 @media (max-width: 768px) {
   .landing-hero {
-    min-height: 50vh;
+    min-height: 40vh;
+  }
+  
+  .landing-hero__image {
+    width: 100%;
   }
   
   .landing-hero__image img {
-    min-height: 50vh;
+    min-height: 40vh;
     object-fit: cover;
-    object-position: right;
+    object-position: center;
   }
   
-  .landing-hero__logo-wrap {
-    left: 80%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    height: 25vw;
-    width: 25vw;
+  .landing-hero__right-panel {
+    display: none;
+  }
+  
+  .landing-hero__seam-wave {
+    display: none;
   }
   
   .landing-hero__quote {
     display: none;
   }
-}
-
-@media (max-width: 480px) {
-  .landing-hero {
-    min-height: 60vh;
-  }
-  
-  .landing-hero__image img {
-    min-height: 60vh;
-    object-fit: cover;
-    object-position: right;
-  }
   
   .landing-hero__logo-wrap {
-    left: 80%;
+    left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    height: 20vw;
-    width: 20vw;
-  }
-  
-  .landing-hero__quote {
-    display: none;
+    width: 30vw;
+    height: 30vw;
   }
 }
 
