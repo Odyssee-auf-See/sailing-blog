@@ -1,13 +1,24 @@
 /* ============================================================
     INITIALIZATION
     ============================================================ */
+
+// Helper function to get the correct path prefix based on current location
+function getPathPrefix() {
+    const path = window.location.pathname;
+    // Count depth: how many directory levels from the sailing-blog root?
+    const depth = path.split('/').filter(p => p && p !== 'sailing-blog').length - 1;
+    return depth > 0 ? '../'.repeat(depth) : '';
+}
+
 async function loadPage() {
+    const pathPrefix = getPathPrefix();
+    
     // 1. Load Reusable Components
     if (typeof loadHTML === 'function') {
         // Load Menu
-        await loadHTML('menu-bar', 'components/header/menu_bar.html');
+        await loadHTML('menu-bar', pathPrefix + 'components/header/menu_bar.html');
         // Load Footer
-        await loadHTML('footer', 'components/footer/Footer.html');
+        await loadHTML('footer', pathPrefix + 'components/footer/Footer.html');
     }
 
     // 2. Initialize Page Content
@@ -457,7 +468,8 @@ let showingAll = false; // Track state
 // 1. Fetch and Initialize
 async function initBlog() {
   try {
-    const response = await fetch('data/blog_metadata.json');
+    const pathPrefix = getPathPrefix();
+    const response = await fetch(pathPrefix + 'data/blog_metadata.json');
     allPosts = await response.json();
     allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
@@ -713,12 +725,13 @@ async function loadRelatedPosts() {
     if (!container) return;
 
     try {
-        const res = await fetch('data/blog_metadata.json');
+        const pathPrefix = getPathPrefix();
+        const res = await fetch(pathPrefix + 'data/blog_metadata.json');
         const posts = await res.json();
         const container = document.getElementById('relatedPostsRow');
         container.innerHTML = posts.map(p => `
-            <a href="${p.url || '#'}" class="post-card">
-                <img src="../../${p.image}" alt="${p.title}" loading="lazy" width="280" height="300">
+            <a href="${pathPrefix}${p.url || '#'}" class="post-card">
+                <img src="${pathPrefix}${p.image}" alt="${p.title}" loading="lazy" width="280" height="300">
                 <div class="post-card-info">
                     <span class="post-card-tag">${p.tag}</span>
                     <h4 class="post-card-title">${p.title}</h4>
