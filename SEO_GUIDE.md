@@ -78,7 +78,7 @@ When creating a new blog post from `post-template.html`, update these fields:
 
 4. **Canonical URL**
    ```html
-   <link rel="canonical" href="https://odysseeaufsee.com/pages/blog/posts/post-X/"/>
+   <link rel="canonical" href="https://odyssee-sailing.ch/pages/blog/posts/post-X/"/>
    ```
 
 5. **Open Graph Tags** (Update all instances of "post-X")
@@ -110,12 +110,12 @@ When creating a new blog post from `post-template.html`, update these fields:
 Add new entry for each published post:
 ```xml
 <url>
-  <loc>https://odysseeaufsee.com/pages/blog/posts/post-X/</loc>
+  <loc>https://odyssee-sailing.ch/pages/blog/posts/post-X/</loc>
   <lastmod>2026-03-05</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   <image:image>
-    <image:loc>https://odysseeaufsee.com/path/to/hero-image.jpg</image:loc>
+    <image:loc>https://odyssee-sailing.ch/path/to/hero-image.jpg</image:loc>
     <image:title>Post Title</image:title>
   </image:image>
 </url>
@@ -138,8 +138,8 @@ Add new entry for each published post:
    - Place in `/assets/images/`
 
 3. **Update Domain Names**
-   - Replace all instances of `https://odysseeaufsee.com` with your actual domain
-   - Search for "odysseeaufsee.com" in all modified files
+   - Replace all instances of `https://odyssee-sailing.ch` with your actual domain
+   - Search for "odyssee-sailing.ch" in all modified files
 
 4. **Add Social Media Links**
    - Update Instagram/YouTube URLs in structured data (index.html)
@@ -245,7 +245,7 @@ Add new entry for each published post:
 ## 📝 Notes
 
 - All placeholder text marked with `[UPDATE: ...]` must be replaced
-- Replace "odysseeaufsee.com" with your actual domain
+- Domain is now set to odyssee-sailing.ch
 - This is a living document - update as you implement more SEO features
 - Consider implementing a dynamic sitemap generator as your blog grows
 
