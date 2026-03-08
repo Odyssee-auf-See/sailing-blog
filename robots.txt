@@ -1,5 +1,5 @@
 # robots.txt for Odyssee auf See
-# https://odysseeaufsee.com
+# https://odyssee-sailing.ch
 
 User-agent: *
 Allow: /
@@ -11,4 +11,4 @@ Disallow: /sailing-blog_bak/
 Disallow: /server/
 
 # Sitemap location
-Sitemap: https://odysseeaufsee.com/sitemap.xml
+Sitemap: https://odyssee-sailing.ch/sitemap.xml
