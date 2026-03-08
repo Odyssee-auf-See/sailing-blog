@@ -229,11 +229,13 @@ function initValuesToggle() {
   const toggleBtn = document.getElementById('valuesToggleBtn');
   const valuesSection = document.getElementById('valuesSection');
   const valuesCardHeader = document.querySelector('.values-card__header');
+  const valuesToggleContainer = document.querySelector('.values-toggle-container');
 
   if (!toggleBtn || !valuesSection) return; // Exit if elements don't exist
 
   // Set initial state
   let isExpanded = false;
+  let hasAutoExpanded = false; // Track if auto-expansion has occurred
 
   const syncExpandedHeight = () => {
     if (!isExpanded) return;
@@ -287,6 +289,24 @@ function initValuesToggle() {
       if (wert4) wert4.classList.remove('animate-right');
     }
   };
+
+  // Auto-expand when toggle container reaches the middle of the screen
+  if (valuesToggleContainer) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // Only auto-expand once when it reaches the middle and hasn't already expanded
+        if (entry.isIntersecting && !hasAutoExpanded && !isExpanded) {
+          hasAutoExpanded = true;
+          toggleValues();
+        }
+      });
+    }, {
+      rootMargin: '-50% 0px -50% 0px', // Trigger when element reaches the middle of the viewport
+      threshold: 0
+    });
+
+    observer.observe(valuesToggleContainer);
+  }
 
   // Only attach click listener to the header (covers everything including arrow)
   if (valuesCardHeader) {

@@ -958,7 +958,7 @@ body {
     .text-wert4 { grid-column: 4; grid-row: 2; }
 
     /* Responsive: Switch to 2 columns on tablets/phones */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         .values-card__header {
             flex-direction: column;
             align-items: stretch;
@@ -966,6 +966,7 @@ body {
         }
 
         .werte-box {
+            display: block;
             grid-template-columns: 1fr;
             row-gap: 30px;
         }
@@ -979,15 +980,15 @@ body {
 
         /* Stack SVG and text vertically on mobile */
         .text-wert1, .text-wert2, .text-wert3, .text-wert4 {
-            text-align: center;
             padding: 0 15px;
             height: auto;
             margin-bottom: 15px;
+            text-align: center;
         }
 
         .svg-wert1, .svg-wert2, .svg-wert3, .svg-wert4 {
             margin: 0 auto 20px auto;
-            max-width: 150px;
+            max-width: 250px;
         }
     }
 
@@ -1008,7 +1009,7 @@ body {
     .werte-box [class^="text-wert"] h2 {
         font-size: 1.2em;
         line-height: 1.2;
-        margin-bottom: 5px;
+        margin: 0px 5px;
     }
 
     /* Paragraphs inside text blocks */
@@ -1016,16 +1017,18 @@ body {
         line-height: 1.4;
     }
 
-    /* Alignment for Left-side text (Wert 1 & 3) */
-    .text-wert1, .text-wert3 {
-        text-align: right;
-        padding-right: 20px;
-    }
+    /* Alignment for Left-side text (Wert 1 & 3) - Desktop only */
+    @media (min-width: 1025px) {
+        .text-wert1, .text-wert3 {
+            text-align: right;
+            padding-right: 20px;
+        }
 
-    /* Alignment for Right-side text (Wert 2 & 4) */
-    .text-wert2, .text-wert4 {
-        text-align: left;
-        padding-left: 20px;
+        /* Alignment for Right-side text (Wert 2 & 4) */
+        .text-wert2, .text-wert4 {
+            text-align: left;
+            padding-left: 20px;
+        }
     }
 
     /* =========================================
@@ -1036,7 +1039,7 @@ body {
     [class^="svg-wert"] {
         position: relative;
         z-index: 1; 
-        height: clamp(5.5rem, 10vw, 10rem);
+        height: clamp(8.5rem, 10vw, 10rem);
         width: 100%;
         /* Remove background-image from here! We will move it to ::after */
         display: flex;
