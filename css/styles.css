@@ -296,7 +296,7 @@ body {
   letter-spacing: 2px;
   font-size: clamp(1rem, 1.5vw, 1.5rem); /* Fluid font size so it scales with the bar */
   white-space: nowrap; /* Prevents title from breaking into two lines */
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
 }
 
 /* Burger Button */
@@ -658,7 +658,8 @@ body {
   background-image: url('../assets/svgs/decorations/welle_background.svg');
   background-repeat: no-repeat;
   background-size: 100%;
-  background-position: top;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 .about-values {
@@ -712,7 +713,7 @@ body {
   min-width: 0;
   background-color: #001d47;
   color: #f4f7ff;
-  padding: clamp(1.5rem, 2vw, 3.5rem) clamp(4rem, 5vw, 6rem);
+  padding: clamp(1.5rem, 2vw, 3.5rem) clamp(4rem, 5vw, 9.5rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -902,14 +903,31 @@ body {
 /*============= Unsere Werte  ===============*/
 /*###########################################*/
 
-/* Values Card Wrapper */
-.values-card {
+/* Values outer frame (second box) */
+.values-container-frame {
+  background-color: transparent;
+  padding: clamp(1.5rem, 3vw, 3rem);
+  margin: 0 auto;
+}
+
+/* Values Outer Container */
+.values-container {
   background-color: #ffffff;
   border: 1px solid #e6e6e6;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-  padding: clamp(2rem, 4vw, 4rem) clamp(1.5rem, 3vw, 3rem);
+  padding: clamp(2rem, 4vw, 4rem) clamp(2rem, 4vw, 4rem);
   margin: 0 auto;
   max-width: 1300px;
+}
+
+/* Values Card Wrapper */
+.values-card {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  max-width: 100%;
 }
 
 /* Values Card Header (Title + Toggle Button) */
@@ -1134,9 +1152,14 @@ body {
 
 .blog-header { 
   text-align: center; 
-  font-size: clamp(2rem, 5vw, 4rem); 
-  margin-bottom: 2rem; 
-  font-family: "Roboto mono", monospace;
+  font-size: clamp(1.6rem, 4vw, 4rem); 
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.blog-title-card {
+  margin-bottom: 1rem;
+  padding: 2.5rem 0rem;
 }
 
 .filter-box {
@@ -1144,13 +1167,13 @@ body {
   justify-content: center;
   align-items: center;
   gap: 15px; /* Increased gap slightly for the slashes */
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .filter-btn {
   background: none;
   border: none;
-  font-family: 'Roboto Mono', monospace; 
+  font-family: 'Roboto', sans-serif;
   font-size: 1.5rem;
   font-weight: 300;
   cursor: pointer;
@@ -1186,20 +1209,60 @@ body {
   align-items: flex-start;
 }
 
+.blog-featured-column {
+  flex: 0 0 390px;
+}
+
+.blog-featured-card {
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  padding: 20px;
+  position: sticky;
+  top: 20px;
+}
+
+.blog-featured-filters {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.blog-featured-filters .filter-btn {
+  font-size: 1.05rem;
+  padding: 10px 16px;
+  text-align: left;
+  justify-content: flex-start;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.blog-featured-filters .filter-btn:hover {
+  background-color: #f0f0f0;
+}
+
+.blog-featured-filters .filter-btn.active {
+  background-color: #e8f5f3;
+}
+
+.blog-featured-filters .filter-btn:not(:last-child)::after {
+  content: none;
+}
+
 /* Left Column: Featured (Newest) */
 #featured-section {
-  flex: 0 0 350px; /* Fixed width for the newest post column */
+  width: 100%;
 }
 
 .featured-box {
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: white;
-  border: 1px solid #eee;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  position: sticky;
-  top: 20px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  position: static;
 }
 
 /* Make the featured box feel like a single interactive unit */
@@ -1214,7 +1277,7 @@ body {
   font-size: 2rem;
   font-weight: 400;
   font-style: normal;
-  padding: 5px 0 15px 0;
+  padding: 2rem 0 1rem 0;
   text-align: center;
 }
 
@@ -1241,6 +1304,10 @@ body {
   margin-bottom: 30px; /* Fixed vertical distance */
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  padding: 20px;
 }
 
 .blog-card img { width: 100%; height: auto; object-fit: cover; margin-bottom: 12px; }
@@ -1285,7 +1352,7 @@ body {
 
 .image-overlay span {
   color: white;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto', monospace, sans-serif;
   font-weight: bold;
   font-size: 1.2rem;
 
@@ -1310,7 +1377,7 @@ body {
 
 .featured-box:hover {
   transform: translateY(-5px); /* Lifts the whole box up slightly */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12); /* Deepens the shadow on hover */
+  box-shadow: none;
 }
 
 .load-more-container {
@@ -1321,10 +1388,10 @@ body {
 }
 
 .load-more-btn {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto', monospace, sans-serif;
   font-size: 1rem;
   color:  #008169;
-  background: transparent;
+  background: #ffffff;
   border: 1px solid #008169;
   padding: 12px 30px;
   cursor: pointer;
@@ -1388,16 +1455,83 @@ body {
     flex-direction: column;
     gap: 40px;
   }
+
+  .blog-featured-column {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .blog-featured-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    gap: 0 1.25rem;
+    align-items: stretch;
+    position: relative;
+    top: auto;
+  }
+
+  .blog-featured-left {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.35rem;
+  }
+
+  .blog-title-card {
+    margin-bottom: 0;
+    text-align: left;
+    padding: clamp(1.2rem, 2.8vw, 2rem) 16px;
+  }
+
+  .blog-header {
+    font-size: clamp(3.4rem, 5vw, 4.5rem);
+  }
+
+  .blog-featured-filters {
+    margin-bottom: 0;
+  }
+
+  #featured-section {
+    grid-column: 2;
+  }
   
   #featured-section {
-    flex: 0 0 auto;
     width: 100%;
     max-width: 100%;
   }
   
   .featured-box {
-    position: relative;
-    top: auto;
+    display: flex;
+    flex-direction: column;
+    position: static;
+  }
+
+  .newest-post-label {
+    display: block;
+    order: 1;
+    padding: 0 0 0.75rem 0;
+    text-align: center;
+  }
+
+  .featured-box .post-image-container {
+    order: 2;
+    margin-bottom: 0.75rem;
+  }
+
+  .featured-box .post-meta {
+    order: 3;
+  }
+
+  .featured-box .post-title {
+    order: 4;
+    margin: 0.35rem 0 0.5rem;
+  }
+
+  .featured-box .post-description {
+    order: 5;
+    margin-top: 0.5rem;
   }
   
   #masonry-section {
@@ -1424,16 +1558,16 @@ body {
     padding: 1rem;
     margin: 2rem auto;
   }
-  
-  .blog-header {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    margin-bottom: 1.5rem;
-  }
-  
+   
   .filter-box {
     flex-wrap: wrap;
     gap: 12px;
     margin-bottom: 1.5rem;
+  }
+
+  .blog-featured-filters {
+    flex-wrap: nowrap;
+    margin-bottom: 0;
   }
   
   .filter-btn {
