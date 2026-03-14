@@ -546,7 +546,7 @@ body {
 .footer-container {
     display: flex;
     width: 100%;
-    min-height: clamp(180px, 25vw, 300px);
+    min-height: clamp(120px, 25vw, 300px);
     font-family: 'Roboto', sans-serif;
     flex-wrap: wrap;
 }
@@ -633,6 +633,21 @@ body {
     margin-top: 5px;
 }
 
+@media (max-width: 768px) {
+  .footer-nav-links {
+    gap: 4px;
+  }
+
+  .footer-nav-links a {
+    line-height: 1.5;
+  }
+
+  .footer-copyright {
+    margin-top: 2px;
+    line-height: 1.5;
+  }
+}
+
 /* ============================================================
     RIGHT SECTION (WHITE + BLACK SVG)
     ============================================================ */
@@ -645,6 +660,14 @@ body {
     background-repeat: repeat-y;
     background-position: center;
     
+}
+
+@media (max-width: 768px) {
+  .footer-right {
+    background-image: url('../assets/svgs/decorations/welle_footer_vertical.svg');
+    background-size: 120% auto;
+    flex: 0.5;
+  }
 }
 
 
@@ -2066,7 +2089,6 @@ body.modal-open {
 
 .legal-modal-card a {
     color: #1e3a5f;
-    text-decoration: underline;
 }
 
 .legal-modal-card a:hover {
@@ -2178,6 +2200,10 @@ body.modal-open {
   box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.12);
 }
 
+#kontakt-title {
+  text-align: center;
+}
+
 .contact-form-note {
   margin-top: 0.4rem;
   font-size: 0.82rem;
@@ -2187,7 +2213,6 @@ body.modal-open {
 .contact-email-link {
   color: #1e3a5f;
   font-weight: 600;
-  text-decoration: underline;
 }
 
 .contact-email-link:hover {
@@ -2211,7 +2236,7 @@ body.modal-open {
 
 .contact-submit-btn {
   margin-top: 0.4rem;
-  align-self: flex-start;
+  align-self: center;
   border: none;
   border-radius: 8px;
   background: #1e3a5f;
@@ -2225,6 +2250,38 @@ body.modal-open {
 
 .contact-submit-btn:hover {
   background: #001d47;
+}
+
+.contact-social {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.contact-social p {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.contact-instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #C13584;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-instagram-link i {
+  font-size: 1.3rem;
+}
+
+.contact-instagram-link:hover {
+  color: #833ab4;
 }
 
 @media (max-width: 600px) {

@@ -84,7 +84,7 @@ function submitContactForm(event) {
 
   const email = 'ody.sailing@gmail.com';
   const mailSubject = `[Kontaktformular] ${subject}`;
-  const mailBody = `Betreff: ${subject}\n\nNachricht:\n${message}`;
+  const mailBody = message;
 
   const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
 
