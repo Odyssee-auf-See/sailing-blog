@@ -1,66 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  
-  <!-- Main Homepage -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://odyssee-sailing.ch/</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- Blog Page -->
-  <url>
-    <loc>https://odyssee-sailing.ch/pages/blog/blog.html</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- About Us Section (loaded dynamically, but indexable) -->
-  <url>
-    <loc>https://odyssee-sailing.ch/#ueber-uns</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Map Section -->
-  <url>
-    <loc>https://odyssee-sailing.ch/#map</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- Blog Posts - Add individual posts here as they are created -->
-  <!-- Example Post 1 -->
-  <url>
-    <loc>https://odyssee-sailing.ch/pages/blog/posts/post-1/</loc>
-    <lastmod>2024-05-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://odyssee-sailing.ch/assets/images/blog/blog_1.jpg</image:loc>
-      <image:title>The Future of Web Design</image:title>
-    </image:image>
-  </url>
-  
-  <!-- 
-  TODO: Add more blog posts as they are published
-  Template for new posts:
-  
-  <url>
-    <loc>https://odyssee-sailing.ch/pages/blog/posts/post-X/</loc>
-    <lastmod>YYYY-MM-DD</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://odyssee-sailing.ch/path/to/image.jpg</image:loc>
-      <image:title>Post Title</image:title>
-    </image:image>
-  </url>
-  -->
-  
 </urlset>
