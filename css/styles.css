@@ -955,7 +955,7 @@ body {
         grid-template-columns: repeat(4, 1fr); 
         grid-template-rows: auto auto; 
         column-gap: 0; /* No gap so text and SVG touch */
-        row-gap: 40px; 
+        row-gap: 130px; 
         padding: 0;
         max-width: 100%;
         margin: 0;
@@ -1015,7 +1015,8 @@ body {
        ========================================= */
     /* Container for the text blocks */
     [class^="text-wert"] {
-        height: clamp(5.5rem, 10vw, 10rem); 
+      min-height: clamp(5.5rem, 10vw, 10rem);
+      height: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1059,6 +1060,7 @@ body {
         z-index: 1; 
         height: clamp(8.5rem, 10vw, 10rem);
         width: 100%;
+      align-self: center;
         /* Remove background-image from here! We will move it to ::after */
         display: flex;
         align-items: center;
@@ -1971,4 +1973,164 @@ html {
 .post-card-date {
     font-size: 0.8rem;
     color: #999;
+}
+
+
+/*============ Legal Modals (Impressum & Datenschutz) ============*/
+
+.legal-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    background: rgba(0, 10, 30, 0.72);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+}
+
+.legal-modal-overlay.is-open {
+    display: flex;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.legal-modal-card {
+    position: relative;
+    background: #fff;
+    color: #1a1a2e;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 760px;
+    max-height: calc(100vh - 4rem);
+    overflow-y: auto;
+    padding: 2.5rem 2.5rem 2rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    margin: auto;
+}
+
+.legal-modal-close {
+    position: sticky;
+    float: right;
+    top: 0;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #1e3a5f;
+    padding: 0 0 0.5rem 0.5rem;
+    transition: color 0.2s;
+}
+
+.legal-modal-close:hover {
+    color: #c0392b;
+}
+
+.legal-modal-card h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    color: #001d47;
+    margin: 0 0 1.5rem;
+    border-bottom: 2px solid #001d47;
+    padding-bottom: 0.5rem;
+}
+
+.legal-modal-card h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    color: #1e3a5f;
+    margin: 1.5rem 0 0.4rem;
+}
+
+.legal-modal-card section {
+    margin-bottom: 0.5rem;
+}
+
+.legal-modal-card p,
+.legal-modal-card li {
+    font-size: clamp(0.85rem, 1.8vw, 0.97rem);
+    line-height: 1.7;
+    color: #333;
+}
+
+.legal-modal-card ul {
+    padding-left: 1.4rem;
+    margin: 0.4rem 0 0.8rem;
+}
+
+.legal-modal-card a {
+    color: #1e3a5f;
+    text-decoration: underline;
+}
+
+.legal-modal-card a:hover {
+    color: #008169;
+}
+
+.legal-modal-card code {
+    background: #f0f4f8;
+    border-radius: 4px;
+    padding: 0.1em 0.4em;
+    font-size: 0.88em;
+}
+
+@media (max-width: 600px) {
+    .legal-modal-card {
+        padding: 1.5rem 1.2rem 1.5rem;
+        max-height: calc(100vh - 2rem);
+    }
+
+    .legal-modal-overlay {
+        padding: 1rem 0.5rem;
+        align-items: flex-start;
+    }
+}
+
+/*============ Legal Modal Table ============*/
+
+.legal-table-wrapper {
+    overflow-x: auto;
+    margin-top: 0.75rem;
+    border-radius: 6px;
+}
+
+.legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    min-width: 580px;
+}
+
+.legal-table th,
+.legal-table td {
+    border: 1px solid #c8d6e5;
+    padding: 0.45rem 0.7rem;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.legal-table thead tr {
+    background-color: #1e3a5f;
+    color: #fff;
+}
+
+.legal-table thead th {
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.02em;
+}
+
+.legal-table tbody tr:nth-child(even) {
+    background-color: #f0f4f8;
+}
+
+.legal-table tbody tr:hover {
+    background-color: #dce8f5;
 }

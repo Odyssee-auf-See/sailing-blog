@@ -29,12 +29,41 @@ async function loadPage() {
 
 window.onload = loadPage;
 document.addEventListener('keydown', e => {
-    if(e.key === "Escape") closeHybridLightbox();
+    if (e.key === "Escape") {
+        closeHybridLightbox();
+        document.querySelectorAll('.legal-modal-overlay.is-open').forEach(el => {
+            const container = el.closest('[id$="-modal"]');
+            if (container) closeModal(container.id);
+        });
+    }
     if(document.getElementById('hybridLightbox').style.display === 'flex') {
         if(e.key === "ArrowRight") changeLightboxImage(1);
         if(e.key === "ArrowLeft") changeLightboxImage(-1);
     }
 });
+
+
+/* ============================================================
+    LEGAL MODALS (Impressum & Datenschutz)
+    ============================================================ */
+
+function openModal(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const overlay = container.querySelector('.legal-modal-overlay');
+    if (!overlay) return;
+    overlay.classList.add('is-open');
+    document.body.classList.add('modal-open');
+}
+
+function closeModal(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const overlay = container.querySelector('.legal-modal-overlay');
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    document.body.classList.remove('modal-open');
+}
 
 
 
@@ -247,10 +276,11 @@ function initValuesToggle() {
   // Set initial state
   let isExpanded = false;
   let hasAutoExpanded = false; // Track if auto-expansion has occurred
+  const expandedHeightOffset = 500; // Increase/decrease this value to tune expanded height
 
   const syncExpandedHeight = () => {
     if (!isExpanded) return;
-    valuesSection.style.maxHeight = valuesSection.scrollHeight + 'px';
+    valuesSection.style.maxHeight = (valuesSection.scrollHeight + expandedHeightOffset) + 'px';
   };
 
   window.addEventListener('resize', syncExpandedHeight);
