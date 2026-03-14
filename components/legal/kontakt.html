@@ -1,0 +1,44 @@
+<div class="legal-modal-overlay" id="kontakt-modal-inner" role="dialog" aria-modal="true" aria-labelledby="kontakt-title" onclick="closeModal('kontakt-modal')">
+  <div class="legal-modal-card" onclick="event.stopPropagation()">
+    <button class="legal-modal-close" onclick="closeModal('kontakt-modal')" aria-label="Schließen">&times;</button>
+
+    <h2 id="kontakt-title">Kontakt</h2>
+    <p>
+      Schön, dass du hier bist! Wenn du Fragen hast, Feedback teilen möchtest oder eine Zusammenarbeit im Kopf hast,
+      freuen wir uns sehr auf deine Nachricht.
+    </p>
+
+    <form class="contact-form" onsubmit="submitContactForm(event)">
+      <section>
+        <label for="kontakt-name">Name</label>
+        <input type="text" id="kontakt-name" name="name" required>
+      </section>
+
+      <section>
+        <label for="kontakt-subject">Betreff</label>
+        <select id="kontakt-subject" name="subject" required>
+          <option value="" disabled selected>Bitte auswählen</option>
+          <option value="Allgemeine Frage">Allgemeine Frage</option>
+          <option value="Kooperation">Kooperation</option>
+          <option value="Technisches Problem">Technisches Problem</option>
+          <option value="Feedback zur Webseite">Feedback zur Webseite</option>
+          <option value="Sonstiges">Sonstiges</option>
+        </select>
+      </section>
+
+      <section>
+        <label for="kontakt-message">Nachricht</label>
+        <textarea id="kontakt-message" name="message" rows="6" required></textarea>
+      </section>
+
+      <p class="contact-form-note">
+        Hinweis: Beim Senden öffnet sich deine Standard-Mail-App und die Nachricht wird an
+        ody.sailing@gmail.com vorbereitet.
+      </p>
+
+      <p class="contact-form-feedback" id="kontakt-feedback" aria-live="polite"></p>
+
+      <button type="submit" class="contact-submit-btn">Nachricht senden</button>
+    </form>
+  </div>
+</div>

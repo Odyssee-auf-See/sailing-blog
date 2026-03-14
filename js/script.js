@@ -65,6 +65,48 @@ function closeModal(containerId) {
     document.body.classList.remove('modal-open');
 }
 
+function submitContactForm(event) {
+  event.preventDefault();
+
+  const nameInput = document.getElementById('kontakt-name');
+  const subjectInput = document.getElementById('kontakt-subject');
+  const messageInput = document.getElementById('kontakt-message');
+  const feedbackElement = document.getElementById('kontakt-feedback');
+
+  if (!nameInput || !subjectInput || !messageInput) return;
+
+  const name = nameInput.value.trim();
+  const subject = subjectInput.value.trim();
+  const message = messageInput.value.trim();
+
+  if (!name || !subject || !message) {
+    alert('Bitte fülle alle Felder aus.');
+    return;
+  }
+
+  const email = 'ody.sailing@gmail.com';
+  const mailSubject = `[Kontaktformular] ${subject}`;
+  const mailBody = `Name: ${name}\nBetreff: ${subject}\n\nNachricht:\n${message}`;
+
+  const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+
+  if (feedbackElement) {
+    feedbackElement.textContent = 'Danke! Deine Mail-App wird geöffnet …';
+    feedbackElement.classList.add('is-visible');
+  }
+
+  window.location.href = mailtoUrl;
+
+  setTimeout(() => {
+    closeModal('kontakt-modal');
+    event.target.reset();
+    if (feedbackElement) {
+      feedbackElement.textContent = '';
+      feedbackElement.classList.remove('is-visible');
+    }
+  }, 700);
+}
+
 
 
 

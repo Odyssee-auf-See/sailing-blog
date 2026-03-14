@@ -2134,3 +2134,92 @@ body.modal-open {
 .legal-table tbody tr:hover {
     background-color: #dce8f5;
 }
+
+/*============ Contact Form Modal ============*/
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #1e3a5f;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  border: 1px solid #c8d6e5;
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.92rem;
+  color: #1a1a2e;
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #1e3a5f;
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.12);
+}
+
+.contact-form-note {
+  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  color: #566273;
+}
+
+.contact-form-feedback {
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #008169;
+  min-height: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.contact-form-feedback.is-visible {
+  opacity: 1;
+}
+
+.contact-submit-btn {
+  margin-top: 0.4rem;
+  align-self: flex-start;
+  border: none;
+  border-radius: 8px;
+  background: #1e3a5f;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.contact-submit-btn:hover {
+  background: #001d47;
+}
+
+@media (max-width: 600px) {
+  .contact-submit-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
