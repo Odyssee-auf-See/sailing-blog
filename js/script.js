@@ -68,25 +68,23 @@ function closeModal(containerId) {
 function submitContactForm(event) {
   event.preventDefault();
 
-  const nameInput = document.getElementById('kontakt-name');
   const subjectInput = document.getElementById('kontakt-subject');
   const messageInput = document.getElementById('kontakt-message');
   const feedbackElement = document.getElementById('kontakt-feedback');
 
-  if (!nameInput || !subjectInput || !messageInput) return;
+  if (!subjectInput || !messageInput) return;
 
-  const name = nameInput.value.trim();
   const subject = subjectInput.value.trim();
   const message = messageInput.value.trim();
 
-  if (!name || !subject || !message) {
+  if (!subject || !message) {
     alert('Bitte fülle alle Felder aus.');
     return;
   }
 
   const email = 'ody.sailing@gmail.com';
   const mailSubject = `[Kontaktformular] ${subject}`;
-  const mailBody = `Name: ${name}\nBetreff: ${subject}\n\nNachricht:\n${message}`;
+  const mailBody = `Betreff: ${subject}\n\nNachricht:\n${message}`;
 
   const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
 
@@ -223,10 +221,12 @@ function initMenuBar(){
           targetId = 'blog';
           break;
         case 'KARTE':
-        case 'JOIN US':
-          // These sections don't exist yet, scroll to map for now
           targetId = 'map';
           break;
+        case 'KONTAKT':
+          openModal('kontakt-modal');
+          closeMenu();
+          return;
       }
       
       // Scroll to target section
@@ -288,7 +288,7 @@ function initMenuBar(){
             shouldBeActive = linkText === 'BLOG';
             break;
           case 'map':
-            shouldBeActive = linkText === 'KARTE' || linkText === 'JOIN US';
+            shouldBeActive = linkText === 'KARTE';
             break;
         }
         

@@ -4,24 +4,19 @@
 
     <h2 id="kontakt-title">Kontakt</h2>
     <p>
-      Schön, dass du hier bist! Wenn du Fragen hast, Feedback teilen möchtest oder eine Zusammenarbeit im Kopf hast,
+      Schön, dass du hier bist! Wenn du Fragen hast, mitsegeln möchtest oder eine Zusammenarbeit im Kopf hast,
       freuen wir uns sehr auf deine Nachricht.
     </p>
 
     <form class="contact-form" onsubmit="submitContactForm(event)">
       <section>
-        <label for="kontakt-name">Name</label>
-        <input type="text" id="kontakt-name" name="name" required>
-      </section>
-
-      <section>
         <label for="kontakt-subject">Betreff</label>
         <select id="kontakt-subject" name="subject" required>
           <option value="" disabled selected>Bitte auswählen</option>
           <option value="Allgemeine Frage">Allgemeine Frage</option>
+          <option value="Mitsegeln">Mitsegeln</option>
           <option value="Kooperation">Kooperation</option>
-          <option value="Technisches Problem">Technisches Problem</option>
-          <option value="Feedback zur Webseite">Feedback zur Webseite</option>
+          <option value="Feedback">Feedback</option>
           <option value="Sonstiges">Sonstiges</option>
         </select>
       </section>
@@ -32,8 +27,8 @@
       </section>
 
       <p class="contact-form-note">
-        Hinweis: Beim Senden öffnet sich deine Standard-Mail-App und die Nachricht wird an
-        ody.sailing@gmail.com vorbereitet.
+        Beim Senden öffnet sich deine Standard-Mail-App und die Nachricht wird an
+        <a href="mailto:ody.sailing@gmail.com" class="contact-email-link">ody.sailing@gmail.com</a> versendet.
       </p>
 
       <p class="contact-form-feedback" id="kontakt-feedback" aria-live="polite"></p>

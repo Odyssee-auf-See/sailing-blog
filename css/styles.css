@@ -2184,6 +2184,16 @@ body.modal-open {
   color: #566273;
 }
 
+.contact-email-link {
+  color: #1e3a5f;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.contact-email-link:hover {
+  color: #001d47;
+}
+
 .contact-form-feedback {
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
