@@ -22,9 +22,10 @@ async function loadPage() {
     }
 
     // 2. Initialize Page Content
+    await hydratePostTemplateFromMetadata();
     initHeroCarousel();
+    await loadRelatedPosts();
     initHybridGallery();
-    loadRelatedPosts();
 }
 
 window.onload = loadPage;
@@ -36,7 +37,8 @@ document.addEventListener('keydown', e => {
             if (container) closeModal(container.id);
         });
     }
-    if(document.getElementById('hybridLightbox').style.display === 'flex') {
+  const hybridLightbox = document.getElementById('hybridLightbox');
+  if(hybridLightbox && hybridLightbox.style.display === 'flex') {
         if(e.key === "ArrowRight") changeLightboxImage(1);
         if(e.key === "ArrowLeft") changeLightboxImage(-1);
     }
@@ -536,14 +538,75 @@ function initAboutHeroTextFit() {
 
 let allPosts = [];
 let showingAll = false; // Track state
+let blogMetaCache = null;
+
+function resolvePath(pathPrefix, value) {
+  if (!value) return '';
+  if (/^(https?:)?\/\//i.test(value) || value.startsWith('data:') || value.startsWith('/')) {
+    return value;
+  }
+  return `${pathPrefix}${value}`;
+}
+
+function createPostHref(post) {
+  const fallbackUrl = post.url || post.postUrl || 'pages/blog/post-template.html';
+  if (!post.slug || /slug=/.test(fallbackUrl) || !fallbackUrl.includes('post-template.html')) {
+    return fallbackUrl;
+  }
+  const separator = fallbackUrl.includes('?') ? '&' : '?';
+  return `${fallbackUrl}${separator}slug=${encodeURIComponent(post.slug)}`;
+}
+
+function normalizeBlogMetadata(raw) {
+  const site = Array.isArray(raw) ? {} : (raw.site || {});
+  const postSource = Array.isArray(raw) ? raw : (raw.posts || []);
+
+  const posts = postSource.map((item, index) => {
+    const id = item.id || `post-${index + 1}`;
+    const slug = item.slug || id;
+    const image = item.image || item.coverImage || (item.heroImages?.[0]?.src) || '';
+    const description = item.description || item.excerpt || '';
+
+    return {
+      id,
+      slug,
+      title: item.title || 'Ohne Titel',
+      date: item.date || new Date().toISOString().slice(0, 10),
+      updated: item.updated || item.date || new Date().toISOString().slice(0, 10),
+      tag: item.tag || 'Boot',
+      url: createPostHref({ ...item, slug }),
+      image,
+      description,
+      excerpt: item.excerpt || description,
+      author: item.author || 'Vito & Lea',
+      canonical: item.canonical || '',
+      keywords: Array.isArray(item.keywords)
+        ? item.keywords
+        : (typeof item.keywords === 'string' ? item.keywords.split(',').map(k => k.trim()).filter(Boolean) : []),
+      heroImages: Array.isArray(item.heroImages) ? item.heroImages : [],
+      sections: Array.isArray(item.sections) ? item.sections : [],
+      related: Array.isArray(item.related) ? item.related : []
+    };
+  }).sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  return { site, posts };
+}
+
+async function getBlogMetadata() {
+  if (blogMetaCache) return blogMetaCache;
+
+  const pathPrefix = getPathPrefix();
+  const response = await fetch(pathPrefix + 'data/blog_metadata.json');
+  const raw = await response.json();
+  blogMetaCache = normalizeBlogMetadata(raw);
+  return blogMetaCache;
+}
 
 // 1. Fetch and Initialize
 async function initBlog() {
   try {
-    const pathPrefix = getPathPrefix();
-    const response = await fetch(pathPrefix + 'data/blog_metadata.json');
-    allPosts = await response.json();
-    allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const meta = await getBlogMetadata();
+    allPosts = meta.posts;
 
     // Initially only show the first 10
     renderGrid(allPosts.slice(0, 10));
@@ -582,6 +645,8 @@ function updateLoadMoreButton(isVisible) {
 
 function renderGrid(posts) {
   const featuredSection = document.getElementById('featured-section');
+  if (!featuredSection) return;
+  const pathPrefix = getPathPrefix();
   
   // Determine number of columns based on screen size
   const screenWidth = window.innerWidth;
@@ -604,11 +669,11 @@ function renderGrid(posts) {
 
   // 1. Render Featured Box
   featuredSection.innerHTML = `
-    <a href="${newest.url || '#'}" class="featured-box-link">
+    <a href="${resolvePath(pathPrefix, newest.url || '#')}" class="featured-box-link">
       <article class="featured-box">
         <div class="newest-post-label">Neuster Blogbeitrag</div>
         <div class="post-image-container">
-          <img src="${newest.image}" alt="${newest.title}" loading="lazy" width="350" height="280">
+          <img src="${resolvePath(pathPrefix, newest.image)}" alt="${newest.title}" loading="lazy" width="350" height="280">
           <div class="image-overlay"><span>Weiterlesen</span></div>
         </div>
         <div class="post-meta">
@@ -616,17 +681,17 @@ function renderGrid(posts) {
           <span class="post-date">${formatDate(newest.date)}</span>
         </div>
         <h2 class="post-title">${newest.title}</h2>
-        <p class="post-description">${newest.description || ''}</p>
+        <p class="post-description">${newest.excerpt || newest.description || ''}</p>
       </article>
     </a>`;
 
   // 2. Distribute others into columns (2 or 3 based on screen size)
   others.forEach((post, index) => {
     const cardHTML = `
-      <a href="${post.url || '#'}" style="text-decoration:none; color:inherit;">
+      <a href="${resolvePath(pathPrefix, post.url || '#')}" style="text-decoration:none; color:inherit;">
         <article class="blog-card">
           <div class="post-image-container">
-            <img src="${post.image}" alt="${post.title}" loading="lazy" width="300" height="240">
+            <img src="${resolvePath(pathPrefix, post.image)}" alt="${post.title}" loading="lazy" width="300" height="240">
             <div class="image-overlay"><span>Weiterlesen</span></div>
           </div>
           <div class="post-meta">
@@ -680,6 +745,161 @@ function filterBlog(category) {
 function formatDate(dateString) {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   return new Date(dateString).toLocaleDateString('de-DE', options);
+}
+
+function updateMetaTag(selector, value) {
+  const tag = document.querySelector(selector);
+  if (tag && value) tag.setAttribute('content', value);
+}
+
+function updateCanonical(pathPrefix, canonicalPath, siteBaseUrl) {
+  const canonical = document.querySelector('link[rel="canonical"]');
+  if (!canonical) return;
+
+  if (canonicalPath) {
+    if (/^(https?:)?\/\//i.test(canonicalPath)) {
+      canonical.setAttribute('href', canonicalPath);
+      return;
+    }
+
+    const base = (siteBaseUrl || '').replace(/\/$/, '');
+    const normalizedPath = canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`;
+    if (base) {
+      canonical.setAttribute('href', `${base}${normalizedPath}`);
+      return;
+    }
+
+    canonical.setAttribute('href', resolvePath(pathPrefix, canonicalPath));
+  }
+}
+
+function renderSectionsFromMetadata(post, pathPrefix) {
+  const articleContainer = document.querySelector('.article-container');
+  const relatedBox = articleContainer?.querySelector('.related-posts-box');
+  if (!articleContainer || !relatedBox || !Array.isArray(post.sections) || post.sections.length === 0) return;
+
+  articleContainer.querySelectorAll('.content-block').forEach(block => block.remove());
+
+  post.sections.forEach((section, sectionIndex) => {
+    const rowId = `scrollRow${sectionIndex + 1}`;
+    const galleryImages = Array.isArray(section.gallery) ? section.gallery : [];
+    const galleryHtml = galleryImages.length > 0
+      ? `
+        <div class="hybrid-gallery">
+            <div class="image-scroll-row" id="${rowId}">
+                ${galleryImages.map(image => `<img src="${resolvePath(pathPrefix, image.src)}" alt="${image.alt || ''}">`).join('')}
+            </div>
+            <button class="scroll-arrow left" onclick="scrollGrid('${rowId}', -1)" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="scroll-arrow right" onclick="scrollGrid('${rowId}', 1)" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>`
+      : '';
+
+    const sectionEl = document.createElement('section');
+    sectionEl.className = 'content-block';
+    sectionEl.innerHTML = `
+      <h2 class="block-title">${section.title || 'Absatz'}</h2>
+      <p class="block-text">${section.html || ''}</p>
+      ${galleryHtml}
+    `;
+
+    articleContainer.insertBefore(sectionEl, relatedBox);
+  });
+}
+
+function setHeroDataSource(post, pathPrefix) {
+  const heroSource = document.getElementById('hero-data-source');
+  if (!heroSource || !Array.isArray(post.heroImages) || post.heroImages.length === 0) return;
+
+  heroSource.innerHTML = post.heroImages
+    .map(image => `<img src="${resolvePath(pathPrefix, image.src)}" alt="${image.alt || ''}">`)
+    .join('');
+}
+
+function updatePostHeader(post) {
+  const tagElement = document.querySelector('.article-tag');
+  const dateElement = document.querySelector('.article-date');
+  const titleElement = document.querySelector('.article-title');
+  const introElement = document.querySelector('.article-intro');
+
+  if (tagElement) tagElement.textContent = (post.tag || 'Boot').toUpperCase();
+  if (dateElement) dateElement.textContent = formatDate(post.date);
+  if (titleElement) titleElement.textContent = post.title;
+  if (introElement) introElement.textContent = post.intro || post.excerpt || '';
+  document.title = `${post.title} - Odyssee auf See`;
+}
+
+function updatePostSeo(post, siteBaseUrl, pathPrefix) {
+  const keywords = (post.keywords || []).join(', ');
+  const firstImage = post.heroImages?.[0]?.src || post.image || '';
+  const resolvedImage = resolvePath(pathPrefix, firstImage);
+  const canonicalPath = post.canonical || post.url;
+
+  updateMetaTag('meta[name="description"]', post.excerpt || post.description);
+  updateMetaTag('meta[name="keywords"]', keywords);
+  updateMetaTag('meta[property="og:title"]', `${post.title} - Odyssee auf See`);
+  updateMetaTag('meta[property="og:description"]', post.excerpt || post.description);
+  updateMetaTag('meta[property="article:published_time"]', `${post.date}T00:00:00+00:00`);
+  updateMetaTag('meta[property="article:tag"]', post.tag);
+  updateMetaTag('meta[name="twitter:title"]', `${post.title} - Odyssee auf See`);
+  updateMetaTag('meta[name="twitter:description"]', post.excerpt || post.description);
+  updateMetaTag('meta[property="og:image"]', resolvedImage);
+  updateMetaTag('meta[name="twitter:image"]', resolvedImage);
+
+  const canonicalAbsolute = (() => {
+    if (!canonicalPath) return '';
+    if (/^(https?:)?\/\//i.test(canonicalPath)) return canonicalPath;
+    const base = (siteBaseUrl || '').replace(/\/$/, '');
+    const normalized = canonicalPath.startsWith('/') ? canonicalPath : `/${canonicalPath}`;
+    return base ? `${base}${normalized}` : resolvePath(pathPrefix, canonicalPath);
+  })();
+
+  updateMetaTag('meta[property="og:url"]', canonicalAbsolute);
+  updateMetaTag('meta[name="twitter:url"]', canonicalAbsolute);
+  updateCanonical(pathPrefix, canonicalPath, siteBaseUrl);
+
+  const jsonLdScript = document.querySelector('script[type="application/ld+json"]');
+  if (!jsonLdScript) return;
+
+  try {
+    const ld = JSON.parse(jsonLdScript.textContent);
+    ld.headline = post.title;
+    ld.description = post.excerpt || post.description || '';
+    ld.image = canonicalAbsolute && firstImage && !/^(https?:)?\/\//i.test(firstImage)
+      ? `${canonicalAbsolute.replace(/\/$/, '')}/${firstImage.replace(/^\//, '')}`
+      : resolvedImage;
+    ld.datePublished = `${post.date}T00:00:00+00:00`;
+    ld.dateModified = `${post.updated}T00:00:00+00:00`;
+    ld.keywords = keywords;
+    ld.articleSection = post.tag;
+    if (ld.mainEntityOfPage && canonicalAbsolute) {
+      ld.mainEntityOfPage['@id'] = canonicalAbsolute;
+    }
+    jsonLdScript.textContent = JSON.stringify(ld, null, 2);
+  } catch (error) {
+    console.error('Could not update JSON-LD metadata:', error);
+  }
+}
+
+async function hydratePostTemplateFromMetadata() {
+  const postContainer = document.querySelector('.article-container');
+  if (!postContainer) return;
+
+  const slug = new URLSearchParams(window.location.search).get('slug');
+  if (!slug) return;
+
+  try {
+    const pathPrefix = getPathPrefix();
+    const meta = await getBlogMetadata();
+    const post = meta.posts.find(item => item.slug === slug || item.id === slug);
+    if (!post) return;
+
+    updatePostHeader(post);
+    setHeroDataSource(post, pathPrefix);
+    renderSectionsFromMetadata(post, pathPrefix);
+    updatePostSeo(post, meta.site?.baseUrl || '', pathPrefix);
+  } catch (error) {
+    console.error('Error hydrating post template from metadata:', error);
+  }
 }
 
 
@@ -798,12 +1018,25 @@ async function loadRelatedPosts() {
 
     try {
         const pathPrefix = getPathPrefix();
-        const res = await fetch(pathPrefix + 'data/blog_metadata.json');
-        const posts = await res.json();
-        const container = document.getElementById('relatedPostsRow');
-        container.innerHTML = posts.map(p => `
-            <a href="${pathPrefix}${p.url || '#'}" class="post-card">
-                <img src="${pathPrefix}${p.image}" alt="${p.title}" loading="lazy" width="280" height="300">
+      const meta = await getBlogMetadata();
+      const posts = meta.posts;
+      const slug = new URLSearchParams(window.location.search).get('slug');
+      const activePost = posts.find(p => p.slug === slug || p.id === slug);
+
+      let relatedPosts = [];
+      if (activePost && Array.isArray(activePost.related) && activePost.related.length > 0) {
+        relatedPosts = activePost.related
+          .map(id => posts.find(p => p.id === id || p.slug === id))
+          .filter(Boolean);
+      }
+
+      if (relatedPosts.length === 0) {
+        relatedPosts = posts.filter(p => p.slug !== slug).slice(0, 8);
+      }
+
+      container.innerHTML = relatedPosts.map(p => `
+        <a href="${resolvePath(pathPrefix, p.url || '#')}" class="post-card">
+          <img src="${resolvePath(pathPrefix, p.image)}" alt="${p.title}" loading="lazy" width="280" height="300">
                 <div class="post-card-info">
                     <span class="post-card-tag">${p.tag}</span>
                     <h4 class="post-card-title">${p.title}</h4>

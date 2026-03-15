@@ -1,136 +1,173 @@
-[
-  {
-    "title": "The Future of Web Design",
-    "date": "2024-05-15",
-    "tag": "Reisen",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_1.jpg",
-    "description": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024."
+{
+  "site": {
+    "baseUrl": "https://odyssee-sailing.ch"
   },
-  {
-    "title": "Optimizing Your Sailing Routes",
-    "date": "2024-04-10",
-    "tag": "Boot",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_2.jpg",
-    "description": "Learn about modern tools and techniques for planning efficient sailing routes across different waters."
-
-  },
-  {
-    "title": "Sustainable Marine Practices",
-    "date": "2024-04-11",
-    "tag": "Nachhaltigkeit",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_3.jpg",
-    "description": "Discover how sailors can contribute to ocean conservation and sustainable marine ecosystems."
-
-  },
-  {
-    "title": "Mediterranean Sailing Adventures",
-    "date": "2024-04-12",
-    "tag": "Reisen",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_4.jpg",
-    "description": "Experience the beauty and challenges of sailing the Mediterranean Sea from hidden coves to historic ports."
-
-  },
-  {
-    "title": "Reflections on Ocean Life",
-    "date": "2024-04-13",
-    "tag": "Gedankenchaos",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_5.jpg",
-    "description": "Personal thoughts and observations about living in harmony with the sea and discovering yourself on the water."
-
-  }, 
-  {
-    "title": "Essential Boat Maintenance Guide",
-    "date": "2024-04-14",
-    "tag": "Boot",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_6.jpg",
-    "description": "Complete guide to keeping your sailboat in top condition with seasonal maintenance tips and best practices."
-
-  }, 
-  {
-    "title": "Caribbean Sailing Chronicles",
-    "date": "2024-04-15",
-    "tag": "Reisen",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_7.jpg",
-    "description": "Tales from sailing the Caribbean islands, exploring tropical waters and experiencing vibrant local cultures."
-
-  }, 
-  {
-    "title": "Weather Patterns for Sailors",
-    "date": "2024-04-16",
-    "tag": "Reisen",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_8.jpg",
-    "description": "Understanding weather systems and how to read the signs for safe and enjoyable sailing conditions."
-
-  },
-  {
-    "title": "Ocean Conservation Challenges",
-    "date": "2024-04-17",
-    "tag": "Nachhaltigkeit",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_9.heic",
-    "description": "Exploring the environmental challenges facing our oceans and what actions every sailor can take to help."
-
-  },
-  {
-    "title": "Sailing with Purpose",
-    "date": "2024-04-18",
-    "tag": "Boot",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_10.jpg",
-    "description": "How sailing teaches us about purpose, discipline, and the importance of respecting the natural world."
-
-  },
-  {
-    "title": "Global Sailing Routes",
-    "date": "2024-04-20",
-    "tag": "Boot",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_11.jpg",
-    "description": "Discover legendary sailing routes from the Roaring Forties to the Northwest Passage and everything in between."
-
-  },
-  {
-    "title": "Safety at Sea",
-    "date": "2024-04-21",
-    "tag": "Boot",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_12.jpg",
-    "description": "Essential safety equipment, emergency procedures, and best practices for sailing in different conditions."
-
-  },
-  {
-    "title": "Island Hopping in Greece",
-    "date": "2024-04-22",
-    "tag": "Boot",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_13.jpg",
-    "description": "Navigate the Greek islands by sailboat, exploring ancient ruins and idyllic harbors across the Aegean Sea."
-
-  },
-  {
-    "title": "The Art of Navigation",
-    "date": "2024-04-23",
-    "tag": "Boot",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_14.jpg",
-    "description": "Master modern navigation techniques combining traditional sailing knowledge with GPS technology."
-
-  },
-  {
-    "title": "Sailing Community Stories",
-    "date": "2024-04-24",
-    "tag": "Boot",
-    "url": "pages/blog/post-template.html",
-    "image": "assets/images/blog/blog_15.jpg",
-    "description": "Inspiring stories from sailors around the world and the communities that share a passion for the sea."
-
-  }
-]
+  "posts": [
+    {
+      "id": "post-1",
+      "slug": "mein-erster-torn",
+      "title": "The Future of Web Design",
+      "date": "2024-05-15",
+      "updated": "2024-05-15",
+      "tag": "Reisen",
+      "url": "pages/blog/post-template.html",
+      "canonical": "/pages/blog/post-template.html?slug=mein-erster-torn",
+      "image": "assets/images/blog/blog_1.jpg",
+      "excerpt": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024.",
+      "author": "Vito & Lea",
+      "keywords": [
+        "Segeln",
+        "Reisen",
+        "Blog",
+        "Odyssee auf See"
+      ],
+      "intro": "Einleitungstext über die volle Breite des Containers.",
+      "heroImages": [
+        {
+          "src": "pages/blog/posts/post-1/assets/images/photo1.jpg",
+          "alt": "Aussicht vom Bug"
+        },
+        {
+          "src": "pages/blog/posts/post-1/assets/images/photo2.jpg",
+          "alt": "Morgennebel im Wald"
+        },
+        {
+          "src": "pages/blog/posts/post-1/assets/images/photo3.jpg",
+          "alt": "Unser Ankerplatz"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Absatz Titel",
+          "html": "Paragraph Text <br><br>Es gibt diesen einen Moment, kurz bevor die Sonne hinter dem Horizont verschwindet, in dem die Welt völlig stillzustehen scheint. Das sanfte Schaukeln des Bootes im Rhythmus der Wellen und das ferne Kreischen der Möwen sind die einzigen Geräusche, die die Stille durchbrechen. In solchen Augenblicken wird einem klar, warum wir uns immer wieder auf den Weg machen, um das Unbekannte zu erkunden. Es geht nicht nur um die Reiseziele selbst, sondern um das Gefühl von Freiheit, das man nur fernab des Alltags findet.<br><br>Jeder Hafen, den wir anlaufen, erzählt seine eigene Geschichte. Von den rostigen Ankerketten alter Fischerboote bis hin zu den glänzenden Decks moderner Yachten – die Vielfalt der maritimen Welt ist grenzenlos. Dabei sind es oft die kleinen Details, die einen bleibenden Eindruck hinterlassen.<br><br>Nachhaltigkeit spielt dabei eine immer größere Rolle. Wie können wir diese wunderschönen Orte bereisen, ohne sie zu zerstören?",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/post-1/assets/images/photo1.jpg",
+              "alt": "Eindruck 1"
+            },
+            {
+              "src": "pages/blog/posts/post-1/assets/images/photo2.jpg",
+              "alt": "Eindruck 2"
+            },
+            {
+              "src": "pages/blog/posts/post-1/assets/images/photo3.jpg",
+              "alt": "Eindruck 3"
+            }
+          ]
+        },
+        {
+          "title": "Absatz Titel",
+          "html": "Dein Haupttext hier...",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/post-1/assets/images/photo1.jpg",
+              "alt": "Eindruck 1"
+            },
+            {
+              "src": "pages/blog/posts/post-1/assets/images/photo2.jpg",
+              "alt": "Eindruck 2"
+            },
+            {
+              "src": "pages/blog/posts/post-1/assets/images/photo3.jpg",
+              "alt": "Eindruck 3"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "post-2",
+        "post-3"
+      ]
+    },
+    {
+      "id": "post-2",
+      "slug": "dummy-logbook-ankern-in-bucht",
+      "title": "Dummy Post: Ankern in ruhiger Bucht",
+      "date": "2026-03-14",
+      "updated": "2026-03-14",
+      "tag": "Boot",
+      "url": "pages/blog/post-template.html",
+      "canonical": "/pages/blog/post-template.html?slug=dummy-logbook-ankern-in-bucht",
+      "image": "assets/images/blog/blog_2.jpg",
+      "excerpt": "Testbeitrag für Layout und Kartenansicht: ein kurzer Logbucheintrag über einen entspannten Abend vor Anker.",
+      "author": "Vito & Lea",
+      "keywords": [
+        "Dummy",
+        "Ankern",
+        "Boot"
+      ],
+      "intro": "Dieser Dummy-Post hilft dir, neue Beiträge schneller im echten Layout zu prüfen.",
+      "heroImages": [
+        {
+          "src": "pages/blog/posts/post-1/assets/images/photo1.jpg",
+          "alt": "Bugperspektive im Abendlicht"
+        },
+        {
+          "src": "pages/blog/posts/post-1/assets/images/photo2.jpg",
+          "alt": "Ruhiges Wasser im Morgennebel"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Kurzer Testabschnitt",
+          "html": "Dies ist ein Platzhaltertext, um den finalen Aufbau eines Blogposts zu testen.<br><br>Du kannst diesen Eintrag später 1:1 durch echten Content ersetzen.",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/post-1/assets/images/photo1.jpg",
+              "alt": "Dummy Bild 1"
+            },
+            {
+              "src": "pages/blog/posts/post-1/assets/images/photo2.jpg",
+              "alt": "Dummy Bild 2"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "post-1",
+        "post-3"
+      ]
+    },
+    {
+      "id": "post-3",
+      "slug": "dummy-logbook-sonnenaufgang-auf-see",
+      "title": "Dummy Post: Sonnenaufgang auf See",
+      "date": "2026-03-13",
+      "updated": "2026-03-13",
+      "tag": "Reisen",
+      "url": "pages/blog/post-template.html",
+      "canonical": "/pages/blog/post-template.html?slug=dummy-logbook-sonnenaufgang-auf-see",
+      "image": "assets/images/blog/blog_3.jpg",
+      "excerpt": "Testbeitrag für Intro, SEO und Related Posts mit einem typischen Reise-Logbuch-Einstieg.",
+      "author": "Vito & Lea",
+      "keywords": [
+        "Dummy",
+        "Reisen",
+        "Logbuch"
+      ],
+      "intro": "Auch dieser Eintrag ist nur zum Befüllen der Seite gedacht, bis deine echten Texte fertig sind.",
+      "heroImages": [
+        {
+          "src": "pages/blog/posts/post-1/assets/images/photo3.jpg",
+          "alt": "Ankerplatz kurz nach Sonnenaufgang"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Layout-Check",
+          "html": "Mit diesem Dummy kannst du prüfen, ob Titel, Intro, Galerie und Meta-Daten im Zusammenspiel korrekt dargestellt werden.",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/post-1/assets/images/photo3.jpg",
+              "alt": "Dummy Bild A"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "post-1",
+        "post-2"
+      ]
+    }
+  ]
+}

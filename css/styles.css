@@ -1799,17 +1799,19 @@ html {
 }
 
 .hybrid-gallery {
-    position: relative;
-    margin: 25px 0;
+  position: relative;
+  margin: 25px auto;
+  width: 100%;
 }
 
 .image-scroll-row {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  justify-content: center;
 }
 
 .image-scroll-row::-webkit-scrollbar {
@@ -1841,12 +1843,8 @@ html {
     color: #333;
     cursor: pointer;
     z-index: 10;
-    opacity: 0;
-    transition: all 0.3s;
-}
-
-.hybrid-gallery:hover .scroll-arrow {
     opacity: 1;
+    transition: all 0.3s;
 }
 
 .scroll-arrow:hover {
