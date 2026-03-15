@@ -10,6 +10,96 @@ function getPathPrefix() {
     return depth > 0 ? '../'.repeat(depth) : '';
 }
 
+let isErrorRedirectInProgress = false;
+
+function isErrorPage() {
+  const currentPath = window.location.pathname.toLowerCase();
+  return currentPath.endsWith('/components/errorpage/error.html')
+    || currentPath.endsWith('/components/errorpage/404.html')
+    || currentPath.endsWith('components/errorpage/error.html')
+    || currentPath.endsWith('components/errorpage/404.html');
+}
+
+function getErrorPagePath() {
+  if (isErrorPage()) return '';
+
+  try {
+    const prefix = getPathPrefix();
+    return `${prefix}components/errorpage/error.html`;
+  } catch (_) {
+    return 'components/errorpage/error.html';
+  }
+}
+
+function redirectToErrorPage(reason) {
+  if (isErrorRedirectInProgress || isErrorPage()) return;
+
+  const errorPagePath = getErrorPagePath();
+  if (!errorPagePath) return;
+
+  isErrorRedirectInProgress = true;
+  const details = reason ? `?reason=${encodeURIComponent(reason)}` : '';
+  window.location.replace(`${errorPagePath}${details}`);
+}
+
+function logSiteError(context, error) {
+  console.error(context, error);
+}
+
+async function doesInternalLinkExist(url) {
+  try {
+    const headResponse = await fetch(url, { method: 'HEAD', cache: 'no-store' });
+    if (headResponse.ok) return true;
+
+    if (headResponse.status === 405) {
+      const getResponse = await fetch(url, { method: 'GET', cache: 'no-store' });
+      return getResponse.ok;
+    }
+
+    return false;
+  } catch (_) {
+    return false;
+  }
+}
+
+function registerBrokenLinkHandling() {
+  if (window.__brokenLinkHandlingRegistered) return;
+
+  document.addEventListener('click', async (event) => {
+    const link = event.target.closest('a[href]');
+    if (!link) return;
+    if (event.defaultPrevented) return;
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (link.target === '_blank' || link.hasAttribute('download')) return;
+
+    const href = (link.getAttribute('href') || '').trim();
+    if (!href) return;
+    if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+
+    const resolved = new URL(href, window.location.href);
+    if (resolved.origin !== window.location.origin) return;
+
+    const isSameDocumentAnchor = resolved.pathname === window.location.pathname
+      && resolved.search === window.location.search
+      && !!resolved.hash;
+
+    if (isSameDocumentAnchor) return;
+
+    event.preventDefault();
+
+    const linkExists = await doesInternalLinkExist(resolved.href);
+    if (linkExists) {
+      window.location.href = resolved.href;
+    } else {
+      redirectToErrorPage('Link nicht gefunden');
+    }
+  });
+
+  window.__brokenLinkHandlingRegistered = true;
+}
+
+registerBrokenLinkHandling();
+
 async function loadPage() {
     const pathPrefix = getPathPrefix();
     
@@ -28,7 +118,11 @@ async function loadPage() {
     initHybridGallery();
 }
 
-window.onload = loadPage;
+window.onload = () => {
+  loadPage().catch((error) => {
+    logSiteError('Page initialization failed', error);
+  });
+};
 document.addEventListener('keydown', e => {
     if (e.key === "Escape") {
         closeHybridLightbox();
@@ -117,8 +211,11 @@ function submitContactForm(event) {
 async function loadHTML(id, url) {
   try {
     const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status} while loading ${url}`);
+
     const html = await res.text();
     const container = document.getElementById(id);
+    if (!container) throw new Error(`Container not found: ${id}`);
     container.innerHTML = html;
 
     // Small delay to ensure the browser has painted the new HTML
@@ -132,7 +229,7 @@ async function loadHTML(id, url) {
     }, 0);
     
   } catch (err) {
-    console.error("Failed to load page part:", url, err);
+    logSiteError(`Failed to load page part: ${url}`, err);
   }
 }
 
@@ -597,6 +694,9 @@ async function getBlogMetadata() {
 
   const pathPrefix = getPathPrefix();
   const response = await fetch(pathPrefix + 'data/blog_metadata.json');
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status} while loading blog metadata`);
+  }
   const raw = await response.json();
   blogMetaCache = normalizeBlogMetadata(raw);
   return blogMetaCache;
@@ -624,7 +724,7 @@ async function initBlog() {
       }, 250); // Debounce to avoid excessive re-renders
     });
   } catch (err) {
-    console.error("Error loading blog data:", err);
+    logSiteError('Error loading blog data', err);
   }
 }
 
@@ -876,7 +976,7 @@ function updatePostSeo(post, siteBaseUrl, pathPrefix) {
     }
     jsonLdScript.textContent = JSON.stringify(ld, null, 2);
   } catch (error) {
-    console.error('Could not update JSON-LD metadata:', error);
+    logSiteError('Could not update JSON-LD metadata', error);
   }
 }
 
@@ -898,7 +998,7 @@ async function hydratePostTemplateFromMetadata() {
     renderSectionsFromMetadata(post, pathPrefix);
     updatePostSeo(post, meta.site?.baseUrl || '', pathPrefix);
   } catch (error) {
-    console.error('Error hydrating post template from metadata:', error);
+    logSiteError('Error hydrating post template from metadata', error);
   }
 }
 
@@ -1043,6 +1143,8 @@ async function loadRelatedPosts() {
                     <span class="post-card-date">${new Date(p.date).toLocaleDateString('de-DE')}</span>
                 </div>
             </a>`).join('');
-    } catch (err) { console.error(err); }
+    } catch (err) {
+      logSiteError('Error loading related posts', err);
+    }
 }
 

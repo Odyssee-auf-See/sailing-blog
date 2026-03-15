@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navigationsfehler - Odyssee auf See</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/x-icon" href="../../assets/images/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <style>
+    .error-page-wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      font-family: 'Roboto', sans-serif;
+    }
+    .error-card {
+      max-width: 760px;
+      width: 100%;
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 28px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+    .error-kicker {
+      display: inline-block;
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #008169;
+    }
+    .error-title {
+      margin: 0 0 14px 0;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      line-height: 1.2;
+      color: #222;
+    }
+    .error-text {
+      margin: 0 auto;
+      max-width: 62ch;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #444;
+    }
+    .error-reason {
+      margin-top: 20px;
+      color: #555;
+      font-size: 0.95rem;
+      word-break: break-word;
+    }
+    .error-actions {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .error-btn {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 700;
+      border: 2px solid #008169;
+      color: #008169;
+      transition: all 0.2s ease;
+    }
+    .error-btn:hover {
+      background: #008169;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <main class="error-page-wrap">
+    <section class="error-card" aria-live="polite">
+      <span class="error-kicker">Fehlerseite</span>
+      <h1 class="error-title">Ups, wir sind kurz vom Kurs abgekommen.</h1>
+      <p class="error-text">
+        Auf dieser Route ist ein technischer Fehler aufgetreten. Keine Sorge, das passiert selbst den besten Kapitänen manchmal.
+        Du kannst direkt zur Startseite zurück oder die Seite neu laden.
+      </p>
+      <p id="error-reason" class="error-reason" hidden></p>
+      <div class="error-actions">
+        <a class="error-btn" href="../../index.html">Zur Startseite</a>
+        <a class="error-btn" href="javascript:location.reload()">Neu laden</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var reason = params.get('reason');
+      if (!reason) return;
+      var reasonElement = document.getElementById('error-reason');
+      if (!reasonElement) return;
+      reasonElement.hidden = false;
+      reasonElement.textContent = 'Technischer Hinweis: ' + reason;
+    })();
+  </script>
+</body>
+</html>
