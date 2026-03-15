@@ -782,7 +782,7 @@ function renderGrid(posts) {
           <span class="post-date">${formatDate(newest.date)}</span>
         </div>
         <h2 class="post-title">${newest.title}</h2>
-        <p class="post-description">${newest.intro || newest.excerpt || newest.description || ''}</p>
+        <p class="post-description">${newest.excerpt || newest.description || ''}</p>
       </article>
     </a>`;
 
@@ -800,6 +800,7 @@ function renderGrid(posts) {
             <span class="post-date">${formatDate(post.date)}</span>
           </div>
           <h3 class="post-title">${post.title}</h3>
+          <p class="post-description">${post.excerpt || ''}</p>
         </article>
       </a>
     `;
@@ -888,7 +889,7 @@ function renderSectionsFromMetadata(post, pathPrefix) {
       ? `
         <div class="hybrid-gallery">
             <div class="image-scroll-row" id="${rowId}">
-                ${galleryImages.map(image => `<img src="${resolvePath(pathPrefix, image.src)}" alt="${image.alt || ''}">`).join('')}
+                ${galleryImages.map(image => `<img src="${resolvePath(pathPrefix, image.src)}" alt="${image.alt || ''}" loading="lazy" decoding="async" fetchpriority="low">`).join('')}
             </div>
             <button class="scroll-arrow left" onclick="scrollGrid('${rowId}', -1)" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
             <button class="scroll-arrow right" onclick="scrollGrid('${rowId}', 1)" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
@@ -912,7 +913,7 @@ function setHeroDataSource(post, pathPrefix) {
   if (!heroSource || !Array.isArray(post.heroImages) || post.heroImages.length === 0) return;
 
   heroSource.innerHTML = post.heroImages
-    .map(image => `<img src="${resolvePath(pathPrefix, image.src)}" alt="${image.alt || ''}">`)
+    .map(image => `<img src="${resolvePath(pathPrefix, image.src)}" alt="${image.alt || ''}" loading="lazy" decoding="async" fetchpriority="low">`)
     .join('');
 }
 
@@ -925,7 +926,7 @@ function updatePostHeader(post) {
   if (tagElement) tagElement.textContent = (post.tag || 'Boot').toUpperCase();
   if (dateElement) dateElement.textContent = formatDate(post.date);
   if (titleElement) titleElement.textContent = post.title;
-  if (introElement) introElement.textContent = post.intro || post.excerpt || '';
+  if (introElement) introElement.textContent = post.intro || '';
   document.title = `${post.title} - Odyssee auf See`;
 }
 
@@ -1013,6 +1014,21 @@ async function hydratePostTemplateFromMetadata() {
     ============================================================ */
 let heroImages = []; 
 let heroIndex = 0;
+const preloadedImageUrls = new Set();
+
+function preloadImage(url) {
+  if (!url || preloadedImageUrls.has(url)) return;
+  const img = new Image();
+  img.decoding = 'async';
+  img.src = url;
+  preloadedImageUrls.add(url);
+}
+
+function preloadNextHeroImage() {
+  if (heroImages.length < 2) return;
+  const nextIndex = (heroIndex + 1) % heroImages.length;
+  preloadImage(heroImages[nextIndex].url);
+}
 
 function initHeroCarousel() {
     // 1. Get images from the HTML data source
@@ -1037,19 +1053,28 @@ function initHeroCarousel() {
 }
 
 function jumpToHero(index) {
+  if (!heroImages.length) return;
     heroIndex = index;
     updateHeroUI();
 }
 
 function changeHeroImage(dir) {
+  if (!heroImages.length) return;
     heroIndex = (heroIndex + dir + heroImages.length) % heroImages.length;
     updateHeroUI();
 }
 
 function updateHeroUI() {
-    document.getElementById('carousel-img').src = heroImages[heroIndex].url;
+  if (!heroImages.length) return;
+    const carouselImage = document.getElementById('carousel-img');
+    if (!carouselImage) return;
+    carouselImage.loading = 'eager';
+    carouselImage.decoding = 'async';
+    carouselImage.fetchPriority = 'high';
+    carouselImage.src = heroImages[heroIndex].url;
     document.getElementById('image-description').innerText = heroImages[heroIndex].desc;
     document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === heroIndex));
+  preloadNextHeroImage();
 }
 
 /* ============================================================
@@ -1058,25 +1083,29 @@ function updateHeroUI() {
 let galleryImages = [];
 let lbIndex = 0;
 
+function preloadNextLightboxImage() {
+  if (galleryImages.length < 2) return;
+  const nextIndex = (lbIndex + 1) % galleryImages.length;
+  preloadImage(galleryImages[nextIndex].src);
+}
+
 function initHybridGallery() {
-    // Select ALL images inside any div with the class 'image-scroll-row'
-    // This covers scrollRow1, scrollRow2, and relatedPostsRow automatically!
   const galleryRows = document.querySelectorAll('.image-scroll-row');
-  const allGalleryImages = document.querySelectorAll('.image-scroll-row img');
 
   galleryRows.forEach(row => {
     row.scrollLeft = 0;
-  });
-    
-    galleryImages = Array.from(allGalleryImages).map((img, i) => {
-        // Assign the click event to open the lightbox at this specific index
-        img.onclick = () => openHybridLightbox(i);
-        
-        return { 
-            src: img.src, 
-            alt: img.alt 
-        };
+
+    // Build an image list scoped to this row only
+    const rowImages = Array.from(row.querySelectorAll('img')).map((img, i) => {
+      img.onclick = () => openHybridLightbox(rowImages, i);
+      if (!img.closest('#hero-data-source')) {
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        img.fetchPriority = 'low';
+      }
+      return { src: img.src, alt: img.alt };
     });
+  });
 }
 
 function scrollGrid(id, dir) {
@@ -1086,20 +1115,25 @@ function scrollGrid(id, dir) {
     }
 }
 
-function openHybridLightbox(i) {
-    lbIndex = i;
-    updateLightboxUI();
-    document.getElementById('hybridLightbox').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+function openHybridLightbox(rowImages, i) {
+  if (!rowImages || !rowImages.length) return;
+  galleryImages = rowImages;
+  lbIndex = i;
+  updateLightboxUI();
+  document.getElementById('hybridLightbox').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
 }
 
 function updateLightboxUI() {
+  if (!galleryImages.length) return;
     document.getElementById('lightbox-img').src = galleryImages[lbIndex].src;
     document.getElementById('hybridLightboxCaption').innerText = galleryImages[lbIndex].alt;
+  preloadNextLightboxImage();
 }
 
 function changeLightboxImage(dir, e) {
     if(e) e.stopPropagation();
+  if (!galleryImages.length) return;
     lbIndex = (lbIndex + dir + galleryImages.length) % galleryImages.length;
     updateLightboxUI();
 }

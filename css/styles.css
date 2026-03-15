@@ -1682,9 +1682,11 @@ html {
 
 .image-stage {
     height: 55vh;
+    min-height: 320px;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .image-stage img {
@@ -1807,6 +1809,7 @@ html {
 .image-scroll-row {
   display: flex;
   gap: 15px;
+  min-height: 350px;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
@@ -1892,6 +1895,9 @@ html {
 .lightbox img {
     max-height: 80vh;
     max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
     animation: zoomIn 0.3s ease;
 }
 
@@ -1914,8 +1920,20 @@ html {
     top: 20px;
     right: 40px;
     color: white;
-    font-size: 50px;
+    font-size: 36px;
     cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .close-lightbox {
+        font-size: 24px;
+        top: 12px;
+        right: 16px;
+    }
 }
 
 @keyframes zoomIn {
