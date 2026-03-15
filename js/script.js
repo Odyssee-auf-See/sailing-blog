@@ -673,6 +673,7 @@ function normalizeBlogMetadata(raw) {
       tag: item.tag || 'Boot',
       url: createPostHref({ ...item, slug }),
       image,
+        intro: item.intro || '',
       description,
       excerpt: item.excerpt || description,
       author: item.author || 'Vito & Lea',
@@ -781,7 +782,7 @@ function renderGrid(posts) {
           <span class="post-date">${formatDate(newest.date)}</span>
         </div>
         <h2 class="post-title">${newest.title}</h2>
-        <p class="post-description">${newest.excerpt || newest.description || ''}</p>
+        <p class="post-description">${newest.intro || newest.excerpt || newest.description || ''}</p>
       </article>
     </a>`;
 
@@ -1060,7 +1061,12 @@ let lbIndex = 0;
 function initHybridGallery() {
     // Select ALL images inside any div with the class 'image-scroll-row'
     // This covers scrollRow1, scrollRow2, and relatedPostsRow automatically!
-    const allGalleryImages = document.querySelectorAll('.image-scroll-row img');
+  const galleryRows = document.querySelectorAll('.image-scroll-row');
+  const allGalleryImages = document.querySelectorAll('.image-scroll-row img');
+
+  galleryRows.forEach(row => {
+    row.scrollLeft = 0;
+  });
     
     galleryImages = Array.from(allGalleryImages).map((img, i) => {
         // Assign the click event to open the lightbox at this specific index

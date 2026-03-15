@@ -13,7 +13,7 @@
       "url": "pages/blog/post-template.html",
       "canonical": "/pages/blog/post-template.html?slug=segelboot-suche",
       "imageFolder": "assets/images/blog/20260315_segelboot-suche",
-      "image": "assets/images/blog/blog_1.jpg",
+      "image": "assets/images/blog/20260315-segelboot-suche.webp",
       "excerpt": "Wir erzählen von unserer einjährigen Suche, vier Besichtigungen in vier verschiedenen Ländern und den Lektionen auf dem Weg zum Zuhause auf dem Meer.",
       "author": "Lea",
       "keywords": [
@@ -41,7 +41,7 @@
           "alt": "Amel Kirk 36 in Bordeaux"
         },
         {
-          "src": "pages/blog/posts/20260315_segelboot-suche/heroImages/04.jpg",
+          "src": "pages/blog/posts/20260315_segelboot-suche/heroImages/04.webp",
           "alt": "Westerly Corsair 36 in Split"
         }
       ],
@@ -80,11 +80,11 @@
               "alt": "Bugkabine"
             },
             {
-              "src": "pages/blog/posts/20260315_segelboot-suche/gallery1/07.jpg",
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery1/07.webp",
               "alt": "In den Strassen von Barcelona"
             },
             {
-              "src": "pages/blog/posts/20260315_segelboot-suche/gallery1/08.jpg",
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery1/08.webp",
               "alt": "Sightseeing: Sagrada Familia"
             }
           ]
@@ -230,7 +230,7 @@
           "html": "Dein Haupttext hier...",
           "gallery": [
             {
-              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/01.JPG",
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/01.webp",
               "alt": "Westerly Corsair 36 in Split"
             },
             {
@@ -270,7 +270,7 @@
               "alt": "Küche"
             },
             {
-              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/11.JPG",
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/11.webp",
               "alt": "Navigationspult"
             },
             {
