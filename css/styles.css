@@ -697,7 +697,16 @@ body {
   #content {
     background-attachment: scroll;
     background-position: center top;
-    background-size: cover;
+    background-size: 100% auto;
+  }
+}
+
+/* In-app and iOS WebKit browsers: keep decorative background fully static */
+@supports (-webkit-touch-callout: none) {
+  #content {
+    background-attachment: scroll;
+    background-position: center top;
+    background-size: 100% auto;
   }
 }
 

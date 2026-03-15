@@ -551,6 +551,18 @@ function initAboutHeroTextFit() {
 
   const MIN_FONT_SIZE = 10;
   const EPSILON = 1;
+  const desktopMediaQuery = window.matchMedia('(min-width: 901px)');
+
+  const clearInlineFitStyles = (hero) => {
+    const text = hero.querySelector('.about-values__text');
+    const body = hero.querySelector('.about-values__body');
+    if (!text || !body) return;
+
+    hero.classList.remove('about-values__hero--fallback-grow');
+    text.style.height = '';
+    body.style.fontSize = '';
+    body.style.lineHeight = '';
+  };
 
   const fitOneHero = (hero) => {
     const media = hero.querySelector('.about-values__media');
@@ -609,6 +621,11 @@ function initAboutHeroTextFit() {
   };
 
   const fitAllHeroes = () => {
+    if (!desktopMediaQuery.matches) {
+      heroes.forEach((hero) => clearInlineFitStyles(hero));
+      return;
+    }
+
     heroes.forEach((hero) => fitOneHero(hero));
   };
 
@@ -628,8 +645,10 @@ function initAboutHeroTextFit() {
   }
 
   if (typeof ResizeObserver !== 'undefined') {
+    let resizeFrame;
     const observer = new ResizeObserver(() => {
-      fitAllHeroes();
+      cancelAnimationFrame(resizeFrame);
+      resizeFrame = requestAnimationFrame(fitAllHeroes);
     });
 
     heroes.forEach((hero) => {
