@@ -5,72 +5,307 @@
   "posts": [
     {
       "id": "post-1",
-      "slug": "mein-erster-torn",
-      "title": "The Future of Web Design",
-      "date": "2026-05-15",
-      "updated": "2026-05-15",
-      "tag": "Reisen",
+      "slug": "segelboot-suche",
+      "title": "Wie findet man das richtige Segelboot?",
+      "date": "2026-03-15",
+      "updated": "2026-03-15",
+      "tag": "Boot",
       "url": "pages/blog/post-template.html",
-      "canonical": "/pages/blog/post-template.html?slug=mein-erster-torn",
+      "canonical": "/pages/blog/post-template.html?slug=segelboot-suche",
+      "imageFolder": "assets/images/blog/20260315_segelboot-suche",
       "image": "assets/images/blog/blog_1.jpg",
-      "excerpt": "Exploration of how AI and spatial computing are changing the way we build for the web in 2024.",
-      "author": "Vito & Lea",
+      "excerpt": "Wir erzählen von unserer einjährigen Suche, vier Besichtigungen in vier verschiedenen Ländern und den Lektionen auf dem Weg zum Zuhause auf dem Meer.",
+      "author": "Lea",
       "keywords": [
-        "Segeln",
-        "Reisen",
-        "Blog",
-        "Odyssee auf See"
+        "Segelboot kaufen",
+        "gebrauchtes Segelboot",
+        "Bootsbesichtigung",
+        "Westerly Corsair",
+        "Moody 365",
+        "Colvic Victor 40",
+        "Amel Kirk 36",
+        "Blauwasser Yacht kaufen"
       ],
-      "intro": "Einleitungstext über die volle Breite des Containers.",
+      "intro": "Ein Boot kauft man nicht mal eben so. Es gibt keine Geschäfte, in denen man spontan vorbeigeht, verschiedene Modelle anschaut und eine Probefahrt macht. In unserem Umfeld kannten wir kaum jemanden, der diesen Schritt schon gegangen war und uns hätte beraten können. Auch online fanden wir keine klare Anleitung. Stattdessen überall dieselben Ratschläge: nichts überstürzen, sorgfältig prüfen, vergleichen, hinterfragen. Den Vertrag erst unterschreiben, wenn wirklich alles geklärt ist. Klingt vernünftig, aber was heisst das konkret? Wie merkt man, ob ein Preis fair ist? Ob der Verkäufer ehrlich? Ob das Boot wirklich in gutem Zustand ist oder ob sich irgendwo teure Überraschungen verstecken? Ohne viel Erfahrung fühlte sich diese Entscheidung plötzlich sehr gross an. Wir suchten nicht einfach irgendein Boot. Wir suchten ein Zuhause. Ein Boot, mit dem wir die Welt entdecken, auf dem wir leben und in dem wir uns sicher fühlen können. Ein Boot, das uns schützt, stabil ist und uns zuverlässig durch Wind und Wellen trägt.",
       "heroImages": [
         {
-          "src": "pages/blog/posts/post-1/assets/images/photo1.jpg",
-          "alt": "Aussicht vom Bug"
+          "src": "pages/blog/posts/20260315_segelboot-suche/heroImages/01.webp",
+          "alt": "Moody 365 in Barcelona"
         },
         {
-          "src": "pages/blog/posts/post-1/assets/images/photo2.jpg",
-          "alt": "Morgennebel im Wald"
+          "src": "pages/blog/posts/20260315_segelboot-suche/heroImages/02.webp",
+          "alt": "Colvic Victor 40 in Neapel"
         },
         {
-          "src": "pages/blog/posts/post-1/assets/images/photo3.jpg",
-          "alt": "Unser Ankerplatz"
+          "src": "pages/blog/posts/20260315_segelboot-suche/heroImages/03.webp",
+          "alt": "Amel Kirk 36 in Bordeaux"
+        },
+        {
+          "src": "pages/blog/posts/20260315_segelboot-suche/heroImages/04.jpg",
+          "alt": "Westerly Corsair 36 in Split"
         }
       ],
       "sections": [
         {
-          "title": "Absatz Titel",
-          "html": "Paragraph Text <br><br>Es gibt diesen einen Moment, kurz bevor die Sonne hinter dem Horizont verschwindet, in dem die Welt völlig stillzustehen scheint. Das sanfte Schaukeln des Bootes im Rhythmus der Wellen und das ferne Kreischen der Möwen sind die einzigen Geräusche, die die Stille durchbrechen. In solchen Augenblicken wird einem klar, warum wir uns immer wieder auf den Weg machen, um das Unbekannte zu erkunden. Es geht nicht nur um die Reiseziele selbst, sondern um das Gefühl von Freiheit, das man nur fernab des Alltags findet.<br><br>Jeder Hafen, den wir anlaufen, erzählt seine eigene Geschichte. Von den rostigen Ankerketten alter Fischerboote bis hin zu den glänzenden Decks moderner Yachten – die Vielfalt der maritimen Welt ist grenzenlos. Dabei sind es oft die kleinen Details, die einen bleibenden Eindruck hinterlassen.<br><br>Nachhaltigkeit spielt dabei eine immer größere Rolle. Wie können wir diese wunderschönen Orte bereisen, ohne sie zu zerstören?",
+          "title": "März 2023 - Start Recherche",
+          "html": "Anfang 2023 begannen wir, uns ernsthaft mit dem Kauf eines Segelbootes zu beschäftigen. Welche Bootsmarken gibt es? Welches Modell entspricht unseren Vorstellungen?  Was ist für uns unverzichtbar und was wäre einfach ein schönes Extra? Wie viel Geld wollten und konnten wir in ein Boot investieren? <br>Am Anfang sassen wir vor einem weissen Blatt Papier. Doch dieses blieb nicht lange leer. Schnell füllte es sich mit Ideen, Fragen, Recherchen und ersten Erkenntnissen. Wir legten eine Excel-Liste an und notierten dort alle (für uns interessanten) Boote, die aktuell auf dem Markt waren, nach Modell, Baujahr und Preis sortiert. <br><br>Mit der Zeit lernten wir so nicht nur die verschiedenen Bootsmarken kennen, sondern entwickelten auch ein Gefühl dafür, wie sich Preise je nach Alter, Zustand und Ausstattung unterscheiden. Wir bemerkten, welche Modelle häufig auftauchten und welche nur selten zu finden waren. Wir fanden heraus, welche Boote uns begeisterten und welche für uns sofort ausschieden.<br>Wir diskutierten viel, verglichen noch mehr, lasen unzählige Inserate und begannen langsam, unseren Traum konkreter werden zu lassen.",
+          "gallery": []
+        },
+        {
+          "title": "Dezember 2023 - Moody 365 in Barcelona (Spanien)",
+          "html": "Zehn Monate später fühlten wir uns bereit für unsere allererste Bootsbesichtigung. Online hatten wir eine vielversprechende Anzeige für eine Moody 365 in Barcelona entdeckt. Da wir über Weihnachten ohnehin eine Segelreise ab Málaga geplant hatten und ein Zwischenstopp in Barcelona vorgesehen war, nutzten wir die Gelegenheit und vereinbarten einen Termin.<br>Wir waren nervös. Wir wussten nicht, wie eine Bootsbesichtigung abläuft, was uns erwartet und was von uns erwartet wird. Also bereiteten wir uns so gut wie möglich vor, lasen Checklisten, sammelten Fragen und hofften, nicht ganz wie komplette Anfänger zu wirken.<br><br>Die Besichtigung selbst war dann überraschend entspannt. Die Bootseigner waren ein freundliches Paar, das sich den ganzen Nachmittag Zeit nahm, uns alles zu zeigen, unsere Fragen zu beantworten und ihre Erfahrungen mit uns zu teilen. Relativ schnell war uns klar, dass dieses Boot nicht das richtige für uns war und vermutlich spürten die Eigner dies ebenfalls. Trotzdem verbrachten wir Stunden auf dem Deck, tranken spanisches Bier und hörten ihren Geschichten von Segelabenteuern und langen Reisen zu.<br>Am Ende gingen wir ohne Boot, aber mit neuem Selbstvertrauen, Mut und der Gewissheit nach Hause: Wir waren auf dem richtigen Weg.",
           "gallery": [
             {
-              "src": "pages/blog/posts/post-1/assets/images/photo1.jpg",
-              "alt": "Eindruck 1"
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery1/01.webp",
+              "alt": "Moody 365 im Hafen von Badalona (nähe Barcelona)"
             },
             {
-              "src": "pages/blog/posts/post-1/assets/images/photo2.jpg",
-              "alt": "Eindruck 2"
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery1/02.webp",
+              "alt": "Salon"
             },
             {
-              "src": "pages/blog/posts/post-1/assets/images/photo3.jpg",
-              "alt": "Eindruck 3"
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery1/03.webp",
+              "alt": "Eingang zum Salon / Niedergang"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery1/04.webp",
+              "alt": "Küche"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery1/05.webp",
+              "alt": "Eignerkabine / Heckkabine"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery1/06.webp",
+              "alt": "Bugkabine"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery1/07.jpg",
+              "alt": "In den Strassen von Barcelona"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery1/08.jpg",
+              "alt": "Sightseeing: Sagrada Familia"
             }
           ]
         },
         {
-          "title": "Absatz Titel",
+          "title": "März 2024 - Victor Colvic 40 in Neapel (Italien)",
+          "html": "Unsere Suche ging weiter. Besonders interessierten uns Boote mit Decksalon. Der Salon liegt dabei etwas höher, hat grosse Fenster und ist dadurch hell und offen. Genau die Art Boot, die wir uns gut als zukünftiges Zuhause vorstellen konnten.<br>Anfang 2024 entdeckten wir online eine Anzeige für eine Victor Colvic 40 in Neapel. Diese Boote gelten als solide Langfahrtschiffe: zwei Masten, Decksalon und ein zentrales Cockpit, das gut vor Wellen und Wetter schützt. Klingt ziemlich genau nach dem, was wir suchten.<br>Der einzige Haken: Das Boot lag in Neapel. Ferien konnten wir so kurzfristig nicht nehmen, also wurde kurzerhand ein Wochenendtrip daraus. Freitag nach der Arbeit stiegen wir in den Flixbus. 17 Stunden später standen wir im Hafen von Neapel.<br><br>Die Besitzer, ein älteres Ehepaar, empfingen uns herzlich mit Kaffee und Frühstück. Sie hatten die ersten Jahre ihrer Pension auf dem Boot gelebt, inzwischen wurde ihnen das Leben an Bord zu anstrengend. Deshalb verkauften sie Ihre Victor Colvic.<br>Wir verbrachten den ganzen Morgen an Bord, stellten Fragen und schauten uns alles genau an. Der Bootstyp gefiel uns sehr: hell, stabil und seetüchtig. Trotzdem merkten wir beide schnell, dass es nicht unser Boot werden würde. Der Zustand war nicht mehr der beste und besonders Motor und Segel hätten wohl bald grössere Investitionen verlangt. Ausserdem fühlte sich das Boot für uns fast ein wenig zu gross an. Mehr Platz bedeutet auch mehr Segelfläche, mehr Leinen, mehr Technik und damit mehr Verantwortung, mehr Arbeit und höhere Kosten.<br><br>Auf der 17-stündigen Rückfahrt nach Hause hatten wir viel Zeit, unsere Eindrücke zu sortieren. Wir sprachen über alles, was für oder gegen dieses Boot sprach. Am Ende war die Entscheidung klar: Wir würden weitersuchen. Ein Boot hatten wir zwar nicht gefunden, dafür eine schöne Begegnung mit zwei lebensfrohen Menschen. Mit den beiden stehen wir bis heute sporadisch in Kontakt, und sie fragen immer wieder, wie unsere Suche läuft. Und eines wissen wir schon jetzt: Wenn wir einmal alt sind, möchten wir das Leben genauso neugierig und genussvoll leben wie sie.",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/01.webp",
+              "alt": "Colvic Victor 40 in Neapel"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/02.webp",
+              "alt": "Decksalon mit grossen Fenstern und viel Licht"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/03.webp",
+              "alt": "Decksalon mit grossen Fenstern und viel Licht"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/04.webp",
+              "alt": "Navigationspult"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/05.webp",
+              "alt": "Eingang zum Decksalon / Niedergang"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/06.webp",
+              "alt": "Kajütenbetten"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/07.webp",
+              "alt": "Toiletten-Testsitzen"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/08.webp",
+              "alt": "Toiletten-Inspektion"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/09.webp",
+              "alt": "Eignerkabine / Heckkabine"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/10.webp",
+              "alt": "Bugkabine"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/11.webp",
+              "alt": "Motorraum"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/12.webp",
+              "alt": "Cockpit"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/13.webp",
+              "alt": "Deck"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/14.webp",
+              "alt": "Vesuv"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/15.webp",
+              "alt": "Espresso und italienische Leckereien"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/16.webp",
+              "alt": "Pizza Napolitana aka beste Pizza der Welt"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery2/17.webp",
+              "alt": "Reis mit Flixbus von Neapel zurück nach Hause"
+            }
+          ]
+        },
+        {
+          "title": "August 2024 - Amel Kirk 36 in Bordeaux (Frankreich)",
+          "html": "Kurz darauf entdeckten wir erneut eine vielversprechende Anzeige: Eine Amel Kirk 36 stand in Bordeaux zum Verkauf – und das ausgerechnet von einem jungen Schweizer Paar. Das Boot war bereits in der Schweiz registriert und fuhr unter Schweizer Flagge. Ein gutes Zeichen?<br>Die Marke Amel hat unter Langfahrtseglern einen hervorragenden Ruf. Seit den 1960er-Jahren baut die Werft in La Rochelle robuste, komfortable Blauwasser-Yachten, die speziell für lange Ozeanreisen konzipiert sind. Genau die Art von Boot, von der wir träumten. Auch Fotos und Beschreibung machten einen sehr guten Eindruck. Also nutzten wir den 1. August für einen spontanen Kurztrip nach Bordeaux. Nach einigen Stunden im Flixbus kamen wir an einem strahlenden Sommertag in der Stadt an. Bordeaux überraschte uns sofort: lebendig, schön und voller Atmosphäre. Eine Stadt, in die wir gerne wieder zurückkehren würden. Doch diesmal hatten wir eine Mission – vielleicht wartete hier ja unser Boot.<br><br>Auf der Werft trafen wir die Eignerin, eine junge Schweizerin etwa in unserem Alter. Wir verstanden uns sofort gut. Das Boot selbst war etwas kleiner als die beiden, die wir zuvor besichtigt hatten – doch wir fühlten uns auf Anhieb wohl an Bord. Die beiden Eigner hatten eine Zeit lang selbst auf dem Boot gelebt und erzählten nur Positives davon. Allerdings gab es einen entscheidenden Haken. Kurz bevor das Boot zum Verkauf stand, hatte es eine Grundberührung gegeben. Der Kiel wurde beschädigt, Wasser drang ein und grosse Teile des Bootes mussten auf der Werft renoviert werden – unter anderem der Boden, der Kiel und das Unterwasserschiff.<br>Die Arbeiten waren zwar professionell ausgeführt worden, doch seit der Reparatur war das Boot noch nicht wieder im Wasser gewesen. Es gab also keine Möglichkeit zu sehen, wie sich alles nach der Reparatur tatsächlich verhielt. Wir überlegten lange hin und her. Vieles sprach für dieses Boot: die Marke, der faire Preis, die Schweizer Registrierung und die sympathischen Vorbesitzer. Und trotzdem blieb dieses kleine, aber entscheidende Fragezeichen. Am Ende entschieden wir uns schweren Herzens dagegen. Das Risiko fühlte sich für uns einfach zu gross an.",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/01.webp",
+              "alt": "Amel Kirk 36 in Gujan-Mestras, Bordeaux"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/02.webp",
+              "alt": "Steuerruder"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/03.webp",
+              "alt": "Kiel & Unterwasserschiff nach der Reparatur"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/04.webp",
+              "alt": "Deck"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/05.webp",
+              "alt": "Cockpit mit Pinne & Blick in die Achterkabine"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/06.webp",
+              "alt": "Salon"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/07.webp",
+              "alt": "Küche"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/08.webp",
+              "alt": "Motorraum"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/09.webp",
+              "alt": "Toilette"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/10.webp",
+              "alt": "Bugkabine"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/11.webp",
+              "alt": "Blick von der Bugkabine in den Salon"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/12.webp",
+              "alt": "Vito & Lea Strandspaziergang am Atlantik"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/13.webp",
+              "alt": "Sightseeing in Bordeaux"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery3/14.webp",
+              "alt": "Abkühlung im Miroir d'eau am Place de la Bourse in Bordeaux"
+            }
+          ]
+        },
+        {
+          "title": "November 2024 - Westerly Corsair 36 in Split (Kroatien)",
           "html": "Dein Haupttext hier...",
           "gallery": [
             {
-              "src": "pages/blog/posts/post-1/assets/images/photo1.jpg",
-              "alt": "Eindruck 1"
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/01.JPG",
+              "alt": "Westerly Corsair 36 in Split"
             },
             {
-              "src": "pages/blog/posts/post-1/assets/images/photo2.jpg",
-              "alt": "Eindruck 2"
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/02.webp",
+              "alt": "Bootsschraube"
             },
             {
-              "src": "pages/blog/posts/post-1/assets/images/photo3.jpg",
-              "alt": "Eindruck 3"
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/03.webp",
+              "alt": "Kiel & Unterwasserschiff"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/04.webp",
+              "alt": "Centercockpit"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/05.webp",
+              "alt": "Deck"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/06.webp",
+              "alt": "Heck"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/07.webp",
+              "alt": "Cockpit & Tisch"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/08.webp",
+              "alt": "Deck"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/09.webp",
+              "alt": "Blick aus dem Salon zur Küche und zum Niedergang"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/10.webp",
+              "alt": "Küche"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/11.JPG",
+              "alt": "Navigationspult"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/12.webp",
+              "alt": "Einzelbett & Gang zur Achterkabine"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/13.webp",
+              "alt": "Toilette"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/14.webp",
+              "alt": "Eignerkabine / Heckkabine"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/15.webp",
+              "alt": "Motor (Volvo Penta)"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/16.webp",
+              "alt": "Odyssee <3"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/17.webp",
+              "alt": "Happy nach der Besichtigung"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/18.webp",
+              "alt": "Sonnenuntergang in Split"
+            },
+            {
+              "src": "pages/blog/posts/20260315_segelboot-suche/gallery4/19.webp",
+              "alt": "Busfahrt von Split zurück nach Hause"
             }
+
           ]
         }
       ],

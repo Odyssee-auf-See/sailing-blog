@@ -7,6 +7,28 @@
 5. Optional: add `heroImages`, `sections`, and `related` for full dynamic rendering.
 6. Open in browser with `pages/blog/post-template.html?slug=your-slug`.
 
+### Optional time-saver: auto-fill images from folders
+
+If your post images are organized like this:
+
+- `heroImages/`
+- `gallery1/`
+- `gallery2/`
+- `gallery3/`
+- `gallery4/`
+
+you can avoid writing every `src` manually.
+
+1. Add `imageFolder` (or `autoImageFolders.base`) to the post.
+2. Put images in those folders with numeric names (`1.jpg`, `2.jpg`, `10.jpg`).
+3. Run:
+
+```powershell
+node server/sync-blog-images.js --slug your-slug
+```
+
+The script keeps natural order (`1, 2, 10`) and writes `heroImages` plus `sections[].gallery` to `data/blog_metadata.json`.
+
 
 # Blog Metadata Guide
 
@@ -92,6 +114,18 @@ Array of blog post objects. Each object is one post.
   - Intro paragraph shown below post title on post page.
 
 ### Optional for full dynamic post-template rendering
+
+- `imageFolder` (string, optional)
+  - Base folder used by `server/sync-blog-images.js`.
+  - Expected child folders: `heroImages`, `gallery1` ... `gallery4`.
+  - Example: `"assets/images/blog/20260315_segelboot-suche"`
+
+- `autoImageFolders` (object, optional)
+  - Advanced config for `server/sync-blog-images.js`.
+  - Fields:
+    - `base` (string): base folder path
+    - `hero` (string, optional): hero folder name (default `heroImages`)
+    - `galleries` (array of strings, optional): gallery folder names (default `gallery1..gallery4`)
 
 - `heroImages` (array)
   - Images for top carousel on post page.
