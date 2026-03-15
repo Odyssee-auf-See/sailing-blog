@@ -109,6 +109,12 @@ async function loadPage() {
         await loadHTML('menu-bar', pathPrefix + 'components/header/menu_bar.html');
         // Load Footer
         await loadHTML('footer', pathPrefix + 'components/footer/Footer.html');
+
+      // Load modals if their containers exist
+      const kontaktModal = document.getElementById('kontakt-modal');
+      if (kontaktModal) {
+        await loadHTML('kontakt-modal', pathPrefix + 'components/footer/kontakt.html');
+      }
     }
 
     // 2. Initialize Page Content
@@ -328,7 +334,7 @@ function initMenuBar(){
           return;
       }
       
-      // Scroll to target section
+      // Scroll to target section, or navigate to index if section not on this page
       if (targetId) {
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
@@ -344,6 +350,10 @@ function initMenuBar(){
           // Update active state
           menuLinks.forEach(l => l.classList.remove('active'));
           link.classList.add('active');
+        } else {
+          // Section not on this page — navigate to index with hash
+          const pathPrefix = getPathPrefix();
+          window.location.href = `${pathPrefix}index.html#${targetId}`;
         }
       }
       
