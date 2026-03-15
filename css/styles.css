@@ -682,7 +682,23 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center center;
-  background-attachment: fixed;
+  background-attachment: scroll;
+}
+
+/* Keep the decorative background fixed only on larger desktop devices */
+@media (min-width: 1025px) and (hover: hover) and (pointer: fine) {
+  #content {
+    background-attachment: fixed;
+  }
+}
+
+/* Mobile/touch devices: avoid fixed backgrounds to prevent scroll jitter */
+@media (max-width: 1024px), (hover: none), (pointer: coarse) {
+  #content {
+    background-attachment: scroll;
+    background-position: center top;
+    background-size: cover;
+  }
 }
 
 .about-values {
