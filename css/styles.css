@@ -486,6 +486,12 @@ body {
   color: #1b1b1b;
 }
 
+.map-layer-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .aton-toggle {
   display: flex;
   align-items: center;
@@ -1262,6 +1268,12 @@ body {
 
 .blog-featured-column {
   flex: 0 0 390px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 20px;
+  align-self: flex-start;
 }
 
 .blog-featured-card {
@@ -1269,8 +1281,11 @@ body {
   border: 1px solid #e6e6e6;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
   padding: 20px;
-  position: sticky;
-  top: 20px;
+  position: static;
+}
+
+.blog-featured-newsletter-card .newsletter-signup {
+  margin-top: 0;
 }
 
 .blog-featured-filters {
@@ -1478,6 +1493,131 @@ body {
   outline-offset: 4px;
 }
 
+.newsletter-signup {
+  border: 1px solid #d7e2ed;
+  background: linear-gradient(135deg, #f5fafc 0%, #f8fcfb 100%);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.newsletter-signup h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #1e3a5f;
+  font-weight: 700;
+}
+
+.newsletter-signup p {
+  margin: 0.5rem 0 0;
+  color: #4a5768;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.newsletter-form {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.newsletter-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1e3a5f;
+}
+
+.newsletter-input {
+  width: 100%;
+  border: 1px solid #c8d6e5;
+  border-radius: 8px;
+  padding: 0.65rem 0.75rem;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.92rem;
+  color: #1a1a2e;
+  background: #fff;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: #1e3a5f;
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.12);
+}
+
+.newsletter-submit-btn {
+  border: none;
+  border-radius: 8px;
+  background: #1e3a5f;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.newsletter-submit-btn:hover {
+  background: #001d47;
+}
+
+.newsletter-submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.newsletter-consent {
+  font-size: 0.8rem;
+  color: #6b7786;
+}
+
+.newsletter-feedback {
+  min-height: 1.2rem;
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: #008169;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.newsletter-feedback.is-visible {
+  opacity: 1;
+}
+
+.newsletter-feedback.is-error {
+  color: #c0392b;
+}
+
+.newsletter-form-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: stretch;
+}
+
+.newsletter-form-row .newsletter-input {
+  flex: 1;
+}
+
+.newsletter-form-row .newsletter-submit-btn {
+  white-space: nowrap;
+}
+
+.newsletter-signup--article {
+  margin-top: 1.5rem;
+}
+
+.newsletter-signup--compact .newsletter-submit-btn {
+  width: 100%;
+}
+
+.newsletter-signup-desktop {
+  margin-top: 1.2rem;
+}
+
+.newsletter-signup-mobile {
+  display: none;
+}
+
 /* ========== RESPONSIVE DESIGN ========== */
 
 /* Tablet: 768px - 1200px */
@@ -1511,19 +1651,17 @@ body {
     flex: 0 0 auto;
     width: 100%;
     max-width: 100%;
+    position: static;
+    top: auto;
+    gap: 14px;
   }
 
   .blog-featured-card {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
-    gap: 0 1.25rem;
-    align-items: stretch;
     position: relative;
     top: auto;
   }
 
   .blog-featured-left {
-    grid-column: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1544,8 +1682,22 @@ body {
     margin-bottom: 0;
   }
 
-  #featured-section {
-    grid-column: 2;
+  .newsletter-signup--compact {
+    margin-top: 1rem;
+  }
+
+  .newsletter-signup-desktop {
+    display: none;
+  }
+
+  .blog-featured-newsletter-card {
+    display: none;
+  }
+
+  .newsletter-signup-mobile {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
   }
   
   #featured-section {
@@ -1620,6 +1772,18 @@ body {
     flex-wrap: nowrap;
     margin-bottom: 0;
   }
+
+  .newsletter-form-row {
+    flex-direction: column;
+  }
+
+  .newsletter-form-row .newsletter-submit-btn {
+    width: 100%;
+  }
+
+  .newsletter-signup-mobile {
+    margin-top: 1rem;
+  }
   
   .filter-btn {
     font-size: 1.1rem;
@@ -1648,6 +1812,10 @@ body {
   .filter-btn {
     font-size: 0.95rem;
     padding: 6px 6px;
+  }
+
+  .newsletter-signup {
+    padding: 0.85rem;
   }
 }
 

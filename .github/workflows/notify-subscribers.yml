@@ -1,0 +1,75 @@
+name: Notify Blog Subscribers
+
+on:
+  push:
+    paths:
+      - data/blog_metadata.json
+  workflow_dispatch:
+    inputs:
+      post_slug:
+        description: "Optional: specific post slug/id"
+        required: false
+        type: string
+      custom_text:
+        description: "Optional custom intro text"
+        required: false
+        type: string
+      dry_run:
+        description: "Dry-run without sending"
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+          token: ${{ secrets.PERSONAL_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install mail dependency
+        run: npm install nodemailer
+
+      - name: Send notifications
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_SECURE: ${{ secrets.SMTP_SECURE }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
+          NEWSLETTER_SUBSCRIBERS_ENDPOINT: ${{ vars.NEWSLETTER_SUBSCRIBERS_ENDPOINT }}
+          NEWSLETTER_API_TOKEN: ${{ secrets.NEWSLETTER_API_TOKEN }}
+          NEWSLETTER_POST_SLUG: ${{ github.event.inputs.post_slug || '' }}
+          NEWSLETTER_CUSTOM_TEXT: ${{ github.event.inputs.custom_text || vars.NEWSLETTER_DEFAULT_TEXT }}
+          NEWSLETTER_DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: |
+          DRY=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            DRY="--dry-run"
+          fi
+          node server/newsletter/send-news-notification.js $DRY
+
+      - name: Commit notification log if changed
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add data/newsletter_notifications_log.json
+          if git diff --cached --quiet; then
+            echo "No newsletter log changes"
+          else
+            git commit -m "Update newsletter notification log [skip ci]"
+            git push
+          fi

@@ -122,6 +122,7 @@ async function loadPage() {
     initHeroCarousel();
     await loadRelatedPosts();
     initHybridGallery();
+    initNewsletterSignupForms();
 }
 
 window.onload = () => {
@@ -207,6 +208,79 @@ function submitContactForm(event) {
   }, 700);
 }
 
+const NEWSLETTER_SUBSCRIBE_ENDPOINT = window.NEWSLETTER_SUBSCRIBE_ENDPOINT || '/api/newsletter/subscribe';
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim());
+}
+
+function setNewsletterFeedback(form, message, isError = false) {
+  const feedback = form.querySelector('[data-newsletter-feedback]');
+  if (!feedback) return;
+  feedback.textContent = message;
+  feedback.classList.add('is-visible');
+  feedback.classList.toggle('is-error', isError);
+}
+
+async function submitNewsletterForm(event) {
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  if (!(form instanceof HTMLFormElement)) return;
+
+  const input = form.querySelector('input[name="email"]');
+  if (!input) return;
+
+  const email = input.value.trim().toLowerCase();
+  if (!isValidEmail(email)) {
+    setNewsletterFeedback(form, 'Bitte gib eine gueltige E-Mail-Adresse ein.', true);
+    return;
+  }
+
+  const submitButton = form.querySelector('button[type="submit"]');
+  if (submitButton) submitButton.disabled = true;
+  setNewsletterFeedback(form, 'Wir speichern deine Anmeldung und senden dir gleich eine Bestatigungsmail.', false);
+
+  try {
+    const response = await fetch(NEWSLETTER_SUBSCRIBE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        source: window.location.pathname,
+        language: 'de',
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Newsletter endpoint failed with status ${response.status}`);
+    }
+
+    setNewsletterFeedback(form, 'Bitte bestaetige deine E-Mail in der Nachricht, die wir dir gesendet haben.', false);
+    form.reset();
+  } catch (error) {
+    logSiteError('Newsletter signup failed', error);
+    setNewsletterFeedback(
+      form,
+      'Die Anmeldung ist gerade nicht verfuegbar. Schreib uns kurz an ody.sailing@gmail.com, dann tragen wir dich ein.',
+      true
+    );
+  } finally {
+    if (submitButton) submitButton.disabled = false;
+  }
+}
+
+function initNewsletterSignupForms() {
+  const forms = document.querySelectorAll('[data-newsletter-form]');
+  forms.forEach((form) => {
+    if (form.dataset.newsletterBound === '1') return;
+    form.addEventListener('submit', submitNewsletterForm);
+    form.dataset.newsletterBound = '1';
+  });
+}
+
 
 
 
@@ -231,6 +305,7 @@ async function loadHTML(id, url) {
       if (url.includes('ueber_uns.html')) initUnsereWerte?.();
       if (url.includes('ueber_uns.html')) initAboutHeroTextFit?.();
       if (url.includes('blog.html')) initBlog?.();
+      if (url.includes('blog.html')) initNewsletterSignupForms?.();
       if (url.includes('map.html')) initMap?.(id, { autoscale: true });
     }, 0);
     

@@ -10,7 +10,7 @@
 <main class="blog-container">
 <div class="blog-layout-wrapper">
     <div class="blog-featured-column">
-      <div class="blog-featured-card">
+      <div class="blog-featured-card blog-featured-controls-card">
         <div class="blog-featured-left">
           <h1 class="blog-header blog-title-card">Blog</h1>
 
@@ -22,8 +22,24 @@
             <button class="filter-btn" onclick="filterBlog('Gedankenchaos')" aria-label="Filter posts by Gedankenchaos category">Gedankenchaos</button>
           </div>
         </div>
+      </div>
 
+      <div class="blog-featured-card blog-featured-newest-card">
         <div id="featured-section"></div>
+      </div>
+
+      <div class="blog-featured-card blog-featured-newsletter-card">
+        <section class="newsletter-signup newsletter-signup--compact newsletter-signup-desktop" aria-labelledby="newsletter-title-blog-desktop">
+          <h2 id="newsletter-title-blog-desktop">Bleib informiert!</h2>
+          <p>Wir senden dir eine kurze E-Mail, sobald ein neuer Blogbeitrag online ist.</p>
+          <form class="newsletter-form" data-newsletter-form>
+            <label for="newsletter-email-blog-desktop" class="newsletter-label">E-Mail-Adresse</label>
+            <input id="newsletter-email-blog-desktop" class="newsletter-input" name="email" type="email" placeholder="deine@email.ch" required autocomplete="email">
+            <button type="submit" class="newsletter-submit-btn">Benachrichtigung aktivieren</button>
+            <p class="newsletter-consent">Mit der Anmeldung stimmst du der Verarbeitung für Blog-Benachrichtigungen zu. Abmeldung jederzeit möglich.</p>
+            <p class="newsletter-feedback" data-newsletter-feedback aria-live="polite"></p>
+          </form>
+        </section>
       </div>
     </div>
     
@@ -33,7 +49,20 @@
         <div class="masonry-col" id="col-3"></div>
     </div>
 </div>
+
   <div class="load-more-container">
-    <button id="loadMoreBtn" class="load-more-btn" onclick="showAllPosts()">Ältere Beiträge laden</button>
+    <button id="loadMoreBtn" class="load-more-btn" onclick="showAllPosts()">Weitere Beiträge laden</button>
   </div>
+
+  <section class="newsletter-signup newsletter-signup--compact newsletter-signup-mobile" aria-labelledby="newsletter-title-blog-mobile">
+    <h2 id="newsletter-title-blog-mobile">Bleib informiert!</h2>
+    <p>Wir senden dir eine kurze E-Mail, sobald ein neuer Blogbeitrag online ist.</p>
+    <form class="newsletter-form" data-newsletter-form>
+      <label for="newsletter-email-blog-mobile" class="newsletter-label">E-Mail-Adresse</label>
+      <input id="newsletter-email-blog-mobile" class="newsletter-input" name="email" type="email" placeholder="deine@email.ch" required autocomplete="email">
+      <button type="submit" class="newsletter-submit-btn">Benachrichtigung aktivieren</button>
+      <p class="newsletter-consent">Mit der Anmeldung stimmst du der Verarbeitung für Blog-Benachrichtigungen zu. Abmeldung jederzeit möglich.</p>
+      <p class="newsletter-feedback" data-newsletter-feedback aria-live="polite"></p>
+    </form>
+  </section>  
 </main>

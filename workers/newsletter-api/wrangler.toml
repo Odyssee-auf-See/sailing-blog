@@ -1,0 +1,14 @@
+name = "newsletter-api"
+main = "src/worker.js"
+compatibility_date = "2026-03-16"
+
+# Add your actual zone route after first deploy test:
+# routes = [{ pattern = "odyssee-sailing.ch/api/newsletter/*", zone_name = "odyssee-sailing.ch" }]
+
+[vars]
+SITE_BASE_URL = "https://odyssee-sailing.ch"
+ALLOWED_ORIGIN = "https://odyssee-sailing.ch"
+
+[[kv_namespaces]]
+binding = "NEWSLETTER_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"

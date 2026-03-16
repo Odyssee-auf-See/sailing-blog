@@ -10,7 +10,7 @@ const MAP_CONFIG = {
   sampleThresholdTime: 30, // seconds between persisted points (for updater)
   sampleThresholdDistance: 100, // meters minimum distance between points
   center: [60.1699, 24.9384],
-  zoom: 8,
+  zoom: 9,
   trackFile: './data/track.geojson',
   atonFile: './data/aton.geojson',
 };
@@ -18,13 +18,16 @@ const MAP_CONFIG = {
 const LEAFLET_CSS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
 const LEAFLET_JS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
 const ESRI_TILE_URL = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}';
+const ESRI_LABELS_TILE_URL = 'https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}';
 
 let mapState = {
   map: null,
   markersLayer: null,
   trackLayer: null,
   atonLayer: null,
+  labelsLayer: null,
   atonVisible: true,
+  labelsVisible: true,
   currentMarker: null,
   currentFix: null,
   trackGeoJSON: null,
@@ -91,6 +94,12 @@ async function initMap(containerId) {
     maxZoom: 18,
   }).addTo(mapState.map);
 
+  mapState.labelsLayer = L.tileLayer(ESRI_LABELS_TILE_URL, {
+    attribution: 'Labels &copy; Esri',
+    maxZoom: 18,
+  });
+  setLabelsVisibility(mapState.labelsVisible);
+
   mapState.trackLayer = L.layerGroup().addTo(mapState.map);
   mapState.markersLayer = L.layerGroup().addTo(mapState.map);
   mapState.atonLayer = L.layerGroup().addTo(mapState.map);
@@ -118,24 +127,51 @@ function addAtonToggleControl() {
   control.onAdd = () => {
     const container = L.DomUtil.create('div', 'aton-toggle-control');
     container.innerHTML = `
-      <label class="aton-toggle">
-        <input type="checkbox" checked />
-        <span>Kartenmarker</span>
-      </label>
+      <div class="map-layer-toggles">
+        <label class="aton-toggle">
+          <input type="checkbox" data-layer="labels" checked />
+          <span>Ortsnamen</span>
+        </label>
+        <label class="aton-toggle">
+          <input type="checkbox" data-layer="markers" checked />
+          <span>Kartenmarker</span>
+        </label>
+      </div>
     `;
 
     L.DomEvent.disableClickPropagation(container);
     L.DomEvent.disableScrollPropagation(container);
 
-    const checkbox = container.querySelector('input');
-    checkbox.addEventListener('change', (event) => {
-      setAtonVisibility(event.target.checked);
+    container.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+      checkbox.addEventListener('change', (event) => {
+        if (event.target.dataset.layer === 'markers') {
+          setAtonVisibility(event.target.checked);
+          return;
+        }
+
+        if (event.target.dataset.layer === 'labels') {
+          setLabelsVisibility(event.target.checked);
+        }
+      });
     });
 
     return container;
   };
 
   control.addTo(mapState.map);
+}
+
+function setLabelsVisibility(visible) {
+  mapState.labelsVisible = visible;
+  if (!mapState.labelsLayer) return;
+
+  if (visible) {
+    if (!mapState.map.hasLayer(mapState.labelsLayer)) {
+      mapState.labelsLayer.addTo(mapState.map);
+    }
+  } else if (mapState.map.hasLayer(mapState.labelsLayer)) {
+    mapState.map.removeLayer(mapState.labelsLayer);
+  }
 }
 
 function setAtonVisibility(visible) {
@@ -323,10 +359,10 @@ function updateMarker(lat, lon, sog, cog) {
 
   const iconHtml = `<div style="width:30px;height:30px;background:#ffffff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 2px 8px rgba(0,0,0,0.3);">⛵</div>`;
 
-  const icon = L.divIcon({ html: iconHtml, className: 'boat-marker', iconSize: [30, 30], iconAnchor: [15, 15] });
+  const icon = L.divIcon({ html: iconHtml, className: 'boat-marker', iconSize: [30, 30], iconAnchor: [15, 15], popupAnchor: [0, -30] });
 
   mapState.currentMarker = L.marker([lat, lon], { icon })
-    .bindPopup(`<div style="text-align:center;"><strong>Our Boat</strong><br>Lat: ${lat.toFixed(5)}°<br>Lon: ${lon.toFixed(5)}°<br>Speed: ${sog} kt</div>`)
+    .bindPopup(`<div style="text-align:center;"><strong>Odyssee</strong><br>Lat: ${lat.toFixed(5)}°<br>Lon: ${lon.toFixed(5)}°<br>Geschwindigkeit: ${sog} kt</div>`)
     .addTo(mapState.markersLayer);
 }
 
