@@ -1340,7 +1340,7 @@ body {
 
 .newest-post-label {
   font-family: "Reenie Beanie", cursive;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 400;
   font-style: normal;
   padding: 2rem 0 1rem 0;
@@ -1377,6 +1377,13 @@ body {
 }
 
 .blog-card img { width: 100%; height: auto; object-fit: cover; margin-bottom: 12px; }
+
+.blog-card img,
+.featured-box img,
+.post-image-container img {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
 
 /* Shared Styles */
 .post-tag { font-weight: bold; color: #008169; text-transform: uppercase; margin-right: 10px; font-size: 0.75rem; }
@@ -1426,24 +1433,46 @@ body {
   text-transform: uppercase;
 }
 
-/* Hover States */
-.post-image-container:hover img {
-  filter: grayscale(100%) brightness(70%);
-  transform: scale(1.05); /* Slight zoom for extra life */
+/* Hover Effects (desktop pointers only to avoid iOS scroll flicker) */
+@media (hover: hover) and (pointer: fine) {
+  .post-image-container:hover img {
+    filter: grayscale(100%) brightness(70%);
+    transform: scale(1.05); /* Slight zoom for extra life */
+  }
+
+  .post-image-container:hover .image-overlay {
+    opacity: 1;
+  }
+
+  .featured-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .featured-box:hover {
+    transform: translateY(-5px); /* Lifts the whole box up slightly */
+    box-shadow: none;
+  }
 }
 
-.post-image-container:hover .image-overlay {
-  opacity: 1;
+@media (hover: none), (pointer: coarse) {
+  .post-image-container img {
+    transition: none;
+    transform: none;
+    filter: none;
+  }
+
+  .image-overlay {
+    opacity: 0;
+    transition: none;
+  }
 }
 
-/* Specific Hover effect for the entire Featured Box */
-.featured-box {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.featured-box:hover {
-  transform: translateY(-5px); /* Lifts the whole box up slightly */
-  box-shadow: none;
+@supports (-webkit-touch-callout: none) {
+  .blog-card img,
+  .featured-box img,
+  .post-image-container img {
+    transform: translateZ(0);
+  }
 }
 
 .load-more-container {
@@ -1757,6 +1786,10 @@ body {
 
 /* Mobile: Below 768px - Single column layout, reduce gaps */
 @media (max-width: 768px) {
+  .blog-featured-controls-card {
+    display: none;
+  }
+
   .blog-container {
     padding: 1rem;
     margin: 2rem auto;
