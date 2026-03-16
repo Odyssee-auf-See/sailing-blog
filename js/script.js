@@ -745,6 +745,18 @@ let allPosts = [];
 let showingAll = false; // Track state
 let blogMetaCache = null;
 
+function isAppleMobileBrowser() {
+  const ua = navigator.userAgent || '';
+  const isiOS = /iPad|iPhone|iPod/.test(ua)
+    || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  return isiOS;
+}
+
+function getBlogImageLoadingMode() {
+  // iOS Safari can rapidly unload/reload lazy images when scroll direction changes.
+  return isAppleMobileBrowser() ? 'eager' : 'lazy';
+}
+
 function resolvePath(pathPrefix, value) {
   if (!value) return '';
   if (/^(https?:)?\/\//i.test(value) || value.startsWith('data:') || value.startsWith('/')) {
@@ -856,6 +868,7 @@ function renderGrid(posts) {
   const featuredSection = document.getElementById('featured-section');
   if (!featuredSection) return;
   const pathPrefix = getPathPrefix();
+  const imageLoadingMode = getBlogImageLoadingMode();
   
   // Determine number of columns based on screen size
   const screenWidth = window.innerWidth;
@@ -882,7 +895,7 @@ function renderGrid(posts) {
       <article class="featured-box">
         <div class="newest-post-label">Neuster Blogbeitrag</div>
         <div class="post-image-container">
-          <img src="${resolvePath(pathPrefix, newest.image)}" alt="${newest.title}" loading="lazy" width="350" height="280">
+          <img src="${resolvePath(pathPrefix, newest.image)}" alt="${newest.title}" loading="${imageLoadingMode}" width="350" height="280">
           <div class="image-overlay"><span>Weiterlesen</span></div>
         </div>
         <div class="post-meta">
@@ -900,7 +913,7 @@ function renderGrid(posts) {
       <a href="${resolvePath(pathPrefix, post.url || '#')}" style="text-decoration:none; color:inherit;">
         <article class="blog-card">
           <div class="post-image-container">
-            <img src="${resolvePath(pathPrefix, post.image)}" alt="${post.title}" loading="lazy" width="300" height="240">
+            <img src="${resolvePath(pathPrefix, post.image)}" alt="${post.title}" loading="${imageLoadingMode}" width="300" height="240">
             <div class="image-overlay"><span>Weiterlesen</span></div>
           </div>
           <div class="post-meta">
