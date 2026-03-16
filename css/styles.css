@@ -904,6 +904,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: transparent;
+  padding: clamp(0.5rem, 1vw, 1.5rem);
 }
 
 /* Arrow icon styles */
@@ -930,7 +931,7 @@ body {
 }
 
 /* Apply pulse animation on hover only when not expanded */
-.values-card__header:hover .values-toggle-btn:not([aria-expanded="true"]) {
+.values-toggle-container:hover .values-toggle-btn:not([aria-expanded="true"]) {
   animation: pulse-arrow 1.2s ease-in-out infinite;
 }
 
@@ -991,7 +992,7 @@ body {
     .werte-title {
         text-align: center;
         padding: 0;
-        font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+        font-size: clamp(1.4rem, 2.5vw, 1.6rem);
         font-weight: bold;
     }
 

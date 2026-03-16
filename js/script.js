@@ -500,9 +500,13 @@ function initValuesToggle() {
     observer.observe(valuesToggleContainer);
   }
 
-  // Only attach click listener to the header (covers everything including arrow)
+  // Allow toggling from both title header and arrow button.
   if (valuesCardHeader) {
     valuesCardHeader.addEventListener('click', toggleValues);
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', toggleValues);
   }
 }
 
