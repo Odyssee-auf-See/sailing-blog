@@ -1,12 +1,13 @@
 name: Bilder optimieren
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
-      - 'assets/images/**'
-      - 'pages/blog/posts/**/assets/images/**'
+      - 'assets/images/blog/**'
+      - 'pages/blog/posts/**'
 
 jobs:
   optimize:
