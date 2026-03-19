@@ -1,0 +1,132 @@
+name: Bilder optimieren
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'assets/images/**'
+      - 'pages/blog/posts/**/assets/images/**'
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      # 1. Repository auschecken
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2  # Brauchen den vorherigen Commit um neue Bilder zu erkennen
+
+      # 2. Node.js installieren
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Sharp installieren
+      - name: Sharp installieren
+        run: npm install sharp
+
+      # 4. Neue/geänderte Bilder erkennen und optimieren
+      - name: Bilder optimieren
+        run: |
+          # Alle geänderten Bilddateien im letzten Commit ermitteln
+          CHANGED=$(git diff --name-only HEAD~1 HEAD -- '*.jpg' '*.jpeg' '*.png' '*.webp' '*.heic' '*.heif' '*.tiff' '*.tif' 2>/dev/null || true)
+
+          if [ -z "$CHANGED" ]; then
+            echo "Keine neuen Bilder gefunden – nichts zu tun."
+            exit 0
+          fi
+
+          echo "Gefundene Bilder:"
+          echo "$CHANGED"
+
+          # Inline-Script für jedes Bild
+          node - "$CHANGED" <<'EOF'
+          const sharp = require('sharp');
+          const fs    = require('fs');
+          const path  = require('path');
+
+          const QUALITY  = 80;   // WebP Qualität (1-100)
+          const MAX_WIDTH = 2000; // Maximale Breite in Pixel
+
+          function formatBytes(b) {
+            if (b < 1024) return `${b} B`;
+            if (b < 1024 * 1024) return `${(b/1024).toFixed(0)} kB`;
+            return `${(b/1024/1024).toFixed(2)} MB`;
+          }
+
+          const files = process.argv[2]
+            .split('\n')
+            .map(f => f.trim())
+            .filter(Boolean);
+
+          (async () => {
+            let totalBefore = 0, totalAfter = 0;
+
+            for (const file of files) {
+              if (!fs.existsSync(file)) {
+                console.log(`⚠️  Nicht gefunden (evtl. gelöscht): ${file}`);
+                continue;
+              }
+
+              const ext      = path.extname(file).toLowerCase();
+              const dir      = path.dirname(file);
+              const basename = path.basename(file, ext);
+              const outPath  = path.join(dir, `${basename}.webp`);
+
+              const before = fs.statSync(file).size;
+
+              try {
+                // In temporäre Datei schreiben, dann Original ersetzen
+                const tmpPath = `${outPath}.tmp`;
+                await sharp(file)
+                  .resize({ width: MAX_WIDTH, withoutEnlargement: true })
+                  .webp({ quality: QUALITY })
+                  .toFile(tmpPath);
+
+                // Original löschen (auch wenn Extension anders war)
+                fs.unlinkSync(file);
+
+                // Temporäre Datei umbenennen
+                fs.renameSync(tmpPath, outPath);
+
+                const after = fs.statSync(outPath).size;
+                totalBefore += before;
+                totalAfter  += after;
+
+                const pct = Math.round((1 - after/before) * 100);
+                console.log(`✅  ${file} → ${outPath}`);
+                console.log(`    ${formatBytes(before)} → ${formatBytes(after)} (-${pct}%)`);
+              } catch (err) {
+                console.error(`❌  Fehler bei ${file}: ${err.message}`);
+              }
+            }
+
+            console.log('\n─────────────────────────────────────────');
+            console.log(`Gesamt: ${formatBytes(totalBefore)} → ${formatBytes(totalAfter)}`);
+            const saved = totalBefore - totalAfter;
+            if (saved > 0) {
+              console.log(`Einsparung: ${formatBytes(saved)} (${Math.round((1 - totalAfter/totalBefore)*100)}%)`);
+            }
+          })();
+          EOF
+
+      # 5. Optimierte Bilder zurück committen
+      - name: Optimierte Bilder committen
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Nur wenn es tatsächlich Änderungen gibt
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "Keine Änderungen zum Committen."
+          else
+            git add -A
+            git commit -m "🖼️ Bilder automatisch optimiert [skip ci]"
+            git push
+          fi
