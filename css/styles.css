@@ -156,11 +156,11 @@ body {
 /* Landing Page Responsive Styles */
 @media (max-width: 1024px) {
   .landing-hero {
-    min-height: 40vh;
+    min-height: 40svh;
   }
   
   .landing-hero__image img {
-    min-height: 40vh;
+    min-height: 40svh;
     object-fit: cover;
     object-position: right;
   }
@@ -178,7 +178,7 @@ body {
 
 @media (max-width: 768px) {
   .landing-hero {
-    min-height: 40vh;
+    min-height: 40svh;
   }
   
   .landing-hero__image {
@@ -186,7 +186,7 @@ body {
   }
   
   .landing-hero__image img {
-    min-height: 40vh;
+    min-height: 40svh;
     object-fit: cover;
     object-position: center;
   }
