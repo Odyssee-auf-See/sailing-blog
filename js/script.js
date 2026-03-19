@@ -123,9 +123,33 @@ async function loadPage() {
     await loadRelatedPosts();
     initHybridGallery();
     initNewsletterSignupForms();
+    initEagerLazyImages();
 
     document.body.classList.add('is-ready');
 }
+
+/* ============================================================
+    IMAGE PRELOADING
+    ============================================================ */
+function initEagerLazyImages() {
+  const images = document.querySelectorAll('img[loading="lazy"]');
+  if (!('IntersectionObserver' in window)) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.loading = 'eager';
+        observer.unobserve(img);
+      }
+    });
+  }, {
+    rootMargin: '500px 0px'
+  });
+
+  images.forEach(img => observer.observe(img));
+}
+
 
 window.onload = () => {
   loadPage().catch((error) => {
