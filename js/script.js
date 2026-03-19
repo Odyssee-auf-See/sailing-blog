@@ -381,11 +381,15 @@ function initMenuBar(){
   // --- Scroll to Top Logic ---
   if (logoBtn) {
     logoBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-      closeMenu();
+      // Auf Blog-Artikel Seite → zur Hauptseite navigieren
+      const isPostPage = !!document.querySelector('.article-container');
+      if (isPostPage) {
+        window.location.href = getPathPrefix() + 'index.html';
+      } else {
+        // Auf Hauptseite → nach oben scrollen wie bisher
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        closeMenu();
+      }
     });
   }
 
@@ -1223,6 +1227,11 @@ function initHybridGallery() {
 
   galleryRows.forEach(row => {
     row.scrollLeft = 0;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        row.scrollLeft = 0;
+      });
+    });
 
     // Build an image list scoped to this row only
     const rowImages = Array.from(row.querySelectorAll('img')).map((img, i) => {
