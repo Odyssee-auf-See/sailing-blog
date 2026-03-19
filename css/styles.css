@@ -437,7 +437,7 @@ body {
 
 .map-container {
   width: 100%;
-  height: 75vh;
+  height: 75svh;
   max-height: 850px;
   background: #e8e8e8;
   border-radius: 8px;
@@ -528,7 +528,7 @@ body {
   }
 
   .map-container {
-    height: 65vh;
+    height: 65svh;
     max-height: 650px;
   }
 }
@@ -540,7 +540,7 @@ body {
   }
 
   .map-container {
-    height: 55vh;
+    height: 55svh;
     max-height: 500px;
   }
 }
@@ -1911,7 +1911,7 @@ html {
 }
 
 .image-stage {
-    height: 55vh;
+    height: 55svh;
     min-height: 320px;
     display: flex;
     justify-content: center;
