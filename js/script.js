@@ -123,6 +123,8 @@ async function loadPage() {
     await loadRelatedPosts();
     initHybridGallery();
     initNewsletterSignupForms();
+
+    document.body.classList.add('is-ready');
 }
 
 window.onload = () => {
@@ -501,7 +503,6 @@ function initValuesToggle() {
 
   // Set initial state
   let isExpanded = false;
-  let hasAutoExpanded = false; // Track if auto-expansion has occurred
   const expandedHeightOffset = 500; // Increase/decrease this value to tune expanded height
 
   const syncExpandedHeight = () => {
@@ -557,23 +558,6 @@ function initValuesToggle() {
     }
   };
 
-  // Auto-expand when toggle container reaches the middle of the screen
-  if (valuesToggleContainer) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        // Only auto-expand once when it reaches the middle and hasn't already expanded
-        if (entry.isIntersecting && !hasAutoExpanded && !isExpanded) {
-          hasAutoExpanded = true;
-          toggleValues();
-        }
-      });
-    }, {
-      rootMargin: '-50% 0px -50% 0px', // Trigger when element reaches the middle of the viewport
-      threshold: 0
-    });
-
-    observer.observe(valuesToggleContainer);
-  }
 
   // Allow toggling from both title header and arrow button.
   if (valuesCardHeader) {
