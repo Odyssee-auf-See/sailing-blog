@@ -30,6 +30,21 @@
         "sog": 0,
         "cog": 0
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          18.528122,
+          42.39082
+        ]
+      },
+      "properties": {
+        "timestamp": "2026-03-22T12:20:17",
+        "sog": 7,
+        "cog": 111
+      }
     }
   ]
 }
