@@ -227,7 +227,7 @@ body.is-ready {
 #menu-bar {
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1001;
   width: 100%;
 }
 
@@ -240,7 +240,7 @@ body.is-ready {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 1000;
+  z-index: 1001;
   position: relative;
   overflow-x: hidden; /* Contain off-canvas menu without breaking sticky on parent */
 }

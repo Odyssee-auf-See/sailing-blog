@@ -132,10 +132,6 @@ function addAtonToggleControl() {
           <input type="checkbox" data-layer="labels" checked />
           <span>Ortsnamen</span>
         </label>
-        <label class="aton-toggle">
-          <input type="checkbox" data-layer="markers" checked />
-          <span>Kartenmarker</span>
-        </label>
       </div>
     `;
 
