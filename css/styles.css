@@ -864,6 +864,7 @@ body.is-ready {
   width: clamp(90px, 14vw, 140px);
   height: clamp(70px, 8vw, 90px);
   display: block;
+  padding: 0.5rem;
 }
 
 .profile-card__text {
