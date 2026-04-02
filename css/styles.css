@@ -1918,7 +1918,7 @@ html {
 }
 
 .image-stage {
-    height: 55svh;
+    height: 65svh;
     min-height: 320px;
     display: flex;
     justify-content: center;
