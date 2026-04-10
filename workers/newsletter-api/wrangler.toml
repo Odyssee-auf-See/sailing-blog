@@ -11,4 +11,4 @@ ALLOWED_ORIGIN = "https://odyssee-sailing.ch"
 
 [[kv_namespaces]]
 binding = "NEWSLETTER_KV"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "06aa2ab100bc4ef6b8f49a2e050a4d67"

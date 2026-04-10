@@ -97,13 +97,20 @@
 
   <script>
     (function () {
-      var params = new URLSearchParams(window.location.search);
-      var reason = params.get('reason');
-      if (!reason) return;
-      var reasonElement = document.getElementById('error-reason');
-      if (!reasonElement) return;
-      reasonElement.hidden = false;
-      reasonElement.textContent = 'Technischer Hinweis: ' + reason;
+      function showErrorReason() {
+        var params = new URLSearchParams(window.location.search);
+        var reason = params.get('reason');
+        if (!reason) return;
+        var reasonElement = document.getElementById('error-reason');
+        if (!reasonElement) return;
+        reasonElement.hidden = false;
+        reasonElement.textContent = 'Hinweis: ' + reason;
+      }
+
+      window.addEventListener('load', function () {
+        showErrorReason();
+        document.body.classList.add('is-ready');
+      });
     })();
   </script>
 </body>

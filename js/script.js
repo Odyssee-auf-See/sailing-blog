@@ -272,6 +272,8 @@ async function submitNewsletterForm(event) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        // HIER DAS TOKEN EINFÜGEN:
+        'Authorization': 'Bearer LuVk10Of1Fr.' 
       },
       body: JSON.stringify({
         email,
