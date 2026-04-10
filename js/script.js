@@ -234,7 +234,7 @@ function submitContactForm(event) {
   }, 700);
 }
 
-const NEWSLETTER_SUBSCRIBE_ENDPOINT = window.NEWSLETTER_SUBSCRIBE_ENDPOINT || '/api/newsletter/subscribe';
+const NEWSLETTER_SUBSCRIBE_ENDPOINT =  'https://newsletter-api.odyssee-sailing-api.workers.dev/api/newsletter/subscribe';
 
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim());
