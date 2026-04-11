@@ -255,6 +255,7 @@ async function maybeSendVerifyEmail(env, payload) {
   const fromName = env.MAILCHANNELS_FROM_NAME || 'Odyssee auf See';
 
   if (!fromEmail) {
+    console.error("MAILCHANNELS_FROM_EMAIL is not set!");
     return false;
   }
 
@@ -273,15 +274,35 @@ async function maybeSendVerifyEmail(env, payload) {
     method: 'POST',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({
-      personalizations: [{ to: [{ email: payload.to }] }],
-      from: { email: fromEmail, name: fromName },
-      subject,
+      personalizations: [
+        { 
+          to: [{ email: payload.to, name: 'Newsletter Subscriber' }],
+          // Wir "verknüpfen" die Anfrage hier explizit mit deiner Domain
+          dkim_domain: 'odyssee-sailing.ch',
+          dkim_selector: 'mailchannels', // Standardwert
+        }
+      ],
+      from: { 
+        email: fromEmail, 
+        name: fromName 
+      },
+      subject: subject,
       content: [
         { type: 'text/plain', value: contentText },
         { type: 'text/html', value: contentHtml },
       ],
     }),
   });
+
+  // --- NEU: FEHLERSUCHE ---
+  const responseText = await response.text();
+  console.log("MailChannels Status:", response.status);
+  if (!response.ok) {
+    console.error("MailChannels Error Details:", responseText);
+  } else {
+    console.log("MailChannels success: Mail should be on its way.");
+  }
+  // ------------------------
 
   return response.ok;
 }
