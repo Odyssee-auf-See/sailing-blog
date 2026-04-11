@@ -167,23 +167,23 @@ async function handleVerify(url, env) {
   const siteBase = String(env.SITE_BASE_URL || 'https://odyssee-sailing.ch').replace(/\/$/, '');
 
   if (!token || !isValidEmail(email)) {
-    return Response.redirect(`${siteBase}/newsletter/error`, 302);
+    return Response.redirect(`${siteBase}/server/newsletter/error`, 302);
   }
 
   const key = await subscriberKey(email);
   const raw = await env.NEWSLETTER_KV.get(key);
   if (!raw) {
-    return Response.redirect(`${siteBase}/newsletter/error`, 302);
+    return Response.redirect(`${siteBase}/server/newsletter/error`, 302);
   }
 
   const record = JSON.parse(raw);
   if (record.status === 'verified') {
-    return Response.redirect(`${siteBase}/newsletter/verified`, 302);
+    return Response.redirect(`${siteBase}/server/newsletter/verified`, 302);
   }
 
   const incomingHash = await sha256Hex(token);
   if (!record.verifyTokenHash || record.verifyTokenHash !== incomingHash) {
-    return Response.redirect(`${siteBase}/newsletter/error`, 302);
+    return Response.redirect(`${siteBase}/server/newsletter/error`, 302);
   }
 
   record.status = 'verified';
@@ -191,7 +191,7 @@ async function handleVerify(url, env) {
   delete record.verifyTokenHash;
 
   await env.NEWSLETTER_KV.put(key, JSON.stringify(record));
-  return Response.redirect(`${siteBase}/newsletter/verified`, 302);
+  return Response.redirect(`${siteBase}/server/newsletter/verified`, 302);
 }
 
 async function handleUnsubscribe(url, env) {
