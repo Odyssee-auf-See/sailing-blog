@@ -251,11 +251,16 @@ async function handleVerifiedList(request, env) {
 }
 
 async function maybeSendVerifyEmail(env, payload) {
-  const fromEmail = env.MAILCHANNELS_FROM_EMAIL;
+  const fromEmail = env.MAILCHANNELS_FROM_EMAIL; // kannst du behalten oder umbenennen
   const fromName = env.MAILCHANNELS_FROM_NAME || 'Odyssee auf See';
 
   if (!fromEmail) {
-    console.error("MAILCHANNELS_FROM_EMAIL is not set!");
+    console.error("RESEND_FROM_EMAIL is not set!");
+    return false;
+  }
+
+  if (!env.RESEND_API_KEY) {
+    console.error("RESEND_API_KEY is not set!");
     return false;
   }
 
@@ -270,39 +275,28 @@ async function maybeSendVerifyEmail(env, payload) {
   const contentText = `${intro}\n\nBestaetigen: ${payload.verifyUrl}`;
   const contentHtml = `<p>${intro}</p><p><a href="${payload.verifyUrl}">Anmeldung bestaetigen</a></p>`;
 
-  const response = await fetch('https://api.mailchannels.net/tx/v1/send', {
+  const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
+    headers: {
+      'content-type': 'application/json',
+      'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+    },
     body: JSON.stringify({
-      personalizations: [
-        { 
-          to: [{ email: payload.to, name: 'Newsletter Subscriber' }],
-          // Wir "verknüpfen" die Anfrage hier explizit mit deiner Domain
-          dkim_domain: 'odyssee-sailing.ch',
-          dkim_selector: 'mailchannels', // Standardwert
-        }
-      ],
-      from: { 
-        email: fromEmail, 
-        name: fromName 
-      },
+      from: `${fromName} <${fromEmail}>`,
+      to: [payload.to],
       subject: subject,
-      content: [
-        { type: 'text/plain', value: contentText },
-        { type: 'text/html', value: contentHtml },
-      ],
+      text: contentText,
+      html: contentHtml,
     }),
   });
 
-  // --- NEU: FEHLERSUCHE ---
   const responseText = await response.text();
-  console.log("MailChannels Status:", response.status);
+  console.log("Resend Status:", response.status);
   if (!response.ok) {
-    console.error("MailChannels Error Details:", responseText);
+    console.error("Resend Error Details:", responseText);
   } else {
-    console.log("MailChannels success: Mail should be on its way.");
+    console.log("Resend success: Mail should be on its way.");
   }
-  // ------------------------
 
   return response.ok;
 }
