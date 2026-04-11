@@ -164,25 +164,26 @@ async function handleSubscribe(request, env) {
 async function handleVerify(url, env) {
   const token = String(url.searchParams.get('token') || '');
   const email = String(url.searchParams.get('email') || '').trim().toLowerCase();
+  const siteBase = String(env.SITE_BASE_URL || 'https://odyssee-sailing.ch').replace(/\/$/, '');
 
   if (!token || !isValidEmail(email)) {
-    return json({ ok: false, error: 'Missing token or email' }, 400);
+    return Response.redirect(`${siteBase}/newsletter/error`, 302);
   }
 
   const key = await subscriberKey(email);
   const raw = await env.NEWSLETTER_KV.get(key);
   if (!raw) {
-    return json({ ok: false, error: 'Subscriber not found' }, 404);
+    return Response.redirect(`${siteBase}/newsletter/error`, 302);
   }
 
   const record = JSON.parse(raw);
   if (record.status === 'verified') {
-    return json({ ok: true, status: 'verified', alreadyVerified: true });
+    return Response.redirect(`${siteBase}/newsletter/verified`, 302);
   }
 
   const incomingHash = await sha256Hex(token);
   if (!record.verifyTokenHash || record.verifyTokenHash !== incomingHash) {
-    return json({ ok: false, error: 'Invalid or expired token' }, 400);
+    return Response.redirect(`${siteBase}/newsletter/error`, 302);
   }
 
   record.status = 'verified';
@@ -190,7 +191,7 @@ async function handleVerify(url, env) {
   delete record.verifyTokenHash;
 
   await env.NEWSLETTER_KV.put(key, JSON.stringify(record));
-  return json({ ok: true, status: 'verified' });
+  return Response.redirect(`${siteBase}/newsletter/verified`, 302);
 }
 
 async function handleUnsubscribe(url, env) {
