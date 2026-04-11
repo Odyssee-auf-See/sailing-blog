@@ -1,4 +1,18 @@
 {
-  "sentPostIds": [],
-  "runs": []
+  "sentPostIds": [
+    "post-1"
+  ],
+  "runs": [
+    {
+      "postId": "post-1",
+      "slug": "segelboot-suche",
+      "title": "Von Barcelona bis Split: Die Suche nach unserem Boot",
+      "sentAt": "2026-04-11T16:50:45.769Z",
+      "recipients": 2,
+      "sentCount": 2,
+      "failedCount": 0,
+      "dryRun": false,
+      "customText": "hallo newsletter subscriber wie gehts so ?"
+    }
+  ]
 }
