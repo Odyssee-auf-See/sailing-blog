@@ -858,6 +858,11 @@ body.is-ready {
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 3px 9px rgba(101, 101, 101, 0.12);
+
+  /* Force high-quality downscaling */
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden; /* fixes GPU compositing artifacts */
+  transform: translateZ(0);           /* forces GPU layer, can fix blurring */
 }
 
 .profile-card__signature {
