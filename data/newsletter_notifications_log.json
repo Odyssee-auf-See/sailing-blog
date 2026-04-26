@@ -1,6 +1,7 @@
 {
   "sentPostIds": [
-    "post-1"
+    "post-1",
+    "post-2"
   ],
   "runs": [
     {
@@ -13,6 +14,17 @@
       "failedCount": 0,
       "dryRun": false,
       "customText": "hallo newsletter subscriber wie gehts so ?"
+    },
+    {
+      "postId": "post-2",
+      "slug": "abschied",
+      "title": "Abschied nehmen und warum es sich richtig anfühlt",
+      "sentAt": "2026-04-26T20:22:42.903Z",
+      "recipients": 15,
+      "sentCount": 15,
+      "failedCount": 0,
+      "dryRun": false,
+      "customText": null
     }
   ]
 }
