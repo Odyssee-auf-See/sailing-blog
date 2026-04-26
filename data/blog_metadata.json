@@ -316,51 +316,82 @@
     },
     {
       "id": "post-2",
-      "slug": "dummy-logbook-ankern-in-bucht",
-      "title": "coming soon.. :)",
-      "date": "2026-03-14",
-      "updated": "2026-03-14",
-      "tag": "Boot",
-      "url": "components/errorpage/error.html?reason=Coming%20soon",
-      "canonical": "/components/errorpage/error.html?reason=Coming%20soon",
-      "image": "assets/images/blog/dummy_post.jpg",
-      "excerpt": "",
-      "author": "Vito & Lea",
+      "slug": "abschied",
+      "title": "Abschied nehmen und warum es sich richtig anfühlt",
+      "date": "2026-04-26",
+      "updated": "2026-04-26",
+      "tag": "Gedankenchaos",
+      "url": "pages/blog/post-template.html",
+      "canonical": "/pages/blog/post-template.html?slug=abschied",
+      "imageFolder": "assets/images/blog/20260426_abschied",
+      "image": "assets/images/blog/20260426-abschied.webp",
+      "excerpt": "Wir sagen Lebewohl zu allem Vertrauten und staten voller Vorfreude in unser neues Leben auf See.",
+      "author": "Lea",
       "keywords": [
-        "Dummy",
-        "Ankern",
-        "Boot"
+        "Abschied",
+        "Aufbruch",
+        "Abenteuer"
       ],
-      "intro": "Dieser Dummy-Post hilft dir, neue Beiträge schneller im echten Layout zu prüfen.",
+      "intro": "Wir haben uns von Familie, Freunde und Kollegen verabschiedet und sind nach monatelanger Organisation und Planung endlich in unser Abenteuer aufgebrochen.",
       "heroImages": [
         {
-          "src": "pages/blog/posts/post-1/assets/images/photo1.jpg",
-          "alt": "Bugperspektive im Abendlicht"
+          "src": "pages/blog/posts/20260426_abschied/heroImages/01.webp",
+          "alt": "Unser Hab und Gut in Taschen verpackt"
         },
         {
-          "src": "pages/blog/posts/post-1/assets/images/photo2.jpg",
-          "alt": "Ruhiges Wasser im Morgennebel"
+          "src": "pages/blog/posts/20260426_abschied/heroImages/02.webp",
+          "alt": "Am Busbahnhof"
         }
       ],
       "sections": [
-        {
-          "title": "Kurzer Testabschnitt",
-          "html": "Dies ist ein Platzhaltertext, um den finalen Aufbau eines Blogposts zu testen.<br><br>Du kannst diesen Eintrag später 1:1 durch echten Content ersetzen.",
-          "gallery": [
-            {
-              "src": "pages/blog/posts/post-1/assets/images/photo1.jpg",
-              "alt": "Dummy Bild 1"
-            },
-            {
-              "src": "pages/blog/posts/post-1/assets/images/photo2.jpg",
-              "alt": "Dummy Bild 2"
-            }
-          ]
-        }
-      ],
+          {
+            "title": "Kleine Planänderung",
+            "html": "Gestern (Samstag, 25.04.2026) sind wir nach einer 16-stündigen Busfahrt in Split, Kroatien, angekommen. Eigentlich sollte unser Boot Odyssee dann bereits eingewässert sein. Doch aufgrund einer Schlecht-Wetter-Periode haben einige Bootseigner das EInwässern ihres Bootes nach hinten verschoben, weshalb unser Boot auf der Trockenmarina noch sehr zugeparkt ist und nicht eingewässert werden konnte. Der Hafenmanager versprach uns, dass unsere Ody am Montag eingewässert werden kann. Wir verstehen zwar nicht, wieso das Einwässern am Montag plötzlich gehen soll (die anderen Boote lösen sich übers Wochenende ja nicht in Luft auf), wollen dem Hafenmanager aber glauben. Etwas daran ändern können wir ja eh nicht. Ausserdem hab ich mir vorgenommen, an meiner Geduld, Gelassenheit und Spontanität zu arbeiten bzw. diese Fähigkeiten zu stärken und jetzt kann ich dies ja direkt üben. 🙂",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260426_abschied/gallery1/01.webp",
+                "alt": "Der Weg ins Wasser ist versperrt"
+              },
+              {
+                "src": "pages/blog/posts/20260426_abschied/gallery1/02.webp",
+                "alt": "Split im Abendsonnenschein"
+              }
+            ]
+          },
+          {
+            "title": "Altes endet, Neues beginnt",
+            "html": "Durch diese verspätete Entwässerung unseres Bootes haben wir nun zwei ruhige Tage in Split gewonnen. Dies hat auch etwas Gutes, denn so haben wir Zeit, in unserem Abenteuer anzukommen und die letzten Tage zu verarbeiten. Es ist noch so viel gelaufen, sodass wir gar nie eine ruhige Minute hatten, um uns mental und emotional von unserem “alten Leben” zu verabschieden und unser “neues Leben” zu begrüssen. Das tönt etwas drastisch: “altes Leben” und “neues Leben”, doch irgendwie fühlt es sich ein bisschen so an. Das Leben, das wir noch vor einem Monat führten, werden wir nie wieder genau gleich leben. Aus unserer Wohnung sind wir ausgezogen, unseren Job haben wir gekündigt, aus Vereinen sind wir ausgetreten. Klar, wir können jederzeit zurück in die Schweiz kommen, eine ähnliche Stadtwohnung in Zürich suchen, unseren alten Arbeitsgeber anschreiben und Hobbies wieder aufnehmen. Aber es wird nie wieder das exakt gleiche Leben sein, wie das Alte.",
+            "gallery": []
+          },
+          {
+            "title": "Ein Abschied voller Dankbarkeit",
+            "html": "Ausserdem wird das Reisen uns formen und wir als Persönlichkeiten werden uns verändern. Ich bin stark der Meinung, dass jede Entscheidung, die wir treffen, uns prägen und verändern. Und eine so grosse Entscheidung, wie wir sie getroffen haben, wird uns sicher verändern. Wir werden nicht nur mehr über Wind, Wetter, Segeln und das Reisen lernen, sondern auch uns selbst besser kennenlernen müssen. Wie reagiere ich in einer Stresssituation? Was beruhigt mich? Vor was habe ich Angst? Wo sind meine Grenzen? Diese Fragen sollte man sich bestenfalls auch in der Schweiz/zuhause stellen, aber im geregelten Arbeitsalltag kommen solche Gedanken meist zu kurz. Das war zumindest bei mir der Fall. Drum können wir diese zwei ruhige Tage in Split gut brauchen, um uns nochmals in Ruhe vom “alte Leben” zu verabschieden. <br><br>Unser altes Leben war wundervoll. Wir hatten eine gemütliche Wohnung direkt am Zürichsee. Wir hatten beide einen erfüllenden Job und tolle Arbeitskollegen. Wir hatten Hobbies und waren gerne unterwegs. In den letzten Tagen haben wir von all dem Abschied nehmen müssen… oder wollen? Wir hätten uns ja nicht verabschieden müssen, wenn wir uns nicht für dieses Segelabenteuer entschieden hätten. Wir haben uns für ein “neues Leben” entschieden, das wir überhaupt nicht kennen und obwohl unser “altes Leben” wundervoll war. Rational betrachtet ergibt das keinen Sinn. Wieso sollte man das tun? <br><br>Es gibt keine logische Antwort, nur ein Gefühl. Wir wollen mehr draussen sein, wollen mehr von der Welt sehen, mehr die Natur spüren, mehr Abwechslung und Abenteuer und vor allem Neues sehen und lernen und uns selbst herausfordern. Wir haben unser altes perfekte Leben für dieses Gefühl, für dieses Leben, das wir noch nicht kennen und sicherlich anstrengender, herausfordernder, unsicherer und einsamer ist, aufgegeben. Und obwohl es sich seltsam anfühlt, zweifle ich keinen Moment an unserer Entscheidung zu gehen und unsere Segel zu hissen (hoffentlich können wir dies am Montag tun). <br><br>Und warum bin ich mir so sicher, dass wir das Richtige tun? Weil wir nichts verlieren können. Denn das Kostbarste nehmen wir in unser neues Leben mit: unsere Freunde und Familie. Unser Segeltraum wurde nur dank der unermüdlicher Unterstützung unseres Umfelds zur Realität. Jedes positive Wort, sei es von unserer Nachbarin, von Arbeitskollegen oder Freunden, gab uns Mut. Das Wissen, dass unsere Familie bei jeder Entscheidung hinter uns steht und wir immer auf sie zählen können, ermöglicht es uns erst, dieses Risiko (finanziell und emotional) einzugehen. Die Versprechen unserer Freunde, uns zu verfolgen, uns zu schreiben und telefonieren oder uns sogar auf dem Boot besuchen zu kommen, gibt uns Motivation und Vorfreude. Ich könnte noch lange weiterschreiben, muss aber einen Abschluss finden. Schlussendlich wollte ich mit diesem Blogpost einfach allen danken, die unser altes Leben so wundervoll gemacht haben. Ich freue mich sehr, auch unser neues Leben mit euch zu teilen. ",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260426_abschied/gallery2/01.webp",
+                "alt": "Umzugschaos"
+              },
+              {
+                "src": "pages/blog/posts/20260426_abschied/gallery2/02.webp",
+                "alt": "Wohnungsübergabe"
+              },
+              {
+                "src": "pages/blog/posts/20260426_abschied/gallery2/03.webp",
+                "alt": "Abschiedsfoto mit der Mannschaft"
+              },
+              {
+                "src": "pages/blog/posts/20260426_abschied/gallery2/04.webp",
+                "alt": "Abschiedsznüni im Büro"
+              },
+              {
+                "src": "pages/blog/posts/20260426_abschied/gallery2/05.webp",
+                "alt": "Am Busbahnhof"
+              }                      
+            ]
+          }
+        ],
       "related": [
-        "post-1",
-        "post-3"
+        "post-1"
       ]
     },
     {
