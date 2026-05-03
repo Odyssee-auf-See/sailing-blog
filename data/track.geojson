@@ -312,6 +312,102 @@
         "sog": 0.0,
         "cog": 0
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [15.0105409, 44.1310214]
+      },
+      "properties": {
+        "timestamp": "2026-05-02T09:00:00.000Z",
+        "sog": 4.0,
+        "cog": 4.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.9498354, 44.1332962]
+      },
+      "properties": {
+        "timestamp": "2026-05-02T10:00:00.000Z",
+        "sog": 6.0,
+        "cog": 6.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.9104686, 44.1463554]
+      },
+      "properties": {
+        "timestamp": "2026-05-02T11:00:00.000Z",
+        "sog": 6.0,
+        "cog": 6.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.8622144, 44.2078795]
+      },
+      "properties": {
+        "timestamp": "2026-05-02T12:00:00.000Z",
+        "sog": 6.0,
+        "cog": 6.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.7823952, 44.1761141]
+      },
+      "properties": {
+        "timestamp": "2026-05-02T13:00:00.000Z",
+        "sog": 6.5,
+        "cog": 6.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.7249520, 44.2622828]
+      },
+      "properties": {
+        "timestamp": "2026-05-02T14:00:00.000Z",
+        "sog": 6.0,
+        "cog": 6.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.7361036, 44.3891162]
+      },
+      "properties": {
+        "timestamp": "2026-05-02T15:00:00.000Z",
+        "sog": 6.0,
+        "cog": 6.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [14.7031463, 44.3758728]
+      },
+      "properties": {
+        "timestamp": "2026-05-02T16:00:00.000Z",
+        "sog": 0.0,
+        "cog": 0
+      }
     }
   ]
 }
