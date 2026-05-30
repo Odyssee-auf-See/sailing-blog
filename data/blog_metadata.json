@@ -369,29 +369,30 @@
             "gallery": [
               {
                 "src": "pages/blog/posts/20260426_abschied/gallery2/01.webp",
-                "alt": "Umzugschaos"
+                "alt": "Am Busbahnhof"
               },
               {
                 "src": "pages/blog/posts/20260426_abschied/gallery2/02.webp",
-                "alt": "Wohnungsübergabe"
-              },
-              {
-                "src": "pages/blog/posts/20260426_abschied/gallery2/03.webp",
                 "alt": "Abschiedsfoto mit der Mannschaft"
               },
               {
+                "src": "pages/blog/posts/20260426_abschied/gallery2/03.webp",
+                "alt": "Umzugschaos"
+              },
+              {
                 "src": "pages/blog/posts/20260426_abschied/gallery2/04.webp",
-                "alt": "Abschiedsznüni im Büro"
+                "alt": "Wohnungsabgabe"
               },
               {
                 "src": "pages/blog/posts/20260426_abschied/gallery2/05.webp",
-                "alt": "Am Busbahnhof"
+                "alt": "Abschiedsznüni im Büro"
               }                      
             ]
           }
         ],
       "related": [
-        "post-1"
+        "post-1",
+        "post-3"
       ]
     },
     {
