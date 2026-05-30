@@ -1,7 +1,8 @@
 {
   "sentPostIds": [
     "post-1",
-    "post-2"
+    "post-2",
+    "post-3"
   ],
   "runs": [
     {
@@ -22,6 +23,17 @@
       "sentAt": "2026-04-26T20:22:42.903Z",
       "recipients": 15,
       "sentCount": 15,
+      "failedCount": 0,
+      "dryRun": false,
+      "customText": null
+    },
+    {
+      "postId": "post-3",
+      "slug": "von-Split-nach-Krk",
+      "title": "Die erste Etappe, unser erstes Ziel",
+      "sentAt": "2026-05-30T09:43:47.794Z",
+      "recipients": 18,
+      "sentCount": 18,
       "failedCount": 0,
       "dryRun": false,
       "customText": null
