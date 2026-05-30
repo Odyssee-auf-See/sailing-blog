@@ -396,36 +396,309 @@
     },
     {
       "id": "post-3",
-      "slug": "dummy-logbook-sonnenaufgang-auf-see",
-      "title": "coming soon.. :)",
-      "date": "2026-03-13",
-      "updated": "2026-03-13",
+      "slug": "von-Split-nach-Krk",
+      "title": "Die erste Etappe, unser erstes Ziel",
+      "date": "2026-05-29",
+      "updated": "2026-05-29",
       "tag": "Reisen",
-      "url": "components/errorpage/error.html?reason=Coming%20soon",
-      "canonical": "/components/errorpage/error.html?reason=Coming%20soon",
-      "image": "assets/images/blog/dummy_post.jpg",
-      "excerpt": "",
-      "author": "Vito & Lea",
+      "url": "pages/blog/post-template.html",
+      "canonical": "/pages/blog/post-template.html?slug=von-Split-nach-Krk",
+      "imageFolder": "assets/images/blog/20260529_split-krk",
+      "image": "assets/images/blog/20260529_split-krk.webp",
+      "excerpt": "Unsere erste Etappe führt uns von Split nach Krk – durch starke Bura-Winde, türkisblaues Wasser und märchenhafte Inselwelten. Ein gelungener Start in unser Leben unter Segeln.",
+      "author": "Lea",
       "keywords": [
-        "Dummy",
-        "Reisen",
-        "Logbuch"
+        "Kroatien",
+        "Segeln",
+        "Split"
       ],
-      "intro": "Auch dieser Eintrag ist nur zum Befüllen der Seite gedacht, bis deine echten Texte fertig sind.",
+      "intro": "Ich sitze hinten auf unserem Segelboot in der Sonne und schreibe diesen Blog, während mich der Wind ganz natürlich zu unserem ersten Ziel trägt. Praktisch nur mit der Kraft von Wind und Meer reisen wir von Split nach Krk. Es fasziniert mich immer wieder, wie man diese natürlichen Kräfte für menschliche Zwecke nutzen kann. Die Sonne liefert uns Strom und Wärme, der Wind bringt uns und unsere Odyssee ans Ziel.",
       "heroImages": [
         {
-          "src": "pages/blog/posts/post-1/assets/images/photo3.jpg",
-          "alt": "Ankerplatz kurz nach Sonnenaufgang"
+          "src": "pages/blog/posts/20260529_split-krk/heroImages/01.jpeg",
+          "alt": "Starker Wind und Ody in Schräglage"
+        },
+        {
+          "src": "pages/blog/posts/20260529_split-krk/heroImages/02.jpg",
+          "alt": "Traumbucht mit türkisblauem Wasser"
+        },
+        {
+          "src": "pages/blog/posts/20260529_split-krk/heroImages/03.jpeg",
+          "alt": "Glücklich nach erfrischendem Bad in der Adria"
+        },
+        {
+          "src": "pages/blog/posts/20260529_split-krk/heroImages/04.jpeg",
+          "alt": "Nette Begegnung :)"
+        },
+        {
+          "src": "pages/blog/posts/20260529_split-krk/heroImages/05.JPG",
+          "alt": "Kirche von Krk"
         }
       ],
       "sections": [
         {
-          "title": "Layout-Check",
-          "html": "Mit diesem Dummy kannst du prüfen, ob Titel, Intro, Galerie und Meta-Daten im Zusammenspiel korrekt dargestellt werden.",
+          "title": "Einwässern",
+          "html": "Unsere Reise hätte kaum besser starten können. Am Montagabend (26.04.2026) verliessen wir die Marina in Split. Wir ankerten direkt in der Bucht vor Split, denn wir mussten unsere Odyssee erst noch aus ihrem Winterschlaf wecken. Die Segel mussten montiert, der Anker befestigt, der Motor geprüft, das Segelverdeck aufgebaut und alle Seile bereitgelegt werden. Wir hatten Glück: Der Abend war ruhig und Odyssee erwachte frisch und munter aus ihrem Schlaf.",
           "gallery": [
             {
-              "src": "pages/blog/posts/post-1/assets/images/photo3.jpg",
-              "alt": "Dummy Bild A"
+              "src": "pages/blog/posts/20260529_split-krk/gallery1/01.jpeg",
+              "alt": "Odyssee wird eingewässert"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery1/02.JPG",
+              "alt": "Wir beobachten das Ganze gespannt (und ein bisschen nervös)"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery1/03.jpg",
+              "alt": "Ody ist im Wasser! Fahrt aus der Marina"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery1/04.jpeg",
+              "alt": "Vito am Steuer"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery1/05.JPG",
+              "alt": "Segel sind montiert"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery1/06.JPG",
+              "alt": "Seile & Shote sind ready"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery1/07.jpeg",
+              "alt": "Schweizer Flagge wird montiert"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery1/08.JPG",
+              "alt": "Unsere Bucht für die Nacht"
+            }
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "title": "Tag 1: Split - Rogoznica",
+          "html": "Am Dienstagmorgen waren wir bereit für unseren ersten Segeltag. Das Wetter war fantastisch, nur leider wollte der Wind nicht so recht, weshalb wir ein Stück mit dem Motor fahren mussten. Eigentlich war das aber ganz gut, denn so konnten wir den Motor testen und sein Verhalten prüfen. Nach dem Gebrauch sammelt sich teilweise etwas Flüssigkeit im Motorenraum – es scheint eine Mischung aus Salzwasser und Öl zu sein. Wir müssen das im Auge behalten und in Krk nochmals genauer anschauen. Vorerst scheint es aber nichts Schlimmes zu sein. Am Abend ankerten wir in der Bucht von Rogoznica. Die ganze Nacht war es windstill und wir schliefen tief und fest.",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery2/01.JPG",
+              "alt": "kein Wind, deshalb Fahrt unter Motor"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery2/02.JPG",
+              "alt": "Feiner Salat zum Znacht"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery2/03.jpeg",
+              "alt": "Ruhige Bucht vor Rogoznica"
+            }
+          ]
+        },
+        {
+          "title": "Tag 2: Rogoznica - Murter",
+          "html": "Am nächsten Morgen weckte uns die Sonne früh. Ich weiss nicht, ob es die Helligkeit, die frische Luft, die Vorfreude auf Kaffee oder auf den Segeltag ist, aber hier auf dem Boot erwachen wir ganz von alleine, ohne Wecker und jeweils früh am Morgen. In der Schweiz ging das nicht immer so leicht. :-) In der Sonne tranken wir unseren Kaffee, fuhren mit dem Beiboot ans Land, kauften frisches Obst und Gemüse und legten ab. Für diesen Tag war stärkerer Wind angesagt und wir waren ready zum Segeln. Tatsächlich: Sobald wir die Bucht verlassen hatten, fegte uns der Wind um die Ohren. Schnell hissten wir die Segel und Odyssee zog los. <br><br> Der Nordwind (Bura) blies stark und konstant in unsere Segel und wir segelten von 10 bis 16 Uhr durch, bis wir eine nach Norden geschützte Ankerbucht anpeilten. Laut Windvorhersage sollte der Wind in der Nacht weiter zunehmen und bis zu 30 Knoten erreichen. Wir suchten also eine sandige Bucht, damit unser Anker gut hält, die nach Norden geschützt ist, gross genug, falls sich die Windrichtung ändert, und gleichzeitig nicht zu tief. Genau eine solche Bucht fanden wir bei der Insel Murter. Wir richteten uns für die Nacht ein, gingen noch baden, kochten und assen lecker zu Abend und gingen früh schlafen. Zusätzlich aktivierten wir einen Ankeralarm, der uns warnen sollte, falls der Anker nicht sicher halten würde. Ausserdem stellten wir stündlich einen Wecker, um die Lage zu prüfen. Der Ankeralarm läutete nicht und unser Anker hielt uns sicher an Ort und Stelle. Der Wind fegte zwar stark durch die Bucht, doch wir fühlten uns sicher. Der fast volle Mond schenkte uns bei unseren nächtlichen Wachen zusätzlich Licht.",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery3/01.jpeg",
+              "alt": "Füsse Hochlagern und die Sonne geniessen"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery3/02.jpg",
+              "alt": "Ody in der wunderschönen Bucht vor Murter"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery3/03.jpg",
+              "alt": "Türkieses Wasser, Paradies pur."
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery3/04.jpeg",
+              "alt": "Abkühlung im kalten und klaren Wasser der Adria"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery3/05.jpeg",
+              "alt": "Freudig nach erfrischungsdem Bad im Meer"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery3/06.jpeg",
+              "alt": "Abendidylle in der Bucht vor Murter"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery3/07.jpg",
+              "alt": "Stürmische Nacht und Mondschein"
+            }
+          ]
+        },
+        {
+          "title": "Tag 3: Murter - Ugljan",
+          "html": "Am nächsten Morgen (Mittwoch) blies der Wind noch immer unermüdlich. Deshalb hissten wir nur das Grosssegel und refften es stark. Obwohl wir nur eine kleine Segelfläche hatten, sausten wir durchs Wasser. Es war ein intensiver Segeltag – mit 30–35 Knoten Wind, relativ kalter Luft und anspruchsvollen Böen, die volle Konzentration am Steuer verlangten und trotzdem machte es unglaublich Spass. Der Himmel war strahlend blau, die Insellandschaft magisch und auf unserer Ody fühlten wir uns sehr sicher. Wir segelten am Kornati-Nationalpark vorbei und ich war einmal mehr über die Schönheit unserer Erde erstaunt. Das dunkelblaue Meer, die weissen Strände und die grünen Inseln wirkten fast märchenhaft. Ich fühlte mich wie verzaubert.<br><br>Am späteren Nachmittag wurden wir müde und suchten die nächste Bucht für die Nacht auf. Auf der Insel Ugljan wurden wir fündig. Da wir auf dieser intensiven Segeletappe keine Mittagspause machen konnten, kochten wir direkt nach dem Ankern einen grossen Topf Spaghetti. Ich finde, dass Essen auf dem Boot immer besonders gut schmeckt. Wahrscheinlich habe ich beim Segeln einfach ständig grossen Hunger – und man sagt ja: Hunger ist der beste Koch. :-)<br><br>Nach dem Essen fuhren wir mit dem Beiboot (das wir übrigens „Penelope“ nennen) an Land und gingen auf Entdeckungstour. Ich finde es unglaublich spannend, kleine Ortschaften zu besichtigen und mir vorzustellen, wie das Leben auf solch einer Insel wohl ist. Als Kind hätte ich das Leben in diesem kleinen Dorf am Meer sicher geliebt – jeden Tag draussen spielen, am Strand oder auf den Gassen mit Freunden unterwegs sein. Als Teenager wäre es mir wahrscheinlich irgendwann zu klein geworden, mit zu wenig neuen Gesichtern und Eindrücken. Und jetzt als junge Erwachsene? Ich weiss es nicht … Zurück auf dem Boot bestaunten wir noch den schönen Vollmond und gingen dann schlafen. Wir schliefen tief und fest bis zum nächsten Morgen.",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/01.jpeg",
+              "alt": "Gute Stimmung am Steuer trotz kaltem Wind und anspruchsvollen Böen"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/02.jpeg",
+              "alt": "Lea steuert Ody durch die Wellen"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/03.jpeg",
+              "alt": "Wellige See und strahlend blauer Himmel - ein Traumtag zum Segeln"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/04.JPG",
+              "alt": "Möven kämpfen im Wind"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/05.JPG",
+              "alt": "Schweizer Flagge"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/06.jpeg",
+              "alt": "Vito konzentriert im Steuerstand"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/07.JPG",
+              "alt": "Lea glücklich am Steuer"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/08.jpeg",
+              "alt": "Vito rudert Penelope an Land"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/09.jpeg",
+              "alt": "Familienfoto_ Odyssee, Penelope, Lea und Vito"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/10.jpeg",
+              "alt": "Odyssee von weitem"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/11.jpeg",
+              "alt": "Auf Entdeckungstour in Ugljan"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/12.JPG",
+              "alt": "Happy Vito im Sonnenuntergang-Glow"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery4/13.JPG",
+              "alt": "Vollmond"
+            }
+          ]
+        },
+        {
+          "title": "Tag 4: Ugljan - Sestrunj (Morgen)",
+          "html": "Der Start in den neuen Monat – es war nun der 1. Mai – hätte nicht besser sein können: blauer Himmel, konstanter Wind und wir waren ausgeschlafen und top motiviert. Also starteten wir wieder früh (8 Uhr), refften die Segel und verliessen die Bucht. Als Erstes passierten wir eine grosse Fischfarm mit unzähligen Becken. Dazwischen schwammen ein paar Delfine, die wohl von den Fischen angelockt wurden. Solche Fischfarmen machen mich traurig. Sie wirken auf den ersten Blick wie eine praktische Lösung, doch hinter den Kulissen leiden oft Millionen Tiere auf engstem Raum unter Stress, Krankheiten und schlechten Lebensbedingungen. Gleichzeitig belasten Aquakulturen Meere und Küsten durch Futterverbrauch, Medikamente und Verschmutzung. Für mich zeigt das, wie weit wir noch immer von einem respektvollen Umgang mit dem Ozean entfernt sind – obwohl es heute genügend pflanzliche Alternativen und nachhaltige Wege gibt, uns zu ernähren.<br>Die Landschaft rundherum war jedoch wunderschön, wieder genauso idyllisch und märchenhaft wie an den Tagen davor. Der Wind blies allerdings genau aus der Richtung, in die wir segeln wollten. Wir hatten also Gegenwind und mussten aufkreuzen. Da das relativ anstrengend ist und man nur langsam vorankommt, entschieden wir uns für einen Mittagsstopp auf Iž. Wieder gingen wir auf Entdeckungstour und tauchten für eine Stunde in ein Inselleben ein – fernab von Stress, Lärm und Grossstadtgetümmel. Kinder spielten auf der Strasse, Männer fischten und Frauen kochten. Hier scheint das Leben noch in Ordnung zu sein (wenn auch in einer eher traditionellen Rollenverteilung, die nicht ganz unserer Vorstellung entspricht :-)).",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery5/01.jpeg",
+              "alt": "Vito am Steuer"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery5/02.jpeg",
+              "alt": "Gegenwind, drum sind wir am aufkreuzen"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery5/03.jpeg",
+              "alt": "Ankerplatz vor Iz"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery5/04.jpg",
+              "alt": "Städtchen Iz"
+            }
+          ]
+        },
+        {
+          "title": "Tag 4: Ugljan - Sestrunj (Nachmittag)",
+          "html": "Nach einer Stunde machten wir uns wieder bereit zum Ablegen. Wir refften erneut die Segel und segelten mit dem Grosssegel im zweiten Reff und der Genua weitere drei Stunden, bis wir in einer schönen Bucht bei Sestrunj unseren Anker für die Nacht setzten. Der Wind nahm gegen Abend ab, sodass das Meer eher einem ruhigen See glich. Die Stimmung war friedlich und still und die Farben des Himmels und des Meeres wirkten magisch. Wie immer fuhren wir mit unserer Penelope (Beiboot) ans Land, um die paar Häuser und Gassen zu erkunden. Kaum hatten wir angelegt, wurden wir von einem Hund begrüsst. Das Mini-Dorf wirkte wie ausgestorben, wir trafen keine Menschen an. Der Hund jedoch begleitete uns treu und es schien fast so, als wolle er uns sein Revier zeigen. Er war voller Lebensfreude, rannte herum und sprühte vor Energie. Das war ein grosser Kontrast zur sonst stillen und leeren Umgebung. Wir genossen seine Begleitung sehr. Der Hund lief sogar mit uns bis zurück zur Penelope und es schien fast, als wolle er mit aufs Boot kommen. Oder wollte er uns einfach freundlich verabschieden? Es wäre schön, wenn man mit Tieren reden könnte. 🙂 Zurück auf dem Boot kochten wir zu Abend und freuten uns auf eine ruhige und gemütliche Nacht.",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery6/01.jpeg",
+              "alt": "Perfekte Ankerbucht vor Sestrunj"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery6/02.jpeg",
+              "alt": "Landgang & Kompost Entsorgung"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery6/03.jpeg",
+              "alt": "Unser lokaler Stadtführer 🐕"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery6/04.jpeg",
+              "alt": "Odyssee im Abendglow"
+            }
+          ]
+        },
+        {
+          "title": "Tag 5: Sestrunj - Silba",
+          "html": "Am nächsten Morgen frühstückten wir gemütlich, hissten um 9:40 Uhr die Segel und legten ab. Vor uns lag einer der schönsten Segeltage dieser Etappe. Die Landschaft war nochmals schöner als zuvor – ich dachte nicht, dass das überhaupt möglich wäre. Die Hügellandschaften wirkten wie ein Gemälde. Der Wind war konstant und warm, die Sonne schien und der Himmel war blau. Wir rauschten durchs Wasser und alles fühlte sich perfekt an. Ich hätte ewig so weitersegeln können, doch um 16 Uhr erreichten wir unser Ziel für die Nacht: die Insel Silba. Wir ankerten vor dem Hafen und ruhten uns kurz aus, bevor wir das Beiboot schnappten und an Land fuhren. Wir kannten Silba bereits, da wir schon ein paar Mal dort gewesen waren. Deshalb wussten wir sofort, dass wir über die Insel auf die andere Seite laufen wollten, denn dort kann man einen atemberaubenden Sonnenuntergang geniessen. Gesagt, getan. Fünfzehn Minuten später sassen wir in einer Beachbar und genossen die letzten Minuten des Tages. Was für ein schöner letzter Abend unserer Reise. Morgen würden wir die letzte Etappe bestreiten und dann bereits in Krk ankommen. Wieder wurden wir mit einer ruhigen Nacht verwöhnt und schliefen tief und fest.",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery7/01.jpeg",
+              "alt": "Ready für einen perfekten Segeltag"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery7/02.jpg",
+              "alt": "Odyssee flitzt durchs Wasser"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery7/03.jpg",
+              "alt": "Malerische Hügellandschaft"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery7/04.jpeg",
+              "alt": "perfekter Segeltag"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery7/05.jpeg",
+              "alt": "Ankern vor Silba"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery7/06.jpeg",
+              "alt": "Beachbar in Silba"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery7/07.jpeg",
+              "alt": "Happy us"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery7/08.jpeg",
+              "alt": "Sonnenuntergang in Silba"
+            }
+          ]
+        },
+        {
+          "title": "Tag 6: Silba - Krk",
+          "html": "Am nächsten Morgen wollten wir relativ früh los, um die eher lange Strecke bis Krk gut zu meistern. Leider war es komplett windstill, das Meer sah aus wie ein ruhiger See. Wir mussten also den ganzen Morgen mit dem Motor fahren. Das einzig Gute an windstillen Tagen ist, dass man problemlos kochen, Kaffee trinken, schreiben, lesen etc. kann – und das nutzten wir aus. Am Nachmittag kam dann doch noch ein leichtes Windchen auf, sodass wir die Segel hissen und gemütlich bis nach Krk segeln konnten. Um 19:15 Uhr kamen wir glücklich und müde in Krk an. Wir hatten es geschafft – unser erstes Ziel war erreicht. Odyssee hatte uns sicher und zuverlässig nach Krk gebracht.<br><br>Wir freuten uns sehr, wussten aber gleichzeitig, dass die strenge Arbeit jetzt erst vor uns liegt. In Krk wollen wir Odyssee nochmals aus dem Wasser nehmen und das gesamte Unterwasserschiff schleifen und neu streichen. Ausserdem müssen wir das Boot aufräumen, alle Kästchen entrümpeln und unsere Sachen ordentlich einräumen. Wir möchten das Boot nach unseren Wünschen gestalten und richtig wohnlich machen. Es gibt viele To-dos, doch wir freuen uns auf diese Arbeit. Wir rechnen damit, dass wir ungefähr einen Monat dafür brauchen werden, und hoffen sehr, Anfang Juni wieder in See stechen und unsere nächsten Abenteuer erleben zu können..",
+          "gallery": [
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery8/01.jpeg",
+              "alt": "Kaffee auf ruhiger See"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery8/02.jpeg",
+              "alt": "Perfekte Wetterverhältnisse für ein bisschen Weiterbildung"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery8/03.jpeg",
+              "alt": "kurzer Badestopp"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery8/04.jpeg",
+              "alt": "Am Nachmittag wehter plötzlich ein Windchen"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery8/05.jpeg",
+              "alt": "Ankunft in Krk"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery8/06.JPG",
+              "alt": "Kirche von Krk im Abendlicht"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery8/07.JPG",
+              "alt": "Happy und müde"
             }
           ]
         }
