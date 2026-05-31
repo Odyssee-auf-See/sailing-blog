@@ -400,7 +400,7 @@
       "slug": "von-Split-nach-Krk",
       "title": "Die erste Etappe, unser erstes Ziel",
       "date": "2026-05-29",
-      "updated": "2026-05-29",
+      "updated": "2026-05-31",
       "tag": "Reisen",
       "url": "pages/blog/post-template.html",
       "canonical": "/pages/blog/post-template.html?slug=von-Split-nach-Krk",
@@ -586,29 +586,33 @@
           ]
         },
         {
-          "title": "Tag 4: Ugljan - Sestrunj (Morgen)",
+          "title": "Tag 4: Ugljan - Iž (Morgen)",
           "html": "Der Start in den neuen Monat – es war nun der 1. Mai – hätte nicht besser sein können: blauer Himmel, konstanter Wind und wir waren ausgeschlafen und top motiviert. Also starteten wir wieder früh (8 Uhr), refften die Segel und verliessen die Bucht. Als Erstes passierten wir eine grosse Fischfarm mit unzähligen Becken. Dazwischen schwammen ein paar Delfine, die wohl von den Fischen angelockt wurden. Solche Fischfarmen machen mich traurig. Sie wirken auf den ersten Blick wie eine praktische Lösung, doch hinter den Kulissen leiden oft Millionen Tiere auf engstem Raum unter Stress, Krankheiten und schlechten Lebensbedingungen. Gleichzeitig belasten Aquakulturen Meere und Küsten durch Futterverbrauch, Medikamente und Verschmutzung. Für mich zeigt das, wie weit wir noch immer von einem respektvollen Umgang mit dem Ozean entfernt sind – obwohl es heute genügend pflanzliche Alternativen und nachhaltige Wege gibt, uns zu ernähren.<br>Die Landschaft rundherum war jedoch wunderschön, wieder genauso idyllisch und märchenhaft wie an den Tagen davor. Der Wind blies allerdings genau aus der Richtung, in die wir segeln wollten. Wir hatten also Gegenwind und mussten aufkreuzen. Da das relativ anstrengend ist und man nur langsam vorankommt, entschieden wir uns für einen Mittagsstopp auf Iž. Wieder gingen wir auf Entdeckungstour und tauchten für eine Stunde in ein Inselleben ein – fernab von Stress, Lärm und Grossstadtgetümmel. Kinder spielten auf der Strasse, Männer fischten und Frauen kochten. Hier scheint das Leben noch in Ordnung zu sein (wenn auch in einer eher traditionellen Rollenverteilung, die nicht ganz unserer Vorstellung entspricht :-)).",
           "gallery": [
             {
-              "src": "pages/blog/posts/20260529_split-krk/gallery5/01.jpeg",
-              "alt": "Vito am Steuer"
+              "src": "pages/blog/posts/20260529_split-krk/gallery5/01.jpg",
+              "alt": "Delfin zwischen den Becken der Fischfarm"
             },
             {
               "src": "pages/blog/posts/20260529_split-krk/gallery5/02.jpeg",
-              "alt": "Gegenwind, drum sind wir am aufkreuzen"
+              "alt": "Vito am Steuer"
             },
             {
               "src": "pages/blog/posts/20260529_split-krk/gallery5/03.jpeg",
+              "alt": "Gegenwind, drum sind wir am aufkreuzen"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery5/04.jpeg",
               "alt": "Ankerplatz vor Iz"
             },
             {
-              "src": "pages/blog/posts/20260529_split-krk/gallery5/04.jpg",
+              "src": "pages/blog/posts/20260529_split-krk/gallery5/05.jpg",
               "alt": "Städtchen Iz"
             }
           ]
         },
         {
-          "title": "Tag 4: Ugljan - Sestrunj (Nachmittag)",
+          "title": "Tag 4: Iž - Sestrunj (Nachmittag)",
           "html": "Nach einer Stunde machten wir uns wieder bereit zum Ablegen. Wir refften erneut die Segel und segelten mit dem Grosssegel im zweiten Reff und der Genua weitere drei Stunden, bis wir in einer schönen Bucht bei Sestrunj unseren Anker für die Nacht setzten. Der Wind nahm gegen Abend ab, sodass das Meer eher einem ruhigen See glich. Die Stimmung war friedlich und still und die Farben des Himmels und des Meeres wirkten magisch. Wie immer fuhren wir mit unserer Penelope (Beiboot) ans Land, um die paar Häuser und Gassen zu erkunden. Kaum hatten wir angelegt, wurden wir von einem Hund begrüsst. Das Mini-Dorf wirkte wie ausgestorben, wir trafen keine Menschen an. Der Hund jedoch begleitete uns treu und es schien fast so, als wolle er uns sein Revier zeigen. Er war voller Lebensfreude, rannte herum und sprühte vor Energie. Das war ein grosser Kontrast zur sonst stillen und leeren Umgebung. Wir genossen seine Begleitung sehr. Der Hund lief sogar mit uns bis zurück zur Penelope und es schien fast, als wolle er mit aufs Boot kommen. Oder wollte er uns einfach freundlich verabschieden? Es wäre schön, wenn man mit Tieren reden könnte. 🙂 Zurück auf dem Boot kochten wir zu Abend und freuten uns auf eine ruhige und gemütliche Nacht.",
           "gallery": [
             {
@@ -646,23 +650,27 @@
               "alt": "Malerische Hügellandschaft"
             },
             {
-              "src": "pages/blog/posts/20260529_split-krk/gallery7/04.jpeg",
-              "alt": "perfekter Segeltag"
+              "src": "pages/blog/posts/20260529_split-krk/gallery7/04.jpg",
+              "alt": "Landschaft vor Silba"
             },
             {
               "src": "pages/blog/posts/20260529_split-krk/gallery7/05.jpeg",
-              "alt": "Ankern vor Silba"
+              "alt": "perfekter Segeltag"
             },
             {
               "src": "pages/blog/posts/20260529_split-krk/gallery7/06.jpeg",
-              "alt": "Beachbar in Silba"
+              "alt": "Ankern vor Silba"
             },
             {
               "src": "pages/blog/posts/20260529_split-krk/gallery7/07.jpeg",
-              "alt": "Happy us"
+              "alt": "Beachbar in Silba"
             },
             {
               "src": "pages/blog/posts/20260529_split-krk/gallery7/08.jpeg",
+              "alt": "Happy us"
+            },
+            {
+              "src": "pages/blog/posts/20260529_split-krk/gallery7/09.jpeg",
               "alt": "Sonnenuntergang in Silba"
             }
           ]
