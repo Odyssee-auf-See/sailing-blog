@@ -12,7 +12,7 @@ on:
 jobs:
   optimize:
     runs-on: ubuntu-latest
-
+    if: false # Vorübergehend deaktiviert, da es aktuell zu viele Bilder auf einmal optimieren würde
     permissions:
       contents: write
 
