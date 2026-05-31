@@ -12,6 +12,7 @@ on:
 jobs:
   optimize:
     runs-on: ubuntu-latest
+
     permissions:
       contents: write
 
