@@ -714,6 +714,182 @@
         "post-1",
         "post-2"
       ]
+    },
+    {
+      "id": "post-4",
+      "slug": "bootsarbeiten",
+      "title": "Die blauen Schlümpfe von Punat: unser Unterwasserschiff bekommt einen neuen Anstrich ",
+      "date": "2026-06-08",
+      "updated": "2026-06-08",
+      "tag": "Boot",
+      "url": "pages/blog/post-template.html",
+      "canonical": "/pages/blog/post-template.html?slug=bootsarbeiten",
+      "imageFolder": "assets/images/blog/20260608_bootsarbeiten",
+      "image": "assets/images/blog/20260608-bootsarbeiten.webp",
+      "excerpt": "Was als einfache Wartung unseres Unterwasserschiffs geplant war, entwickelte sich in der Marina Punat zu einem schweisstreibenden Abenteuer voller Hindernisse, blauem Schleifstaub und jeder Menge Muskelkater.",
+      "author": "Lea",
+      "keywords": [
+        "Bootsarbeiten",
+        "Trockendock",
+        "schleifen"
+      ],
+      "intro": "Eigentlich wollten wir unser Unterwasserschiff innerhalb weniger Tage schleifen und neu streichen. Stattdessen verbrachten wir Tage auf der Suche nach einem Trockenplatz, schliffen unser Boot von Hand bei 30 Grad und wurden in der Marina bald als die «blauen Schlümpfe» bekannt. Aber erstmal von Vorne.",
+      "heroImages": [
+        {
+          "src": "pages/blog/posts/20260608_bootsarbeiten/heroImages/01.JPG",
+          "alt": "Blaue Schlümpfe von Punat"
+        },
+        {
+          "src": "pages/blog/posts/20260608_bootsarbeiten/heroImages/02.JPG",
+          "alt": "Odyssee wird ausgewässert"
+        }
+      ],
+      "sections": [
+          {
+            "title": "Was steckt eigentlich unter der blauen Farbe?",
+            "html": "Das Schleifen und Streichen des Unterwasserschiffs gehört zu den regelmässigen Wartungsarbeiten an einem Boot. In der Regel (und auch bei unserer Odyssee) ist das Unterwasserschiff so aufgebaut: Die Hülle des Bootes (der Rumpf) besteht aus glasfaserverstärkter Kunststoff (GFK). Direkt auf den GFK-Rumpf wird ein “Primer” gestrichen. Diese Grundierung sorgt für eine gute Haftung der Farbe und schützt den Untergrund vor Feuchtigkeit. Darauf folgen 2–3 Schichten Antifouling. Diese spezielle Unterwasserfarbe (bei uns blau) verhindert, dass sich Algen, Muscheln und andere Organismen am Rumpf festsetzen. Dadurch bleibt das Boot schneller und effizienter unterwegs.",
+            "gallery": []
+          },
+          {
+            "title": "Auf der Suche nach einem Trockenplatz",
+            "html": "Wir wollen unser Boot gut warten und diese obligatorischen Schleif- und Malerarbeiten deshalb korrekt erledigen. Da das nicht im Wasser möglich ist, mussten wir einen Platz finden, um unsere Odyssee auszuwässern und trockenlegen zu können. Wir fragten den Marina-Meister von Krk, Dario, ob er Platz hätte. Momentan hatte er keinen, aber eventuell nächste Woche. Eine Woche konnten wir warten, zumal wir noch andere Projekte im Wasser erledigen konnten und für die kommenden Tage ohnehin Regen angesagt war. Im Regen sind Schleifen und Streichen sowieso nicht möglich, da die Farbe gut trocknen muss. Eine Woche später standen wir wieder in der Marina, doch Dario vertröstete uns erneut: kein Platz, eventuell in ein paar Tagen. Wir warteten also weiter. Als wir einige Tage später wieder kamen, gab es noch immer keine Zusage. Da wurde uns klar, dass wir hier wohl nicht so schnell einen Platz bekommen würden und sich das Warten nicht lohnt. Wir brauchten also einen Plan B.",
+            "gallery": [
+               {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery1/01.jpeg",
+                "alt": "Marina Krk"
+              }
+            ]
+          },
+          {
+            "title": "Plan B: Auswässern in Punat",
+            "html": "Im Nachbarort von Krk befindet sich eine der grössten Marinas Kroatiens: die Marina Punat. Dort würde es für unsere kleine Odyssee bestimmt Platz haben. Also fuhren wir kurzerhand hin und fragten nach. Vier Tage später, am Mittwoch 20. Mai 2026, hing unser Boot bereits am Kran und wurde auf einen Trockenplatz transportiert. <br> Das Auswässern und der Trockenplatz sind in Punat zwar etwas teurer als in Krk, dafür bekamen wir schnell einen Platz und der Service war hervorragend. Die Marina ist modern, gepflegt und ziemlich luxuriös. Vermutlich ist unsere Odyssee das kleinste und älteste Boot auf dem ganzen Gelände.",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery2/01.jpg",
+                "alt": "Happy, dass unsere Odyssee endlich ausgewässert wird"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery2/02.jpeg",
+                "alt": "Odyssee im Kran in Punat"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery2/03.jpg",
+                "alt": "Jetzt können die Arbeiten starten"
+              }                   
+            ]
+          },
+          {
+            "title": "Schleifen? Nicht so einfach wie gedacht",
+            "html": "Endlich war es so weit: Unsere Odyssee stand an Land und wir konnten mit den Arbeiten beginnen. Motiviert packten wir unsere Schleifmaschinen aus und legten los. Die alte Unterwasserfarbe liess sich gut entfernen, und schon bald war alles von blauem Schleifstaub bedeckt. Die Farbpartikel verteilten sich überall: auf dem Boden, auf unseren Sachen und in der Umgebung. Da diese Farbe giftig ist, sollte sie weder eingeatmet werden noch ungefiltert ins Meer gelangen. Ausserdem waren wir von teuren, frisch geputzten und polierten Yachten umgeben. Unsere blauen Staubwolken waren da nicht unbedingt ein willkommenes Geschenk.",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery3/01.jpeg",
+                "alt": "Das Schleifen kann beginnen"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery3/02.jpeg",
+                "alt": "Wir sind motiviert"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery3/03.jpeg",
+                "alt": "Viele teure Yachten um uns herum"
+              }                   
+            ]
+          },
+          {
+            "title": "Der Staubsauger-Schock ",
+            "html": "Es dauerte deshalb nicht lange, bis die Marina-Mitarbeitenden bei uns standen und uns aufklärten: Schleifen ist nur mit einem angeschlossenen Staubsauger erlaubt, der die Partikel direkt absaugt. Mist. Wo sollten wir jetzt so schnell einen passenden Industriesauger herbekommen? Kaufen wollten wir keinen. Für die aktuellen Arbeiten hätten wir ihn zwar gebraucht, danach aber weder Platz noch Verwendung dafür gehabt. Also machten wir uns auf die Suche nach einer Mietmöglichkeit. Wir fragten überall in der Marina nach, doch niemand konnte uns weiterhelfen. Unsere Hoffnung lag bei anderen Bootseignern. Doch in Punat werden die meisten Arbeiten von Fachbetrieben erledigt. Die Profis hatten zwar die nötige Ausrüstung, brauchten sie aber selbst. Privatpersonen wie wir waren eher selten anzutreffen, und einige suchten sogar ebenfalls nach einem Staubsauger. <br> Langsam machte sich Frust breit. Wochenlang hatten wir auf einen Trockenplatz gewartet, und nun stand unsere Odyssee endlich an Land, nur durften wir nicht weitermachen. Das Verbot konnten wir absolut nachvollziehen. Wir unterstützen jede Form des Umweltschutzes und finden es äusserst gut, dass die Marina verhindert, dass giftige Farbpartikel in die Luft oder ins Meer gelangen. Schade war nur, dass es keine Mietgeräte gab und wir im Voraus nicht über diese Regel informiert wurden. Nun standen wir bei fast 30 Grad neben unserem Boot und suchten nach einer Lösung. Ohne Staubsauger durften wir die Schleifmaschinen nicht benutzen.",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery4/01.jpeg",
+                "alt": "Wir brauchen einen Staubsauger"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery4/02.jpeg",
+                "alt": "Wie gehts weiter?"
+              }                 
+            ]
+          },
+          {
+            "title": "Zwei Tage Schleifpapier und Muskelkater",
+            "html": "Langsam wurde uns klar, dass uns nur eine Möglichkeit blieb, auch wenn sie anstrengend und mühsam war: Wir mussten unser Unterwasserschiff von Hand abschleifen, ganz ohne Schleifmaschine. Laut den Marina-Mitarbeitenden war dies erlaubt. Also schnappten wir uns Schleifpapier und legten los. Wir versuchten, das Ganze positiv zu sehen, und redeten uns ein, dass es immerhin ein gratis Fitnesstraining sei. Da auch beim Handschleifen blaue Farbpartikel entstanden und in die Luft gelangten, brachte uns Vitos Familie einen Staubsauger. Damit konnten wir zumindest unter dem Boot regelmässig etwas Staub absaugen. Es war zwar kein leistungsstarker Industriesauger, aber er erfüllte seinen Zweck und wir fühlten uns deutlich wohler damit. Trotzdem bildete sich unter unserem Boot eine blaue Staubschicht, die in der Marina verständlicherweise nicht besonders gern gesehen war. Wir wollten deshalb so schnell wie möglich mit dem Schleifen fertig werden, alles gründlich reinigen und die blauen Partikel ein für alle Mal loswerden. Schliesslich wollten wir nicht länger als die blauen Schlümpfe der Marina bekannt sein. Ausserdem wollten wir weder Ärger mit der Marina noch Probleme bezüglich der Umweltvorschriften riskieren. Zwei Tage später, am Donnerstagabend, hatten wir es geschafft. Zwar hatten wir nicht ganz so viel abgeschliffen, wie ursprünglich geplant, aber unter diesen Umständen waren wir mehr als zufrieden mit dem Ergebnis. Endlich konnten wir alles putzen und das blaue Chaos nahm ein Ende. Voller Vorfreude machten wir uns bereit für den nächsten Schritt: das Streichen. Gleichzeitig hofften wir, dass das Malen weniger anstrengend sein würde als das Schleifen. Da hatten wir uns leider getäuscht ...",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery5/01.jpg",
+                "alt": "Schlümpfe von Punat"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery5/02.jpg",
+                "alt": "Schleifen ohne Schleifmaschine"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery5/03.jpeg",
+                "alt": "Kleiner blauer Schlumpf"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery5/04.jpeg",
+                "alt": "Fertig geschliffen - wir sind zufrieden"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery5/05.jpeg",
+                "alt": "Schnell in die Dusche"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery5/06.jpeg",
+                "alt": "Blau überall"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery5/07.jpeg",
+                "alt": "Odyssee abgeschliffen"
+              }                 
+            ]
+          },
+          {
+            "title": "Endlich Farbe statt Schleifstaub",
+            "html": "Am Freitagmorgen starteten wir mit dem ersten Anstrich: dem Primer. Wir hatten zwei verschiedene Primer gekauft. Einen besonders widerstandsfähigen für die Bereiche, die dem Wasserdruck stärker ausgesetzt sind, wie zum Beispiel Kiel, Ruder und Bug und einen «normalen» Primer für die übrigen Stellen. Zuerst trugen wir den stärkeren Primer auf. Das Streichen war ein willkommener Kontrast zum Schleifen. Endlich wurden wieder einmal andere Muskeln beansprucht. Unsere Schleifmuskeln waren nämlich inzwischen ohnehin am Ende. Anschliessend strichen wir die restlichen Bereiche mit dem zweiten Primer. Da wir die alte Farbe nicht vollständig abschleifen konnten, trugen wir den Primer nur dort auf, wo wir stärker geschliffen hatten. Wo der alte Primer noch intakt war, liessen wir ihn bestehen. Für einen Anstrich benötigten wir rund zwei Stunden. Danach musste die Schicht etwa vier bis fünf Stunden trocknen, bevor wir den Vorgang wiederholten. Am Abend waren wir mit den Primer-Arbeiten fertig und bereit, am nächsten Morgen das Antifouling, die blaue Unterwasserfarbe, aufzutragen.",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery6/01.jpeg",
+                "alt": "Malarbeiten gestartet, Primer wird aufgetragen"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery6/02.jpeg",
+                "alt": "Primer punktuell aufgetragen (links)"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery6/03.jpeg",
+                "alt": "Primer punktuell aufgetragen (rechts)"
+              }                 
+            ]
+          },
+          {
+            "title": "Die blaue Verwandlung beginnt ",
+            "html": "Am Samstagmorgen waren wir hoch motiviert, unserem Unterwasserschiff wieder Farbe zu verleihen. Heute standen die Antifouling-Schichten auf dem Programm. Wir entschieden uns wieder ein sattes Blau aufzutragen. Der Plan war simpel: ein Anstrich am Morgen, ein zweiter am Nachmittag. Wir rechneten mit jeweils etwa zwei Stunden Arbeit pro Anstrich. Zu diesem Zeitpunkt ahnten wir allerdings noch nicht, wie anstrengend das werden würde. <br> Gegen 9 Uhr begannen wir mit der ersten Hälfte des Bootes. Es war ein extrem heisser Tag, und schon nach kurzer Zeit waren wir schweissgebadet. Unsere Arme schmerzten von den Arbeiten der vergangenen Tage, und plötzlich gehörte selbst das Streichen zu den anstrengendsten Aufgaben unserer bisherigen Bootsarbeiten. Mehr als einmal wollte ich aufgeben. Mein Körper war erschöpft, gleichzeitig wusste ich, dass das keine Option war. Wir mussten die Schicht fertigstreichen, bevor die Farbe antrocknete. Ausserdem kostete uns jeder zusätzliche Tag auf dem Trockenplatz 70 Euro, und wir wollten so schnell wie möglich zurück ins Wasser. <br> Also biss ich die Zähne zusammen. Zwei Stunden später hatten wir eine Hälfte (erst die Hälfte!!!) des Bootes gestrichen. Als mir klar wurde, dass das erst ein Viertel der gesamten Arbeit war und ich das Ganze noch drei weitere Male vor mir hatte, sank meine Motivation schlagartig. Eigentlich wollten wir bis zum Mittag das ganze Boot einmal gestrichen haben. Nach der ersten Hälfte brauchte ich jedoch dringend eine Pause. Also legten wir eine Mittagspause ein und machten erst am Nachmittag weiter. Dann kam mir eine brillante Idee: ein Podcast. In der Schweiz hatte ich bei Halbmarathons oft Podcasts gehört, weil sie mich ablenken und ich dadurch länger durchhalte. Vielleicht würde das auch hier funktionieren. <br> Und tatsächlich war dies ein echter Gamechanger. Mit einem True-Crime-Podcast auf den Ohren fiel mir die Arbeit deutlich leichter. Plötzlich verging die Zeit viel schneller, und am Ende schafften wir es tatsächlich, das ganze Boot zweimal zu streichen. Unsere Odyssee sah (zumindest unten) wieder wie neu aus. Was für ein Erfolg!",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery7/01.jpeg",
+                "alt": "Erst eine Hälfte ist geschafft"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery7/02.jpeg",
+                "alt": "Lea ist erschöpft"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery7/03.jpeg",
+                "alt": "Fertig!"
+              },
+              {
+                "src": "pages/blog/posts/20260608_bootsarbeiten/gallery7/04.jpeg",
+                "alt": "Odyssee ist wieder blau"
+              }                
+            ]
+          }
+        ],
+      "related": [
+        "post-1",
+        "post-2",
+        "post-3"
+      ]
     }
   ]
 }
