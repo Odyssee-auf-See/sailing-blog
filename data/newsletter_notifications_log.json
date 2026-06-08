@@ -2,7 +2,8 @@
   "sentPostIds": [
     "post-1",
     "post-2",
-    "post-3"
+    "post-3",
+    "post-4"
   ],
   "runs": [
     {
@@ -32,6 +33,17 @@
       "slug": "von-Split-nach-Krk",
       "title": "Die erste Etappe, unser erstes Ziel",
       "sentAt": "2026-05-30T09:43:47.794Z",
+      "recipients": 18,
+      "sentCount": 18,
+      "failedCount": 0,
+      "dryRun": false,
+      "customText": null
+    },
+    {
+      "postId": "post-4",
+      "slug": "bootsarbeiten",
+      "title": "Die blauen Schlümpfe von Punat: unser Unterwasserschiff bekommt einen neuen Anstrich ",
+      "sentAt": "2026-06-08T10:34:21.219Z",
       "recipients": 18,
       "sentCount": 18,
       "failedCount": 0,
