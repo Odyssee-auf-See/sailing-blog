@@ -3,7 +3,8 @@
     "post-1",
     "post-2",
     "post-3",
-    "post-4"
+    "post-4",
+    "post-5"
   ],
   "runs": [
     {
@@ -46,6 +47,17 @@
       "sentAt": "2026-06-08T10:34:21.219Z",
       "recipients": 18,
       "sentCount": 18,
+      "failedCount": 0,
+      "dryRun": false,
+      "customText": null
+    },
+    {
+      "postId": "post-5",
+      "slug": "Dugi Otok",
+      "title": "Dugi Otok: zwischen Wracks, Höhlen und wilden Klippen",
+      "sentAt": "2026-06-25T10:04:47.304Z",
+      "recipients": 21,
+      "sentCount": 21,
       "failedCount": 0,
       "dryRun": false,
       "customText": null
