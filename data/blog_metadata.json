@@ -312,7 +312,8 @@
       "related": [
         "post-2",
         "post-3",
-        "post-4"
+        "post-4",
+        "post-5"
       ]
     },
     {
@@ -394,7 +395,8 @@
       "related": [
         "post-1",
         "post-3",
-        "post-4"
+        "post-4",
+        "post-5"
       ]
     },
     {
@@ -715,7 +717,8 @@
       "related": [
         "post-1",
         "post-2",
-        "post-4"
+        "post-4",
+        "post-5"
       ]
     },
     {
@@ -891,7 +894,223 @@
       "related": [
         "post-1",
         "post-2",
-        "post-3"
+        "post-3",
+        "post-5"
+      ]
+    },  
+    {
+      "id": "post-5",
+      "slug": "Dugi Otok",
+      "title": "Dugi Otok: zwischen Wracks, Höhlen und wilden Klippen",
+      "date": "2026-06-25",
+      "updated": "2026-06-25",
+      "tag": "Reisen",
+      "url": "pages/blog/post-template.html",
+      "canonical": "/pages/blog/post-template.html?slug=Dugi Otok",
+      "imageFolder": "assets/images/blog/20260625_dugi-otok",
+      "image": "assets/images/blog/20260625_dugi-otok.jpeg",
+      "excerpt": "Ein versunkenes Frachtschiff, eine versteckte Meereshöhle und die höchsten Klippen der Adria: Dugi Otok steckt voller Überraschungen. In diesem Beitrag zeigen wir euch unsere drei persönlichen Highlights dieser wunderschönen Insel.",
+      "author": "Lea",
+      "keywords": [
+        "Dugi Otok",
+        "Schiffswrack",
+        "Höhle", 
+        "Klippen"
+      ],
+      "intro": "Ein versunkenes Frachtschiff, eine geheimnisvolle Meereshöhle und spektakuläre Steilklippen über dem offenen Meer: Dugi Otok hat uns von der ersten Minute an begeistert. Die langgezogene Insel vor der kroatischen Küste vereint wilde Natur, eine faszinierende Unterwasserwelt und eine Ruhe, die uns für einen Moment alles andere vergessen liess.",
+      "heroImages": [
+        {
+          "src": "pages/blog/posts/20260625_dugi-otok/heroImages/01.JPG",
+          "alt": "Wrack Michele"
+        },
+        {
+          "src": "pages/blog/posts/20260625_dugi-otok/heroImages/02.JPG",
+          "alt": "Golubinka Höhle"
+        },
+        {
+          "src": "pages/blog/posts/20260625_dugi-otok/heroImages/03.JPG",
+          "alt": "Klippen vom Naturpark Telašćica"
+        }
+      ],
+      "sections": [
+          {
+            "title": "Die lange Insel Dalmatiens",
+            "html": "Dugi Otok bedeutet übersetzt «lange Insel» und mit rund 45 Kilometern Länge macht sie ihrem Namen alle Ehre. Die Insel liegt westlich von Zadar und bildet einen natürlichen Schutzwall zwischen der offenen Adria und den zahlreichen kleineren Inseln der Region. <br><br> Während die Ostküste mit geschützten Buchten, kleinen Dörfern und ruhigen Ankerplätzen lockt, zeigt sich die Westküste von ihrer wilden Seite. Hier treffen Wind und Wellen ungebremst auf hohe Klippen, versteckte Höhlen und eine erstaunlich artenreiche Unterwasserwelt. Genau diese Mischung aus rauer Natur, kristallklarem Wasser und ursprünglicher Ruhe hat Dugi Otok für uns zu einer der schönsten Inseln Kroatiens gemacht. <br><br> Während unserer Tage auf der Insel haben uns besonders drei Orte beeindruckt: das Wrack Michele, die Golubinka-Höhle und der Naturpark Telašćica.",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery1/01.jpeg",
+                "alt": "Karte von Dugi Otok (Quelle: Wikipedia)"
+              }
+            ]
+          },
+          {
+            "title": "Wrack Michele: ein versunkenes Frachtschiff",
+            "html": "Am Montagnachmittag legten wir in Zadar ab und nahmen Kurs auf die Nordspitze von Dugi Otok. Nahe Veli Rat sollte ein Schiffswrack liegen und das wollten wir uns natürlich nicht entgehen lassen. Bereits zuvor hatten wir einige Wracks besucht, und jedes einzelne war ein besonderes Erlebnis. Hinter jedem gesunkenen Schiff verbirgt sich eine Geschichte. Ich stelle mir jeweils vor, wie es einst durch die Wellen glitt, welche Menschen darauf arbeiteten oder lebten und welches Ziel es ansteuerte. Gleichzeitig begegnen wir solchen Orten immer mit Respekt. Schliesslich handelt es sich fast immer um Unfallorte, an denen oft Menschen ihr Leben verloren haben. Was heute faszinierend wirkt, war einst eine Tragödie. Besonders beeindruckt uns jedoch, wie die Natur solche Orte zurückerobert. Alte Schiffsruinen werden zu Lebensräumen für Fische, Krebse, Korallen, Schnecken und viele andere Meeresbewohner. Die Artenvielfalt rund um Wracks ist deshalb oft erstaunlich gross. <br><br> Voller Vorfreude segelten wir also Richtung Veli Rat. Die Bedingungen hätten kaum besser sein können: strahlender Sonnenschein, blauer Himmel und ein konstanter Wind. Die Route von Zadar führt durch eine märchenhafte Inselwelt vorbei an Ugljan, Rivanj und Sestrunj. Die ökologisch weitgehend intakten Gewässer rund um diese Inseln bieten Lebensraum für zahlreiche Fisch-, Krebs-, Muschel- und Korallenarten. Auch Delfine fühlen sich hier wohl. Tatsächlich kreuzte unterwegs ein Delfin unseren Weg. Gemächlich tauchte er auf, holte Luft und verschwand wieder in den Tiefen des Meeres. Wir hofften kurz, er würde uns begleiten, doch er hatte offensichtlich andere Pläne. Solche Begegnungen lieben wir. Tiere sollten ihre Freiheit geniessen dürfen und ihren eigenen Weg gehen können. <br><br> Etwa zwei Stunden später erreichten wir pünktlich zum Sonnenuntergang die Nordspitze von Dugi Otok. Auf den letzten Meilen begegneten wir überraschend vielen Booten. Insgesamt etwa 17, die meisten davon Katamarane. Alle schienen das gleiche Ziel zu haben: das Wrack Michele. Da wir keine Lust hatten, uns das Wrack gemeinsam mit unzähligen anderen Besuchern anzuschauen, beschlossen wir, etwas abseits zu ankern und das Wrack früh am nächsten Morgen zu besichtigen. Beim Ausweichen der vielen Boote steuerten wir etwas weiter hinaus aufs offene Meer und wurden unerwartet belohnt. Plötzlich befanden wir uns mitten in einer Delfinfamilie. Sogar ein junger Delfin war dabei, der immer wieder aus dem Wasser sprang und verspielt durch die Wellen schoss. Die untergehende Sonne spiegelte sich auf der Wasseroberfläche, Delfine schwammen um uns herum, und wir standen allein auf unserem Boot mitten im Meer. Ein Moment, den wir wohl nie vergessen werden. <br><br> Am nächsten Morgen klingelte der Wecker bereits um sechs Uhr. Voller Vorfreude packten wir Schnorchelausrüstung, Unterwasserkamera und Drohne ins Dinghy und machten uns auf den Weg zum Wrack. Die See war spiegelglatt, der Himmel wolkenlos und das weiche Morgenlicht tauchte die Landschaft in eine beinahe magische Stimmung. Unser Plan ging auf: Wir waren ganz allein. Und wow, das frühe Aufstehen hatte sich mehr als gelohnt.<br><br> Vor uns lag das Wrack Michele, ein italienisches Frachtschiff, das 1983 vor der Nordspitze von Dugi Otok auf Grund lief. Heute erstreckt sich das rund 76 Meter lange Wrack in einer Tiefe von nur drei bis sechs Metern. Das Heck ragt sogar noch leicht aus dem Wasser heraus. Dank der aussergewöhnlich guten Sicht konnten wir das gesamte Schiff erkennen. Das Wasser schimmerte in intensiven Blau- und Türkistönen und verlieh der Szenerie etwas beinahe Unwirkliches. Wie erhofft war das Wrack längst nicht mehr nur eine Ruine, sondern ein lebendiger Lebensraum. Unzählige Fische, Muscheln und andere Meeresbewohner hatten das Schiff für sich entdeckt. Besonders beeindruckend war ein riesiger Schwarm Gelbschwanz-Barrakudas, der direkt am Wrack vorbeizog. <br><br> Zuletzt liess Vito noch die Drohne steigen. Erst aus der Luft wurde uns bewusst, wie gewaltig dieses Schiff tatsächlich ist. Dabei stellte sich unweigerlich die Frage: Wie konnte ein so grosses Schiff an einem so friedlichen Ort stranden? Später erfuhren wir von einem der vielen Gerüchte rund um die Michele. Angeblich soll die Besatzung das Schiff absichtlich auf Grund gesetzt haben, um einen Versicherungsfall auszulösen. Ob daran etwas Wahres ist, weiss heute niemand mehr genau. Beweise dafür gibt es keine. Was tatsächlich geschah, bleibt wohl eines der vielen Geheimnisse, die das Meer rund um Dugi Otok bis heute bewahrt.",
+            "gallery": [
+               {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/01.jpeg",
+                "alt": "Sonnenuntergang an der Nordspitze von Dugi Otok"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/02.jpeg",
+                "alt": "Delfin, der aus dem Wasser spring"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/03.jpeg",
+                "alt": "Ein Moment den wir nie vergessen werden "
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/04.jpeg",
+                "alt": "Wrack Michele"
+              }, 
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/05.jpeg",
+                "alt": "Lea alleine im Wrack"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/06.jpeg",
+                "alt": "Das Wrack Michele ist riesig"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/07.jpeg",
+                "alt": "Tauchen am Wrack Michele"
+              }, 
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/08.jpeg",
+                "alt": "Vito im Wrack"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/09.jpeg",
+                "alt": "Wrack Michele"
+              }, 
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/10.jpeg",
+                "alt": "Bug"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/11.jpeg",
+                "alt": "Heck"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/12.jpeg",
+                "alt": "Gelbschwanz-Barrakudas am Wrack Michele"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/13.jpeg",
+                "alt": "Vito glücklich nach dem Tauchgang am Wrack Michele"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/14.jpeg",
+                "alt": "Lea glücklich nach dem Tauchgang am Wrack Michele"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery2/15.jpeg",
+                "alt": "Happy us"
+              }
+            ]
+          },
+          {
+            "title": "Golubinka-Höhle: eine geheimnisvolle Meereshöhle",
+            "html": "Um 11:20 Uhr desselben Tages segelten wir weiter. Unser Plan war es, entlang der wilden Westküste von Dugi Otok nach Süden zu segeln. Die Bedingungen waren einmal mehr hervorragend. Mit gemütlichem Raumwind glitten wir nur unter Vorsegel dahin und genossen die Fahrt entlang der beeindruckenden Küstenlandschaft. Nach etwa sieben Seemeilen legten wir einen Mittagsstopp ein und verbrachten fast zwei Stunden mit Schnorcheln. Die Unterwasserwelt war beeindruckend: intakte Felsriffe, unzählige Jungfische und grosse Fischschwärme tummelten sich im kristallklaren Wasser. <br><br> Um 16 Uhr setzten wir unsere Reise fort, denn wir hatten noch ein weiteres Ziel für diesen Tag: die Golubinka-Höhle, eine rund 20 Meter tiefe Meereshöhle, die nur vom Wasser aus erreichbar ist. Gegen 18:20 Uhr erreichten wir die kleine Bucht neben der Höhle. Wir ankerten und sicherten unser Boot zusätzlich mit einer Landleine. Die Westküste von Dugi Otok fällt hier steil ins Meer ab, weshalb man sehr nah am Ufer ankern muss. Mit der Landleine lag unser Boot sicher und ruhig zwischen Felsen und offenem Meer. <br><br> Schnell schnappten wir unser SUP und paddelten Richtung Höhle. Der spektakuläre Eingang öffnet sich direkt zum offenen Meer hin. Wir waren vollkommen allein. Nur das leise Rauschen der Wellen war zu hören. Die Sonne stand bereits tief über dem Horizont, weshalb nur noch wenig Licht in die Höhle fiel. Das Innere lag grösstenteils im Dunkeln. Die Atmosphäre wirkte beinahe geheimnisvoll und hatte etwas Ehrfürchtiges. Ganz automatisch begannen Vito und ich, nur noch miteinander zu flüstern. Als hätten wir Angst, jemanden oder etwas mit lauten Geräuschen aufzuwecken. Möglichst lautlos glitten wir mit unserem SUP durch die schmale Höhle und immer tiefer ins Innere. An mehreren Stellen öffnete sich die Decke nach oben. Zur Mittagszeit würde dort wahrscheinlich Sonnenlicht einfallen und die Höhle in spektakuläre Farben tauchen. Zu unserer Stunde war sie dunkel, still und friedlich. Ab und zu flatterte eine Fledermaus über unsere Köpfe hinweg. Ansonsten schien die Zeit hier stillzustehen. Erst als wir die Höhle wieder verliessen, bemerkte ich, dass ich die meiste Zeit unbewusst den Atem angehalten hatte. Ich war völlig gebannt von diesem Ort. <br><br> Einmal mehr wurde mir bewusst, welche Wirkung unberührte Orte auf uns Menschen haben können. Orte, die nicht von Hektik, Lärm und Infrastruktur geprägt sind, sondern von Wind, Wasser und der langsamen Arbeit der Natur. Sie erinnern uns daran, dass wir Menschen nicht das Zentrum dieser Welt sind. Wir sind lediglich kleine Nebendarsteller, die das grosse Glück haben, auf diesem wunderschönen Planeten leben zu dürfen. Und ich wünsche mir sehr, dass wir das nie vergessen und solche magischen Orte gemeinsam mit allen anderen Nebendarstellern, Delfinen, Käfern, Muscheln und unzähligen weiteren Lebewesen, respektvoll und friedlich teilen.",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery3/01.jpeg",
+                "alt": "Vito befestigt Odyssee mit einer Landleine"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery3/02.jpeg",
+                "alt": "Eingang der Golubinka-Höhle"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery3/03.jpeg",
+                "alt": "Eindrückliche Felsformationen in der Golubinka-Höhle"
+              }, 
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery3/04.jpeg",
+                "alt": "Es wird immer dunkler in der Golubinka-Höhle"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery3/05.jpeg",
+                "alt": "SUP in der Golubinka-Höhle"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery3/06.jpeg",
+                "alt": "Kleine Öffnungen nach Oben lassen etwas Licht in die Golubinka-Höhle"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery3/07.jpeg",
+                "alt": "Ausgang der Golubinka-Höhle"
+              }          
+            ]
+          },
+          {
+            "title": "Naturpark Telašćica: die höchsten Klippen der Adria",
+            "html": "Das letzte Highlight der Westküsten von Dugi Otok ist der Naturpark Telašćica. Diesen erreicht man ganz im Süden der Insel und er ist geprägt von Steilwänden, sogenannten “Stene”. Sie ragen bis zu 161 Meter senkrecht über dem Meer auf und fallen unter Wasser nochmals bis zu 85 Meter in die Tiefe ab. Unsere kleine Odyssee sah winzig aus, neben diesen gigantischen Felswände. Wir segelten wieder mit gutem Raumwind diesen steilen Felswänden entlang und staunten über unsere Natur. Direkt hinter den Klippen befindet sich ein Salzsee, namens “Mir” (kroatisch für «Frieden»). Der See ist etwa 900 Meter lang, bis zu 300 Meter breit und über unterirdische Felsspalten mit dem Meer verbunden. Dadurch ist das Wasser salziger als das umliegende Meer. Ganz im Süden angekommen, kann man in eine lange Einbuchtung einbiegen und in einem geschützter Kanal/Bucht wieder ein Stück in den Norden fahren. Die Bucht ist rund 9 Kilometer lang und stark zerklüftet. Im Park gibt es über 25 kleine Buchten sowie mehrere kleine Inseln und Felseninseln. Besonders spannend finde ich, dass der Park unter Schutz gestellt wurde, und zwar nicht einfach wegen der schönen Aussicht, sondern weil er zu den ökologisch wertvollsten Gebieten der gesamten Adria gehört. Die Bucht, die Steilklippen, der Salzsee Mir und die umliegenden Meeresgebiete bilden zusammen einen einzigartigen Lebensraum mit hoher Artenvielfalt. Aufgrund seiner landschaftlichen Schönheit, seines ökologischen Reichtums und seiner wissenschaftlichen Bedeutung wurde das Gebiet 1988 zum Naturpark erklärt. Heute gehört das gesamte Gebiet zudem zum europäischen Schutzgebietsnetzwerk Natura 2000. <br><br> Diese Artenvielfalt durften auch wir bestaunen. Wir wurden in den Buchten von Delfinen begleitet, wir schnorcheln in Fischschwärmen und über Korallen, Muscheln und Schwämme, wir wanderten durch saftige Wälder, sahen Bienen, Hummeln, Käfer, Ameisen, wir entdeckten eine grosse beinlose Echse (sah aus wie eine Schlange!), wir beobachteten Schwalben und Geiern, die in den Felswänden nesteten und hörten Eseln, die wild im Park leben. <br><br> Vielleicht ist genau das der Grund, weshalb sich Telašćica noch immer so wild und ursprünglich anfühlt. Der Naturpark schützt nicht nur die spektakulären Klippen und die versteckten Buchten, sondern auch die unzähligen kleinen Lebewesen, die hier ihr Zuhause gefunden haben. So bleibt dieser besondere Ort hoffentlich auch für kommende Generationen erhalten.",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/01.jpeg",
+                "alt": "Odyssee vor den Steilklippen von Dugi Otok"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/02.jpeg",
+                "alt": "Steilklippen von oben"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/03.jpeg",
+                "alt": "Vito am Steuer vor den Steilklippen"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/04.jpeg",
+                "alt": "Blick vom Boot auf die Steilklippen von Dugi Otok"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/05.jpeg",
+                "alt": "Wanderung auf den Steilklippen von Dugi Otok"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/06.jpeg",
+                "alt": "Aussicht von oben auf die Steilklippen von Dugi Otok"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/07.jpeg",
+                "alt": "Blick auf die Steilklippen von Dugi Otok"
+              }, 
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/08.jpeg",
+                "alt": "Naturparadies für unzählige Tierarten"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/09.jpeg",
+                "alt": "Beinlose Echse im Naturpark Telašćica (sieht aus wie eine Schlange!)"
+              }, 
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/10.jpeg",
+                "alt": "Lea am Salzsee Mir"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/11.jpeg",
+                "alt": "Salzsee Mir"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/12.jpeg",
+                "alt": "Hummel im Naturpark Telašćica"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/13.jpeg",
+                "alt": "Schnorcheln in den biodiversen Buchten von Dugi Otok"
+              },
+              {
+                "src": "pages/blog/posts/20260625_dugi-otok/gallery4/14.jpeg",
+                "alt": "Schnorcheln in den Buchten von Dugi Otok"
+              }                 
+            ]
+          } 
+        ],
+      "related": [
+        "post-1",
+        "post-2",
+        "post-3",
+        "post-4"
       ]
     }
   ]
