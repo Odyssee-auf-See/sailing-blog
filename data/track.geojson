@@ -1668,6 +1668,126 @@
         "sog": 4.5,
         "cog": 4.5
       }
+    },
+{
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.2431577, 43.0315284]
+      },
+      "properties": {
+        "timestamp": "2026-06-28T09:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.2002635, 43.0090726]
+      },
+      "properties": {
+        "timestamp": "2026-06-28T10:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.1640181, 43.0137360]
+      },
+      "properties": {
+        "timestamp": "2026-06-28T11:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.1632671, 43.0176919]
+      },
+      "properties": {
+        "timestamp": "2026-06-28T12:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.1615998, 43.0119555]
+      },
+      "properties": {
+        "timestamp": "2026-06-29T09:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.0206440, 42.9565239]
+      },
+      "properties": {
+        "timestamp": "2026-06-29T10:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.0113622, 42.9606696]
+      },
+      "properties": {
+        "timestamp": "2026-06-29T11:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [15.9916949, 42.9488931]
+      },
+      "properties": {
+        "timestamp": "2026-06-29T12:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [15.9906529, 42.9969255]
+      },
+      "properties": {
+        "timestamp": "2026-06-29T13:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.0916451, 43.0350104]
+      },
+      "properties": {
+        "timestamp": "2026-06-29T14:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
     }
   ]
 }
