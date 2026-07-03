@@ -1896,6 +1896,66 @@
         "sog": 4.5,
         "cog": 4.5
       }
+    },
+{
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.6857816, 42.9630771]
+      },
+      "properties": {
+        "timestamp": "2026-07-02T09:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.6543340, 42.9632280]
+      },
+      "properties": {
+        "timestamp": "2026-07-02T10:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.6248002, 42.9246502]
+      },
+      "properties": {
+        "timestamp": "2026-07-02T11:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.6647390, 42.9111766]
+      },
+      "properties": {
+        "timestamp": "2026-07-02T12:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.6743158, 42.9257150]
+      },
+      "properties": {
+        "timestamp": "2026-07-02T13:00:00.000Z",
+        "sog": 4.5,
+        "cog": 4.5
+      }
     }
   ]
 }
