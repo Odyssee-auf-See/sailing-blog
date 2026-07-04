@@ -4,7 +4,8 @@
     "post-2",
     "post-3",
     "post-4",
-    "post-5"
+    "post-5",
+    "post-6"
   ],
   "runs": [
     {
@@ -56,6 +57,17 @@
       "slug": "Dugi Otok",
       "title": "Dugi Otok: zwischen Wracks, Höhlen und wilden Klippen",
       "sentAt": "2026-06-25T10:04:47.304Z",
+      "recipients": 21,
+      "sentCount": 21,
+      "failedCount": 0,
+      "dryRun": false,
+      "customText": null
+    },
+    {
+      "postId": "post-6",
+      "slug": "Odyssee-im-Detail",
+      "title": "Bootvorstellung: Unsere Westerly Corsair 36 „Odyssee“ im Detail",
+      "sentAt": "2026-07-04T13:48:08.123Z",
       "recipients": 21,
       "sentCount": 21,
       "failedCount": 0,
