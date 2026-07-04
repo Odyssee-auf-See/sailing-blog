@@ -313,7 +313,8 @@
         "post-2",
         "post-3",
         "post-4",
-        "post-5"
+        "post-5",
+        "post-6"
       ]
     },
     {
@@ -396,7 +397,8 @@
         "post-1",
         "post-3",
         "post-4",
-        "post-5"
+        "post-5",
+        "post-6"
       ]
     },
     {
@@ -718,7 +720,8 @@
         "post-1",
         "post-2",
         "post-4",
-        "post-5"
+        "post-5",
+        "post-6"
       ]
     },
     {
@@ -895,7 +898,8 @@
         "post-1",
         "post-2",
         "post-3",
-        "post-5"
+        "post-5",
+        "post-6"
       ]
     },  
     {
@@ -1110,7 +1114,232 @@
         "post-1",
         "post-2",
         "post-3",
-        "post-4"
+        "post-4",
+        "post-6"
+      ]
+    },
+    {
+      "id": "post-6",
+      "slug": "Odyssee-im-Detail",
+      "title": "Bootvorstellung: Unsere Westerly Corsair 36 „Odyssee“ im Detail",
+      "date": "2026-07-04",
+      "updated": "2026-07-04",
+      "tag": "Boot",
+      "url": "pages/blog/post-template.html",
+      "canonical": "/pages/blog/post-template.html?slug=Odyssee-im-Detail",
+      "imageFolder": "assets/images/blog/20260704_odyssee-im-detail",
+      "image": "assets/images/blog/20260704-odyssee-im-detail.webp",
+      "excerpt": "Ein detaillierter Blick auf die Technik, das durchdachte Raumwunder und die autarke Ausstattung unserer Westerly Corsair 36.",
+      "author": "Vito",
+      "keywords": [
+        "Westerly Marine",
+        "Ed Dubois",
+        "Westerly Corsair 36", 
+        "Liveaboard"
+      ],
+      "intro": "Wer sich heute ein Segelboot kauft, steht vor einer riesigen Auswahl. Doch wer wie wir ein Schiff sucht, das nicht nur ein Urlaubsdomizil, sondern ein echtes Zuhause auf dem Meer sein soll, landet oft bei den Klassikern der 80er Jahre. In Segler Kreisen sind besonders Boote aus dem Norden hoch angesehen für ihre Qualität und Robustheit. Nachdem wir die schwedische Solidität von Hallberg-Rassy und Najad, die dänische Extraklasse von X-Yachts und den französischen Charme von Amel bewundert hatten, fiel unsere endgültige Wahl auf einen britischen Klassiker: Ein Boot der britischen Werft Westerly Marine.",
+      "heroImages": [
+        {
+          "src": "pages/blog/posts/20260704_odyssee-im-detail/heroImages/01.jpg",
+          "alt": "Corsair Baupläne (Quelle: https://wiki.westerly-owners.co.uk)"
+        },
+        {
+          "src": "pages/blog/posts/20260704_odyssee-im-detail/heroImages/02.jpg",
+          "alt": "Innenraum (Quelle: https://wiki.westerly-owners.co.uk)"
+        },
+        {
+          "src": "pages/blog/posts/20260704_odyssee-im-detail/heroImages/03.jpg",
+          "alt": "Bootsdesigner Ed Dubois (Quelle: https://www.classicboat.co.uk)"
+        },
+        {
+          "src": "pages/blog/posts/20260704_odyssee-im-detail/heroImages/04.jpg",
+          "alt": "Westerly Logo (Quelle: https://wiki.westerly-owners.co.uk)"
+        }
+      ],
+      "sections": [
+          {
+            "title": "Die Werft: Britischer Stahl in Glasfaser-Form",
+            "html": "Westerly Marine war in den 70er und 80er Jahren das, was VW für die Autowelt war: Das Rückgrat des Marktes. Die Geschichte der Werft begann im März 1963, als Commander Denys Rayner die Werft gründete. Rayner war nicht nur ein erfahrener Seemann, sondern auch ein Visionär, der erkannte, dass GFK (Glasfaserverstärkter Kunststoff) den Bootsbau demokratisieren würde. Unter seiner Führung entwickelte sich Westerly zur größten Werft Großbritanniens und zeitweise zur größten in Europa. Heutzutage ist der grösste Teil aller Segelboote aus GFK und Boote aus Alu, Stahl oder Holz sind seltener geworden.<br>Eines der stärksten Verkaufsargumente – und der Grund, warum Westerlys auch nach 40 Jahren kaum strukturelle Probleme haben – war die Zusammenarbeit mit dem Lloyd’s Register. Was bedeutet das genau? Lloyd’s Register ist eine der weltweit führenden Klassifikationsgesellschaften für die Schifffahrt. Westerly gab sich nicht mit eigenen Qualitätskontrollen zufrieden, sondern unterwarf sich einem externen, extrem strengen Prüfverfahren. Das Lloyd’s Register prüft die verbauten Materialien wie Glasfasermatten und Epoxid-Harze bevor sie verbaut werden. Beim Bau der Boote werden die Glasfasermatten in Schichten aufgetragen und mit dem Epoxid-Harz zusammengeklebt. Damit dieser laminierte Rumpf später auch hält, müssen bei den Arbeiten bei vorgeschriebenen Temperaturen und Luftfeuchtigkeit durchgeführt werden. Werden die vom Lloyd’s Register vorgeschriebenen Wert nicht eingehalten, besteht die Gefahr, dass die chemische Bindung unvollständig ist oder sogar Feuchte sich zwischen den Glasfaser Schichten abgelagert (Osmose). Am Ende erhält jedes Boot ein individuelles Dokument, das „Hull Release Certificate“, quasi das TÜV für den Bootsrumpf.<br>In einer Zeit, als man noch nicht genau wusste, wie dünn man GFK bauen kann, bevor sie bricht, gingen die Briten auf Nummer sicher. Sie bauten massiv. Wenn man heute gegen die Bordwand einer Westerly klopft, klingt das nicht nach hohlem Plastik, sondern nach Panzerglas.",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery1/01.jpg",
+                "alt": "Westerly Logo (Quelle: https://wiki.westerly-owners.co.uk)"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery1/02.jpg",
+                "alt": "Westerly Corsair im Rohbau (Quelle: https://wiki.westerly-owners.co.uk)"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery1/03.jpg",
+                "alt": "Hallen der Werft in Waterlooville 1965-1966 (Quelle: https://wiki.westerly-owners.co.uk)"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery1/04.png",
+                "alt": "Westerly Rümpfe im Bau aus GFK (Quelle: https://wiki.westerly-owners.co.uk)"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery1/05.webp",
+                "alt": "Westerly Plakette mit Yard Nummer"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery1/06.webp",
+                "alt": "Lloyd's Register Plakette"
+              }
+            ]
+          },
+          {
+            "title": "Der Architekt: Ed Dubois – Der Mann für die Balance",
+            "html": "Ein Boot zu bauen ist wie ein Haus zu planen, das fliegen können muss. Man will viel Platz, aber es muss auch leicht und hydrodynamisch sein. Die Westerly Corsair ist das perfekte Beispiel für ein schwimmendes Haus. Dass unsere Westerly Corsair trotz ihrer bulligen Erscheinung hervorragend segelt, verdanken wir Ed Dubois. Dubois war eigentlich ein Star-Designer für Luxus-Superjachten und pfeilschnelle Regattaboote. Dass er sich ebenfalls ein Familienboot für die breite Masse entwarf, war ein Glücksfall.<br><br>Zitat Ed Dubois über seine Boote:<br>„A yacht should be beautiful to the eye, but its soul lies in its performance.“<br><br>Er schaffte den Spagat: Er gab der Corsair einen Rumpf, der genug Volumen für einen ganzen Haushalt bietet, aber dennoch hydrodynamisch so ausgeklügelt ist, dass sie auch bei Wind stabil und Kurse treu bleibt.<br><br>Im Bootsbau gibt es kein absolutes ‚Perfekt‘; es gibt lediglich den perfekten Kompromiss für das eigene Vorhaben. Jedes Design hat Vor- und Nachteile und der Platz ist limitiert, stattet man das Boot mit einem grossen Bett aus, wird die Küche oder ein anderer Teil des Bootes kleiner. So ist jeder Bootstyp einzigartig und steckt voll von genialen Design Ideen, weshalb es für uns immer interessant ist, Einblick in andere Boote zu erhalten.",
+            "gallery": [
+               {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery2/01.jpg",
+                "alt": "Westerly Corsair 36 Baupläne aus einem Magazin (Quelle: https://wiki.westerly-owners.co.uk)"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery2/02.jpg",
+                "alt": "Stardesigner Ed Dubois (Quelle: https://www.classicboat.co.uk)"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery2/03.jpg",
+                "alt": "Superyacht Mondango 3 (Quelle: https://maritea.world)"
+              }
+            ]
+          },
+          {
+            "title": "Unsere Odyssee - Die Westerly Corsair 36",
+            "html": "Das Herzstück des Entwurfs der Corsair ist zweifellos das Mittelcockpit. Während man auf den meisten Yachten ganz achtern (hinten) am Heck sitzt, steuert man sie aus dem Zentrum des Schiffes. Das sorgt nicht nur für eine erhöhte, trockenere Sitzposition, sondern bietet auch einen deutlich besseren Schutz vor Wellen. Doch der eigentliche Clou verbirgt sich unter den Planken des Cockpits: Durch diese Bauweise entstand Raum für eine geräumige Achterkajüte – ein echtes Schlafzimmer mit Platz für zwei Personen. Auf einer Länge von gerade einmal 36 Fuss (10.87 Meter) war das zum Zeitpunkt ihrer Erbauung etwas ganz Besonderes. Im Mittelcockpit befindet sich das Steuerrad, so wie die Halterung für die Anzeige der Bordinstrumente. Der Echolot zeigt uns die aktuelle Wassertiefe an, die Anzeige der Windmessanlage zeigt die Windstärke und Richtung an und die Logge zeigt unsere aktuelle Geschwindigkeit an. Diese Geräte sind essentiell für die sichere Navigation. Zusätzlich ist ein Funkgerät (VHF) am Steuerstand befestigt. So können wir mit anderen Booten und Marinas in unserer Nähe per Funk kommunizieren. Ausserdem können wir unser Mobiltelefon mit einer digitalen Karte für zusätzliche Informationen am Steuerstand anbringen. So hat die Person am Ruder alle nötigen Informationen im Blick. Im Cockpit enden alle Leinen für die Segel. So ist es möglich alleine oder zu zweit die Segel zu bedienen. Sind die Segel voll im Wind, herrschen enorme Kräfte auf den Leinen und sie werden mit Hilfe von Klemmen und Winschen befestigt und justiert. Klemmen fixieren die Leinen, während mit den Winschen die Leinen kontrolliert angezogen und gelöst werden können. Unter Segeln ist sie eine treue Gefährtin, die vor allem dann glänzt, wenn die Bedingungen ungemütlich werden. Dank ihrer soliden Verdrängung (7 Tonnen) und des gut ausbalancierten Rumpfes bewegt sie sich mit einer beruhigenden Sanftheit durch die Wellen. Besonders auf Amwind-Kursen spürt man die Handschrift des Designers Ed Dubois, denn sie behält auch da sicher den Kurs.<br><br>Betritt man das Innere von Ody, wird man von einer gemütlichen Atmosphäre empfangen, die den britischen Bootsbau widerspiegelt. Dominiert von dunklem Holz, das sorgfältig und massiv verarbeitet wurde, präsentiert sich der Salon. Das Holz ist gekennzeichnet vom Bordleben der vorherigen Besitzer, aber immer noch gut gepflegt. Jede einzelne Bank, jede Wand und jeder noch so kleine Winkel hat Klappen und Fächer, die sich öffnen lassen und ungeahnten Stauraum für Proviant und Ausrüstung bieten. Es scheint, als hätte man bei der Konstruktion bedacht, dass auf Langfahrt jedes freie Volumen kostbar ist.<br><br>Die Pantry (Küche) – das kulinarische Herz des Schiffes – ist kompakt und sicher konzipiert, dass man hier nicht nur entspannt vor Anker kochen kann, sondern auch bei Schräglage auf hoher See sicheren Halt findet. Tassen, Töpfe und Teller sind in Kästen verstaut, die verhindern, dass sie rausfallen können. Der Herd ist an einer kardanischen Aufhängung fixiert und ist somit schwenkbar. Dadurch kann sich der Herd an die Schieflage oder den Wellengang des Schiffes anpassen, ohne dass das Essen aus den Töpfen schwappt. Bei sehr rauer See kann sich der Koch/ die Köchin mit einem Gurt an den Herd schnallen. Dadurch hat man die Hände frei zum Kochen, ohne Gefahr durch die Kabine geschleudert zu werden.<br><br>Vor der Küche befindet sich der Salon. Der Salon ist klassisch mit einem Tisch und zwei Bänken ausgestattet, dient aber gleich mehreren Zwecken. Einerseits als Ess- oder Arbeitstisch bei schlechtem Wetter, andererseits als Stauraum für Essen und Wasser. Falls nötig, können die Sitzbänke mit wenigen Handgriffen erweitert und zu Betten umfunktioniert werden. Die Bilge unter den Bodenbrettern des Salons markiert den tiefsten Punkt des Schiffes. Auch wenn sie im Normalfall trocken ist, muss sie regelmäßig kontrolliert und bei Bedarf geleert werden. Es verlaufen zahlreiche Schläuche durch die Bodenbretter, die Meerwasser für verschiedene Systeme ins Boot und wieder nach draussen befördern. Wird einer dieser Schläuche oder ein Borddurchlass undicht, sammelt sich das Leckwasser unweigerlich in der Bilge.<br><br>Links vom Eingang und vis-a-vis der Küche befindet sich der Navigations Pult, der ungewollt als Ablagefläche für allerlei dient. Meistens ist er das reinste Chaos. Während Bootsarbeiten liegen oft Werkzeug, Kabel und Schrauben herum, welche temporär einen Platz suchen. Die Funktion als Navigations Pult hat er etwas verloren, da die Navigation heutzutage primär über das Mobiltelefon stattfindet. Neben dem Pult ist ausserdem das Schaltpanel für die Bordelektronik angebracht. Das Panel ist das Herz der Elektronik an Board und jedes Gerät ist mit den Schaltern verkabelt. Anders als an Land ist es wichtig, an Board den Stromhaushalt immer im Auge zu behalten. Odyssee verfügt über zwei Hausbatterien und eine kleine Starterbatterie. Die Hausbatterien speisen die komplette Bordelektronik (Navigationsinstrumente, Kühlschrank, Steckdosen, Lichter, Wasserpumpe, etc.) und haben jeweils eine Kapazität von 220 Ampere Stunden, also zusammen 440 Ampere Stunden. Gespiesen werden die Batterien von unseren Solarpanels. Somit ist es eine stetige Balance zwischen Geräten, die Strom verbrauchen und Sonnenkollektoren, die den Strom generieren. Mit dem Schaltpanel überwachen wir das Batterie-Niveau und schalten die Verbraucher ein und aus, immer darauf bedacht, genügend Stromreserven zu haben, damit wir den Motor noch starten können.<br><br>Gleich angrenzend an das Navigations-Pult ist die Pilotenkoje. Es ist ein Bett, das im Durchgang und neben dem Motor platziert ist. Konzipiert wurde das Bett als Schlafstelle für den Piloten/Pilotin während der Fahrt in der Nacht. Das Bett ist nahe am Aufgang und an den Bord Instrumenten. So kann sich die Person am Ruder ausruhen und ist im Notfall dennoch schnell oben an Deck. Für uns dient das Bett primär als Ablageplatz für Taschen, Badetücher, etc. <br><br>Gleich nebenan ist der Motorenraum, der den Volvo Penta Motor beherbergt. Aktuell verbringen wir mehr Zeit darin, als wir möchten, da wir den Motor auf Vordermann bringen müssen. Den Motorenraum kann man von mehreren Seiten öffnen, so dass man die meisten Stellen des Motors gut erreichen kann. Dennoch muss man sich bei jeder Arbeit am Motor verkrümmen und verrenken, so dass einem danach alle Glieder schmerzen und man gefühlt um Jahrzehnte gealtert ist. Man möchte meinen, der Motor ist auf einem Segelboot nicht wichtig, da wir uns primär mit dem Wind fortbewegen. Doch gerade für heikle Manöver mit wenig Platz und Spielraum, wie z.B. Ankern oder An- und Ablegen im Hafen, ist ein funktionierender Motor extrem wichtig.<br><br>Im hinteren Bereich und vor dem Salon gibt es jeweils eine Toilette. Toiletten an Bord von Booten sind jeweils etwas speziell, da mit Seewasser gespült wird und der Inhalt entweder direkt ins Wasser oder in einen Fäkalientank gepumpt wird. Unsere Toiletten arbeiten mit einem Vakuumsystem. Das heisst, zum Spülen der Toiletten muss man kräftig pumpen, um Wasser in die WC-Schüssel zu pumpen und den Inhalt aus der Schüssel zu entfernen. Diese Toiletten sind auf allen Booten sehr heikel, weshalb WC Papier und auch sonstige Gegenstände auf keinen Fall in die WC Schüssel dürfen, sondern separat in einem Kübelsack gesammelt werden. Dies hat zwei Hauptgründe: Die Toilettenrohre können sehr leicht verstopfen, was zur Folge hätte, dass wir sie reinigen und im Notfall aufschrauben müssen. Darauf können wir gut verzichten. Andererseits kann der Inhalt direkt ins Meer gepumpt werden und somit muss der Inhalt umweltverträglich sein. In vielen Gebieten darf man den Inhalt nicht ins Meer leiten, weshalb ein Fäkalientank nötig ist. <br><br>Ganz im Spitz des Bootes gibt es die Bug-Koje. Es ist ein zum Bug des Bootes spitz zusammenlaufendes Bett für zwei Personen. Es bietet nochmals gemütlichen Platz für zwei Personen. Am Fussende ist der Ankerkasten, der die schwere 30 Meter lange Kette und zusätzliches Seil verstaut. ",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/01.jpg",
+                "alt": "Bootsplan des Innenraum (Quelle: https://wiki.westerly-owners.co.uk)"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/02.webp",
+                "alt": "Schlafzimmer in der Heckkabine"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/03.webp",
+                "alt": "Steuer und Bordinstrumente"
+              }, 
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/04.webp",
+                "alt": "Leinen Klemmen"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/05.JPG",
+                "alt": "Winchen um die Leinzen festzuziehen"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/06.JPG",
+                "alt": "Vorschoten am Schothorn des Vorsegels befestigt"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/07.webp",
+                "alt": "Stauraum/Betterweiterung"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/08.webp",
+                "alt": "Stauraum unter der Pilotenkoje"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/09.webp",
+                "alt": "Küche"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/10.webp",
+                "alt": "Schwenkherd mit Kaffee"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/11.webp",
+                "alt": "Sicherheitsgurt um bei Wellengang sicher zu stehen"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/12.webp",
+                "alt": "Tassen und Teller sicher verstaut"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/13.webp",
+                "alt": "Bilge (frisch geputzt)"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/14.webp",
+                "alt": "Navigationspult mit Schaltpanel und dauerhaftem Chaos"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/15.webp",
+                "alt": "Strompanel und Monitore"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/16.webp",
+                "alt": "Solarkollektor an der Reling"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/17.webp",
+                "alt": "Hausbatterie"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/18.webp",
+                "alt": "Lea flikt den Motor (Volvo Penta)"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery3/19.webp",
+                "alt": "Bugkoje"
+              }
+            ]
+          },
+          {
+            "title": "Odyssee im Detail",
+            "html": "Für Bootsenthusiasten sind hier nochmals detaillierte Fakten zu unserer Odyssee aufgelistet. Unsere Odyssee ist eine Finnkiel-Version (Fin Keeler). Das ist technisch wichtig: Im Gegensatz zur Kimmkiel-Version (zwei kleine Kiele zum „Trockenfallen“ bei Ebbe) hat sie einen tiefen, zentralen Kiel. Der Finnkiel sorgt für eine bessere Performance am Wind. Somit können wir „höher“ gegen den Wind segeln und liegen stabiler in der Spur. Der Kiel besteht aus Gusseisen und ist extrem schwer. Er verhindert, dass das Boot bei viel Wind kentert. Da Eisen im Wasser Rostet, kann es sein, dass kleine Rostpunkte an der Kielnaht entstehen können. Diese müssen wir jeweils reinigen und wieder verschliessen wenn das Boot an Land steht.<br><br>Navigation & Sicherheit: <br><br>Für die Orientierung setzen wir auf ein klassisches Trio aus Tiefenmesser, Windmesser und Log, um Distanz und Geschwindigkeit jederzeit präzise im Auge zu behalten. Die Navigation erfolgt digital via GPS und Navionics App, während unser AIS-System uns frühzeitig vor potenziellen Kollisionen mit der Berufsschifffahrt oder anderen Yachten warnt. AIS steht für Automatic Identification System. Es ist ein System das der Kollisionsverhütung dient. Die AIS Systeme der Schiffe kommunizieren Position, Kurs und Geschwindigkeit miteinander und berechnen, ob eine Kollision bevorsteht oder nicht. Besteht eine Gefahr oder kreuzen sich die Schiffe zu nahe, sendet das System einen Alarm aus und warnt die Crew an Board vor der Kollision. <br><br>Wenn es darum geht, dass wir den Kurs halten möchten gibt es zwei Optionen: Ein elektronischer Autopilot übernimmt bei Motorfahrt oder ruhiger See, während unsere mechanische Windvane (Windfahnensteuerung) auf langen Schlägen lautlos und stromlos den Kurs zum Wind hält. Die Windvane wird mit einem eigenen kleinen Ruder und einer Fahne am Heck des Bootes befestigt. Die Windvane steuert anhand der Windrichtung und funktioniert am besten bei Wind der konstant aus der gleichen Richtung bläst. Weicht das Boot vom Kurs ab, nimmt der Druck in der Fahne zu oder ab und bringt uns wieder auf den richtigen Kurs.<br><br>Energie & Autarkie: Kraft aus der Sonne<br><br>Da wir so viel Zeit wie möglich vor Anker verbringen möchten, ist unser Energiemanagement auf Autarkie ausgelegt. Drei Solarpanele mit insgesamt 300 W Leistung fangen die Energie der Sonne ein und speisen unser Bordnetz. Auch der Motor verfügt über eine Lichtmaschine, die Energie produziert, während der Motor läuft. Gespeichert wird der Strom in unseren Bordbatterien: Eine 90 Ah Starterbatterie sorgt dafür, dass der Motor jederzeit zuverlässig anspringt. Unser eigentlicher Energiespeicher besteht aus zwei 220 Ah AGM Batterien, welche wir parallel schalten können. Die Spannung des Bordnetzes ist auf 12 Volt ausgelegt, womit man problemlos Telefone, Taschenlampen, Musikboxen und kleine Elektrogeräte laden kann. Damit wir auch unsere Laptops und den Starlink betreiben können, haben wir einen Inverter an Bord, der die 12 V in 230 V umwandelt. Das Stromnetz an Board ist extrem komplex. Kabel verschwinden hinter Decken, Wände und Bodenbretter, verlaufen aber alle in Richtung zentralem Schaltpanel. Per Schalter können wir die Geräte aus und einschalten und sehen gleich wie viel Energie sie verbrauchen. Unseren Stromhaushalt müssen wir genau im Auge behalten. Wie viel Strom aktuell generiert wird und wie viel wir verbrauche, damit unser Batterie Niveau immer im grünen Bereich bleibt. Scheint die Sonne ist es kein Problem, doch sobald es mehrere Tage bewölkt ist, müssen wir etwas sparsamer haushalten.<br><br>Kapazitäten: Reserven für den Horizont<br><br>Echte Freiheit entsteht durch Reichweite. Mit einem großzügig dimensionierten Dieselvorrat von 150 Litern und zwei Frischwassertanks mit einer Kapazität von ca. 300 Litern können wir einige Zeit unabhängig von Häfen operieren. Zudem ist das Boot für umweltbewusstes Reisen mit zwei Abwassertanks (Waste Water / Schwarzwasser Tanks) für die Toiletten ausgestattet – eine wichtige Voraussetzung für viele moderne Reviere. Wenn Fäkalientanks in Küstennähe nicht genutzt werden, führt das direkte Einleiten von Abwässern zu Überdüngung, Sauerstoffmangel und Keimbelastung im Wasser, was sensible marine Ökosysteme wie Seegraswiesen zerstört und akute Gesundheitsrisiken für Badende verursacht. Die Abwassertanks können in der Theorie in Marinas ausgepumpt werden. In der Praxis ist es jedoch nicht ganz so einfach. Marinas, welche mit Pumpstationen ausgerüstet sind, gibt es nicht viele und so sind die Tanks schnell voll und können nicht mehr geleert werden. Auch hier ist es ein Haushalten mit den Ressourcen und wir nutzen die Tanks besonders in Naturschutzgebieten und Strandnähe. <br><br>Die Garderobe: Segel für jedes Wetter<br><br>Unsere Segelgarderobe ist so vielseitig wie die Bedingungen auf See. Das Herzstück ist das 37.5 m² grosse Grosssegel mit drei Ref Stufen, das zusammen mit der 140 % Genua für Vortrieb sorgt. Ein Ref im Segel wird genutzt, um die Segelfläche zu verkleinern und so weniger Angriffsfläche bei stärkerem Wind zu bieten. Wird der Wind stärker, wechseln wir auf die robuste Arbeitsfok oder die noch kleinere Variante, das Sturmfock, um das Boot stabil und sicher zu führen. Und für jene magischen Tage mit nur einem Hauch von Wind haben wir unseren Gennaker an Bord, der uns auch bei leichter Brise sanft über das Wasser zieht.<br><br>Mobilität: Landgang muss sein<br><br>Damit wir von unserem Ankerplatz trotzdem an Land können, haben wir unser Beiboot, welches wir Penelope getauft haben. Für ein Beiboot ist sie recht gross und schwer mit einer Länge von ca. 4 Metern, weshalb sie die meiste Zeit hinter Odyssee hergezogen wird. Sie ist ausgerüstet mit einem 5 PS starken Mercury Motor. Sobald wir vor Anker liegen, können wir mit ihr die Gegend erkunden, in den Häfen anlegen und die nahegelegenen Ortschaften besuchen oder zum nächsten Tauchspot fahren.",
+            "gallery": [
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery4/01.webp",
+                "alt": "Sichtbares Unterwasserschiff während der Arbeiten in der Werft"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery4/02.webp",
+                "alt": "Tiefenmesser, Windmesser, Logge und die digitale Karte für die sichere Navigation"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery4/03.webp",
+                "alt": "AIS Monitor"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery4/04.webp",
+                "alt": "Lea geniesst die Fahrt mit der Windfahne (mechanischer Autopilot)"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery4/05.webp",
+                "alt": "Elektrischer Autopilot (aktuell funktioniert er nicht :( )"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery4/06.webp",
+                "alt": "Vito inspiziert das neu installierte Solarpanel"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery4/07.webp",
+                "alt": "Wassertank verstaut unter der Sitzbank im Salon"
+              }, 
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery4/08.PNG",
+                "alt": "Volle Fahrt mit Grosssegel und Genua"
+              },
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery4/09.webp",
+                "alt": "Zusammengefaltenes Sturmsegel"
+              }, 
+              {
+                "src": "pages/blog/posts/20260704_odyssee-im-detail/gallery4/10.webp",
+                "alt": "Lea steuert unser Dinghy Penelope in die nächste Ortschaft"
+              }              
+            ]
+          } 
+        ],
+      "related": [
+        "post-1",
+        "post-2",
+        "post-3",
+        "post-4",
+        "post-5"
       ]
     }
   ]
