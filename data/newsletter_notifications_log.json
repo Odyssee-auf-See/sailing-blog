@@ -5,7 +5,8 @@
     "post-3",
     "post-4",
     "post-5",
-    "post-6"
+    "post-6",
+    "post-7"
   ],
   "runs": [
     {
@@ -70,6 +71,17 @@
       "sentAt": "2026-07-04T13:48:08.123Z",
       "recipients": 21,
       "sentCount": 21,
+      "failedCount": 0,
+      "dryRun": false,
+      "customText": null
+    },
+    {
+      "postId": "post-7",
+      "slug": "Sommer 2026",
+      "title": "Vier meiner liebsten Sommertage",
+      "sentAt": "2026-10-02T11:46:07.199Z",
+      "recipients": 25,
+      "sentCount": 25,
       "failedCount": 0,
       "dryRun": false,
       "customText": null
