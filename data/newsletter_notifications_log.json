@@ -6,7 +6,8 @@
     "post-4",
     "post-5",
     "post-6",
-    "post-7"
+    "post-7",
+    "post-8"
   ],
   "runs": [
     {
@@ -80,6 +81,17 @@
       "slug": "Sommer 2026",
       "title": "Vier meiner liebsten Sommertage",
       "sentAt": "2026-10-02T11:46:07.199Z",
+      "recipients": 25,
+      "sentCount": 25,
+      "failedCount": 0,
+      "dryRun": false,
+      "customText": null
+    },
+    {
+      "postId": "post-8",
+      "slug": "Vulkane",
+      "title": "Drei Vulkane in zwei Wochen – unterwegs im vulkanischen Süden Italiens",
+      "sentAt": "2026-11-20T09:13:29.171Z",
       "recipients": 25,
       "sentCount": 25,
       "failedCount": 0,
